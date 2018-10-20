@@ -194,3 +194,43 @@ sp_srvrolepermission 'dbcreator'
 ```sql
 select * from sys.fn_my_permissions(null, 'server')
 ```
+
+* You can execute a command as another user to see if they have the proper permissions
+
+```sql
+/* this command will execute the subsequent commands as <username> until a revert command is thrown */
+execute as user = '<username>'
+```
+
+```sql
+/* this command will take away executing as <username> and restore your initial permissions*/
+revert
+```
+
+```sql
+/* if, when using the above commands, you need to check which user you are, you can use the following command */
+select user
+```
+
+* **TIP:** if you don't want to give a user permissions to a specific command but would still like them to perform one specific action, you can create a store procedure
+
+```sql
+/*This is the stored procedure that we'd like the user to be able to execute */
+create proc ShootMeAnAstroid (@key int, @size varchar(50))
+  /* self means that this stored procedure will be executed within the context of whomever created the stored procedure */
+  with execute as self
+  as
+  insert into wormholes values (@key, @size)
+
+/* granting the permission to the user  */
+grant execute on ShootMeAnAstroid to workerbee
+
+/* Now, we want to execute as workerbee */
+execute as user = 'workerbee'
+
+/* execute stored procedure */
+exec ShootMeAnAstroid 1, 'big'
+
+/* revert to your previous credentials */
+revert
+```
