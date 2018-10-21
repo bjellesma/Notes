@@ -33,7 +33,7 @@ List<float> grades;
 * keep in mind that variables point to an address where the data is stored so...
 
 ```csharp
-var book2 = book
+var book2 = book;
 ```
 
 will create another address so that both book2 and book are able to act on the same object
@@ -45,7 +45,7 @@ will create another address so that both book2 and book are able to act on the s
 So if you need to create global variables:
 
 ```csharp
-public int test = 12
+public int test = 12;
 ```
 
 * static methods are able to be used without first creating an object
