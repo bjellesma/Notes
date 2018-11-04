@@ -8,7 +8,8 @@ Then, we want to convert this to the number of seconds in 14 billion years
 
 Notice that we use `4.4 * 10^17` because we started with `14 * 10^9` so both 4.4 and 14 have two significant digits*
 
-![Arc Length Question](arc_length_question.png)
+The sketch is a cross section through the earth, showing two points that have a difference in latitude of angle <img src="https://latex.codecogs.com/gif.latex?\theta" title="\theta" />. The mean radius RR of the earth is `6.371 * \ 10^6`
+ meters. A nautical mile is defined as 1852 meters exactly. Using these data, calculate how many nautical miles there are between two points on the earth's surface that have the same longitude but have latitudes that differ by 1.000 degree. (Just in case: the definition of angle, in radians, is the arc of a circle it subtends divided by the radius of the circle. A circle is 2π radians or 360∘.)
 
 Because we want to find the distance between two points on a circle, we want to use the arc length formula
 
@@ -18,7 +19,7 @@ We know that radius is <img src="https://latex.codecogs.com/gif.latex?6.371&spac
 
 and theta is
 
-<img src="https://latex.codecogs.com/gif.latex?2\pi&space;=&space;360\degree&space;\therefore&space;\frac{2\pi}{360\degree}&space;=&space;\frac{360\degree}{360\degree}&space;=&space;1\degree" title="2\pi = 360\degree \therefore \frac{2\pi}{360\degree} = \frac{360\degree}{360\degree} = 1\degree" /> 
+<img src="https://latex.codecogs.com/gif.latex?2\pi&space;=&space;360\degree&space;\therefore&space;\frac{2\pi}{360\degree}&space;=&space;\frac{360\degree}{360\degree}&space;=&space;1\degree" title="2\pi = 360\degree \therefore \frac{2\pi}{360\degree} = \frac{360\degree}{360\degree} = 1\degree" />
 
 Finally, we want a conversion to nautical miles
 
