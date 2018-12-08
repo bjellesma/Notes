@@ -4,6 +4,7 @@ Setup Tools is a python package that you can use to package your project so that
 
 For the following example of how to create your package, we use the following tree structure
 
+```
 .
 ├── project
 |   ├── subproject
@@ -16,6 +17,7 @@ For the following example of how to create your package, we use the following tr
 ├── templates
 |   ├── default.html
 |   └── post.html
+```
 
 1. Create setup.py in the top level of your project with the following code
 
