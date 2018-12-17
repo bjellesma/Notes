@@ -21,17 +21,77 @@ if the window has a jquery property, then the cdn loaded correctly
 ```
 
 
-
-
 # Working with Selectors
+
+It's a good idea to cache your selectors so that you don't need to keep requerying the DOM.
+
+For example
+```javascript
+function processdata(){
+  $(".display").addclass("processed");
+  $(".display").fadeIn(500);
+}
+```
+while this works find, we can help the performance slightly with 
+```javascript
+var $display = $(".display");
+
+function processdata(){
+  $display.addclass("processed");
+  $display.fadeIn(500);
+}
+```
+The $ on the variable is a convention to tell us that the variable holds jquery data
+
+We can also chain these commands to futher help performance with
+```javascript
+var display = $(".display");
+
+function processdata(){
+  display.addclass("processed").fadeIn(500);
+}
+```
+
+## Using custom selectors
+
+jQuery will actually allow you to make your own selectors to do common tasks. For example, say that you want to find all classes with an arial font. You can use the following code to create a new selector:
+
+```javascript
+$.extend($.expr[":"], {
+    hasArialFont: function (element){
+      return $(element).css("font-family") === "Arial";
+  }
+ });
+```
+And use the code like so:
+```javascript
+$("div:hasArialFont").click(function(){
+  //code
+});
+```
 
 # Limit DOM Interactions
 
+Minimize the number of times that you touch the DOM in your code. What I like to do is to use a temporary variable to append to and then I can append the variable to the content
+
 # Check if an element exists
+
+To find if an element exists, the easiest method is to check if the length propery is less than zero. For ease, you can create a custom jquery property to do this
+
+```javascript
+//returns true if the length of the element is greater than zero
+jQuery.fn.exists = function(){ return this.length > 0 };
+```
+We can then use the function like this
+```javascript
+if(element.exists){ alert(exists);}
+```
 
 # end()
 
 # filter() vs find()
+
+find() will look for child elements while filter() will use the current collection
 
 # Using objects with setters
 
