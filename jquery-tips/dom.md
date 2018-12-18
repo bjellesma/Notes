@@ -89,6 +89,14 @@ if(element.exists){ alert(exists);}
 
 # end()
 
+Sometimes during function chaining, you may end switching the context of the jquery selector inadvertedly. For this, you can use the end() function to switch back up to the original selector. 
+
+```javascript
+$('<div class="custom"><span /></div>'>
+  .find("<span") //context is now switched to span element
+ .end() //get back to the span's parent div
+```
+
 # filter() vs find()
 
 find() will look for child elements while filter() will use the current collection
