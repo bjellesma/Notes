@@ -94,7 +94,8 @@ Sometimes during function chaining, you may end switching the context of the jqu
 ```javascript
 $('<div class="custom"><span /></div>'>
   .find("<span") //context is now switched to span element
- .end() //get back to the span's parent div
+  .end() //get back to the span's parent div
+ .html("hello world")
 ```
 
 # filter() vs find()
@@ -103,4 +104,23 @@ find() will look for child elements while filter() will use the current collecti
 
 # Using objects with setters
 
+In order to be the most maintainable, you can add multiple attributes at once to an element without needing to make several calls. You can do this by passing in javascript objects.
+```javascript
+$("a.main").attr({
+  "href": "http://pluralsight.com",
+  "title": "Pluralsight Courses"
+});
+```
+
 # Use class over styles
+
+Rather than using the `css()` jquery function to set styles to your elements, it's a better idea to define a class in your stylesheet and then use `addClass()` to add the class when needed.
+
+```javascript
+//toggleClass will add the class if it's not there, and remove it if it is
+//this is very useful for display:none and other types of classes
+$("div").on("click", function(){
+  $(this).toggleClass("highlight");
+});
+```
+```
