@@ -35,3 +35,15 @@ The 2vv_0 terms cancel
 One of v_0^2 terms cancel
 <a href="https://www.codecogs.com/eqnedit.php?latex=2a(x&space;-&space;x_0)&space;=&space;-&space;v_0^2&space;&plus;&space;v^2&space;=&space;v^2&space;-&space;v_0^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2a(x&space;-&space;x_0)&space;=&space;-&space;v_0^2&space;&plus;&space;v^2&space;=&space;v^2&space;-&space;v_0^2" title="2a(x - x_0) = - v_0^2 + v^2 = v^2 - v_0^2" /></a>
 
+You're travelling in a straight line. With a constant acceleration of 0.50 \text{ m}\cdot{s}^{-2}0.50 m⋅s 
+−2
+ , how long does it take to accelerate from 13 \text{ m}\cdot \text{s}^{-1}13 m⋅s 
+−1
+  to 18 \text{ m}\cdot \text{s}^{-1}18 m⋅s 
+−1
+ , and how far do you travel while doing so? 
+ 
+ To find the **total** distance traveled, x - x_0, we use 
+ <a href="https://www.codecogs.com/eqnedit.php?latex=2a(x&space;-&space;x_0)&space;=&space;-&space;v_0^2&space;&plus;&space;v^2&space;=&space;v^2&space;-&space;v_0^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2a(x&space;-&space;x_0)&space;=&space;-&space;v_0^2&space;&plus;&space;v^2&space;=&space;v^2&space;-&space;v_0^2" title="2a(x - x_0) = - v_0^2 + v^2 = v^2 - v_0^2" /></a>
+ 
+
