@@ -15,6 +15,16 @@ the objects.
 
 ![Pulling Tablecloth GIF](http://www.toddstrong.com/images/miscjugglingimages/tablecloth.gif)
 
+Yet another example is that an object being held in midair will remain in midair until gravity takes effect. In this case, gravity is only acting in the downward direction
+
+![Pencil in Midair](../pencil-in-midair/1.png)
+
+![Pencil in Midair](../pencil-in-midair/2.png)
+
+![Pencil in Midair](../pencil-in-midair/3.png)
+
+Notice how the force acting in the horizonal directions are so fast and minimal, the pencil falls straight into the empty bottle.
+
 # Why does a moving skater tend to continue moving?
 
 # How can we describe the motion of a coasting skater?
