@@ -49,6 +49,21 @@ else:
     f.close()
 ```
 
+If we formatted the above as 
+
+```py
+try:
+    f = open(filename, 'r')
+    print('Number of lines', sum(1 for line in f))
+except OSError:
+    print("File could not be opened for reading")
+else:
+    
+    f.close()
+```
+
+There would be no way to tell if it was `f = open(filename, 'r')` or `print('Number of lines', sum(1 for line in f))` which raised the OSError
+
 # Emulated Switch Statement
 
 Python doesn't have native support for a switch statement but we can use a dictionary 
