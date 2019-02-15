@@ -50,7 +50,9 @@ When you push towards the left, you will accelerate towards the right
 ![Acceleration](https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/2952/2018/01/31190248/CNX_UPhysics_05_05_Swimmer.jpg)
 
 **Mass** is the measure of an object's inertia. This means that what you weigh is your inertia but also anything that you're carrying at the time is part of your inertia. Mass is actually inversely proportional to acceleration meaning if you push equally hard on several objects, its acceleration will be 1/Mass. This leads us to a formal definition for **Newton's second law of motion** - <a href="https://www.codecogs.com/eqnedit.php?latex=acceleration&space;=&space;\frac{net&space;force}{mass}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?acceleration&space;=&space;\frac{net&space;force}{mass}" title="acceleration = \frac{net force}{mass}" /></a>
-
+This is traditionally rewritten as <a href="https://www.codecogs.com/eqnedit.php?latex=net&space;force&space;=&space;mass&space;*&space;acceleration" target="_blank"><img src="https://latex.codecogs.com/gif.latex?net&space;force&space;=&space;mass&space;*&space;acceleration" title="net force = mass * acceleration" /></a> or <a href="https://www.codecogs.com/eqnedit.php?latex=F&space;=&space;ma" target="_blank"><img src="https://latex.codecogs.com/gif.latex?F&space;=&space;ma" title="F = ma" /></a>
 
 
 # Why does a skater need ice or wheels in order to skate?
+
+Wheels or Ice do a very good job of overcoming friction. If you push a book across a table, the book looks as if it stops when you stop pushing on the book, but the book really decelerates to a stop very quickly because of friction. However, if you had that same book on wheels and gave the book a push, it would take a lot longer for the book to decelerate to a stop because wheels are so much better at overcoming friction.
