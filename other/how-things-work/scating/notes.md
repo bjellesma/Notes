@@ -56,3 +56,49 @@ This is traditionally rewritten as <a href="https://www.codecogs.com/eqnedit.php
 # Why does a skater need ice or wheels in order to skate?
 
 Wheels or Ice do a very good job of overcoming friction. If you push a book across a table, the book looks as if it stops when you stop pushing on the book, but the book really decelerates to a stop very quickly because of friction. However, if you had that same book on wheels and gave the book a push, it would take a lot longer for the book to decelerate to a stop because wheels are so much better at overcoming friction.
+
+# Quiz
+
+1. While searching for your keys, you place your cup of coffee on the roof of your parked car. Unfortunately, you forget about the coffee and climb into the car without it. As you start driving the car forward, you hear the coffee hit the ground behind the car. Why didn't the coffee stay on the roof of the car?
+
+
+The coffee's inertia kept it essentially motionless as the car accelerated forward and left the coffee behind.
+
+
+2. An African swallow is flying east at 60 mph (about 100 km/h) and a European swallow is flying west at 60 mph (about 100 km/h). These two swallows have _______________.
+
+the same speed, but different velocities.
+
+3. You kick a soccer ball (a football) toward the goal. When the fast-moving ball is midway to the goal and nothing is touching it, why is the ball moving toward the goal? [Ignore any effects due to the air or gravity.
+
+Inertia keeps the ball in motion.
+
+4. Which of the following is experiencing zero net force?
+
+
+A water-skier who is being pulled forward by a speedboat and is moving in a straight-line path at a steady speed.
+
+5. You are riding your bicycle forward on a level road, traveling in a straight line at a steady pace. An animal suddenly runs in front of you, so you apply the brakes quickly and stop just in time to avoid hitting the animal. While the brakes are on and you are experiencing a large net force, what is the direction of velocity and acceleration, respectively?
+
+Your velocity is forward, but your acceleration is backward.
+
+6. You are coasting forward at constant velocity on your inline skates. Suddenly, another skater pushes you so that the net force you are experiencing points toward your left. While your net force points toward the left, your acceleration _______________.
+
+points toward the left (in the direction of your net force).
+
+7. Two skaters are coasting forward across the ice. The skater in red has a greater mass than the skater in blue. You begin pushing the two skaters forward with equal forces. How do they move while you are pushing them? [The correct answer must always be true, no matter how fast the skaters were moving before you began pushing them.]
+
+The skater in red experiences less acceleration than the skater in blue.
+
+8. In what circumstance can you be accelerating forward and still be moving at a constant velocity?
+
+In no circumstance. If you are accelerating, you velocity is changing with time.
+
+9. You are dragging a heavy chair across the floor and that chair is moving toward the east at constant velocity. The net force on the chair __________________.
+
+
+is zero.
+
+10. A set of dishes sits motionless on a slippery silk tablecloth. If you pull the tablecloth sideways quickly, it will slide out from under the dishes and leave the dishes almost unaffected. Why won't that same result occur if you pull the tablecloth sideways slowly?
+
+The moving tablecloth exerts small forces on the dishes and, given enough time, those forces will overwhelm inertia and cause the dishes to move with the tablecloth.
