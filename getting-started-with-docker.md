@@ -125,5 +125,40 @@ hello-world         latest              fce289e99eb9        7 weeks ago         
 
 # Working with images
 
-An **image** is a stopped contianer whereas a container is just a running image.
+An **image** can be thought of as a stopped contianer whereas a **container** can be thought of as just a running image.
 
+We can pull an image from dockerhub (or whichever repo that we specify with
+
+```bash
+$ sudo docker pull alpine
+Using default tag: latest
+latest: Pulling from library/alpine
+6c40cc604d8e: Pull complete 
+Digest: sha256:b3dbf31b77fd99d9c08f780ce6f5282aba076d70a513a8be859d8d3a4d0c92b8
+Status: Downloaded newer image for alpine:latest
+```
+If we've been following along to this point, notice that we now have 2 images:
+```bash
+sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+alpine              latest              caf27325b298        3 weeks ago         5.53MB
+hello-world         latest              fce289e99eb9        7 weeks ago         1.84kB
+```
+
+Notice that dockerhub provides its own security assessment for all of its hosted containers:
+
+![Docker Security](https://docs.docker.com/v17.12/docker-cloud/builds/images/scan-single.png)
+
+We can remove the image that we just tagged with the following:
+
+```bash
+bjellz@bjellz-ubuntu:~$ sudo docker rmi alpine
+Untagged: alpine:latest
+Untagged: alpine@sha256:b3dbf31b77fd99d9c08f780ce6f5282aba076d70a513a8be859d8d3a4d0c92b8
+Deleted: sha256:caf27325b298a6730837023a8a342699c8b7b388b8d878966b064a1320043019
+Deleted: sha256:503e53e365f34399c4d58d8f4e23c161106cfbce4400e3d0a0357967bad69390
+bjellz@bjellz-ubuntu:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce289e99eb9        7 weeks ago         1.84kB
+bjellz@bjellz-ubuntu:~$ 
+```
