@@ -188,14 +188,7 @@ To find the ip address for the container so that we can access this:
 
 ```bash
 bjellz@bjellz-ubuntu:~$ ifconfig
-docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
-        inet6 fe80::42:8aff:fe4e:1900  prefixlen 64  scopeid 0x20<link>
-        ether 02:42:8a:4e:19:00  txqueuelen 0  (Ethernet)
-        RX packets 0  bytes 0 (0.0 B)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 49  bytes 8125 (8.1 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+docker0: BLAH
 
 ```
 
