@@ -1,0 +1,119 @@
+A containerization engine differs from a virtualization engine as a virtualization engine will divide up physical resources whereas a containerization
+engine will divide up OS resources. For example, a hypervisor will run on bare metal and give the virtual machines chunks of the physical resources. Containerization
+engines will give OS resources to each container so that each container will get its own root file system, etc.
+
+![Containerization example](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjm15Tlw87gAhUnzIMKHfBoAhUQjRx6BAgBEAU&url=https%3A%2F%2Fwww.bbvaopenmind.com%2Fen%2Fcontainerization-of-cloud-computing%2F&psig=AOvVaw3igKtfJpJJ946Wml6Y5aA5&ust=1550897025396558)
+
+The **docker engine** consists of both the docker client and the docker daemon.
+
+# First Docker Container
+
+Run your first container with
+```bash
+docker run hello-world
+```
+
+You will see output similar to the following:
+
+```bash
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+ ```
+
+The above command couldn't find the image locally so it downloaded it from dockerhub to the docker daemon on your system. From there, the docker
+daemon built a container from that image. The provision on the contianer is to run an executable which produces output to your terminal. That's all
+that the container was meant to do and then it exited. We can verify that the container is no longer running:
+```bash
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+```
+But we can see that the container was running at one time with
+```bash
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
+360da7ec65b4        hello-world         "/hello"            8 minutes ago       Exited (0) 8 minutes ago                       quizzical_liskov
+```
+
+
+And we can also see in info that we do have a container now but it's in the stopped state
+```bash
+$ docker info
+Containers: 1
+ Running: 0
+ Paused: 0
+ Stopped: 1
+Images: 1
+Server Version: 18.09.2
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: bridge host macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9754871865f7fe2f4e74d43e2fc7ccd237edcbce
+runc version: 09c8266bf2fcf9519a651b04ae54c967b9ab86ec
+init version: fec3683
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 4.14.98-boot2docker
+Operating System: Boot2Docker 18.09.2 (TCL 8.2.1)
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 989.4MiB
+Name: default
+ID: AGGD:7G3M:LIGS:V2RD:HYDG:7TKH:IFA3:H6GH:CLM2:VZTV:DZNG:EHCH
+Docker Root Dir: /mnt/sda1/var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ provider=virtualbox
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+```
+
+We can also see extended info about the images
+
+```bash
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce289e99eb9        7 weeks ago         1.84kB
+
+```
+
+
