@@ -162,3 +162,53 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 hello-world         latest              fce289e99eb9        7 weeks ago         1.84kB
 bjellz@bjellz-ubuntu:~$ 
 ```
+
+# Container Lifecycle
+
+You can run more advanced docker containters. The following will run a small web app.
+
+```bash
+bjellz@bjellz-ubuntu:~$ sudo docker run -d --name web -p 80:8080 nigelpoulton/pluralsight-docker-ci
+[sudo] password for bjellz: 
+Unable to find image 'nigelpoulton/pluralsight-docker-ci:latest' locally
+latest: Pulling from nigelpoulton/pluralsight-docker-ci
+a3ed95caeb02: Pull complete 
+3b231ed5aa2f: Pull complete 
+7e4f9cd54d46: Pull complete 
+929432235e51: Pull complete 
+6899ef41c594: Pull complete 
+0b38fccd0dab: Pull complete 
+Digest: sha256:7a6b0125fe7893e70dc63b2c42ad779e5866c6d2779ceb9b12a28e2c38bd8d3d
+Status: Downloaded newer image for nigelpoulton/pluralsight-docker-ci:latest
+14e15b2ffa321af4065154c0d71edcab72d0687bfeb1631e43a883ec6111b7d9
+bjellz@bjellz-ubuntu:~$ 
+```
+
+To find the ip address for the container so that we can access this:
+
+```bash
+bjellz@bjellz-ubuntu:~$ ifconfig
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:8aff:fe4e:1900  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:8a:4e:19:00  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 49  bytes 8125 (8.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+```
+
+the `-d` tells docker to run in **detached mode** (in the background). `-p` tells docker to map port 80 of the host to port 8080 of the container. `--name` will allow you to specify a name for the containter.
+
+You can also interact with the terminal of the container that you've created with **interactive mode**, `-it`. The following will create the latest version of ubuntu in a container and put the user at the bash.
+
+```bash
+sudo docker run -it ubuntu:latest /bin/bash
+```
+Keep in mind that containers are very lightweight and have no software packaged with them so even `ping` will render a `command not found`.
+
+To stop all running containers:
+```bash
+docker stop $(docker ps -aq)
+```
