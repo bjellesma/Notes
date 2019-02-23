@@ -40,7 +40,21 @@ but the weight will only be about 17% because the moon's gravity is weaker.
 
 ## How does a falling ball move after it's dropped?
 
+Its velocity increases steadily in the downward direction, but its position increases with each passing second.
+
+If you dropped a ball in zero gravity, the ball would remain because it remains inertial. If dropped the same ball in zero gravity, but gave it a push in the downward direction, the ball would fall at a constant velocity because there is no acceleration accting on the ball.
+
+Calculating the average velocity of an object is difficult but a special case exists when the ball is dropped from rest because we can take the average between the starting and final velocity.
+
 ## How can a ball move upward and still be falling?
 
+A falling ball is acceleration downward reguardless of its current velocity. Even if you were to throw an object straight up in the air, its still accelerating in the downward direction with the acceleration due to gravity. At the object's peak height, it's velocity is zero but it's acceleration is still the acceleration due to gravity. When you're throwing the object in the air, it's velocities at the start and finish will be the same so that there is a nice symetry on the graph.
+
+![Throwing ball upwards](https://qph.fs.quoracdn.net/main-qimg-d373e0e28ec5a43a2afac3098348c56a)
+
+The ball moves upward not because of any force but because the ball's inertia is letting it coast freely in motion according to Newton's first law. The ball is still experiencing only one force: its weight, which is directed downward. It is moving upward not because something is pushing it upward, but because of inertia. In the absence of any force, the ball would coast upward because of inertia. Because of its weight, the ball can't maintain its constant upward velocity, but it takes time for the ball to stop moving upward.
 ## How does a ball's horizontal motion affect its fall?
 
+The ball's horizontal coasting motion has no effect on its vertical falling motion. The ball's horizontal motion is only subject to air resistence and friction.
+
+If you were to roll two balls off of a table, one with less mass and one with more mass, they would still hit the floor at the same time even though the horizontal component of motion would be different. Once they leave the table, both balls are falling. They start their falls with zero component of velocity in the vertical direction—they are neither rising nor descending. The vertical component of their motion is that of a ball falling from rest and they fall together and hit the ground at the same time. They have different components of velocity in the downfield direction, however, so the faster moving orange ball travels farther downfield during its travels and hits the ground farther from the table than does the black ball.
