@@ -58,3 +58,55 @@ The ball moves upward not because of any force but because the ball's inertia is
 The ball's horizontal coasting motion has no effect on its vertical falling motion. The ball's horizontal motion is only subject to air resistence and friction.
 
 If you were to roll two balls off of a table, one with less mass and one with more mass, they would still hit the floor at the same time even though the horizontal component of motion would be different. Once they leave the table, both balls are falling. They start their falls with zero component of velocity in the vertical direction—they are neither rising nor descending. The vertical component of their motion is that of a ball falling from rest and they fall together and hit the ground at the same time. They have different components of velocity in the downfield direction, however, so the faster moving orange ball travels farther downfield during its travels and hits the ground farther from the table than does the black ball.
+
+# Quiz
+
+1. Question 1
+Which force is your weight? [The force that is your weight and not a force that is equal to your weight.]
+
+The force that causes you to accelerate downward when you are high above the surface of a trampoline.
+
+
+2. Question 2
+You visit a bowling alley and examine the bowling balls that are available for use. They all look identical, but some are heavier (have greater weights) than others. How can you identify the heaviest ball? [Neglect any effects due to air]
+
+Hold each ball motionless in your hand and choose the one that requires the largest upward force to keep it from falling.
+
+3. Question 3
+You are traveling on an intergalactic cruise spaceship in deep, gravity-free space. You find that the ship has a bowling alley! Once again, there are many identical-looking balls available for use. Without gravity, however, they all have the same weight: zero.
+
+While still on the spaceship in deep, gravity-free space, how can you identify the ball that will be heaviest when your cruise ship lands on a planet and gravity is present? [Neglect any effects due to air]
+
+Shake each ball rapidly back and forth, and choose the ball that accelerates the least in response to the same force as on Earth.
+
+
+4. Question 4
+You've learned to juggle 4 balls at once here on Earth. During a visit to the moon, where the acceleration due to gravity is about 1/6th its Earth value, you decide to try juggling those same 4 balls. You find that, on the moon, each ball has ________________.
+
+less weight and falls more slowly than on Earth. It undergoes the same acceleration as on Earth when exposed to the same force as on Earth.
+
+
+5. Question 5
+While vacationing on a tropical island, you find the courage to step off a high cliff and fall for 4 seconds before entering the water below. Exactly 2 seconds into your fall, you glance at the cliff face and see a secret treasure embedded in the rock. When you recover from your plunge, you return to the cliff top and find that treasure ______________________.
+
+1/4 the distance down from the cliff top to the water.
+
+7. Question 7
+You throw a handful of different coins up and forward and watch them arc through space. They leave your hand at the same moment and with the same starting velocity. Neglecting any effects due to air, where and when do those coins hit the level ground in front of your feet? [Note: air can significantly affect fast-moving coins. If you want to test your answer experimentally, be careful to minimize those air effects. Also, be safe!]
+
+All the coins hit the ground at the same time, but the heavier coins hit the ground farther from your feet than do the lighter coins.
+
+8. Question 8
+You throw a priceless porcelain vase straight up and watch as it rises to peak height and then drops safely back into your hands. Fortunately, the vase's owner wasn't watching. What were the vase's velocity and acceleration at the moment it reached peak height? [Do not test your answer experimentally, unless you take full responsibility for any consequences!]
+
+The vase's velocity was zero. The vase's acceleration was the acceleration due to gravity, which is not zero.
+
+9. Question 9
+When an archer sends an arrow toward a target, the archer must aim the arrow above the target's bullseye (its center) in order for the arrow to hit that bullseye. If the archer uses a stronger bow and therefore a faster-moving arrow, how will that change how the archer aims the arrow in order to hit the same target's bullseye? [Neglect any effects due to air]
+
+The archer must still aim above the target's bullseye, but less far above the bullseye than with the slower-moving arrow.
+
+10. Question 10
+As you collect plastic bottles for recycling, one of the bottles rolls horizontally off the kitchen counter and bounces on the floor about 1 foot (0.3 meters) outward from the base of the counter. Why didn't the bottle drop straight down and hit the floor exactly at the base of the counter?
+
+The bottle coasted horizontally outward as it fell vertically.
