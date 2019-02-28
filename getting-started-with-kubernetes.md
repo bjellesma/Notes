@@ -19,4 +19,23 @@ Masters consist of four parts:
 Nodes consist of the following three pieces:
 
 1. Kublet - Registers node and watches for assignments from the master's apiserver. They will report back to the master in the case of failure and they will initialize pods when needed. It exposes an endpoint on :10255 so that it can be inspected.
-2. 
+2. Container Engine - pulls images and starts/stops containers
+3. kube-proxy - assigns IP addresses to all pods
+
+![Node](Kubernetes/node.png)
+
+Kubernetes masters must be fed a manifest file.
+
+# Desired State
+
+Kubernetes will make sure that the desired state is kept in tact even if we needs to put a dead pod onto another surviving pod. 
+This is all in effort so that we don't have to interact with Kubernetes directly and it will do this automatically.
+
+![Desired State](Kubernetes/desired_state.png)
+
+# Pods
+
+A pod can run one or more containers. Normally, only one container is needed per pod but if the containers NEED to share a networking space, the pod can run more than one container. pods can't be spread across multiple nodes. If a pod dies, another one will be spun up, the pod will not be rezzed.
+
+![Pods](Kubernetes/pods.png)
+
