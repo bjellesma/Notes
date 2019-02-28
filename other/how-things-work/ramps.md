@@ -17,6 +17,13 @@ Because of Newton's third law, there must be an even number of forces.
 
 # Why does the sidewalk perfectly support the wagon's weight?
 
+The wagon and sidewalk "negociate" until the sidewalk perfectly supports the wagon's weight. By negociate, we mean to say that the object bouces (slightly or largely depending on the cusion of the object). If we were to drop a waterbottle on a scale, the scale would actually take a little time to register the amount of force (support force) that it has to exert to keep that object from falling through the scale. That support force may also be greater than the weight of the waterbottle if the waterbottle is dropped onto the scale from higher up. Although the support force of the scale and the weight of the waterbottle are equal and opposite forces, they act on a different object and don't cancel each other.
+The slight bounce that occurs from the waterbottle is the resulting acceleration that is leftover after the supporting force is able to support the weight of the waterbottle.
+
+It's an important concept that the forces never cancel because they are always acting on different objects. Take the below example of Lou accelerating the wagon.
+
+![acceleration](images/acceleration_support_force.png)
+
 # How does a wagon move as you let it roll freely on a ramp?
 
 # Why is it more exhausting to lift a wagon up than to lower it down?
