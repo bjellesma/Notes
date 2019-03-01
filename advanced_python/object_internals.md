@@ -12,7 +12,52 @@ Keep in mind that if you use `vars()` you also need to include self like `vars(s
 
 `__getattr__()` is only invoked if the class cannot access the attributes with `__getattribute__()`. Therefore, if we wish to override the access of attributes, we should ovveride `__getattribes__()`.
 
+# Object size
+
+You can find the size in bytes on an object by using `sys.getsizeof(object name)`. Because of the dynamic nature of python, python objects often take up more room. For example, the size of an object in python may take 248 bytes whereas the equivalent object in C would take only 64 bytes. 
+
+```python
+class Resistor():
+  def __init__(self, watts, power):
+    self._watts = watts
+    self._power = power
+    
+r10 = Resistor(10, 12)
+
+```
+
+This yields 
+```python
+import sys
+sys.getsizeof(r10) # 248
+```
+
+by implementing **slots**, we can drastically reduce the size
+
+```python
+class Resistor():
+__slots__ = ['watts', 'power']
+  def __init__(self, watts, power):
+    self._watts = watts
+    self._power = power
+    
+r10 = Resistor(10, 12)
+
+```
+
+This yields 
+```python
+import sys
+sys.getsizeof(r10) # 64
+```
+However, we're now unable to add new attributes
+
+```python
+r10.cost = 12
+```
+
+would result in an **AttributeError**
 
 
-
+Therefore, `__slots__` can be good to implement if you have an app that is using too much memory and there are certain things about the app that won't change. In general, `__Slots__` is not used very often as we often need the dynamicy of python and we don't need the memory efficiency.
 
