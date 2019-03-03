@@ -66,3 +66,67 @@ When you're moving an object up a ramp, you only to exert enough force to cancel
 
 Generally, when the object has the most gravitational potential energy, it has the most overall energy.
 
+# Quiz
+
+1. Question 1
+You are in an ordinary room (both its floor and ceiling are horizontal). You throw a ball directly upward and it bounces off the ceiling. While the ball is touching the ceiling, in which direction is the ceiling's support force on the ball?
+
+
+The ceiling's support force on the ball is directed downward.
+
+2. Question 2
+You are playing volleyball and your teammate has just hit the ball forward -- toward your opponents. To increase the ball's forward speed, you push it with a forward force of 200 newton (45 pounds-force). What force, if any, does the ball exert on you?
+
+A backward force of 200 newtons.
+
+3. Question 3
+When you stand and remain motionless on a bathroom scale, what force is the scale exerting on your feet?
+
+
+An upward support force equal in amount to your weight.
+
+4. Question 4
+As a ball bounces on the floor, the floor exerts an upward support force on the ball. Can the amount of that upward support force on the ball be different from the ball's weight?
+
+
+Yes. It can be greater than the ball's weight and it can be less than the ball's weight.
+
+
+5. Question 5
+You are using a string to lift a heavy picnic basket up to your treehouse. Alas, the string isn't strong enough for the job. The picnic basket becomes motionless, even though you are moving the portion of string you are holding upward, and the string breaks. Breaking the string required energy and that energy was provided by
+
+
+you.
+
+6. Question 6
+You are shopping in a store and want to go upward from the second floor to the third floor. You can make that trip using an escalator, an elevator, or a staircase. Which method of going from the second floor to the third floor will increase your gravitational potential energy the most?
+
+
+All three methods will increase your gravitational potential energy by the same amount.
+
+7. Question 7
+A downhill skier is descending a snow-covered mountain. The skier steps off of a level region of the mountain and onto a steep slope. The skier begins to accelerate rapidly downhill on the slope. What force is causing the skier to accelerate downhill?
+
+
+The downhill ramp force that is the sum of the skier's weight and the support force exerted on the skier by the snow-covered slope.
+
+
+8. Question 8
+You have shopping cart full of groceries and that cart is on a ramp. You are exerting an uphill force on the cart, so that the net force on the cart is zero. What energy transfer is occurring?
+
+
+
+If the cart is moving uphill, you are transferring energy to the cart. If the cart is moving downhill, the cart is transferring energy to you.
+
+
+9. Question 9
+You are trying to lift a heavy file cabinet into the back of a truck. The file cabinet weighs 200 pounds (about 900 newtons) and you must raise it 2 feet (about 0.6 meters) upward. The file cabinet has wheels, so it rolls freely. You create a ramp using rigid boards that are 8 feet long and successfully push the wheeled file cabinet up the ramp and into the truck. What force did you exert on the file cabinet to keep it moving up the ramp at constant velocity? [Assume the ramp was smooth, straight, and exactly 8 feet long, and neglect any imperfections, such as friction, air resistance, or rotation of the cabinet's wheels.]
+
+
+You exerted a force of 50 pounds directed uphill along the ramp.
+
+10. Question 10
+You talking on your cellphone and you accidentally ride your bicycle off the road. You realize that you are going to collide with either a tree or a garbage can, so you must choose which object to hit. The tree will not move at all (exactly zero distance, which is an idealization) if you hit the tree, but the garbage can will move if you hit the garbage can. How will your choice of object affect the energy you transfer to that object when you hit it? [Fortunately, you are going slowly, so you won't be injured regardless of your choice.]
+
+
+You will transfer energy if you hit the garbage can, but you will not transfer energy if you hit the tree.
