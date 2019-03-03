@@ -39,3 +39,42 @@ A pod can run one or more containers. Normally, only one container is needed per
 
 ![Pods](Kubernetes/pods.png)
 
+# Installing Kubernetes
+
+There are many ways to install Kubernetes based on the type of installation that you want:
+
+1. MiniKube - installation on a local PC
+2. Google Container Engine (GKE)
+3. AWS Provider
+4. Manual Install
+
+## MiniKube
+
+MiniKube is to Kubernetes as Docker for Windows is to Docker. It's a great way to try out the environment locally.
+
+![MiniKube](Kubernetes/minikube.png)
+
+As you can see, minikube will setup a VM running a kubernetes cluster and you can communicate with it with kubectl. 
+
+For linux users, we first want to install kubectl with:
+
+```bash
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
+
+Install minikube by downloading a script with 
+
+```bash
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube
+```
+
+Finally, add minikube to your executable path with
+
+```bash
+sudo cp minikube /usr/local/bin && rm minikube
+```
