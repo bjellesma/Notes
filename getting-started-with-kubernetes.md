@@ -44,7 +44,7 @@ A pod can run one or more containers. Normally, only one container is needed per
 There are many ways to install Kubernetes based on the type of installation that you want:
 
 1. MiniKube - installation on a local PC
-2. Google Container Engine (GKE)
+2. Google Kontainer Engine (GKE)
 3. AWS Provider
 4. Manual Install
 
@@ -78,3 +78,7 @@ Finally, add minikube to your executable path with
 ```bash
 sudo cp minikube /usr/local/bin && rm minikube
 ```
+
+## Google Kontainer Engine (GKE)
+
+GKE is built on top of the Google Compute Engine (GCE). GKE is more of a production grade environment whereas minikube is more for local dev
