@@ -37,7 +37,35 @@ This is all in effort so that we don't have to interact with Kubernetes directly
 
 A pod can run one or more containers. Normally, only one container is needed per pod but if the containers NEED to share a networking space, the pod can run more than one container. pods can't be spread across multiple nodes. If a pod dies, another one will be spun up, the pod will not be rezzed.
 
-![Pods](Kubernetes/pods.png)
+![Pods](Kubernetes/pods.png) 
+
+Each pod will have its own IP and the containers within that pod will run on different ports. The containers in that pod all share the same IP, namespace, etc. All pods are setup on one network and can communicate with one another. All containers within the pod need to come up in order for the pod to be `alive`. This is the idea of **atomic deployment**.
+
+![Pod Lifecycle](Kubernetes/pod_lifecycle.png)
+
+In order to create the pod, you need to write a pod manifest file to tell the apiserver how to make it.
+
+```yml
+apiVersion:	v1
+kind:	Pod
+metadata:
+	name: hello-pod
+	labels:
+		zone: prod
+		version: v1
+spec:
+	containers:
+		name: hello-ctr
+		image: nigelpoulton/pluralsight-docker-ci:latest
+		ports:
+			containerPort:	8080
+```
+
+create this pod now with 
+
+```bash
+kubectl create -f pod.yml
+```
 
 # Installing Kubernetes
 
