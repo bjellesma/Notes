@@ -107,6 +107,12 @@ Finally, add minikube to your executable path with
 sudo cp minikube /usr/local/bin && rm minikube
 ```
 
+Start a minikube server with
+
+```bash
+sudo minikube start
+```
+
 ## Google Kontainer Engine (GKE)
 
 GKE is built on top of the Google Compute Engine (GCE). GKE is more of a production grade environment whereas minikube is more for local dev
