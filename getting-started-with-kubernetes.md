@@ -116,3 +116,7 @@ sudo minikube start
 ## Google Kontainer Engine (GKE)
 
 GKE is built on top of the Google Compute Engine (GCE). GKE is more of a production grade environment whereas minikube is more for local dev
+
+## Kubernetes Services
+
+Pods are **ephermal**, they only exist for the lifetime of the app and then they're replaced. In contrast, the service never changes and always retain its IP, DNS, and Port
