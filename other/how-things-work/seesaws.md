@@ -26,12 +26,20 @@ Suppose you and a child half your height lean out over the edge of a swimming po
  
  # Why does a seesaw need a pivot?
  
+ A pivot prevents the seesaw from undergoing translational motion while leaving it free to undergo rotational motion. An object with rotational motion will rotate about its **center of mass**, the object's natural pivot. For example, in the following image, the hammer rotates around the mallet while it is in free fall because the mallet is its center of mass.
+ 
+ ![Center of Mass](images/center-of-mass.png)
+ 
+ In the case of a falling ball, its center of mass is its geometric center so it appears to not rotate as it's falling. 
+ 
+ **Center of Rotation** - the point about which all physical quantities of rotational motion are defined. The center of rotation and center of mass for a seesaw are its pivot.
+ 
  # Why does a lone seesaw rider plummet to the ground?
  
  # Why do the riders' weights and positions affect the seesaw's motion?
  
  # Why do the riders' distances from the pivot affect the seesaw's responsiveness?
- 
+
  # How do the seesaw's riders affect one another? 
  
  
