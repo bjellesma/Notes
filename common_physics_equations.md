@@ -4,3 +4,5 @@
 
 
 3. Work Equation <a href="https://www.codecogs.com/eqnedit.php?latex=W&space;=&space;F&space;*&space;D" target="_blank"><img src="https://latex.codecogs.com/gif.latex?W&space;=&space;F&space;*&space;D" title="W = F * D" /></a>
+
+4. Newton's Second Law of Rotational Motion - <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha&space;=&space;\frac{\sum&space;\tau}{\text{I}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha&space;=&space;\frac{\sum&space;\tau}{\text{I}}" title="\alpha = \frac{\sum \tau}{\text{I}}" /></a>
