@@ -60,6 +60,16 @@ Suppose you and a child half your height lean out over the edge of a swimming po
  
  # Why do the riders' weights and positions affect the seesaw's motion?
  
+ They affect the net torque on the seesaw and cause angular acceleration to occur. When the riders sit on opposite sides of the seesaw, they produce opposite torques that produce zero or near zero net torque and therefore zero or near zero angular acceleration. If one rider does produce a bigger torque than the other (they have more weight), they'll just move closer to the pivot.
+ 
+ ![Net Torque Cancellation](images/net-torque-cancellation.png)
+ 
+ When zero net torque is produced on an object, we say that the object in **balanced**
+ 
+ An object's **center of gravity** is the effective location of the object's weight. Near the Earth's surface, often an object's centers of gravity is the same location as the object's center of mass. Because center of gravity has to do with an object's weight, a force, and center of mass has to do with an object's mass, a constant quantity, these concepts are fundamentally different. In space, center of gravity has near no effect because there is near no gravity. The center of gravity on a balanced seesaw is located straight above the object's center of rotation so that it produces zero net torque and leaves the object rotationally inertial.
+ 
+What makes a seesaw fun is that the riders can adjust the torque on the seesaw by pushing against the ground with their feet. They can also lean forwards or backwards to adjust the length of the lever arm and therefore the angular acceleration.
+ 
  # Why do the riders' distances from the pivot affect the seesaw's responsiveness?
 
  # How do the seesaw's riders affect one another? 
