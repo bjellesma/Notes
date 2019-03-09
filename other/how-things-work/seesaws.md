@@ -36,6 +36,28 @@ Suppose you and a child half your height lean out over the edge of a swimming po
  
  # Why does a lone seesaw rider plummet to the ground?
  
+ The lone rider produces a torque on the seesaw that causes it to overcome rotational inertia and undergo rapid angular acceleration. The weight of the rider is a force that, acting in conjunction with the lever arm of the seesaw, produces a torque on the seesaw.
+ 
+ What's interesting is you can increase the rotational inertia of an object by adding objects of the same size and thus a torque of the same mass wouldn't be able to overcome rotational inertia as quickly.
+ 
+ ![Rotational Acceleration](images/rotational_acceleration.gif)
+ 
+ **Moment of Inertia** - The measure of an object's rotational inertia - its resistence to undergoing angular acceleration.
+ 
+ This definition allows us to define **Newton's Second Law of Rotational Motion** - angular acceleration is equal to the net torque acting on the object divided by the moment of inertia, <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha&space;=&space;\frac{\sum&space;\tau}{\text{I}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha&space;=&space;\frac{\sum&space;\tau}{\text{I}}" title="\alpha = \frac{\sum \tau}{\text{I}}" /></a>
+ 
+ An object's rotational acceleration is proportal to the net torque acting on the object.
+ 
+ In order to produce a torque on an object, you need to exert a force at a right angle to the lever arm of an object. The **Lever arm** is a vector that extends outward from a **center of rotation**, the point around which an object will rotate, towards the causation of the torque. Notice how the resulting torque is always upwardly perpendicular to the lever arm. The resulting torque is also governed by the right hand rule.
+ 
+ ![Producing Torque](images/producing-torque.png)
+ 
+ The amount of force that we need to produce the torque is larger the shorter the lever arm. Therefore, if we're pushing or pulling on the door closer to the center of rotation, it will require more force. Therefore, the torque is equal to the lever arm multiplied by the force, <a href="https://www.codecogs.com/eqnedit.php?latex=\tau&space;=&space;rF" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\tau&space;=&space;rF" title="\tau = rF" /></a>
+ 
+ ![Small lever arm](images/small_lever_arm.gif)
+ 
+ A common household example of this is using a wrench on a stuck bolt. The wrench increases the lever arm vector and therefore, your force can produce a larger torque.
+ 
  # Why do the riders' weights and positions affect the seesaw's motion?
  
  # Why do the riders' distances from the pivot affect the seesaw's responsiveness?
