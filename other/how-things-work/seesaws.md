@@ -50,7 +50,7 @@ Suppose you and a child half your height lean out over the edge of a swimming po
  
  In order to produce a torque on an object, you need to exert a force at a right angle to the lever arm of an object. The **Lever arm** is a vector that extends outward from a **center of rotation**, the point around which an object will rotate, towards the causation of the torque. Notice how the resulting torque is always upwardly perpendicular to the lever arm. The resulting torque is also governed by the right hand rule.
  
- ![Producing Torque](images/producing-torque.png)
+ ![Producing Torque](images/producing-torque.PNG)
  
  The amount of force that we need to produce the torque is larger the shorter the lever arm. Therefore, if we're pushing or pulling on the door closer to the center of rotation, it will require more force. Therefore, the torque is equal to the lever arm multiplied by the force, <a href="https://www.codecogs.com/eqnedit.php?latex=\tau&space;=&space;rF" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\tau&space;=&space;rF" title="\tau = rF" /></a>
  
