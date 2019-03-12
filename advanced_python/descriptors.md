@@ -6,3 +6,7 @@ This setter property will prevent a user using this library from setting the val
 test_object.name = 7
 ```
 
+# Debugging
+
+For better debugging capabilities, we can use `repr()` instead of `print()`. print() is meant to be used for readable string representation whereas repr() is meant to be used for debugging and will give representations of **string literals**
+
