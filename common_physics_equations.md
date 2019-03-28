@@ -8,3 +8,5 @@
 4. Newton's Second Law of Rotational Motion - <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha&space;=&space;\frac{\sum&space;\tau}{\text{I}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha&space;=&space;\frac{\sum&space;\tau}{\text{I}}" title="\alpha = \frac{\sum \tau}{\text{I}}" /></a>
 
 5. Torque Equation - <a href="https://www.codecogs.com/eqnedit.php?latex=\tau&space;=&space;rF" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\tau&space;=&space;rF" title="\tau = rF" /></a>
+
+6. Coefficient of Friction: <a href="https://www.codecogs.com/eqnedit.php?latex=coefficient&space;of&space;friction&space;=&space;\frac{Friction&space;force}{Support&space;force}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?coefficient&space;of&space;friction&space;=&space;\frac{Friction&space;force}{Support&space;force}" title="coefficient of friction = \frac{Friction force}{Support force}" /></a>
