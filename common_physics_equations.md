@@ -10,3 +10,13 @@
 5. Torque Equation - <a href="https://www.codecogs.com/eqnedit.php?latex=\tau&space;=&space;rF" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\tau&space;=&space;rF" title="\tau = rF" /></a>
 
 6. Coefficient of Friction: <a href="https://www.codecogs.com/eqnedit.php?latex=coefficient&space;of&space;friction&space;=&space;\frac{Friction&space;force}{Support&space;force}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?coefficient&space;of&space;friction&space;=&space;\frac{Friction&space;force}{Support&space;force}" title="coefficient of friction = \frac{Friction force}{Support force}" /></a>
+
+7. Power Equation for rotating objects: <a href="https://www.codecogs.com/eqnedit.php?latex=Power&space;=&space;Torque&space;*&space;Angular&space;Velocity" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Power&space;=&space;Torque&space;*&space;Angular&space;Velocity" title="Power = Torque * Angular Velocity" /></a>
+
+8. Power Equation for translating objects: <a href="https://www.codecogs.com/eqnedit.php?latex=Power&space;=&space;Force&space;*&space;Velocity" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Power&space;=&space;Force&space;*&space;Velocity" title="Power = Force * Velocity" /></a>
+
+9. Work Equation for rotating objects: <a href="https://www.codecogs.com/eqnedit.php?latex=Work&space;=&space;Torque&space;*&space;Angle" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Work&space;=&space;Torque&space;*&space;Angle" title="Work = Torque * Angle" /></a>
+
+10. Kinetic Energy for translating objects: <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" title="Kinetic Energy = \frac{1}{2}Mass * Speed^{2}" /></a>
+
+
