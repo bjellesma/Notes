@@ -19,4 +19,4 @@
 
 10. Kinetic Energy for translating objects: <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" title="Kinetic Energy = \frac{1}{2}Mass * Speed^{2}" /></a>
 
-
+11. Kinetic Energy for rotating objects, <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}\text{Rotational&space;Mass}&space;*&space;\text{Angular&space;Speed}^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}\text{Rotational&space;Mass}&space;*&space;\text{Angular&space;Speed}^{2}" title="Kinetic Energy = \frac{1}{2}\text{Rotational Mass} * \text{Angular Speed}^{2}" /></a>
