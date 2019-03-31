@@ -43,6 +43,28 @@ Because wheels have a high coefficient of friction and can absorb static frictio
 
 # How do wheels help a box coast?
 
+Wheels eliminate sliding friction between the wagon and the ground.
+
+A ball bearing is used to reduce sliding friction of the wheels.
+
+![Picture of Ball Bearing](https://www.lfd.eu/media/images/aufbau-rillenkugellager-01-large.jpg)
+
+The inner ring can turn independently of the outer ring because the balls are used to eliminate the sliding friction.
+
 # How do powered wheels propel a car forward?
+
+The ground exerts a forward static frictional force on each powered wheel and thereby pushes the car forward.
+
+As a runner in a sprint, you typically have spikes on your feet to give you better traction and therefore higher static friction.
+
+**Power** is the rate at which energy is transferred from one object to another. Remember that energy is defined as the capacity to do work. Therefore, power can be thought of as the rate at which work is done. A joule is the unit of measurement for work so joules/seconds is the unit of measurement for power. Joules/second is comonly called the **watt**.
+
+1 horsepower is approximately 750 watts. 
+
+If an appliance was labeled as 1000 watts, it would consume 60,000 joules in one minute. Since a watt is just a joule consumed in one second, we can multiply 1000 watts by 60 seconds to arrive at 60,000 joules. We say joules instead of watts because watts applies only to the rate at which power is transferred. In one hour, you will have consumed 3,600,600 joules.
+
+3,600,000 joules consumed in one hour is exactly 1 **kilowatt-hour** because it works down to 1000 watts or 1000 joules/second. 
+
+For a translating object, <a href="https://www.codecogs.com/eqnedit.php?latex=Work&space;=&space;Force&space;*&space;Distance" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Work&space;=&space;Force&space;*&space;Distance" title="Work = Force * Distance" /></a>. For a rotating object, **<a href="https://www.codecogs.com/eqnedit.php?latex=Work&space;=&space;Torque&space;*&space;Angle" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Work&space;=&space;Torque&space;*&space;Angle" title="Work = Torque * Angle" /></a>**
 
 # How is energy present in a wheel?
