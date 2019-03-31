@@ -67,4 +67,14 @@ If an appliance was labeled as 1000 watts, it would consume 60,000 joules in one
 
 For a translating object, <a href="https://www.codecogs.com/eqnedit.php?latex=Work&space;=&space;Force&space;*&space;Distance" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Work&space;=&space;Force&space;*&space;Distance" title="Work = Force * Distance" /></a>. For a rotating object, **<a href="https://www.codecogs.com/eqnedit.php?latex=Work&space;=&space;Torque&space;*&space;Angle" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Work&space;=&space;Torque&space;*&space;Angle" title="Work = Torque * Angle" /></a>**
 
+Since work = force * distance and power is the rate of work, <a href="https://www.codecogs.com/eqnedit.php?latex=Power&space;=&space;Force&space;*&space;Velocity" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Power&space;=&space;Force&space;*&space;Velocity" title="Power = Force * Velocity" /></a> for a translating object. Similarly, <a href="https://www.codecogs.com/eqnedit.php?latex=Power&space;=&space;Torque&space;*&space;Angular&space;Velocity" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Power&space;=&space;Torque&space;*&space;Angular&space;Velocity" title="Power = Torque * Angular Velocity" /></a> for a rotating object.
+
 # How is energy present in a wheel?
+
+The wheel has kinetic energy in its translation and rotational motions. 
+
+For a translating object, <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" title="Kinetic Energy = \frac{1}{2}Mass * Speed^{2}" /></a>. Keep in mind that this squared factor means that an object traveling twice as fast as an equally massed object with have 4 times as much kinetic energy. For exampld, if car A is traveling at 2 mph and car B is traveling at 4 mph, since 2 squared is 4 and 4 squard is 16, Car B has 4 times as much kinetic energy.
+
+Similarly, for a rotating object, <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}\text{Rotational&space;Mass}&space;*&space;\text{Angular&space;Speed}^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}\text{Rotational&space;Mass}&space;*&space;\text{Angular&space;Speed}^{2}" title="Kinetic Energy = \frac{1}{2}\text{Rotational Mass} * \text{Angular Speed}^{2}" /></a>
+
+Keeping in mind that using wheels will have both translational and rotational motion, wheels will carry a lot of kinetic energy as these quantities will add.
