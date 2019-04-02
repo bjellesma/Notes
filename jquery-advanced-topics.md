@@ -15,7 +15,7 @@ This construct
 })(jQuery);
 ```
 
-is called an **Immediately Invoked Function Expression (IIFE)**. Jquery is always the first parameter to the IIFE. The `$` as an actual parameter to the function makes it a reserved jquery object. Any functions listed inside of this IIFE is immediately excuted after the IIFE is created. Any variables created in this IIFE are scoped in this IIFE just like any function; this prevents pollution of the global namespace.
+is called an **Immediately Invoked Function Expression (IIFE)**. Jquery is always the first parameter to the IIFE. The `$` as an actual parameter to the function makes it a reserved jquery object. Any functions listed inside of this IIFE is immediately excuted after the IIFE is created. Any variables created in this IIFE are scoped in this IIFE just like any function; this prevents pollution of the global namespace. The function expression is stored in parentheses because that makes it a function and tells the browser to immediately evaluate the function as an expression.
 
 Pass in a map to a jquery plugin and extend the default functionality to include default option.
 
@@ -38,4 +38,6 @@ $.fn.hilight.defaults = {
     background: "yellow"
 };
 ```
+# Identifying performance problems
 
+Use the profiler in your browser. In google chrome, this is found with performance -> record. This starts a profile. You can also run `profile()` in the console.
