@@ -41,3 +41,56 @@ $.fn.hilight.defaults = {
 # Identifying performance problems
 
 Use the profiler in your browser. In google chrome, this is found with performance -> record. This starts a profile. You can also run `profile()` in the console.
+
+Whenever looping, always looks for results that you can cache to improve performance. For example,
+```js
+for(var j = 0; j<=divs.length; j++){
+
+}
+```
+
+is less efficient than
+
+```js
+var len = divs.length
+for(var j = 0; j<=len; j++){
+
+}
+```
+
+Because the first example needs to requery the DOM every time while the second example only queries the DOM once, the second loop is exponentially more efficient.
+
+Using DOM properties rather than jquery properties can help to speed up code signicantly. For example,
+```js
+var s = div.attr("id")
+```
+is much less efficient than
+```js
+var s = div.id
+```
+
+Many times, it may be necessary to use Jquery for things like chaining but using raw DOM properties can help to speed things up.
+
+## Selector Performance
+
+Using jquery `find()` can be fastest when selecting DOM elements because `find()` is fastest at grabbing the DOM element that it is chained onto
+
+```js
+$('#hello').find('.world')
+``` 
+is faster than
+
+```js
+$('#hello .world')
+```
+
+because jquery selects the rightmost element first (world) and looks through those elements to see which has #hello as its parent.
+
+## Data method
+
+You can store data directly in jQuery using the `data()` method rather than dirtying the HTML. Use the `data()` method to attach data to the DOM.
+
+```js
+div1.data("object1", {var1:1,var2:2});
+```
+
