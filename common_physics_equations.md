@@ -20,3 +20,7 @@
 10. Kinetic Energy for translating objects: <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}Mass&space;*&space;Speed^{2}" title="Kinetic Energy = \frac{1}{2}Mass * Speed^{2}" /></a>
 
 11. Kinetic Energy for rotating objects, <a href="https://www.codecogs.com/eqnedit.php?latex=Kinetic&space;Energy&space;=&space;\frac{1}{2}\text{Rotational&space;Mass}&space;*&space;\text{Angular&space;Speed}^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Kinetic&space;Energy&space;=&space;\frac{1}{2}\text{Rotational&space;Mass}&space;*&space;\text{Angular&space;Speed}^{2}" title="Kinetic Energy = \frac{1}{2}\text{Rotational Mass} * \text{Angular Speed}^{2}" /></a>
+
+12 Momentum Equation: <a href="https://www.codecogs.com/eqnedit.php?latex=Momentum&space;=&space;mass&space;*&space;velocity" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Momentum&space;=&space;mass&space;*&space;velocity" title="Momentum = mass * velocity" /></a>
+
+13. Impulse Equation: <a href="https://www.codecogs.com/eqnedit.php?latex=Impulse&space;=&space;Force&space;*&space;Time" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Impulse&space;=&space;Force&space;*&space;Time" title="Impulse = Force * Time" /></a>
