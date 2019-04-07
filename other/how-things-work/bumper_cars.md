@@ -26,9 +26,24 @@ When you catch a ball, you need to make your arms move with the ball so that the
 
 # Does a spinning bumper car carry a torque?
 
+No, a spinning bumper car carries a angular momentum. **Angular Momentum** is the conserved quantity of turning. Summing up, a bumper car carry three conserved quantities: translation momentum, angular momentum, and energy. <a href="https://www.codecogs.com/eqnedit.php?latex=\text{Angular&space;Momentum}&space;=&space;\text{Moment&space;of&space;Inertia}&space;*&space;\text{Angular&space;Velocity}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\text{Angular&space;Momentum}&space;=&space;\text{Moment&space;of&space;Inertia}&space;*&space;\text{Angular&space;Velocity}" title="\text{Angular Momentum} = \text{Moment of Inertia} * \text{Angular Velocity}" /></a> 
+. As an example of this equation, if an ice skater starts spinning with their arms outward (a large moment of inertia) and then bring their arms inward during the spin, they will start to spin faster because of angular velocity; their moment of inertia has decreased so their angular velocity will increase to compensate.
+
+<img src="https://thumbs.gfycat.com/AnguishedBrilliantInexpectatumpleco-small.gif" />
+
+## If you pull yourself to the center of a spinning merry-go-round, what will happen to its rotation?
+
+The merry-go-round will start spinning faster because your mass contributes significantly to the moment of inertia of the object. Therefore, when you pull you pull yourself to the center of the merry go round, you are decreasing the object's moment of inertia and its angular velocity will need to increase to compensate. Going off of this subject, heavy riders in a car will contribute significantly to the car's moment of inertia and will spin slower given angular momentum.
+
 # How is angular momentum transferred from one bumper car to another?
+
+The first car will perform an angular impulse on the second bumper car to get it spinning. Similar to how we defined an impulse, **<a href="https://www.codecogs.com/eqnedit.php?latex=\text{Angular&space;Impulse}&space;=&space;\text{Torque}&space;*&space;\text{Time}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\text{Angular&space;Impulse}&space;=&space;\text{Torque}&space;*&space;\text{Time}" title="\text{Angular Impulse} = \text{Torque} * \text{Time}" /></a>**
 
 # How does a bumper car move on an uneven floor?
 
+The bumper car accelerates in the direction that reduces its total potential energy as quickly as possible.
 
-## If you pull yourself to the center of a spinning merry-go-round, what will happen to its rotation?
+If you swing a pendulum, it will accelerate to the other side and when it comes back towards you, it can't go any farther than its initial starting position because that would require making energy out of nothing.
+
+A **gradient** is a gradual variation in a physical quantity near a particular position. When a dog catches a scent of food, it's following a scent gradient, find the direction in which that smell increases most.
+
