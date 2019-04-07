@@ -24,3 +24,7 @@
 12 Momentum Equation: <a href="https://www.codecogs.com/eqnedit.php?latex=Momentum&space;=&space;mass&space;*&space;velocity" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Momentum&space;=&space;mass&space;*&space;velocity" title="Momentum = mass * velocity" /></a>
 
 13. Impulse Equation: <a href="https://www.codecogs.com/eqnedit.php?latex=Impulse&space;=&space;Force&space;*&space;Time" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Impulse&space;=&space;Force&space;*&space;Time" title="Impulse = Force * Time" /></a>
+
+14. Angular Momentum Equation: <a href="https://www.codecogs.com/eqnedit.php?latex=\text{Angular&space;Momentum}&space;=&space;\text{Moment&space;of&space;Inertia}&space;*&space;\text{Angular&space;Velocity}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\text{Angular&space;Momentum}&space;=&space;\text{Moment&space;of&space;Inertia}&space;*&space;\text{Angular&space;Velocity}" title="\text{Angular Momentum} = \text{Moment of Inertia} * \text{Angular Velocity}" /></a>
+
+15. Angular Impulse <a href="https://www.codecogs.com/eqnedit.php?latex=\text{Angular&space;Impulse}&space;=&space;\text{Torque}&space;*&space;\text{Time}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\text{Angular&space;Impulse}&space;=&space;\text{Torque}&space;*&space;\text{Time}" title="\text{Angular Impulse} = \text{Torque} * \text{Time}" /></a>
