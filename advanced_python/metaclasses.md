@@ -48,4 +48,4 @@ class Dodgy(metaclass=ProhibitDuplicatesMeta):
 
 ```
 
-In the above example, we are using the ProhibitDuplicatesMeta metaclass to ensure that classes can't have more than one method
+In the above example, we are using the ProhibitDuplicatesMeta metaclass to ensure that classes can't have more than one method. `__prepare__` must return a mapping of the namespace. `__new__` must return a class object.
