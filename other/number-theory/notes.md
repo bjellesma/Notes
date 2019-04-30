@@ -1,0 +1,4 @@
+What does it mean to say that <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{a}{b}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{a}{b}" title="\frac{a}{b}" /></a> is an integer? 
+
+It means that a can be represented as a product of two integers, b and some other integer k so that <a href="https://www.codecogs.com/eqnedit.php?latex=\text{a}&space;=&space;\text{b}&space;*&space;\text{k}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\text{a}&space;=&space;\text{b}&space;*&space;\text{k}" title="\text{a} = \text{b} * \text{k}" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{a}{b}&space;=&space;\frac{b&space;*&space;k}{b}&space;=&space;k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{a}{b}&space;=&space;\frac{b&space;*&space;k}{b}&space;=&space;k" title="\frac{a}{b} = \frac{b * k}{b} = k" /></a>
+
