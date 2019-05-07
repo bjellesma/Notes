@@ -123,6 +123,7 @@ gulp.task('lint-watcher', function() {
 
 1. Install gulp
  * Task runner
+ * Since this course is older, install older gulp with `npm install gulp@3.9.0 --save-dev`
 2. Install NPM
  * Package Manager
 3. Install Webpack
@@ -137,3 +138,107 @@ gulp.task('hello-world', function(){
     console.log('hello world');
 });
  ```
+ 
+ Run this task with `gulp hello-world`
+ 
+# Linting Tools
+
+jshint and jscs are popular linting tools with their own configurable json files on how to watch for your code changes.
+
+1. Install these tools with `npm install --save-dev gulp-jshint gulp-jscs gulp-print gulp-if yargs`
+2. Because they are new packages, we need to use node's require statement to include these
+```js
+var jshint = require('gulp-jshint')
+var jscs = require('gulp-jscs')
+var gulp-print = require('gulp-print')
+var gulp-if = require('gulp-if')
+var args = require('yargs').argv
+```
+
+You may also choose to load all plugins with 
+
+```
+var gulp = require('gulp`)
+var $ = require('gulp-load-plugins')({lazy: true});
+var args = require('yargs').argv
+```
+
+*Note that args is still defined seperately as it's called slightly differently*
+
+*lazy:true will get the plugins only as they're used*
+
+The above is a plugin that will automatically load all gulp plugins in your package.json file. You can now use plugins like `$.jscs()`
+
+3. You can now create a gulp task called vet to automatically lint all of your js files
+
+```js
+gulp.task('vet', function() {
+
+    return gulp
+        .src([
+            './src/**/*.js',
+            './*.js'
+        ])
+        .pipe($.if(args.verbose, $.print()))
+        .pipe($.jscs())
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}));
+});
+```
+
+## Arguments
+
+If we use the following 
+
+```js
+.pipe($.if(args.verbose, $.print()))
+```
+
+That will tell gulp to print verbose when verbose is passed on the cmd. So when we call this gulp task with `gulp vet --verbose`, we will get a lot more information about what the task is doing.
+
+## gulp.config
+
+To help make things more reuseable, we'll use a file that we'll export comonlly used strings called gulp.config.js
+
+```js
+module.exports = function() {
+    var config = {
+
+        // all js to vet
+        alljs: [
+            './src/**/*.js',
+            './*.js'
+        ]
+    };
+
+    return config;
+};
+```
+
+We can now redefine our imports in our gulpfile slightly with
+
+```js
+var gulp = require('gulp');
+var args = require('yargs').argv;
+var config = require('./gulp.config')();
+var $ = require('gulp-load-plugins')({lazy: true});
+```
+
+*Note: the parentheses are very important on the end of the import because that tells gulp to execute it right now*
+
+We can redefine our task like so:
+
+```js
+gulp.task('vet', function() {
+
+    return gulp
+        .src([
+            './src/**/*.js',
+            './*.js'
+        ])
+        .pipe($.if(args.verbose, $.print()))
+        .pipe($.jscs())
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}));
+});
+```
