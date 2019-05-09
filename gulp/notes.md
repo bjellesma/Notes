@@ -242,3 +242,66 @@ gulp.task('vet', function() {
         .pipe($.jshint.reporter('jshint-stylish', {verbose: true}));
 });
 ```
+# CSS compilation
+
+Install gulp tools for transforming LESS to CSS with `npm install --save-dev gulp-less gulp-autoprefixer`. This also installs an autoprefixer task which will automatically add vendor prefixes.
+
+First, we'll update our config file to the following
+
+```js
+module.exports = function() {
+    var config = {
+        temp: './.tmp',
+        // all js to vet
+        alljs: [
+            './src/**/*.js',
+            './*.js'
+        ],
+        less:'./src/client/styles/styles.less'
+    };
+
+    return config;
+};
+
+```
+
+Using the previous defined $, we can now run a task like so
+
+```js
+gulp.task('styles', function() {
+    //log('Compile LESS to CSS');
+
+    return gulp
+        .src(config.less) //TODO add config
+        .pipe($.less())
+        .pipe($.autoprefixer())
+        .pipe(gulp.dest(config.temp)); //TODO add config
+});
+```
+
+Furthermore, rather than calling this gulp task every time, we can set gulp to watch for changes in our less with the following task using the watch api:
+
+```js
+gulp.task('less-watcher', function(){
+    gulp.watch([config.less], ['styles'])
+});
+```
+
+## Handle Errors Gracefully
+
+To handle errors without stopping gulp and in order to give us better error handling, we can use a tool called plumber. We can install this tool by using `npm install --save-dev gulp-plumber`
+
+We will pipe this into our task like any plugin with
+
+```js
+gulp.task('styles', function() {
+    //log('Compile LESS to CSS');
+
+    return gulp
+        .src(config.less) //TODO add config
+        .pipe($.plumber())
+        .pipe($.less())
+        .pipe($.autoprefixer())
+        .pipe(gulp.dest(config.temp)); //TODO add config
+});
+```
