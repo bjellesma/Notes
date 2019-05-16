@@ -305,3 +305,57 @@ gulp.task('styles', function() {
         .pipe(gulp.dest(config.temp)); //TODO add config
 });
 ```
+# Browsersync
+
+1. Install browser sync
+
+```bash
+sudo npm install --save-dev browsersync
+```
+
+2. Include browser sync in your gulp file seperately with
+
+```js
+var browserSync = require('browser-sync');
+```
+
+3. Create a gulp task
+
+```js
+gulp.task('serve-dev', function(){
+    var options = {
+        proxy: 'localhost:' + port,
+        port: 3000,
+        files: [
+            config.client + '**/*.*'
+        ],
+        // ghostMode will keep the browsers in sync so that scrolling in one browser will scroll in another browser
+        ghostMode: {
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        // inject changes means that it will only reload if changes are detected
+        injectChanges: true,
+        // logging options are just for verbose behavior
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'gulp-patterns',
+        notify: true,
+        reloadDelay: 0 //1000
+    };
+
+    browserSync(options);
+});
+```
+for linux users, you may run into the following error:
+
+```
+Waiting...Fatal error: watch ENOSPC
+```
+
+To solve this, use the following command to increase the number of watches that a user can have running:
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
