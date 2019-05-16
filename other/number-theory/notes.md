@@ -56,3 +56,20 @@ The equation we are dealing with is a = 7 + q * 101. Note that if q is negative,
 Is it true that for any four integers aa, bb, cc, dd there are two of them whose difference is divisible by 3?
 
 There are only 3 possible remainders when dividing by 3: 0, 1, and 2. Therefore, if we divide any two of the above numbers by 3, at least two of the numbers will have the same remainder. Furthermore, If you subtract these two numbers that have the same remainer, the result is divisible by three
+
+### Lemma
+
+Suppose we divide a by 10 with a remainder. Then the remainder is the last digit of a and the quotient is the number formed by all digits of a except the last one.
+
+#### Corollary
+
+An integer a is divisible by 10 iff its last digit is 0
+
+### Question
+
+What is the quotient and remainder of 7347/5?
+```
+7347 = 7340+7 = 734 * 10 + 7 = (734*2)*5+(5*1)+2 = (1468+1)*5+2 = 1469*5+2
+```
+
+therefore, the quotient is 1469 and the remainder is 2
