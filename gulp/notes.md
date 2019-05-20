@@ -359,3 +359,42 @@ To solve this, use the following command to increase the number of watches that 
 ```bash
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+# Listing Assets
+
+Compressing images
+```js
+gulp.task('images', ['clean-images'], function() {
+    log('Copying and compressing the images');
+
+    return gulp
+        .src(config.images)
+        .pipe($.imagemin({optimizationLevel: 4}))
+        .pipe(gulp.dest(config.build + 'images'));
+});
+```
+
+Listing Tasks
+```js
+gulp.task('help', $.taskListing);
+gulp.task('default', ['help']);
+```
+This is making help the default task so that you can run this with `gulp`
+
+Dependancies
+
+You can ensure that some tasks are written before other ones are called like so
+
+```js
+gulp.task('styles', ['clean-styles'], function() {
+    log('Compiling Less --> CSS');
+
+    return gulp
+        .src(config.less)
+        .pipe($.plumber())
+        .pipe($.less())
+        .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+        .pipe(gulp.dest(config.temp));
+});
+```
+In the above example, we're making sure that clean styles, the task to clean the styles folder, is run before styles, the task to compile less to css
