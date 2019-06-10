@@ -39,4 +39,6 @@ var obj = {
 obj.foo(); //42
 ```
 
+* `() => console.log('hello world`)` just means that () is the parameter list. The parameter list is optional if the list is empty but is more readable to have*
+
 Because the arrow function doesn't have a bound `this` keyword, `this` refers to the scope above, the object.
