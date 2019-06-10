@@ -22,3 +22,21 @@ If you need your function to return an object (objects also use curly braces, yo
 x => ({y:x})
 ```
 
+## Where arrow functions are useful
+
+Arrow functions are useful in circumstance where `this` will be confused because arrow functions don't have a bound `this` keyword.
+
+```js
+var obj = {
+    id: 42,
+    foo: function foo(){
+        setTimeout(() => {
+            console.log(this.id)
+        }, timeout);
+    }
+}
+
+obj.foo(); //42
+```
+
+Because the arrow function doesn't have a bound `this` keyword, `this` refers to the scope above, the object.
