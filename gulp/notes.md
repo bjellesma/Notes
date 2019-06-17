@@ -398,3 +398,59 @@ gulp.task('styles', ['clean-styles'], function() {
 });
 ```
 In the above example, we're making sure that clean styles, the task to clean the styles folder, is run before styles, the task to compile less to css
+
+## File Revisions
+
+You can use a plugin like [gulp-rev](https://github.com/sindresorhus/gulp-rev) to rename your file to include a content hash in the filename:
+
+```js
+const gulp = require('gulp');
+const rev = require('gulp-rev');
+
+gulp.task('default', () =>
+	gulp.src('src/*.css')
+		.pipe(rev())
+		.pipe(gulp.dest('dist'))
+);
+```
+
+Optionally, we can write the file names to a manifest to keep track of how the names are changing like this:
+
+```js
+const gulp = require('gulp');
+const rev = require('gulp-rev');
+
+gulp.task('default', () =>
+	// By default, Gulp would pick `assets/css` as the base,
+	// so we need to set it explicitly:
+	gulp.src(['assets/css/*.css', 'assets/js/*.js'], {base: 'assets'})
+		.pipe(gulp.dest('build/assets'))  // copy original assets to build dir
+		.pipe(rev())
+		.pipe(gulp.dest('build/assets'))  // write rev'd assets to build dir
+		.pipe(rev.manifest())
+		.pipe(gulp.dest('build/assets'))  // write manifest to build dir
+);
+```
+This will create a file called `rev-manifest.json`.
+
+This plugin will rename a file like `app.js` to `app-156j2f11.js`. The biggest use case for this is **cache busting** so that browsers are forced to download a new version of the file. 
+
+We would then use a plugin like [gulp-rev-replace](https://github.com/TheDancingCode/gulp-rev-rewrite) to rename occurances of this file to our new filename:
+
+```js
+const gulp = require('gulp');
+const filter = require('gulp-filter');
+const rev = require('gulp-rev');
+const revRewrite = require('gulp-rev-rewrite');
+
+gulp.task('rev', () => {
+  const assetFilter = filter(['**/*', '!**/index.html'], { restore: true });
+
+  return gulp.src('src/**')
+    .pipe(assetFilter)
+    .pipe(rev()) // Rename all files except index.html
+    .pipe(assetFilter.restore)
+    .pipe(revRewrite()) // Substitute in new filenames
+    .pipe(gulp.dest('dist'));
+});
+```
