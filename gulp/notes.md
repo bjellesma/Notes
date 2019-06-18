@@ -454,3 +454,234 @@ gulp.task('rev', () => {
     .pipe(gulp.dest('dist'));
 });
 ```
+
+# Automated Testing
+
+For our examples, we're going to be using [Karma](https://github.com/karma-runner/karma) as our test runner along with [Mocha](https://mochajs.org/) as our testing framework. 
+
+Our first step is to create a `karma.conf.js` file to instruct Karma of the tests that we're to run
+
+```js
+module.exports = function(config) {
+    var gulpConfig = require('./gulp.config')();
+
+    config.set({
+        // base path that will be used to resolve all patterns (eg. files, exclude)
+        basePath: './',
+
+        // frameworks to use
+        // some available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['mocha', 'chai', 'sinon', 'chai-sinon'],
+
+        // list of files / patterns to load in the browser
+        files: gulpConfig.karma.files,
+
+        // list of files to exclude
+        exclude: gulpConfig.karma.exclude,
+
+        proxies: {
+            '/': 'http://localhost:8888/'
+        },
+
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+        preprocessors: gulpConfig.karma.preprocessors,
+
+        // test results reporter to use
+        // possible values: 'dots', 'progress', 'coverage'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['progress', 'coverage'],
+
+        coverageReporter: {
+            dir: gulpConfig.karma.coverage.dir,
+            reporters: gulpConfig.karma.coverage.reporters
+        },
+
+        // web server port
+        port: 9876,
+
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
+
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR ||
+        // config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
+
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
+
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        //        browsers: ['Chrome', 'ChromeCanary', 'FirefoxAurora', 'Safari', 'PhantomJS'],
+        browsers: ['PhantomJS'],
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: false
+    });
+};
+```
+
+as you can see, we're using our gulp.config.js file to tell karma where to look for files
+
+```js
+module.exports = function() {
+    var client = './src/client/';
+    var clientApp = client + 'app/';
+    var report = './report/';
+    var root = './';
+    var server = './src/server/';
+    var specRunnerFile = 'specs.html';
+    var temp = './.tmp/';
+    var wiredep = require('wiredep');
+    var bowerFiles = wiredep({devDependencies: true})['js'];
+
+    var config = {
+        /**
+         * Files paths
+         */
+        alljs: [
+            './src/**/*.js',
+            './*.js'
+        ],
+        build: './build/',
+        client: client,
+        css: temp + 'styles.css',
+        fonts: './bower_components/font-awesome/fonts/**/*.*',
+        html: clientApp + '**/*.html',
+        htmltemplates: clientApp + '**/*.html',
+        images: client + 'images/**/*.*',
+        index: client + 'index.html',
+        js: [
+            clientApp + '**/*.module.js',
+            clientApp + '**/*.js',
+            '!' + clientApp + '**/*.spec.js'
+        ],
+        less: client + 'styles/styles.less',
+        report: report,
+        root: root,
+        server: server,
+        temp: temp,
+
+        /**
+         * optimized files
+         */
+        optimized: {
+            app: 'app.js',
+            lib: 'lib.js'
+        },
+
+        /**
+         * template cache
+         */
+        templateCache: {
+            file: 'templates.js',
+            options: {
+                module: 'app.core',
+                standAlone: false,
+                root: 'app/'
+            }
+        },
+
+        /**
+         * browser sync
+         */
+        browserReloadDelay: 1000,
+
+        /**
+         * Bower and NPM locations
+         */
+        bower: {
+            json: require('./bower.json'),
+            directory: './bower_components/',
+            ignorePath: '../..'
+        },
+        packages : [
+            './package.json',
+            './bower.json'
+        ],
+
+        /**
+         * specs.html, our HTML spec runner
+         */
+        specRunner: client + specRunnerFile,
+        specRunnerFile: specRunnerFile,
+        testlibraries: [
+           'node_modules/mocha/mocha.js',
+           'node_modules/chai/chai.js',
+           'node_modules/mocha-clean/index.js',
+           'node_modules/sinon-chai/lib/sinon-chai.js'
+        ],
+        specs: [clientApp + '**/*.spec.js'],
+
+        /**
+         * Karma and testing settings
+         */
+        specHelpers: [client + 'test-helpers/*.js'],
+        serverIntegrationSpecs: [client + 'tests/server-integration/**/*.spec.js'],
+
+        /**
+         * Node settings
+         */
+        defaultPort: 7203,
+        nodeServer: './src/server/app.js'
+
+    };
+
+    config.getWiredepDefaultOptions = function() {
+        var options = {
+            bowerJson: config.bower.json,
+            directory: config.bower.directory,
+            ignorePath: config.bower.ignorePath
+        };
+        return options;
+    };
+
+    config.karma = getKarmaOptions();
+
+    return config;
+
+    ////////////////
+
+    function getKarmaOptions() {
+        var options = {
+            files: [].concat(
+                bowerFiles,
+                config.specHelpers,
+                client + '**/*.module.js',
+                client + '**/*.js',
+                temp + config.templateCache.file,
+                config.serverIntegrationSpecs
+            ),
+            exclude: [],
+            coverage: {
+                dir: report + 'coverage',
+                reporters: [
+                    {type: 'html', subdir: 'report-html'},
+                    {type: 'lcov', subdir: 'report-lcov'},
+                    {type: 'text-summary'}
+                ]
+            },
+            preprocessors: {}
+        };
+        options.preprocessors[clientApp + '**/!(*.spec)+(.js)'] = ['coverage'];
+        return options;
+    }
+};
+
+```
+
+Create a gulp task like the following:
+
+```js
+gulp.task('test', function(done) {
+    startTests(true /* singleRun */, done);
+});
+```
+
+Running Karma and Mocha requires the following npm:
+
+```shell
+npm install --save-dev karma karma-chai karma-chai-sinon karma-chrome-launcher karma-coverage karma-growl-reporter karma-mocha karma-phantomjs-launcher karma-sinon  mocha mocha-clean sinon-chai sinon phantomjs
+```
