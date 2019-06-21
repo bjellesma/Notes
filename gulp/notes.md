@@ -381,6 +381,8 @@ gulp.task('default', ['help']);
 ```
 This is making help the default task so that you can run this with `gulp`
 
+**Because task listing is done by just `gulp --tasks` in gulp 4, this is no longer needed
+
 Dependancies
 
 You can ensure that some tasks are written before other ones are called like so
