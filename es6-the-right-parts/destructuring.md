@@ -46,3 +46,7 @@ var [
 In the above case, 42 is assigned to c because there is no corresponding value in the array.
 
 You can use this technique to assign multiple variables at once in a similar fashion to tuple unpacking in python
+
+```js
+var [a,b,c] = ["jeff", "likes", "toenails"]
+```
