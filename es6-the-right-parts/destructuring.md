@@ -50,3 +50,33 @@ You can use this technique to assign multiple variables at once in a similar fas
 ```js
 var [a,b,c] = ["jeff", "likes", "toenails"]
 ```
+
+You can use object destructing as function assignments to mimic the effect of having named parameters:
+
+```js
+function foo({a,b,c}){
+	console.log(a,b,c)
+}
+
+foo({
+  a:1,
+  b:2,
+  c:3
+})
+```
+
+This would give the values 1,2,3 while if you use the wrong names for parameters
+
+```js
+function foo({d,e,f}){
+	console.log(d,e,f)
+}
+
+foo({
+  a:1,
+  b:2,
+  c:3
+})
+```
+
+You'll get undefined, undefined, undefined
