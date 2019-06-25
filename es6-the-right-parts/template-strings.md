@@ -30,3 +30,43 @@ var obj = {
   [c]:"yo"
 }
 ```
+# Template Strings
+
+ES6 introduces a form of string interpolation they call **Template Strings**. In ES5, you would write 
+
+```js
+"use strict";
+
+var firstName = "John";
+var lastName = "Smith";
+var msg = "Hello ".concat(firstName, " ").concat(lastName);
+```
+
+In ES6, you can now write
+
+```js
+let firstName = "John";
+let lastName = "Smith";
+
+let msg = `Hello ${firstName} ${lastName}`;
+```
+
+In order to span multiple lines (in the text editor and not the msg), you would do
+
+```js
+let firstName = "John";
+let lastName = "Smith";
+
+let msg = `Hello ${firstName} \
+and ${lastName}`;
+```
+
+To get actual multiple lines in the outputted string, we would just remove the escape char
+
+```js
+let firstName = "John";
+let lastName = "Smith";
+
+let msg = `Hello ${firstName} 
+and ${lastName}`;
+```
