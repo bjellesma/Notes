@@ -70,3 +70,31 @@ let lastName = "Smith";
 let msg = `Hello ${firstName} 
 and ${lastName}`;
 ```
+
+Just as with jinja in python, any valid javascript is allowed in these template literals.
+
+# Tag Functions
+
+You can use tag functions as an abstracted way to format strings. For example, you can use a tag function to format a string with currency to automatically round to two decimal places.
+
+```js
+function currency(strings, ...values){
+    var str = "";
+    for(let i=0; i<strings.length; i++){
+        if(i>0){
+            if(typeof values[i-1] == "number"){
+                str += values[i-1].toFixed(2);
+            }else{
+                str += values[i-1];
+            }
+        }
+        str += strings[i];
+    }
+    return str;
+}
+
+var msg = currency`Hello ${name}, your \
+order was $${total}.`;
+````
+
+In the above example, total is a number so it is formatted as currency. You've now extracted this functionality so that you don't need to manually remember to format.
