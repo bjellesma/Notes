@@ -28,6 +28,7 @@ main.js. This is our main file that acts as the main process and will receive ev
 
 ```js
 const electron = require('electron')
+//include the countdown file so that we can use the countdown function
 const countdown = require('./countdown.js')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -47,15 +48,17 @@ app.on('ready', _ => {
 
     mainWindow.loadURL(`file://${__dirname}/countdown.html`)
 
-    countdown()
-
     mainWindow.on('closed', _ => {
         mainWindow = null
     })
 })
 
 ipc.on('countdown-start', _ => {
-    console.log('caught')
+    //send the count back to the countdown function
+    countdown(count => {
+        //emits a new event called coundown and we're sending count as the argument
+        mainWindow.webContents.send('countdown', count)
+    })
 })
 ```
 
@@ -68,6 +71,7 @@ countdown.html. Notice that we're able to use the node `require()` statement. Th
     </head>
     <body>
         <button id="start">Start</button>
+        <div id="count"></div>
         <script>require('./renderer.js')</script>
     </body>
 </html>
@@ -84,4 +88,28 @@ document.getElementById('start').addEventListener('click', _ => {
     //sending the countdown-start event to the main process
     ipc.send('countdown-start')
 })
+
+//this is a handler for when the countdown event is received
+ipc.on('countdown', (evt, count) => {
+    // display the count in an element called count
+    document.getElementById('count').innerHTML = count
+})
+```
+
+You'll notice that for this particular project, we're using a js file to export to the main file call `countdown.js`
+
+```js
+module.exports = function countdown(tick){
+    //tick is acting as a callback function
+    console.log('begin countdown')
+    let count = 10
+
+    let timer = setInterval(_ => {
+        // sending the decrement of count to the callback function
+        tick(count--)
+        if(count === 0){
+            clearInterval(timer)
+        }
+    }, 1000)
+}
 ```
