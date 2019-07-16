@@ -104,3 +104,8 @@ Rmove default size in sites enabled
 sudo rm /etc/nginx/sites-enables/default
 ```
 
+Restart the nginx service for the config to take effect
+
+```shell
+sudo service nginx restart
+```
