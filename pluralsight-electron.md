@@ -113,3 +113,52 @@ module.exports = function countdown(tick){
     }, 1000)
 }
 ```
+
+# Application Menu
+
+Use the following sample code to create an application menu
+
+
+```js
+const electron = require('electron')
+const app = electron.app 
+const BrowserWindow = electron.BrowserWindow 
+const Menu = electron.Menu 
+
+app.on('ready', _ => {
+    new BrowserWindow()
+    const template = [
+        {
+            label: electron.app.getName(),
+            submenu: [{
+                label: `About ${name}`,
+                click: _ => {
+                    console.log('clicked')
+                },
+                role: 'about'
+            }              
+            ]
+        }
+    ]
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
+})
+```
+
+# System Tray
+
+A cool feature is that we can add in a tray icon. We need to do the following two items.
+
+1. Where we're defining our electron constants at the top, we can add `const Tray = electron.Tray`
+
+Our constants are now getting a little crowded so we'll take advantage of array destructuring with 
+
+```js
+const {app,Menu,Tray} = electron
+```
+
+2. Inside of our app.ready, we'll also use the following
+
+```js
+const tray = New Tray(path.join('src', 'trayIcon.png'))
+```
