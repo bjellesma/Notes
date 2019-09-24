@@ -162,3 +162,39 @@ const {app,Menu,Tray} = electron
 ```js
 const tray = New Tray(path.join('src', 'trayIcon.png'))
 ```
+
+# Using the filesystem
+
+on renerer.js
+
+```js
+const fs = require('fs')
+
+function isDir(dir){
+    try{
+        return fs.lstatSync(dir).isDirectory()
+    }catch(e){
+        return false
+    }
+    
+}
+
+function saveFile(dir){
+    fs.writeFile(path.join(dir), 'data.txt')
+}
+```
+
+# Build and package app
+
+`npm install -D electron-packager rimraf`
+
+Add the following to package.json
+
+```js
+"scripts": {
+    "build": "rimraf electron-demo-* && electron-packager . --platform=darwin,win32,linux --arch=x64 --icon=app",
+    "start": "electron ."
+  },
+```
+
+
