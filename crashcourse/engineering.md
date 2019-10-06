@@ -41,3 +41,6 @@ The **Transistor** was a semiconductor device that could amplify or switch elect
 
 One of the broadest of the engineering fields, focused not only on chemicals but also on developing and designing plants and processes for manufacturing chemicals.
 
+**Biomedical Engineering** typically refers to healthcare in that you're engineering medicine and prostetics.
+**Industrial Engineering** refers to the optimization of the assembly line and is the backbone of most engineering.
+
