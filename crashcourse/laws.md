@@ -1,0 +1,1 @@
+**conversion**- describes how much of our initial input was used in the process. If we have a system with a 60% conversion rate and we use use 100kg of iron as input, our desired output will only use 60kg of iron, the other 40kg will go to waste and by-products.
