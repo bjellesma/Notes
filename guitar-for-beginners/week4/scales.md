@@ -1,0 +1,1 @@
+Scales are sometimes played at different positions. The positions basically mean playing at different frets. So if you're playing a scale at third position, it basically means that the scale starts on the third fret.
