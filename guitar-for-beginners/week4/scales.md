@@ -6,4 +6,4 @@ When they say chromatic scale in G, they mean start on a G note and either ascen
 
 ![Scale](https://www.liveabout.com/thmb/LugvEH4vG4oeiRObKe_ie8ER_0k=/300x150/filters:no_upscale():max_bytes(150000):strip_icc()/chromaticscale-56a4610a3df78cf7728215ec.gif)
 
-**Major Scales** A diatonic scale having half steps between the third and fourth and the seventh and eighth degrees and whole steps between the other adjacent degrees. major scale.
+**Major Scales** A diatonic scale having half steps between the third and fourth and the seventh and eighth degrees and whole steps between the other adjacent degrees. major scale. So, a major scale always follows the same step pattern: whole, whole, half, whole, whole, whole, half (WWHWWWH). This pattern will always bring the root note up an octave. 
