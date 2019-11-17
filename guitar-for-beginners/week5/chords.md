@@ -17,3 +17,20 @@ For example, a C major chord would look like this
 
 And a C minor chord would look like this
 ![C minor](https://www.pickupguitarproject.com/wp-content/uploads/2018/12/C-minor-Open-Chord-Diagram-e1544983635674.png)
+
+**Bar Chords** involve barring a whole fret on every string. The F major chord involves barring the first fret on all six strings. The F Major chord follows the same pattern as other major triad chords but because of its unique pattern, the first fret is hit on the sixth, second, and first strings. Because the fifth, forth, and third strings require us to fret the third, third, and second frets respectively, we can simply bar the entire first fret.
+
+![F Major Chord](https://www.chordbank.com/media/how-f-major-chord-v1.png)
+
+You can also take this idea of bar chords to take open chords along the fretboard.
+
+**Power Chords** are simply the root and fifth of a chord being played. Because the root is always in the chord. The power chord is always named after the root. 
+
+For example, this is the basic F Major power chord 
+
+![F major power chord](https://www.theguitarlesson.com/wp-content/uploads/chords/F5-chord2.jpg)
+
+We can also double on the octave of the F major power chord for a different voicing.
+
+![F major power chord](https://www.theguitarlesson.com/wp-content/uploads/chords/F5-chord1.jpg)
+
