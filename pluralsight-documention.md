@@ -52,3 +52,20 @@ Once your draft is complete, you'll want to review your docs once again so that 
 5. Launch
 
 Make sure to have a plan to keep documentation in sync with software.
+
+# Writing Tips and Best Practices
+
+Accuracy is better than speed so take your time to write documentation
+Make sure to consult with the subject matter experts on what you're writing about.
+Give an introduction or abstract of what you're doing first. This way, the reader doesn't need to read everything before they find out that this doesn't suit their needs.
+Don't be afraid to use stronger language to get your point across.
+* Convey only the needed information and avoid verbose information. You should trim the verbose information when you review and edit documentation.
+* Only include the information necessary for that action of the documentation.
+  * For example, if you have one document for quick start, installation, and troubleshooting, maybe those should all be seperate documents.
+* Keep sentences short and sweet rather than wordy.
+* Cut the "Fluffy" words such as good and very.
+* Make use of graphs and charts when the information can use it.
+* When determining the tone of your documentation, consider the audience that you're writing for.
+  * Writing for 60 year old users, a formal tone would be needed
+  * Writing for a startup of 20 somes would necessitate a more relaxed tone.
+* Keep consistency in the tense of your document
