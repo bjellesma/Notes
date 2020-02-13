@@ -70,14 +70,14 @@ Don't be afraid to use stronger language to get your point across.
   * Writing for a startup of 20 somes would necessitate a more relaxed tone.
 * Keep consistency in the tense of your document
 * Grammar is a reflection of your image
- * "Set up" used as two words is a verb
- * "Setup" used as one word is a noun
- * This same distinction can be applied to "login" and "backup"
- * i.e. means that is
- * e.g. means for example
- * Warning call attention to dangers. Caution calls attention to anything that could result in damage. Note emphasizes important information but failure to read the note should not result in physical harm to the reader or equipment.
- * backward, toward, and forward should not have an s at the end of the words but often are written this way
- * double-click, right-click, and left-click should all be hyphenated
- * Web site was changed to website in 2010
- * e-mail was changed to email in 2011
+  * "Set up" used as two words is a verb
+  * "Setup" used as one word is a noun
+  * This same distinction can be applied to "login" and "backup"
+  * i.e. means that is
+  * e.g. means for example
+  * Warning call attention to dangers. Caution calls attention to anything that could result in damage. Note emphasizes important information but failure to read the note should not result in physical harm to the reader or equipment.
+  * backward, toward, and forward should not have an s at the end of the words but often are written this way
+  * double-click, right-click, and left-click should all be hyphenated
+  * Web site was changed to website in 2010
+  * e-mail was changed to email in 2011
  
