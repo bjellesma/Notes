@@ -81,3 +81,60 @@ Don't be afraid to use stronger language to get your point across.
   * Web site was changed to website in 2010
   * e-mail was changed to email in 2011
  
+# Layout and Design
+
+* Serif fonts
+  * Good for printed material and headings
+  * Tend to not be as user friendly
+* Sans Serif fonts
+  * user friendly
+  * Good for web
+* Keep in mind to use web safe fonts available on all OSs so that your design is not comprimised
+* Keep high contrast such as black text on a while background. This is good for readability.
+* Use whitespace generously on a page to keep with simlicity
+  * For example, 85% of Google's homepage is whitespace making it simple to scan with your eyes and use
+  * A number surounded by a lot of whitespace stands out
+* Page numbers are important so that you can easily refer to this
+* Capitalize the first word of each bullet
+* Begin each list item the same way (noun, verb, etc.)
+* Numbering schemes should 1.1, 1.2, etc. if you have multiple sections rather than 1, 2, etc under each section.
+  * This way, you can more easily refer to a step number
+* Use icons for important information to make things easier for your reader
+
+# Deliverables
+
+Project requirements should have the following attributes:
+
+* Unitary
+  * The feature address one and only one thing
+  * A requirement that the user be able to register, login, and change password is three seperate requirements and not one requirement
+* Complete
+  * The requirement should be fully stated in one place, with no missing information
+* Consistent
+  * No two requirements should contradict each other and the requirements should line up with all documentation
+* Unambiguous
+  * The requirement should be consisely stated and subject to only one possible interpretation
+* Verifiable
+  * Once the implementation is complete, the user should be able to verify it by testing
+* Specify Importance
+  * It should be easy to assign a priority to the task
+* Current
+  * Important in longer projects to ensure that as time passes on, no requirement will be made obsolete
+  
+## Writing clear requirements
+
+* Be consistent with terms
+* Use a glossary for term definitions
+* Don't use vague terms
+* Be consise and don't include verbose information
+
+## Styles of requirements
+
+### User Stories
+
+Define in every day language what you want a user to do
+
+Format: As a <type of user>, I want <some goal> so that <some reason>
+
+### Text Based
+### Use Case
