@@ -1,0 +1,1 @@
+This is a directory to hold all of my notes for any online classes.
