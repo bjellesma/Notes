@@ -221,3 +221,53 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 | Chevy | 3     |
 
 ---
+
+### Query to remind user of vehicle registration
+
+**Schema (PostgreSQL v9.6)**
+```sql
+    create table drivers (
+          id serial primary key,
+          first_name varchar,
+          last_name varchar
+        );
+        
+        create table vehicles (
+          id serial primary key,
+          make varchar,
+          model varchar,
+          driver_id integer references drivers(id)
+        );
+        
+    INSERT INTO drivers (first_name, last_name) VALUES ('Bill', 'Jellesma'),('Sarah', 'Smith'),('John', 'Smith');
+    INSERT INTO vehicles (make, model, driver_id) VALUES ('Chevy', 'Malibu', 1),('Ford', 'Station Wagon',2),('Chevy','Silverado',3),('Chevy','Camero',1),('Tesla','Model S', 2),('Ford', 'Explorer',3);
+    
+    --Update vehicles table to show date of registration information
+    ALTER TABLE vehicles
+    ADD COLUMN registration_date TIMESTAMPTZ;
+    UPDATE vehicles SET registration_date = '2019-06-12 00:00' WHERE id=1;
+    UPDATE vehicles SET registration_date = '2020-02-01 00:00' WHERE id=2;
+    UPDATE vehicles SET registration_date = '2020-05-01 00:00' WHERE id=3;
+    UPDATE vehicles SET registration_date = '2019-12-22 00:00' WHERE id=4;
+    UPDATE vehicles SET registration_date = '2020-01-04 00:00' WHERE id=5;
+    UPDATE vehicles SET registration_date = '2020-03-22 00:00' WHERE id=6;
+```
+---
+
+**Query #1**
+```sql
+    SELECT 
+    FORMAT('%1$s %2$s', drivers.first_name, drivers.last_name) full_name,
+    FORMAT('%1$s %2$s', vehicles.make, vehicles.model) vehicle,
+    to_char(registration_date, 'Month DD, YYYY') date_of_registration,
+    to_char(registration_date+interval '12 month', 'Month DD, YYYY') registration_due
+    FROM vehicles
+    INNER JOIN drivers
+    ON drivers.id = vehicles.driver_id
+    WHERE registration_date < NOW() - interval '11 month';
+```
+| full_name     | vehicle      | date_of_registration | registration_due   |
+| ------------- | ------------ | -------------------- | ------------------ |
+| Bill Jellesma | Chevy Malibu | June      12, 2019   | June      12, 2020 |
+
+---
