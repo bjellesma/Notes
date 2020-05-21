@@ -276,13 +276,61 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 
 ---
 
-Keep in mind the execution plan on queries to identify bottlenecks. Check out the execution plan for the last query. If using SQL Fiddle, you can get the execution plan after you've written the query.
+Keep in mind the execution plan on queries to identify bottlenecks. To see the full execution plan for a postgres statement, modify the above SELECT query with an EXPLAIN predessessor. We can also use ANALYZE to get the exact execution time.
+
+```sql
+EXPLAIN ANALYZE
+SELECT 
+FORMAT('%1$s %2$s', drivers.first_name, drivers.last_name) full_name,
+FORMAT('%1$s %2$s', vehicles.make, vehicles.model) vehicle,
+to_char(registration_date, 'Month DD, YYYY') date_of_registration,
+to_char(registration_date+interval '12 month', 'Month DD, YYYY') registration_due
+FROM vehicles
+INNER JOIN drivers
+ON drivers.id = vehicles.driver_id
+WHERE registration_date < NOW() - interval '11 month';
+```
 
 ```
-Hash Join (cost=29.12..58.81 rows=250 width=128)
+Hash Join (cost=29.12..58.81 rows=250 width=128) (actual time=0.139..0.141 rows=1 loops=1)
 Hash Cond: (vehicles.driver_id = drivers.id)
--> Seq Scan on vehicles (cost=0.00..23.12 rows=250 width=76)
+-> Seq Scan on vehicles (cost=0.00..23.12 rows=250 width=76) (actual time=0.008..0.010 rows=1 loops=1)
 Filter: (registration_date < (now() - '11 mons'::interval))
--> Hash (cost=18.50..18.50 rows=850 width=68)
--> Seq Scan on drivers (cost=0.00..18.50 rows=850 width=68)
+Rows Removed by Filter: 5
+-> Hash (cost=18.50..18.50 rows=850 width=68) (actual time=0.014..0.014 rows=3 loops=1)
+Buckets: 1024 Batches: 1 Memory Usage: 9kB
+-> Seq Scan on drivers (cost=0.00..18.50 rows=850 width=68) (actual time=0.002..0.002 rows=3 loops=1)
+Planning time: 0.354 ms
+Execution time: 0.199 ms
 ```
+
+As you can see, hash joins are the most expensive of these operations as every row of one table is being joined to every row of another joined table.
+
+We can speed these operations up by creating an **index**. Indexes help when we query data but should be avoided when we're modifying data. Make an index query before the select query and notice that our lookup is now faster.
+
+```sql
+CREATE INDEX idx_vehicle_id ON vehicles(id);
+Explain ANALYZE
+SELECT 
+FORMAT('%1$s %2$s', drivers.first_name, drivers.last_name) full_name,
+FORMAT('%1$s %2$s', vehicles.make, vehicles.model) vehicle,
+to_char(registration_date, 'Month DD, YYYY') date_of_registration,
+to_char(registration_date+interval '12 month', 'Month DD, YYYY') registration_due
+FROM vehicles
+INNER JOIN drivers
+ON drivers.id = vehicles.driver_id
+WHERE registration_date < NOW() - interval '11 month';
+
+```
+
+```
+Nested Loop (cost=0.15..17.48 rows=2 width=128) (actual time=0.059..0.062 rows=1 loops=1)
+-> Seq Scan on vehicles (cost=0.00..1.10 rows=2 width=76) (actual time=0.005..0.007 rows=1 loops=1)
+Filter: (registration_date < (now() - '11 mons'::interval))
+Rows Removed by Filter: 5
+-> Index Scan using drivers_pkey on drivers (cost=0.15..8.17 rows=1 width=68) (actual time=0.002..0.002 rows=1 loops=1)
+Index Cond: (id = vehicles.driver_id)
+Planning time: 0.269 ms
+Execution time: 0.095 ms
+```
+
