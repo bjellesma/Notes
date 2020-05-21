@@ -18,6 +18,10 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 
 ## Commands to know
 
-| Manipulating | Querying | 
-|---|---|
-| Example | Example |
+| Manipulating | Querying | Structuring | Joins | Grouping | Aggregate |
+|---|---|---|---|---|---|
+| Insert | Select | Create Table | (Inner) Join | Group By | Sum |
+| Update |   | Alter Table | Left Join |    | Count |
+| Delete |   | Drop Table | Right Join |    |    |
+|   |   | Add Column |   |   |   |
+|   |   | Drop Column |   |   |   |
