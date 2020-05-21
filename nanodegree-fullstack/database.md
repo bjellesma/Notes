@@ -31,7 +31,7 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 ### Manipulating data
 
 **Schema (PostgreSQL v9.6)**
-
+```sql
     create table drivers (
       id serial primary key,
       first_name varchar,
@@ -57,7 +57,7 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
     --Driver id 1 gets a new vehicle
     INSERT INTO vehicles (make, model, driver_id) VALUES ('Chevy', 'Camero', 1)
     
-
+```
 ---
 
 **Query #1**
@@ -86,7 +86,7 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 ## Structuring Data
 
 **Schema (PostgreSQL v9.6)**
-
+```sql
     create table drivers (
       id serial primary key,
       first_name varchar,
@@ -116,7 +116,7 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
     ALTER TABLE drivers
     ADD COLUMN email varchar,
     ADD COLUMN address varchar;
-
+```
 ---
 
 **Query #1**
@@ -145,7 +145,7 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 ## Joins and Group Bys
 
 **Schema (PostgreSQL v9.6)**
-
+```sql
     create table drivers (
           id serial primary key,
           first_name varchar,
@@ -161,7 +161,7 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
         
     INSERT INTO drivers (first_name, last_name) VALUES ('Bill', 'Jellesma'),('Sarah', 'Smith'),('John', 'Smith');
     INSERT INTO vehicles (make, model, driver_id) VALUES ('Chevy', 'Malibu', 1),('Ford', 'Station Wagon',2),('Chevy','Silverado',3),('Chevy','Camero',1),('Tesla','Model S', 2),('Ford', 'Explorer',3);
-
+```
 ---
 
 **Query #1**
@@ -221,5 +221,3 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 | Chevy | 3     |
 
 ---
-
-[View on DB Fiddle](https://www.db-fiddle.com/)
