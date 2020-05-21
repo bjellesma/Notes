@@ -16,6 +16,10 @@ If you have more than 1 column identifying the uniqueness of a table, the set of
 
 Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own *flavor* (**dialect**) of SQL that it implements because none of them are 100% compliant with the SQL standard.
 
+**Inner Joins** - returns rows of data only if they exist between all joined tables
+
+**Outer Joins** - return every row that exists in the left and right joined table while rendering NULL values on rows who foreign key does not match a record in the other table. LEFT and RIGHT JOINS will return null for the other table.
+
 ## Commands to know
 
 | Manipulating | Querying | Structuring | Joins | Grouping | Aggregate |
@@ -271,3 +275,14 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 | Bill Jellesma | Chevy Malibu | June      12, 2019   | June      12, 2020 |
 
 ---
+
+Keep in mind the execution plan on queries to identify bottlenecks. Check out the execution plan for the last query. If using SQL Fiddle, you can get the execution plan after you've written the query.
+
+```
+Hash Join (cost=29.12..58.81 rows=250 width=128)
+Hash Cond: (vehicles.driver_id = drivers.id)
+-> Seq Scan on vehicles (cost=0.00..23.12 rows=250 width=76)
+Filter: (registration_date < (now() - '11 mons'::interval))
+-> Hash (cost=18.50..18.50 rows=850 width=68)
+-> Seq Scan on drivers (cost=0.00..18.50 rows=850 width=68)
+```
