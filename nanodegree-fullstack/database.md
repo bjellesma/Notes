@@ -20,6 +20,10 @@ Every relational database system (Postgres, SQL Server, MySQL, etc.) has its own
 
 **Outer Joins** - return every row that exists in the left and right joined table while rendering NULL values on rows who foreign key does not match a record in the other table. LEFT and RIGHT JOINS will return null for the other table.
 
+A **Hash Table** is just a data structure for quickly looking things up. A **Hashing function** take a key and returns an index. A python dictionary is an example of a hash table. The advantage of a hash table is that it is O(1) if we know the key and O(n) worst case
+
+A **database server** will treat the **web server** as a client.
+
 ## Commands to know
 
 | Manipulating | Querying | Structuring | Joins | Grouping | Aggregate |
