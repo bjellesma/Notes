@@ -24,7 +24,30 @@ A **Hash Table** is just a data structure for quickly looking things up. A **Has
 
 A **database server** will treat the **web server** as a client.
 
-## Commands to know
+The following image is the typical picture of the **client-server** model with relation to the web and also emphasizes the differences between **front-end** and **back-end**.
+
+![Client Server Model](images/client_server.png)
+
+The client and server use a common language (called a **communication protocol**) to talk over.
+
+**Ports** allow multiple types of traffic being received at the same time on a given device, to be tracked and routed to where they need to go. The default port for Postgres and the port that most databases use is **port 5432**
+
+Because TCP/IP is a connection based protocol, we need to open a connection and close a connection. It's important to monitor open connections as more open connections lead to more performance bottlenecks. The advantage of this connection based approach is that deliveries over the network are **error checked** and will be resent or **retransmitted** if there is an error. Postgres uses TCP/IP to be interacted with.
+
+Below is a good outline of a **database session**. 
+
+![Database session](images/database_session.png)
+
+In a session, many **transactions** can occur where data will be commited (update, insert, or delete). A SELECT statement or Alter Table statement would not be included in a transaction as one is a read operation and the other changes the data structure. A transaction can be thought of as an **atomic** (all succeed or all fail) unit of work for the database to perform as a whole. A transaction can have one of more of these update, insert, or delete statements. The advantage of bundling statements together is that they will either all succeed or all fail and can be cleared using **rollback**. Databases adhear to an acronym called **ACID**.
+
+A - Atomicity - The entire transaction takes place at once or doesn't happen at all
+C - Consistency - The database must be consistent before and after the transaction. A transaction should not change the state of the entire database.
+I - Isolation - Multiple Transactions occur independently without interface. One transaction can't use the data in another transaction until that change is commited
+D - Durability - The changes of a successful transaction occurs even if the system failure occurs. Once a transaction has occured, the change is permanent even in the face of system failure.
+
+a **DBAPI** provides a standard interface for one programming language (like Python) to talk to a relational database server.
+
+## SQL Commands to know
 
 | Manipulating | Querying | Structuring | Joins | Grouping | Aggregate |
 |---|---|---|---|---|---|
@@ -338,3 +361,64 @@ Planning time: 0.269 ms
 Execution time: 0.095 ms
 ```
 
+## Postgresql commands to know
+
+To enter the interactive terminal app, **psql**: 
+
+```bash
+psql
+```
+
+To log in to the postgres account
+
+```bash
+sudo -u postgres -i
+```
+
+To create a new database
+
+```bash
+createdb <database_name>
+```
+
+To drop a database
+
+```bash
+dropdb <database_name>
+```
+
+### psql commands
+
+To list the databases, use `\l`
+
+We can connect to a different database than we are currently connected to with `\c <database_name>`
+
+To quit out of psql, use `\q`
+
+To list tables, use `\dt`
+
+To view the table in a table, use `\d <table_name>`
+
+To view a full list of available commands, use `\?`
+
+If you're on the right path for the user, when you enter `psql`, you'll be able to use `\i <file_name>.sql` to use commands in a sql file
+
+Within psql, we can also start typing regular sql commands that we've learned above such as 
+
+```sql
+SELECT * FROM table1
+```
+
+## Other Postgres clients
+
+psql is a great command line tool but you may prefer to use a GUI client. The following are recommended clients that may make it easier to interact with postgres.
+
+[PGAdmin](https://www.pgadmin.org/) is a popular open source tool for every operating system. This is similar to SSMS for SQL Server management except to view tables, you'll want to view schemas for that database. 
+
+![PGAdmin Tables](images/pgadmin_tables.png)
+
+[PopSQL](https://popsql.com/) is a tool for OSX that can be used for several different relational databases including Postgres.
+
+## Recap
+
+Psycopg2 is a low level library as it allows you to interact directly with the database using SQL. Next, we'll be using **SQLAlchemy**.
