@@ -265,7 +265,7 @@ db.session.commit()
 
 SQLAlchemy has its own data types rather than using the standard `VARCHAR`, etc.
 
-![SQLAlchemy Data Types](image/sqlalchemy_data_types.png)
+![SQLAlchemy Data Types](images/sqlalchemy_data_types.png)
 
 ```py
 class Person(db.Model):
