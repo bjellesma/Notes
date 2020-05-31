@@ -241,6 +241,70 @@ def index():
     return 'Hello ' + person.name + '!'
 ```
 
+In addition to using the `Model.query` object for basic queries
+
+```py
+# Get first result
+Person.query.first()
+# Get by primary key
+Person.query.get(1)
+# Filter query
+Person.query.filter(Person.name == 'Billy').first()
+# filter_by has the same effect as filter but notice that we use an assignment operator because we have to define kwargs
+
+Person.query.filter_by(name = 'Billy').first()
+# filter is more flexible than filter by and can define multiple conditions
+Person.query.filter(Person.name == 'Billy', Person.id==3).first()
+# filter can use an OR statement
+Person.query.filter(db.or_(Person.name == 'Billy', Person.id==3)).all()
+# We're able to use a LIKE statement with wildcards in our filter
+Person.query.filter(Person.name.like('%i%')).all()
+# You can even use the func object in sqlalchemy to perform a case insensitive search
+Person.query.filter(db.func.lower(Person.name) == db.func.lower("Billy")).all()
+```
+
+You can chain the query methods to make for boolean logic
+
+```py
+Person.query
+    .filter(Person.name == 'Billy')
+    .filter(Person.height_in_feet == 5.75)
+    .first()
+```
+
+Instead of Model.query syntax, we can also use the following code so that we're not tied to a specific model
+
+```py
+db.session.query
+    .filter(Person.name == 'Billy')
+    .filter(Person.height_in_feet == 5.75)
+    .first()
+```
+
+There are other equivalences to raw sql with ORM methods
+
+```py
+Person.query.order_by(db.desc(Person.id)).first() # order by
+Person.query.limit(3).all() # limit
+```
+
+You can use aggregates
+
+```py
+Person.query.filter(db.or_(Person.name == 'Billy', Person.id==2)).count() # count
+
+```
+
+Method chaining is essential to start using joins
+
+```py
+Person.query
+    .join('vehicles')
+    .filter(Person.name == 'Billy')
+    .filter(Person.height_in_feet == 5.75)
+    .first()
+```
+
 ## Transactions using ORM
 
 we can create a new person object
@@ -255,10 +319,47 @@ Queue the insert statement into the transaction
 db.session.add(person)
 ```
 
+We can also add a list of objects and commit that
+
+```py
+db.session.add_all([person1, person2])
+```
+
 And commit the transaction when we're ready
 
 ```py
 db.session.commit()
+```
+
+Here's an overview of the **SQLAlchemy Lifecycle**. A rollback can be used in the transient or pending stage. A **flush** is slightly different than a commit in that it will translate the ORM logic we've written to sql commands that the engine can use. Once the object reaches the flushed stage, it can no longer be rolled back via `db.session.rollback()` Flushed objects are not persistent in the database until `commit()` is called. If an object is rolled back, it just back to the transient stage in the lifecycle.
+
+![SQLAlchemy Lifecycle](images/sqlalchemy_lifecycle.png)
+
+When data is added to the session in the pending state, the data will be flushed the next time that the query object is called. Notice is the below code that when we add the new person to the session and query that session, we will see the new person. However, if we exit and go to psql, we see that the new person is not added to the table. Notice that if we called commit directly, we would have automatically flushed the data as well.
+
+```bash
+>>> person = Person(name='Bart')
+>>> db.session.add(person)
+>>> Person.query.all()
+[<Person ID: 1, name: me>, <Person ID: 2, name: dustin>, <Person ID: 3, name: Billy>, <Person ID: 4, name: Bob>, <Person ID: 5, name: billy>, <Person ID: 6, name: Bart>]
+>>> 
+postgres@bjellz-mint:~$ psql
+psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 9.5.21)
+Type "help" for help.
+
+postgres=# \c example
+psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 9.5.21)
+You are now connected to database "example" as user "postgres".
+example=# select * from persons
+example-# ;
+ id |  name  
+----+--------
+  1 | me
+  2 | dustin
+  3 | Billy
+  4 | Bob
+  5 | billy
+(5 rows)
 ```
 
 ## SQLAlchemy Data Types and constraints
