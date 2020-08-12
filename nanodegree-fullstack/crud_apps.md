@@ -439,6 +439,8 @@ class School(db.Model):
   accreditation = db.Column(db.String(50), nullable=False)
 ```
 
+**Tip**: db.relationship uses the capitalized SQLAlchemy table rather than the lowercase table name
+
 We can now use the following on the python cli
 
 ```py
