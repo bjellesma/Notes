@@ -11,6 +11,9 @@
 
 * This should be just like how you'd introduce yourself professionally at a networking event
     * Sound professional but use a more casual tone
+* Keep the summary to 3-5 points/sentences
+* Use Active Language
+* Include a call to action so that people are more likely to contact you
 
 ## Profile pictures
 

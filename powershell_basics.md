@@ -1,0 +1,1 @@
+* the "get-" commands are useful to gather information about a computer during the troubleshooting process

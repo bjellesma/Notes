@@ -113,6 +113,7 @@ Getting the year code for years in between these years is a simple matter of add
 
 $$
 \text{Year Code} = (\text{Last 12 yr code} + \text{Number of years in 12 year cycle} + \text{Number of leap years in 12 year cycle}) % 7
+$$
                 
                  = (5 + 4 + 1) % 7
                  
