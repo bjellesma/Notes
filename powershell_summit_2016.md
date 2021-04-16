@@ -20,3 +20,48 @@ Bike(){
   this.model = 'sweet'
 }
 ```
+
+Just like any OOP design, you can create methods on your object
+
+```powershell
+
+[void] Pedal()
+{
+  $this.speed++
+}
+```
+
+A big advantage of using classes in powershell is that you can create hidden variables that will only be accessible inside the class. This is similar to creating a private variable
+
+```powershell
+class Bike {
+  [string]$manufacturer
+  [string]$model
+  hidden [int]$year = 2016
+}
+```
+
+Now year is only accessible by internal methods.
+
+## Inheritance
+
+```powershell
+class Bike {
+  [string]$manufacturer
+  [string]$model
+  hidden [int]$year = 2016
+  
+  Bike($modelName){
+    this.model = $modelName
+  }
+}
+```
+
+```
+class threeSpeed : Bike{
+  threeSpeed(): Bike("Sweet")
+}
+```
+
+We can use this concept of inheritance but we'll need to pass the parameter's required by bike's constructor
+
