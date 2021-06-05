@@ -1,0 +1,1 @@
+- Most commonly, odoo is installed in a virtual machine on an ubuntu install for local testing
