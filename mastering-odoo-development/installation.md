@@ -39,6 +39,7 @@
     sudo apt-get install python3-polib
     sudo apt-get install python3-html2text
     sudo apt-get install python3-docutils
+    sudo apt-get install python3-libsass
     ```
 
 * If all works out properly, you will see messages in your terminal that the server is running at port 8069
