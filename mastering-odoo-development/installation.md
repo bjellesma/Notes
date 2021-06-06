@@ -40,3 +40,6 @@
     sudo apt-get install python3-html2text
     sudo apt-get install python3-docutils
     ```
+
+* If all works out properly, you will see messages in your terminal that the server is running at port 8069
+* When you create a new database on Odoo, you will be asked if you wanted to create demo data that you can use.
