@@ -174,4 +174,8 @@ Also notice that a default value of 50 calories is set with
 }</field>
 ```
 
-context will set any default values
+context will set any default values.
+
+# Tips
+
+Even though it's relatively easy to add fields through the database, this takes unnecessary space in the database
