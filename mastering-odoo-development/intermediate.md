@@ -94,6 +94,18 @@ When creating a form in xml, use the group tag so that labels appear properly
 
 ## Notebook
 
+In our python model, we want to make a field that will relate one field to multiple field items
+
+```py
+class Dietfacts_res_users_meal(models.Model):
+    _name = "res.users.meal"
+    _description = "This is to enter the meals"
+    name = fields.Char("Meal Name")
+    meal_date = fields.Datetime("Meal Date")
+    # meal_id provides how we know which meal this goes with
+    item_ids = fields.One2many('res.users.mealitem', 'meal_id')
+```
+
 ```xml
 <field name="arch" type="xml">
                 <form>
@@ -204,3 +216,25 @@ Odoo will allow you to edit items directly in the tree view by giving the tree t
 ```
 
 ![Editable Tree](./images/editable-tree.png)
+
+# Show Items in another model
+
+In keeping with database normalization, we can show an item from a different table
+
+```py
+uom = fields.Char(related='nutrient_id.uom_id.name', string = "UOM", readyonly=True)
+```
+
+You can create fields in Odoo that automatically change
+
+```py
+large_meal = fields.Boolean("Large meal")
+
+    # Set large meal to true automatically if the total calories is more than 10
+    @api.onchange('total_calories')
+    def check_total_calories(self):
+        if self.total_calories > 10:
+            self.large_meal = True
+```
+
+Note that the data won't change until this onchange is triggered
