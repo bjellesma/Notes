@@ -1,0 +1,3 @@
+- **Identity and Access Management** (IAM) is used to configure and manage users
+- **Cloudwatch** is used for setting alarms and logging
+  - 10 cents per alarm per month
