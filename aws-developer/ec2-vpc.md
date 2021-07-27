@@ -56,3 +56,5 @@
   - Select our vpc and both subnets ![](images/../res/2021-07-24-16-11-03.png)
   - select our load balancer ![](images/../res/2021-07-24-16-12-04.png)
   - Configure the group size that will be scaled to and set average network out as the metric to track ![](images/../res/2021-07-24-16-14-32.png)
+
+**NOTE** If a mistake is made while setting up EC2, simply restart the EC2 instance on the EC2 Dashboard
