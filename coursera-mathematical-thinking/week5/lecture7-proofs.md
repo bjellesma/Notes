@@ -34,7 +34,7 @@ A **lemma** is a result from a theorem that is worth pointing out.
 
 Theorem: $\sqrt{2}# is irrational
 
-Proof: Assume, on the contrary, $\sqrt{2}$ is rational. Then there are natural numbers p, q with no common factors, such that $\sqrt{2}=\frac{p}{q}$. 
+Proof: Assume, on the contrary, $\sqrt{2}$ is rational. Then there are natural numbers p, q with no common factors (p and q having no common factors just means that $\frac{p}{q}$ is in its simplist form), such that $\sqrt{2}=\frac{p}{q}$. 
 
 Squaring: $2=\frac{p^2}{q^2}$
 
