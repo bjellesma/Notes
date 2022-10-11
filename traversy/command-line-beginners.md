@@ -6,3 +6,8 @@ The **cat** command can be used to view the contents of a file as well as write 
 
 **nano** can show linenumbers of a file by using the `-l` switch like `nano -l readme.txt`![image](https://user-images.githubusercontent.com/7660667/194983299-63448daf-eddb-4348-b342-ba4dacffd30b.png)
 
+You can use the **touch** command to generate a bunch of files at once rather than just one at a time. For example, `touch file-{001...100}.txt` will generate 100 files named `file-001.txt` all the way to `file-100.txt`
+
+You can use the **find** command instead of grep to do something like find all files where the text is empty with `find . -empty`. We can also use this command to find files of a certain naming scheme with `find . -name "file-00*.txt`
+
+**history** is a command that will give you a history of commands that you've run and then you can use `[cmd number]` to run the command in your history. For example, I can run `history` and then `!5745` to redo the `ls` command. This is *very* useful and more efficient than using the arrow keys
