@@ -6,3 +6,8 @@
 ## The right is right
 
 * I like how the author gives the perspective of a denialist conference. Most of these people are engineers and lawyers but are conviced that they've outsmarted 97% of scientists
+* There is actually evidence that the wealthy often point to that climate change is actually leading to longer growing seasons
+* Wealthier parts of the world have funds to put up stuff like seawalls and other expensive safeguards
+
+## Hot Money
+
