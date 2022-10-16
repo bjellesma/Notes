@@ -11,3 +11,12 @@
 
 ## Hot Money
 
+* If we had started reducing emissions in 1992 when a lot of these concerns were raised in the signing of the United Nations Framework Convention on Climate Change (UNFCoCC), we could have been much more managable and reduced emissions by 2% every year
+ * The Problem is that this agreement was largely on the honor system while NAFTA, signed the same year, had real teeth  
+ * Historically, one percent reductions have only been associated with economic recessions
+* The arguement is that the government has made deals and subsidies with fossil feul companies that essentially make it almost illegal to have competition that will fight climate change
+* emissions produced when one country orders goods from another are attributed to that other country so that the first country is still allowed to report that their emissions have gone down
+* Free trade has allowed companies to move operations when labor costs start rising, which is many companies begin moving their operations to China or Bangledesh even though the economic model still comes from the US. In the days before free trade, companies were forced to abide to higher labor costs and improve environmental standards when forced to by the public
+* Many climate change deniers claim that global warming is a plot to redistribute wealth. This is partly correct because it does involve giving wealth to lower income communities to increase access to public housing/transit
+
+## Public and Paid for
