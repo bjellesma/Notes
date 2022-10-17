@@ -29,3 +29,11 @@
 * The main arguement is that we can't necessarily wait on fusion and should pursue both at the same time
   * The US relies less on nuclear technology than other contries such as France because the US has more fears of using nuclear technology and storing waste
 * https://www.youtube.com/watch?v=vPS-epGPJmg
+
+## The Past: Fusion Breakthroughs
+
+* In 1993, Princeton becomes the first to produce significant fusion power of 10MW
+* In 1986, the first High Temperature superconducting magnet was discovered. Though one benefit is that this permits operation above 30 degrees Kelvin, another significant benefit is that some magnets can sustain fields of 100 Tesla. 
+ * Rare Earth Barium Copper Oxide (Rebco) coils have been used to generate fields of 30 tesla
+ * another benefit is that the material for HTS can be designed with joints, enabling "plug and play" like behavior
+ *  
