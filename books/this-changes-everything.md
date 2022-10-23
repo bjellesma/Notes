@@ -20,3 +20,8 @@
 * Many climate change deniers claim that global warming is a plot to redistribute wealth. This is partly correct because it does involve giving wealth to lower income communities to increase access to public housing/transit
 
 ## Public and Paid for
+
+* The arguement here is that utilities should be controlled by the public sector so that residents are able to vote
+* It was said that the transition to clean energy would require effot comparible to the Apollo project or the consruction of the highway system
+* Jimmy Carter had a speech in 1979 to conserve, due to the energy crisis, and it's widely thought that is why he lost his re-election
+* 
