@@ -24,4 +24,18 @@
 * The arguement here is that utilities should be controlled by the public sector so that residents are able to vote
 * It was said that the transition to clean energy would require effot comparible to the Apollo project or the consruction of the highway system
 * Jimmy Carter had a speech in 1979 to conserve, due to the energy crisis, and it's widely thought that is why he lost his re-election
-* 
+* \
+
+## Planning and Banning
+
+* The 2008 financial crisis with banks and car companies going belly up was a rare oppurtunity to build a more sustainable economy but Obama was unable to do this because he was convinced, like many others, that telling large companies how to better run their companies was a vaguely communist idea. The difficult part is that job creation is seen as more important and politically motivating.
+* What's strange is that a survey is saying that 68% of voters prefer the generation of electricity to be in the public sector whereas we're building a nuclear fusion plant to be run in the private sector
+* **agroecology** is a practice that famers employ to use more sustainable tools like pesticides to actually increase crop yields
+* natural gas is still a fossil fuel but is more clean than burning coal.
+* Though germany has been very successful in transitioning the majority of their country to renewable, there have also been setbacks in 2012 and 2013 because restrictions have also been lifted on the small number of companies still burning coal
+ * Germany has simultaniously rejected nuclear power as they take 20 years to build, the unearthing of the minerals needed for uranium is climate intensive, and people fear nuclear in the wake of fukashima
+* The fear for the big gas and oil companies is that if the politics change to disallow unearthing natural gas through fracking, all of the oil tankers, that cost billions of dollars, become stranded assets so investors will stop investing
+* fossil feul companies can legally bribe congress and other campaigns in the form of donations
+* the difficulty with arguing climate action is how do you persuade people that they should put the future ahead of the present? The followup is that climate action is many peoples (climate refugees in particular) best hope for a better present. It's everyone's more exciting future. 
+* In this way, climate action is a larger set encompassing other subset social issues like Women's right and equity.
+* Social movements of today lack must structure which is why the author thinks that they are largely ineffective
