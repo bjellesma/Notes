@@ -39,3 +39,14 @@
 * the difficulty with arguing climate action is how do you persuade people that they should put the future ahead of the present? The followup is that climate action is many peoples (climate refugees in particular) best hope for a better present. It's everyone's more exciting future. 
 * In this way, climate action is a larger set encompassing other subset social issues like Women's right and equity.
 * Social movements of today lack must structure which is why the author thinks that they are largely ineffective
+
+## Beyond Extractivism
+
+* Extractivism is a political science term meaning that we live in the fantasy that Earth's resouces are infinite when in fact they are finite
+* Francis Bacon was a 15th century English Philosopher and Statesman that first came up with the idea that we need to control nature
+ * The Irony is that he died from a cold from being out in Nature 
+* James Watt invented the steam engine
+* Besides fossil fuels taking carbon from dead life forms in the ground and releasing them into the atmosphere, it's also releasing harmful toxins and such into the ocean
+* 
+
+
