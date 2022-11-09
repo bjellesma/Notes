@@ -49,4 +49,21 @@
 * Besides fossil fuels taking carbon from dead life forms in the ground and releasing them into the atmosphere, it's also releasing harmful toxins and such into the ocean
 * 
 
+## Fruits not roots
 
+* The carbon credit process has created a system where companies receive more for artificially created dirtier fuel and then cleaning it than legit cleaner fuel
+
+## No Messiahs
+
+* Richard Branson, among other billionaires, is analyzed for making pledges of his ventures to try to help decarbonize and then polluting more while trying to expand the virgin empire.
+* Several wealthy philanthropists look at zero carbon miracles rather than use existing technologies
+* What I do not like about what the author is implying that we need to hold the wealthy to a higher standard and visibly scrutinize everything that they do, forgetting that they are only human
+
+## Dimming the sun
+
+* In 1991, mount Pinatubo erupted which actually caused a .7% decrease in global temperatures. As a result, one thought has always been to simulate this mount Pinatubo effect as a backup plan for dealing with climate change. Most scientists agree that this is a backup solution to plan A of cutting emissions
+ * although there is a former CTO at Microsoft that says that we should use this effect as the full solution for dealing with climate change and not deal with emissions reduction at all because it would be a cheaper and easier solution.
+ * The problem with this geoengineering approach is that
+  * There is no full scale test. We got straight from simulation to implementation
+  * History of eruptions tells us that the aftermath effects, such as flooding, occur disproportionatly creating an ethical issue
+* In my mind, the problem with the geoengineering approach is that it doesnt mitigate the problem that we are using a set of finite resources
