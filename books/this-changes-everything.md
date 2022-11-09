@@ -67,3 +67,4 @@
   * There is no full scale test. We got straight from simulation to implementation
   * History of eruptions tells us that the aftermath effects, such as flooding, occur disproportionatly creating an ethical issue
 * In my mind, the problem with the geoengineering approach is that it doesnt mitigate the problem that we are using a set of finite resources
+ * To go along with this, I think a very big problem with fossil fuels, regardless of impact on the environment, is that it is not as economically feasible because it is not sustainable
