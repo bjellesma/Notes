@@ -68,3 +68,14 @@
   * History of eruptions tells us that the aftermath effects, such as flooding, occur disproportionatly creating an ethical issue
 * In my mind, the problem with the geoengineering approach is that it doesnt mitigate the problem that we are using a set of finite resources
  * To go along with this, I think a very big problem with fossil fuels, regardless of impact on the environment, is that it is not as economically feasible because it is not sustainable
+
+## Blockadia
+
+* Big Gas and Oil made the stupid mistake of try to pipelines into college towns and very liberal places which sparked a lot of activism. This activism led to bans on fracking. France actually became the first country in 2011 to do a nationwide fracking ban
+* Tar Sands are much more harmful for the local ecology and harder to clean up
+* Several health risks diagnosed by doctors related to environmental impact of tar sands have been attempted to be rebuked by the industry. This resonates because people talk about the risks of radiation from nuclear a lot
+* Since fracking usually takes place deep underground, the damage seems less visible. However, a study linked fracking with the emergence of 109 small earthquakes in an area where previously an earthquake had not been recorded since the 18th century
+* In places where fracking is occuring, this contaminates the water supply and people's water coming from faucets is able to be set on fire because it's so flammible with methane soak
+* BP suffered a major oil spill in 2010 off the gulf of mexico when an oil tanker exploded which also killed 11 workers
+
+
