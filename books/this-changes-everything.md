@@ -78,4 +78,14 @@
 * In places where fracking is occuring, this contaminates the water supply and people's water coming from faucets is able to be set on fire because it's so flammible with methane soak
 * BP suffered a major oil spill in 2010 off the gulf of mexico when an oil tanker exploded which also killed 11 workers
 
+## Love Will Save This Place
+
+* Modern Fracking and the use of tar sands requires a lot more water. Most of this water turns to waste or is radioactive so that it cannot be reused
+* The idea is that if large organizations such as colleges and religious groups begin to sell off their investments in fossil fuel companies, it will chip away at the reputation of the fossil fuel industry
+
+## You and what army
+
+* For indigienous people, it's difficult when the the ice is never solid due to climate change to get food. But this creates a lot of political pressure to accept financial assistance from companies like Shell when they're offering things like job training and resource sharing.
+* The big point is that the big polluting companies will offer these temporary life rafts to people that they've disenfranchised in the first place so they have no choice.
+
 
