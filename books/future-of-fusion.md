@@ -36,4 +36,15 @@
 * In 1986, the first High Temperature superconducting magnet was discovered. Though one benefit is that this permits operation above 30 degrees Kelvin, another significant benefit is that some magnets can sustain fields of 100 Tesla. 
  * Rare Earth Barium Copper Oxide (Rebco) coils have been used to generate fields of 30 tesla
  * another benefit is that the material for HTS can be designed with joints, enabling "plug and play" like behavior
- *  
+ *  The D shape of fusion magnets was introduced with the JET tokamak and was found by researchers to have a better confinement time
+ *  Tritium is about $1000 per gram while Deuritium is about $1 per gram
+ *  In 1997, JET generated over 16mw of power and reached Q=0.7. This was done using D-T fuel proving that tritum, though more costly, can offer improved performance
+ *  The problem with computing plasma simulations is that there are rought $10^{23}$ particles inside of a plasma moving every $10^{-12} seconds. This would take the biggest supercomputers $10^{31}$ years to complete as of the 2000s
+  * as a result, simplified models are built. One such model is gyrokinetics. This model took until about the early 2000s to be feasible
+  * These simplified models will reduce the number of particles and the speed of the particles which takes the computation time from years to one day. Still, this proves costly to use a supercomputer for this time
+
+## The Present: ITER
+
+* International Thermonuclear Experimental Reactor
+* ITER will produce no electricity and is largely a physics and engineering expirement that will pave the way for future tokamaks
+* 
