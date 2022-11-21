@@ -105,4 +105,34 @@ Another special case is **Reactions at Constant Pressure** or isobaric condition
 
 ## Reversible Expansion
 
-The **Ideal Gas Equation** is given by $pV = nRT$ where p is pressure, V is volume, n is quantity, R is the ideal gas constant, and T is absolute temperature. We can rearrange this to be $p = \frac{nRT}{V}$
+The **Ideal Gas Equation** is given by $pV = nRT$ where p is pressure, V is volume, n is quantity, R is the ideal gas constant, and T is absolute temperature. We can rearrange this to be $p = \frac{nRT}{V}$. Example: Consider 1 mol of an ideal gas at 298K
+
+p = (1 mol * 8.314 JK^{-1}mol^{-1} * 298K) / V
+p = (2477.572 J) / V
+
+Consider for volumes of 1, 3, 5, 7, 9, and 11 m^3. 
+
+p = (2477.572 J) / 1 m^3 = 2477.572 J / m^3
+p = (2477.572 J) / 3 m^3 = 825.8573 J / m^3
+p = (2477.572 J) / 5 m^3 = 495.5144 J / m^3
+p = (2477.572 J) / 7 m^3 = 353.9388 J / m^3
+p = (2477.572 J) / 9 m^3 = 275.2857 J / m^3
+p = (2477.572 J) / 11 m^3 = 225.2338 J / m^3
+
+1 joule is equal to 1 Pascal time meters cubed therefor 1 J / m^3 = 1 Pa so the above units can also be given in terms of pascals.
+
+These above equations give the following graph. Notice that the work is done over 2 m^3 therefor $\Delta V = 2 m^3$ so the work done is exactly double the number of pascal units. The expansion is Isothermic at 298K. You can total the work done and then negate it to get the work done over the 11 m^4 of volume.
+
+![Isothermic Expansion](https://user-images.githubusercontent.com/7660667/202976264-4e21d69c-a060-46e8-9f52-47d09b105ab1.png)
+
+![Isothermic Expansion](https://user-images.githubusercontent.com/7660667/202976678-ec917666-1994-4a3a-9334-a26fa0b52955.png)
+
+Now, we'll change the 2 m^3 intervals to be .5 m^3, this gets us to a better approximation
+
+![Isothermic Expansion](https://user-images.githubusercontent.com/7660667/202977033-8c79e184-fb1f-4b5e-bfc6-ab07577933df.png)
+
+If we allow the intervals to become something infintesimally small, we get what's called **Reversible Isothermal Expansion**. Because this is infintesimally small, this only a theorical construct.
+
+![Reversible Isothermal Expansion](https://user-images.githubusercontent.com/7660667/202977299-f137d1f1-761b-4c9f-967b-ded153b49bcc.png)
+
+Because $w_{on} = - pdV$ and $p = nRT / V$, we get $w_{on} = - (nRT / V)dV$. If we now consider an expansion from $V_i} to $V_f$, we can use an integral to get $w_{on} = - nRT \int^{V_f}_{V_i} \frac{dV}{v}$
