@@ -79,12 +79,30 @@ Path functions are **positive** when energy enters a system and **negative** whe
 
 ## The zeroeth law of themodynamics
 
-* Developed around 1850 by Rudolf Clausius
-* Adaptation of the Law of Conservation of Energy for themodynamic systems
-* Concerns energy changes and lead to the definition of a new state function called enthalpy
+* Ironically, this was the last law to be discovered
 
 The second law of thermodynamics isn't the focus of this lecture but is necessary to define this law. The law describes the direction in which all processes spontateously occur. For example, this is the direction of heat so a hot object always loses heat to its surrounding. This discovery lead to the definition of a new state function, **entropy**, which measures the order of an object moving to disorder on a molecular level.
 
 The 3rd law of thermodynamics was discovered in 1912 and leads to the definition of **absolute zero** which is zero on the entropy scale and complete deteration of molecular motion. It is impossible to reach absolute zero.
 
 These discoveries lead to the **Zeroth Law of Themodynamcis**. When two objects are separately in thermodynamic equilibrium with a third object, they are in thermodynamic equilibrium with each other. When objects come together and given enough time, they will become the same temperature. When this happens, we say that they are in thermodynamic equilibrium.
+
+## The first law of thermodynamics and enthalpy
+
+The first law was stated by Rdolph Clausius in 1850 and says that every system possesses and internal energy which is affected by energy being added or removed from the system and is given by the equation, $\Delta U = q_{in} + w_{on}$
+
+The work done by an expanding gas is given by the equation, $w_{on} = Fd$ where F is the force exerted on the piston shown in the image below and d is the distance the piston moves. The pressure on the piston is given by the force exerterted divided by the cross sectional area of the piston, $p = F / A$. Through these, we find that $F = pA$, the force exerted on the piston is given by the pressure exerted multiplied by the cross sectional area. Also, $w = pAd$. We notice then that the cross sectional area multiplied by the distance through which the piston moves is the change in volume so $w=p \delta V$ which means that work done on the system is negative and given by $w_{on} = - p \Delta V$
+
+![Word done by an expanding Gas](https://user-images.githubusercontent.com/7660667/202970299-d44cf17e-c542-4a1b-abab-6b01ad8d62ec.png)
+
+Putting the above equations together, we come up with the **First Law of Thermodynamics** given by $\Delta U = q_{in} - p \Delta V$
+
+There is a special case called **free expansion** where p = 0. An example is that in space, p = 0 meaning that $p \Delta V$ is also zero, therefore $\Delta U = q_{in}$ or just the heat transferred into the system. 
+
+Another special case is **Reactions at Constant Volume** or isochoric conditions where $\Delta V = 0** and thus $\Delta U = q_v$ where heat generated occurs under constant volume or isochoric conditions. These require massive pressure changes and are usually left to the heavy chemical industry.
+
+Another special case is **Reactions at Constant Pressure** or isobaric conditions. These reactions are most often what is performed by chemists in glassware like beakers. This is where we define a new state function called **enthalpy** given by $H = U + pV$. Thus, $\Delta H = \Delta U + \Delta (pv)$. We can simplify $\Delta (pv)$ by differentiating with the product rule to get $\Delta H = \Delta U + p \Delta V + V \Delta p$. But, under icobaric conditions, $\Delta p = 0$ canceling the second term so $\Delta H = \Delta U + p \Delta V$. Because we've defined that $\Delta U = q_{in} - p \Delta V$, we can see that $\Delta H = q_p$ where $q_p$ is heat generated under isobaric conditions.
+
+## Reversible Expansion
+
+The **Ideal Gas Equation** is given by $pV = nRT$ where p is pressure, V is volume, n is quantity, R is the ideal gas constant, and T is absolute temperature. We can rearrange this to be $p = \frac{nRT}{V}$
