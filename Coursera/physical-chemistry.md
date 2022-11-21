@@ -135,4 +135,20 @@ If we allow the intervals to become something infintesimally small, we get what'
 
 ![Reversible Isothermal Expansion](https://user-images.githubusercontent.com/7660667/202977299-f137d1f1-761b-4c9f-967b-ded153b49bcc.png)
 
-Because $w_{on} = - pdV$ and $p = nRT / V$, we get $w_{on} = - (nRT / V)dV$. If we now consider an expansion from $V_i$ to $V_f$, we can use an integral to get $w_{on} = - nRT \int_{V_i}^{V_f} \frac{dV}{V}$ which we can simplify to $w_{on} = - nRT \ln \frac{V_f}{V_i}$
+Because $w_{on} = - pdV$ and $p = nRT / V$, we get $w_{on} = - (nRT / V)dV$. If we now consider an expansion from $V_i$ to $V_f$, we can use an integral to get $w_{on} = - nRT \int_{V_i}^{V_f} \frac{dV}{V}$ which we can simplify to $w_{on} = - nRT \ln \frac{V_f}{V_i}$. If we go back to the example of 1 mol, we get $w_{on} = - (1 mol)(8.314JK^{-1}mol^{-1}(298K) \ln \frac{11}{1} = -5941J$ which is the value we obtained in the screenshots above.
+
+## Heat Capacity
+
+When an object is heated, it is expanded, the rate that this happens is dictated by the object's **heat capacity** defined as C, the heat energy rquired to raise the temperature of an object by 1K. If it heats slowly, it has a high heat capacity. If it heats quickly, it has a low heat capacity. $C=q / \Delta T$
+
+![Heating Objects](https://user-images.githubusercontent.com/7660667/202980455-84e96c59-2f9d-4539-85ca-d99bdf75297c.png)
+
+There are definitions built off of this which refer to the amount of heat energy required to raise the temperature of a certain volume (**Specific Heat Capacity**) or certain quantity (**molar heat capacity**) ![image](https://user-images.githubusercontent.com/7660667/202981375-e5c2e7b6-a4be-4e11-bcb9-7bd7beaafb78.png)
+
+Metalic substances tend to have a lower heat capacity while substances like wood and rubber tend to have higher heat capacities ![Heat Capacities](https://user-images.githubusercontent.com/7660667/202981648-8d15c341-c41c-4e87-8bd4-f1810505c9df.png)
+
+**Isochoric heat capacity** is defined as: $C_v = q_v / \Delta T = \Delta U / \Delta T$
+
+**Isobaric heat capacity** is defined as: $C_p = q_p / \Delta T = \Delta H / \Delta T$
+
+ $C_{p,m} = C_{V,m} + R$ Specific and molar heat capacity for an ideal gas
