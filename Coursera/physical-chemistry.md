@@ -135,4 +135,4 @@ If we allow the intervals to become something infintesimally small, we get what'
 
 ![Reversible Isothermal Expansion](https://user-images.githubusercontent.com/7660667/202977299-f137d1f1-761b-4c9f-967b-ded153b49bcc.png)
 
-Because $w_{on} = - pdV$ and $p = nRT / V$, we get $w_{on} = - (nRT / V)dV$. If we now consider an expansion from $V_i} to $V_f$, we can use an integral to get $w_{on} = - nRT \int_{V_i}^{V_f} \frac{dV}{V}$
+Because $w_{on} = - pdV$ and $p = nRT / V$, we get $w_{on} = - (nRT / V)dV$. If we now consider an expansion from $V_i$ to $V_f$, we can use an integral to get $w_{on} = - nRT \int_{V_i}^{V_f} \frac{dV}{V}$ which we can simplify to $w_{on} = - nRT \ln \frac{V_f}{V_i}$
