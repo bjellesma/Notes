@@ -107,16 +107,21 @@ Another special case is **Reactions at Constant Pressure** or isobaric condition
 
 The **Ideal Gas Equation** is given by $pV = nRT$ where p is pressure, V is volume, n is quantity, R is the ideal gas constant, and T is absolute temperature. We can rearrange this to be $p = \frac{nRT}{V}$. Example: Consider 1 mol of an ideal gas at 298K
 
-p = (1 mol * 8.314 JK^{-1}mol^{-1} * 298K) / V
-p = (2477.572 J) / V
+$p = (1 mol * 8.314 JK^{-1}mol^{-1} * 298K) / V$
+$p = (2477.572 J) / V$
 
 Consider for volumes of 1, 3, 5, 7, 9, and 11 m^3. 
 
 p = (2477.572 J) / 1 m^3 = 2477.572 J / m^3
+
 p = (2477.572 J) / 3 m^3 = 825.8573 J / m^3
+
 p = (2477.572 J) / 5 m^3 = 495.5144 J / m^3
+
 p = (2477.572 J) / 7 m^3 = 353.9388 J / m^3
+
 p = (2477.572 J) / 9 m^3 = 275.2857 J / m^3
+
 p = (2477.572 J) / 11 m^3 = 225.2338 J / m^3
 
 1 joule is equal to 1 Pascal time meters cubed therefor 1 J / m^3 = 1 Pa so the above units can also be given in terms of pascals.
