@@ -47,4 +47,16 @@
 
 * International Thermonuclear Experimental Reactor
 * ITER will produce no electricity and is largely a physics and engineering expirement that will pave the way for future tokamaks
-* 
+* ITER is expected to have a confinement time of 5 minutes and reach Q=10
+* it's estimated that 50MW of heating will be needed for plasma to occur
+* The most powerful component of ITER's heating system (33MW) will be its two **neutral beam injectors**
+ * The remainder of the heating will happen from an electron cyclotron (20MW) and ion cyclotron (20MW)
+ * These add to more than 50MW because early ITER will use hydrogen as fuel instead of DT 
+* When DT operation begins, any damage and cleaning inside the first wall will need to be done remotely because of the radiation exposure
+* During the oil crisis in 1973, this was when funding for fusion research was at its highest
+* ITER is scheduled to make its first plasma in 2025 with hydrogen fuel and will begin using DT fuel in 2035
+* ITER was originally proposed in 1973 as Internation Tokamak Reactor, INTOR. It wasn't until 1985 that Gorbachev proposed ITER as a continuation to INTOR.
+ * Originally, ITER would produce 1500 MW and cost 11 billion. This caused the US to leave. This prompted a redesign in three years to a modest 500 MW and 6 billion. This enticed the US to rejoin
+ * Construction began in 2007 with the original first plasma scheduled for 2018 but the timeline has slipped to 2025 and costs have skyrocketed to 25 billion
+ * while ITER (Even though China is a part of ITER already) is being constructed, China is working on its own reactor call Chinese Fusion Engineering Test Reactor (CFETR)
+ * 
