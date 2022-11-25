@@ -90,4 +90,6 @@
 
 ## The Leap Years
 
-* 
+* The profits that the fossil fuel companies would miss out on, $10 trillion, are being compared with the profits that slave owners missed out on. Our government ended up subsidising most of the slave owers as a way to make up the cost
+* Adam Smith said that using a cheaply paid laborer is more economical than owning a slave because you're responsible for the wear and tear on a slave and the laborers have more incentive to work harder. He didn't pay attention to the massive moral issues of slavery that society was focused on 
+* The arguement is that climate action, much like abolition of slavery, will be won by arguing against the humanitarian crisis that it's caused and not an economical arguement
