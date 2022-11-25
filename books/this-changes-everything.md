@@ -88,6 +88,6 @@
 * For indigienous people, it's difficult when the the ice is never solid due to climate change to get food. But this creates a lot of political pressure to accept financial assistance from companies like Shell when they're offering things like job training and resource sharing.
 * The big point is that the big polluting companies will offer these temporary life rafts to people that they've disenfranchised in the first place so they have no choice.
 
-## The right to regenerate
+## The Leap Years
 
-
+* 
