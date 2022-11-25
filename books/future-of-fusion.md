@@ -59,4 +59,11 @@
  * Originally, ITER would produce 1500 MW and cost 11 billion. This caused the US to leave. This prompted a redesign in three years to a modest 500 MW and 6 billion. This enticed the US to rejoin
  * Construction began in 2007 with the original first plasma scheduled for 2018 but the timeline has slipped to 2025 and costs have skyrocketed to 25 billion
  * while ITER (Even though China is a part of ITER already) is being constructed, China is working on its own reactor call Chinese Fusion Engineering Test Reactor (CFETR)
- * 
+ 
+ ## The Future: Designing a Tokamak power plant
+ 
+ * Fusion power density is proportional to the magnetic field strength to the forth power. Meaning if we increase the magnetic field strength by a factor of 2, the fusion power produced is increased by a factor of 16
+ * Plasma Density is constrained by the GreenWald Limit while current is constrained by the kink limit
+ * The divertor is a specialized part of the first wall that handles the power that continually leaks out of the plasma
+ * Nuclear Fission plants generally cost about $10 billion where 75% of that is the initial cost of building the plant. Several government loans are also issued which means that a large portion of that money is allocated for interest on those loans.
+
