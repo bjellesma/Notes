@@ -141,17 +141,18 @@ C_{V,m} = C_{p,m} - R
 
 ![image](https://user-images.githubusercontent.com/7660667/203684442-2e218b22-b20f-429f-b453-99d68a827707.png)
 
-We want to use $Q=mc \Delta T$ to get the amount of energy produced. First we need to convert the temperature change in celsius to kelvin
+We want to use $Q=mc \Delta T$ to get the amount of energy produced. Because temperature change is dimensionless, it's not needed to convert as the change can be 15 celsius or 15 Kelving
 
 ```math
-K = C + 273.15
-= 15 + 273.15
-= 285.15
+C_{p,m} = C_{V,m} + R
+C_{V,m} = C_{p,m} - R
+= 29.125\text{J}\text{mol}^{-1} - 8.314\text{J}\text{mol}^{-1}
+= 20.811\text{J}\text{mol}^{-1}
 ```
 
 ```math
 Q=mc \Delta T
-=(20\text{mol})(29.125\text{J}\text{mol}^{-1}\text{K})(285.15\text{K}
-=167.85\text{kJ}
+=(20\text{mol})(20.811\text{J}\text{mol}^{-1}\text{K})(15\text{K}
+=6.243\text{kJ}
 ```
 
