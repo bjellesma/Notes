@@ -88,3 +88,34 @@
  * The divertor is a specialized part of the first wall that handles the power that continually leaks out of the plasma
  * Nuclear Fission plants generally cost about $10 billion where 75% of that is the initial cost of building the plant. Several government loans are also issued which means that a large portion of that money is allocated for interest on those loans.
 
+## Alternative Approaches to Fusion Energy
+
+* It looks like early commercial fusion power will be tokamaks but it could be stellerators
+* The stellerator uses exernal coils bent into funky shapes![image](https://user-images.githubusercontent.com/7660667/205503676-26a7c59d-b9e0-48ca-906b-5eb93e433413.png)
+
+* W7-X is a JET level stellerator being built in Germany and began constructtion is 2015
+* Because of the geometry of a stellerator, it doesn't require as much power to heat the plasma. The largest power cost would be to keep the magnets cold. However remote maintenace on the stellerator would also be much more difficult.
+* THe plasma duration in stellerators would also be longer because of the steady state properties of the devices
+* Tokamaks and Stellerators use **magnetic confinement fusion** (MCF) and an alternative approach is **intertial confinement fusion** (ICF). ICF uses powerful lasers to imprlode small capsules of fusion fuel. These implosions will cause the center of the fuel to become very hot and dese. The release of heat will run a steam turbine which is how fusion will occure.
+* the triple product of ICF is higher but ICF aims to go far beyond ignition is order to reach net positive energy produced. This is because the power required to reach ignition, like the lasers, is much higher
+* Equipmen needed for tokamak
+ * Vaccuum Vessel
+ * Central Solonoid
+ * Blanket
+ * Neutron Shielding
+ * Torodial Field Coils
+* Fusion Startups
+ * Tokamak Energy LTD.
+  * a british startup using a spherical tokamak concept![image](https://user-images.githubusercontent.com/7660667/205506220-9b736ef5-2432-4aa0-8267-c474ba245491.png)
+  * the spherical tokamak has advantages such as a longer proposed confinement time but it is more difficult to fit all of the equipment needed as the vaccuum vessel and the cental solonoid in the smaller area. Because of this, some of the equipment above needs to be sacrificed which means that it may require more heating power for example making net fusion energy more difficult to achieve
+  * Despite this, they've made great strides in research for HTS magnets which can be very useful for fusion energy
+ * General Fusion
+  * using **magnetized target fusion** (MTF) which is a compromise between MCF and ICF. MCF aims for long confinement time and low density while ICF aims for short confinement and high density. MTF is in the middle for both these numbers. To attain this, MTF starts with MCF and ends with ICF. the disadvantage is that you get the technical complexities of both but the advantage is that you avoid some of the turbulence issues which is something that we have no solution for.
+ * Lockheed Martin
+  * They are secretive so we really do not know a lot
+ * TAE Technologies
+  * found in 1998 in California
+  * Use proton-boron (PB) fueld. The reason they do this is because the reaction is **aneurtronic** meaning it produces no neutrons which greatly reduce the complexity of the proposed plant. This is an interesting choice since the typical D-T fuel output has been shown to be higher. Furthermore, P-B reaction produces higher radiation.
+  * Use field reversed configurations which make better use of magnetic fields meaning that they can contain more plasma but it is difficult to confine the plasma in stead state for long periods of time  
+ * Lawrenceville Plasma Physics (LPP)
+  *  
