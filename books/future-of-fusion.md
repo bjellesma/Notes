@@ -133,4 +133,11 @@
 * Trinity test
  * 7 grams of Plutonium generated the equivalent of 20000 tons of TNT
  * 1 ton of TNT is equivalent to $4.2*10^9$ Joules
- * 
+ * Just 100 trinity tests would be enough to start **nuclear winter**, where the ashes caused would literally block out the sunlight, causing rapid global cooling
+* Uranium
+ * In order to get U-235, you must remove the U-238 that gets in the way through a process called **enrichment**
+  * The reason you need enrichment is because U-235 is naturally occuring but in the same area as U-238 and since these are both isotopes, there are no distinguishable chemical properties
+  * Stuxnet was a computer virus in 2010 that damaged many centerfuges in Iran, making them unable to enrich uranium
+ * Some isotopes, such as plutonium-239 do not occur naturally and must be bred from U-238
+  * U-238 captures a neutron, decays to neptunium-239, and then decays again to plutonium-239  
+  * The difficulty with Pu-239 is that it will also contain trace amounts of Pu-240 which spotateously fissle. Because of this, so called **weapons grade plutonium** is plutonium that is over 90% Pu-239
