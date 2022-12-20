@@ -118,4 +118,19 @@
   * Use proton-boron (PB) fueld. The reason they do this is because the reaction is **aneurtronic** meaning it produces no neutrons which greatly reduce the complexity of the proposed plant. This is an interesting choice since the typical D-T fuel output has been shown to be higher. Furthermore, P-B reaction produces higher radiation.
   * Use field reversed configurations which make better use of magnetic fields meaning that they can contain more plasma but it is difficult to confine the plasma in stead state for long periods of time  
  * Lawrenceville Plasma Physics (LPP)
-  *  
+  * Dense Plasma (did not understand
+ * Helion Energy
+  * Plan to use feul of Deuritium and Helium-3
+   * They claim that D-H reactions are cleaner and lower costs but Helium-3 doesn't exist in sufficient quantity and will need to be obtained from D-D reactions anyway
+ * Commonwealth Fusion Systems
+  * SPARC is an acronym inside an acryonym and stands for smallest possible ARC.
+  * Essentially thought of as a smaller ITER. 
+  * Aim to generate 100MW of fusion power for 10 seconds
+  * Similar goals to Tokamak Energy with the exception that Tokamak Energy plans to use spherical Tokamaks while CFS plans to use convential one
+
+## Fusion and Nuclear Proliferation
+
+* Trinity test
+ * 7 grams of Plutonium generated the equivalent of 20000 tons of TNT
+ * 1 ton of TNT is equivalent to $4.2*10^9$ Joules
+ * 
