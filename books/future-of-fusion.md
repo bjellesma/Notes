@@ -141,3 +141,7 @@
  * Some isotopes, such as plutonium-239 do not occur naturally and must be bred from U-238
   * U-238 captures a neutron, decays to neptunium-239, and then decays again to plutonium-239  
   * The difficulty with Pu-239 is that it will also contain trace amounts of Pu-240 which spotateously fissle. Because of this, so called **weapons grade plutonium** is plutonium that is over 90% Pu-239
+* **Breeder Reactors** are reactors that use fissile material to generate neutrons and more fissile material. A lot of research was done on this a couple years ago when it was thought that uranium was more scarse. Since more uranium reserves were discovered, interest has declined but there is still advocacy for this.
+ * This also poses a higher risk of weaponization because the fissile material used in breeders can be weaponized in 1-3 weeks whereas the fissile materials in typical fission plants require further enrichment.
+* A lot of research is also done into a fission-fusion reactor that will be a fusion reactor at its core but be surrounded by fissible material to help breed neutrons. The advantage with this approach is that fusion alone doesn't need to react Q>1 because fission will also output electricity.
+* 
