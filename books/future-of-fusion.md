@@ -145,3 +145,11 @@
  * This also poses a higher risk of weaponization because the fissile material used in breeders can be weaponized in 1-3 weeks whereas the fissile materials in typical fission plants require further enrichment.
 * A lot of research is also done into a fission-fusion reactor that will be a fusion reactor at its core but be surrounded by fissible material to help breed neutrons. The advantage with this approach is that fusion alone doesn't need to react Q>1 because fission will also output electricity.
 * 
+
+## Fusion and Space Exploration
+
+* Space Travel is largely governed by the conservation of momentum. Since walking involves humans pushing on ground, water travel involves a propellor pushing against water, and air travel involves a jet engine pushing against air, this means that there is nothing to push against in space so we need to bring our own propellant.
+* The spacecrafts of today use chemical propulsion which can only reach 0.001% the speed of light whereas fusion can reach 5-10%
+ * The reason fusion is so much faster is because of the velocity of its exhaust
+ * Theoretically, using a mattter-antimatter explosion would be an even faster solution (traveling to another solar system is 75 years with fusion and only 10 years with matter-antimatter exposion) but this is still largely science fiction as we have no way to store antimatter.
+ * 
