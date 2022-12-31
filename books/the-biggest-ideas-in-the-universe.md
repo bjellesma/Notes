@@ -16,3 +16,15 @@
 
 * **The Spherical Cow Philosophy** is named for a joke in the physics commutity where a physicist starts a lecture by saying "Let's assume a spherical cow" This is a nonsense statement but illustrates the fact that physicts will usually go about solving problems by making assumptions to solve the easy problem and then gradually add back complexity.
 
+## Change
+
+* In classical physics, change is described using a specific framework called the **Laplacian Paradign**
+* While derivates calculate the rate of change, integrals calculate the total amount of change
+* When you try a rock to a string, swing it around in a circle and feel the rock tug on you, this is **centrifigul force**. The force that you exert to keep the rock in a circular motion is **centripetal force**
+* Newton's Laws
+  1. Velocity will be constant when there is no force acting on it
+  2. F=ma
+  3. bodies act on each other with equal and opposite forces
+* A function is simply taking one quantity as input and outputting a second quantity
+  * A function must have a unique mapping meaning one input maps to one output. In a graph, this function never crosses over itself ![image](https://user-images.githubusercontent.com/7660667/210119079-0aee473c-fec6-4d9a-a8c0-51475e583bf3.png)
+* 
