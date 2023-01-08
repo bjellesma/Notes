@@ -27,4 +27,9 @@
   3. bodies act on each other with equal and opposite forces
 * A function is simply taking one quantity as input and outputting a second quantity
   * A function must have a unique mapping meaning one input maps to one output. In a graph, this function never crosses over itself ![image](https://user-images.githubusercontent.com/7660667/210119079-0aee473c-fec6-4d9a-a8c0-51475e583bf3.png)
-* 
+* The integral and derivative can be thought of as inverse functions in that one function undoes the other
+* Calculus in necessary because famous equations like Einsteins equations of spacetime curvature or Shrodinger's quantum mechanical equations are differential equations.
+
+## Dynamics
+
+* The idea of relative speeds was first introduced by Galileo but refined later by Einstein
