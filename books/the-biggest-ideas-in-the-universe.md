@@ -33,3 +33,10 @@
 ## Dynamics
 
 * The idea of relative speeds was first introduced by Galileo but refined later by Einstein
+* The **normal vector** is just perpendicular to the object. For example, the normal vector to a ball rolling on a hill would be the force exerted by the ground
+* harmonic motion can be represented graphically by a sine wave
+* **equilibrium** is a state where all forces are in balance
+* Force on the system is just the derivative of potential energy
+* Together, the set of all pssible positions and momenta for a system is known as the system's **phase space**
+* A **Lagrangian** is the system's kinetic - potential energy. Therefore, **action** can be defined mathematically as the integral of the Lagrangian
+* 
