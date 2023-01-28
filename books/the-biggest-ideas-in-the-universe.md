@@ -40,3 +40,13 @@
 * Together, the set of all pssible positions and momenta for a system is known as the system's **phase space**
 * A **Lagrangian** is the system's kinetic - potential energy. Therefore, **action** can be defined mathematically as the integral of the Lagrangian
 * 
+
+## Space
+
+* a **space** is the set of all possible locations where something can happen
+* The reason for the inverse square law as well as the fact that the area formula contains $\pi^2$ is because we live in 3 spatial dimensions. In general, in a universe where space is d dimensional, the force of gravity is proportial to $\frac{1}{r^{d-1}}$
+* The **Hamilitonian** of a system is basically the energy of the system written in terms of the positions and momenta.
+* Rate of change of momentum with time and rate of change of position with time are known as **Hamiltonian Equations**
+  * rate of change of momentum with time = Minus the slope of potential energy with respect to positon
+  * rate of change of position with time = slope of kinetic energy with respect to momentum
+* If we take the **partial Derivative** with respect to x, we get$\frac{\partial}{partial x}}(axy^2) = (ay^2)(\frac{d}{dx}(x) = ay^2$
