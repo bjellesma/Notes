@@ -49,4 +49,14 @@
 * Rate of change of momentum with time and rate of change of position with time are known as **Hamiltonian Equations**
   * rate of change of momentum with time = Minus the slope of potential energy with respect to positon
   * rate of change of position with time = slope of kinetic energy with respect to momentum
-* If we take the **partial Derivative** with respect to x, we get$\frac{\partial}{partial x}}(axy^2) = (ay^2)(\frac{d}{dx}(x) = ay^2$
+* If we take the **partial Derivative** with respect to x, we treat the other variables as constants and bring them outside of the derivative and get $\frac{\partial}{\partial x}(axy^2) = (ay^2)(\frac{d}{dx}(x) = ay^2$
+* a **field** is basically a function of space itself: at every point, the field takes on a certain value. Think of the magnetic field, the gravitational field, or others
+  * the sun doesn't magically reach across space to exert a gravitational pull. Rather, it influences the gravitational field at its location, and the the value of the field at each location influences the value at all locations nearby. by concatenatiog all of these influences together with calculus, we can determine the strength of the gravitation pull.
+
+## Time
+
+* When we speak of properties such as temperature and pressure, we are describing **macrostates**. **Microstates** refer to individul position of atoms.
+  * Ludwig Boltzmann** figured in the 1870s that low entropy systems refer to a smaller combination of microstates. So as time goes on, the numberof possible microstates increases, which means that the entropy increases in **closed systems**, systems that don't ineract with the external world. This is the **second law of thermodynamics**.
+  * In an open system, entropy can decrease. For example, if you put a bottle in the fridge, the bottled substance cools, lowering the number of possible microstates, and therefore the entropy.
+  * However, you'll notice that heat is still expeled by the fridge which is why you can't cool a room by leaving the fridge door open. This is the **first law of thermodynamics**
+  * 
