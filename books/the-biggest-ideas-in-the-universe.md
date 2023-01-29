@@ -59,4 +59,15 @@
   * Ludwig Boltzmann** figured in the 1870s that low entropy systems refer to a smaller combination of microstates. So as time goes on, the numberof possible microstates increases, which means that the entropy increases in **closed systems**, systems that don't ineract with the external world. This is the **second law of thermodynamics**.
   * In an open system, entropy can decrease. For example, if you put a bottle in the fridge, the bottled substance cools, lowering the number of possible microstates, and therefore the entropy.
   * However, you'll notice that heat is still expeled by the fridge which is why you can't cool a room by leaving the fridge door open. This is the **first law of thermodynamics**
-  * 
+
+## Spacetime
+
+* In the classic twin paradox where alice is on earth and bob is in a spaceship going 99 percent the speed of light, it's not that bob's watch ticks at a different rate, it's that bob experiences less proper time
+  * To calculate how much less we use the equation $\tau = \sqrt{1-v^2}\delta t$ where v=.99 in this case. If we assume that $\tau =1$, this means that $\delta t = \frac{1}{.14} which is approximately 7. This means that Alice experience 7 years of proper time for every one of Bob's and that Alice will be aged more.
+* Paths in spacetime that move at the speed of light are called **null trajectories** because they don't experience the passage of time
+* The spacetime arena for all of this is called **Minkowski Spacetime** and replaces the notion of the **luminiferous aether** which is the proposed invisible substance that permeated space proposed in the 1850s. Minkowski Spacetime was proposed in 1905 when Einstein's paper on special relativity in 1905
+* For any one event on Earth there is a span of eight years that could be considered simultaneous in Proxima Centuri, the closest star system, depending on your time frame
+* Einstein's famouse e=mc^2 is an example of the **energy is the timelike version of momentum** that came from special relativity
+
+## Geometry
+* 
