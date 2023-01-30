@@ -70,4 +70,6 @@
 * Einstein's famouse e=mc^2 is an example of the **energy is the timelike version of momentum** that came from special relativity
 
 ## Geometry
-* 
+* Standard **Euclidean Geometry** is done on a two dimension plane that stretches forever where you can say things like two parallel lines will always be the same distance apart. **Non-Euclidean Geometry** is done on different surphases such as a sphere (**Spherical/elliptical geometry**) where two parallet lines will eventually converge. On a sphere, it's also possible to have the angles of a triangle add to more than 180 degrees whereas on a pllane, the angles also add to 180![image](https://user-images.githubusercontent.com/7660667/215407055-c502fa90-eca8-4394-a10b-5d5d1cd60006.png)
+* Conversly in saddle shaped geometry (another form of non euclidea geometry) (**hyperbolic geometry**), parallel lines will diverge and angles of a triangle will add to less than 180 degrees
+* You can use polar coordinates to make some calculations easier by going from $(x,y)$ to $(r,\theta)$
