@@ -17,4 +17,14 @@
 * Early ai research was progressive but gave way to the ai winter in the 80s and 90s when ai was unable to recognize images. 
 * In the 90s, the thought arose that we needed **machine learning** so that the ai learns by having a catalogue of images.
 * In the late 2000s was the idea of a **neural network** to simulate the brain
+
+# Security and World Order
+
+* Eisenhower threatened to use nuclear weapons against republic of China in 1955. They immediately deescalated
+* An arms control was sought after in the 50s to not let any other nations develop nuclear weapons and instead use nuclear power for a renewable source of energy
+* private paramilitary forces are essentially mercenary forces
+* they already have ai in fighter jets which are more accurate than humans
+* restraints must be put in place by the engineers to turn off the ai if the intelegence starts to run astray
+* an ai may already be programmed to keep humans in the loop so that it needs authorization for cetain functions
+* just as the nuclear age brought on a need to create treaties, the ai age will need negociation
 * 
