@@ -11,4 +11,7 @@
 
 * There was a study that the more conspiracy theories that one believes in, the more likely the individual is to buy a gun
 * This helps explain some groups such as the KKK which fears that Jews and other minories are seeking to replace whites in western culture, and Al-Quida and ISIS believes that America is seeking to wipe out Islam.
-* 
+
+# A brief history
+
+* people are more inclined to beleive conspiracy theories because they provide entertainment values
