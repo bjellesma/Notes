@@ -8,3 +8,18 @@
   * this is often the level that people focus on, they want a certain outcome rather than changing the identity of what they want to change about themselves
   * for example, if you want to lose weight but your identity is not work out and eat unhealthy. Your goal won't stick because your identity is still to relax and overindulge
   * the goal is not to run a marathon, the goal is to become a runner. Just this change in mindset will make all the difference
+
+## How to form a good habit
+
+1. Make it obvious
+* Say to yourself: I will do [behaviour] at [time]
+
+2. Make it attractive
+* Use temptation bundling to say something like: if I want to take out my phone to check socials (want), I have to do 10 burpees (need)
+* The interesting part of this chapter is that dopamine has been found to be something to give you motivation to do something with a potential reward. In other words, the dopamine hit is the anticipation of the reward and not the reward itself.
+
+## How to break a bad habit
+
+1. Make it invisible
+* Remove the cue from your environment: put your phone on do not disturb and keep it out of reach when you're trying to get stuff done
+
