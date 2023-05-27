@@ -18,8 +18,17 @@
 * Use temptation bundling to say something like: if I want to take out my phone to check socials (want), I have to do 10 burpees (need)
 * The interesting part of this chapter is that dopamine has been found to be something to give you motivation to do something with a potential reward. In other words, the dopamine hit is the anticipation of the reward and not the reward itself.
 
+3. Make it easy
+* When you first start practicing a new habit, it takes time and effort. The more time goes on, the easier and more automatic the habit becomes.
+* Focus on taking action, not being in motion. If I want to build a habit of playing guitar each day, it's not enough to just do the same old chords each time
+* to help build up a new habit, it's good to start small. If I want to practice guitar for twenty minutes a day, start with two minutes a day to reduce the friction.
+* Make small steps. If you want to become vegan, start by becoming vegetarian and then slowly start to remove any animal products.
+
 ## How to break a bad habit
 
 1. Make it invisible
 * Remove the cue from your environment: put your phone on do not disturb and keep it out of reach when you're trying to get stuff done
-
+2. Make it unattractive
+3. Make it difficult
+* If a habit has enough friction, then we won't do it. For example, if we want to watch less tv, unplug the tv after each use and only plug it back in if you can say out loud the name of the show you want to watch. This sets up enough friction to make it inconvenient.
+* 
