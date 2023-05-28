@@ -24,6 +24,11 @@
 * to help build up a new habit, it's good to start small. If I want to practice guitar for twenty minutes a day, start with two minutes a day to reduce the friction.
 * Make small steps. If you want to become vegan, start by becoming vegetarian and then slowly start to remove any animal products.
 
+4. Make it satisying
+* You need to make the habit have an immediate reward that is not in conflict with itself. For example, if you exercise 3 days in a row, don't reward yourself with a bowl of ice cream, reward yourself with something else healthy like a massge
+* Habit Tracking - having something visual to look at like marking your calendar makes it easy to see the progress that you're making and stick with a habit. I employ habit tracking by using my google calendar. Reportedly, Jerry Seinfeld used to have a goal of writing one new joke a day. His goal was just to write a new joke. He wasn't focused on the joke being good or bad.
+* If you miss one day, don't beat yourself up. Even successful people have a bad day, they just rebound quickly. 
+
 ## How to break a bad habit
 
 1. Make it invisible
@@ -32,3 +37,4 @@
 3. Make it difficult
 * If a habit has enough friction, then we won't do it. For example, if we want to watch less tv, unplug the tv after each use and only plug it back in if you can say out loud the name of the show you want to watch. This sets up enough friction to make it inconvenient.
 * 
+4. Make it unsatisying - make an accountability partner shame you if you don't do a habit. Going further, you can even sign a contract to make the habit more dire if missed.
