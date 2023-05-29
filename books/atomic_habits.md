@@ -38,3 +38,13 @@
 * If a habit has enough friction, then we won't do it. For example, if we want to watch less tv, unplug the tv after each use and only plug it back in if you can say out loud the name of the show you want to watch. This sets up enough friction to make it inconvenient.
 * 
 4. Make it unsatisying - make an accountability partner shame you if you don't do a habit. Going further, you can even sign a contract to make the habit more dire if missed.
+
+## Advanced Topics
+
+* The difference between a professional and an ametuer is that a professional will stick with the boredom. professionals lose motivation just like the rest of us but it's their willingness to stick with the boring reps of a habit that will pay off
+
+* Scientists have discovered that it's easiest to stick with a habit when it's 4% out of reach of us. In other words, it needs to be not too easy and not too difficult
+
+* The tighter we cling to one identity like "I'm an athlete". The harder it is when something happens like you suffer an injury. You're better off translating this to "I'm the type of person that enjoys a physical challenge."
+
+* Once habits begin forming, it's easy to begin not noticing things like performance declines during the habit. This is why it's important to have a period of reflection and retrospect.
