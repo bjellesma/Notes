@@ -15,3 +15,20 @@
 # A brief history
 
 * people are more inclined to beleive conspiracy theories because they provide entertainment values
+* highly educated people are actually more inclined to believe conspiracies if their group agrees because they're better at rationalizing counter evidence
+
+## Constructive Conspiratism
+
+* Claims of election interference harken back to 2000 (and probably earlier) when Bush beat Gore and democrats made claims of interference
+* negative feeling suches as losses tend to feel twice as bad as winning. Tolstoy said that evil contaminates good more than good purifies evil.
+* the author argues that the second law of thermodynamics is the first rule of life. Entropy is constantly happening and leading to disorder so life is constantly about fighting this disorder.
+* the author argues that belief in conspiracy theories is evolutionary. millions of years ago if we heard a russle in the grass, it is far better to assume this is a predator and it turns out to be the wind than the other way around. It's more in our nature to assume a conspiracy theory is true rather than to assume that it's false
+
+# How to determine which conspiracy theories are real
+
+* There is a conspiracy theory that big pharma companies conspire together to sell people drugs that they don't need. We from the investigations of Purdue Pharma and the Sakler family as well as the opiod epidemic that this is true. Still, it doesn't mean that all big pharma is evvil
+* Has the theory been verified by an external scientist. Real science requires validity from others in the scientific community and conspiracy theories typically lack these.
+* Furthermore, conspiracy theories tend to either ignore contridictory evidence or invent more conspiracy to explain this
+* another big difference is that real science starts with a null hypothosis and assumes that a claim is not true. For example, if you claim to develop a new drug for covid, businesses will start by assuming you do not have the drug until you can provide loads of evidence that your drug works. Conversely, conspiracies do not follow this null hypothesis. For example, UFO people cannot produce evidence that UFOs are real but expect you to beleive them based on what they say
+* Scientists need to be willing to let go of their theories if they're presented with a better theory descibing anomolies that their theory doesn't account for. Conversely, conspiracy theorists will not be willing to let go of their theories
+* 
