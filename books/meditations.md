@@ -8,3 +8,7 @@
 * Never esteem to anything profitable if it means breaking your own faith. always be ready as if today was your last day.
 * always have your dogmata, knowledge and opinion of morals at the ready
 * Don't be distracted by fancies in life
+* Do not pride anything but look into the truth of the matter fully
+* follow 2 rules: Everything that you do must be for some benifit of mankind. Always be ready to change your mind if you can be properly persuaded. Don't be so stuck in your ways that you can't see the greater good
+* If man does only what is truly necessary, he will save himself much time and trouble
+* Don't dwell on small matters
