@@ -12,3 +12,12 @@
 * follow 2 rules: Everything that you do must be for some benifit of mankind. Always be ready to change your mind if you can be properly persuaded. Don't be so stuck in your ways that you can't see the greater good
 * If man does only what is truly necessary, he will save himself much time and trouble
 * Don't dwell on small matters
+* don't dwell on anything evil in the mind because thinking on it is neither good nor evil
+* It's no use to suffer any change
+* Whatever happens in the world is just nature
+* if you live as if you'll die tomorrow, what is thhe difference between dying tomorrow and dying years from now
+* Understand as much affecting you as you can because that will cause you the least grief
+* Every time that you want to stay in bed, just think if your purpose to enjoy the pleasure of a warm bed in the highest or to take action
+* always think of yourself fit to take the proper action and not allow others to deter you
+* do not do good work only for the glory from others
+* 
