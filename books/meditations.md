@@ -20,4 +20,5 @@
 * Every time that you want to stay in bed, just think if your purpose to enjoy the pleasure of a warm bed in the highest or to take action
 * always think of yourself fit to take the proper action and not allow others to deter you
 * do not do good work only for the glory from others
+* Don't be offened by features of another man that he can't control
 * 
