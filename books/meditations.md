@@ -21,4 +21,12 @@
 * always think of yourself fit to take the proper action and not allow others to deter you
 * do not do good work only for the glory from others
 * Don't be offened by features of another man that he can't control
+* remember that not much in this life is under our control
+* let life be full of good inclinations, desires, and actions
+* the best kind of revenge is to not become like the aggressor
+* things that are out of a person's control shouldn't bother you nor is it worth spending time being distracted by it
+* It's not productive to be mad at those that don't agree with you
+* Live as Antonius Pius, who died with a good conscience. antonius was the emporer before markus aurilius and know as the forth of the five good emporers for no military incursions during this time
+* the ambitious support another's actions to be part of his own happiness
+* that which is not good for the greater consciousness, cannot be good for you
 * 
