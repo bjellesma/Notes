@@ -29,4 +29,5 @@
 * Live as Antonius Pius, who died with a good conscience. antonius was the emporer before markus aurilius and know as the forth of the five good emporers for no military incursions during this time
 * the ambitious support another's actions to be part of his own happiness
 * that which is not good for the greater consciousness, cannot be good for you
+* See opurtunity in every accident and try to get something out of it. Maybe a feedback loop
 * 
