@@ -30,4 +30,19 @@
 * the ambitious support another's actions to be part of his own happiness
 * that which is not good for the greater consciousness, cannot be good for you
 * See opurtunity in every accident and try to get something out of it. Maybe a feedback loop
-* 
+
+## Book 8
+* Don't be distracted by wealth or pleasure, honor and reputation are the subtilties worth going after.
+* On first encounter with anyone, it is good to know their definitions of right and wrong, what gives them honor. This helps to learn why act a certain way
+* any deliberate hindrance to the mind is considered evil
+* place me anywhere because my spirit will be the same regardless of where i am
+* even thoug they cast stones at me, I'm still able to think justly
+* either teach men or live with the consequences
+
+## Book 9
+
+* It is better to live a life free from gluttony, falsehood, and pride than to disire to live long and perpetuate this wickedness
+* No use living in scorn as you age
+* virtue is demonstrated by action, not passion
+* if another man sins or wrongs, why should it bother me?
+* true philosophy is simplicity and modesty
