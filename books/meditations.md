@@ -46,3 +46,15 @@
 * virtue is demonstrated by action, not passion
 * if another man sins or wrongs, why should it bother me?
 * true philosophy is simplicity and modesty
+
+## Book 10
+
+* if someone offends you, show them the error
+* all things of this world come into necessity at some point
+* there should always be time for contemplation
+* to follow reason is slow yet quick
+* what use is there to have suspicion and harbor mistrust? There is a line between proceeding with discretion and being paranoid
+
+## Book 11
+
+* Charity is worthwhile if it benefits you
