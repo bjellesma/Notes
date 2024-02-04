@@ -58,3 +58,16 @@
 ## Book 11
 
 * Charity is worthwhile if it benefits you
+* there is nothing more shameful than deceiptful friendship
+* True happiness can only be found inwardly. No worldly object can persuade you.
+* You are born slave to your senses and brutish behavior and must be taught
+
+## Book 12
+* embrace whatever God sends you
+* it's rediculous to be surprised by anything in life
+* always maintain what is your own purpose and don't be swayed by compulsion from others
+* everything that presents itself to you, think of the true purpose of it
+* Do nothing rashly. For there is something better than any transient passion
+* when asked if he has ever seen the gods and why he worships them, he responds that neither jhas he seen his own sould yet he honors and respects it
+* Just as we've all received a small portion of eternity on this earth, Aurilius belives that we've all received one portion of a common soul.
+* 
