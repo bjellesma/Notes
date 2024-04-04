@@ -6,6 +6,17 @@
 
 Docker containers are often compared to virtual machines but they are actually just processes running on your host os. In Windows/Mac, Docker runs in a mini-VM so to see the processes youll need to connect directly to that. On Linux however you can run "ps aux" and see the processes directly
 
+# Important Note for linux users
+
+To stop needing to use sudo for every command, add the currently logged in user to the dockergroup using `sudo usermod -aG docker $USER` and then logout and log back in for this to take effect
+
+## VSCODE
+
+If you're using the docker vscode plugin, you can view the container's files in `/usr/src/app`
+
+![image](https://github.com/bjellesma/Notes/assets/7660667/af5ec99b-129e-4c22-8a9d-e8f32b736782)
+
+
 ### Show commands & management commands
 
 ```
