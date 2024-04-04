@@ -407,6 +407,8 @@ $ ls -al
 
 ### Sample compose file (From Bret Fishers course)
 
+The new way to write these files is by calling it `compose.yml`
+
 ```
 services:
   jekyll:
