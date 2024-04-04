@@ -1,4 +1,10 @@
-# Docker Commands, Help & Tips (Updated by Bill for 2024)
+# Docker Commands, Help & Tips (Updated by Bill for 2024 and originally made by [Brad Traversy](https://gist.github.com/bradtraversy/89fad226dc058a41b596d586022a9bd3) )
+
+![image](https://github.com/bjellesma/Notes/assets/7660667/8269aa5e-6506-4100-a06f-59c51b882ca9)
+
+#### TIP: ABOUT CONTAINERS
+
+Docker containers are often compared to virtual machines but they are actually just processes running on your host os. In Windows/Mac, Docker runs in a mini-VM so to see the processes youll need to connect directly to that. On Linux however you can run "ps aux" and see the processes directly
 
 ### Show commands & management commands
 
@@ -33,19 +39,14 @@ $ sudo docker container run -it -p 8080:80 nginx
 Here we use detached mode
 
 ```
-$ docker container run -d -p 8080:80 nginx
+$ sudo docker container run -d -p 8080:80 nginx
 ```
 
-### Shorthand
-
-```
-$ docker container run -d -p 80:80 nginx
-```
 
 ### Naming Containers
 
 ```
-$ docker container run -d -p 80:80 --name nginx-server nginx
+$ sudo docker container run -d -p 80:80 --name nginx-website nginx
 ```
 
 ### TIP: WHAT RUN DID
@@ -58,152 +59,150 @@ $ docker container run -d -p 80:80 --name nginx-server nginx
 - We could do "$ docker container run --publish 8000:80 --detach nginx" to use port 8000
 - We can specify versions like "nginx:1.09"
 
-### List running containers
+### List running containers (Note that these are only running conainers)
 
 ```
-$ docker container ls
+$ sudo docker container ls
 ```
 
 OR
 
+This is an older command but shorter and easier to remember
+
 ```
-$ docker ps
+$ sudo docker ps
 ```
 
 ### List all containers (Even if not running)
 
 ```
-$ docker container ls -a
+$ sudo docker container ls -a
 ```
 
 ### Stop container
 
+The DockerID can be found in the above docker process commands
+
 ```
-$ docker container stop [ID]
+$ sudo docker container stop [ID]
+```
+
+### Shorthand
+
+```
+$ sudo docker kill [ID]
 ```
 
 ### Stop all running containers
 
 ```
-$ docker stop $(docker ps -aq)
+$ sudo docker stop $(docker ps -aq)
 ```
 
 ### Remove container (Can not remove running containers, must stop first)
 
 ```
-$ docker container rm [ID]
+$ sudo docker container rm [ID]
 ```
 
 ### To remove a running container use force(-f)
 
 ```
-$ docker container rm -f [ID]
-```
-
-### Remove multiple containers
-
-```
-$ docker container rm [ID] [ID] [ID]
+$ sudo docker container rm -f [ID]
 ```
 
 ### Remove all containers
 
 ```
-$ docker rm $(docker ps -aq)
+$ sudo docker rm $(sudo docker ps -aq)
 ```
 
 ### Get logs (Use name or ID)
 
 ```
-$ docker container logs [NAME]
+$ sudo docker container logs [NAME]
+```
+
+Example
+
+```
+$ sudo docker container logs nginx-website
 ```
 
 ### List processes running in container
 
 ```
-$ docker container top [NAME]
+$ sudo docker container top [NAME]
 ```
 
-#### TIP: ABOUT CONTAINERS
+Example
 
-Docker containers are often compared to virtual machines but they are actually just processes running on your host os. In Windows/Mac, Docker runs in a mini-VM so to see the processes youll need to connect directly to that. On Linux however you can run "ps aux" and see the processes directly
+```
+$ sudo docker container top nginx-website
+```
 
 # IMAGE COMMANDS
+
+You should first login to dockerhub by using the following command (assumes you've made a login on [DockerHub](https://hub.docker.com/)
+
+```
+$ sudo docker login
+```
 
 ### List the images we have pulled
 
 ```
-$ docker image ls
+$ sudo docker image ls
 ```
 
 ### We can also just pull down images
 
 ```
-$ docker pull [IMAGE]
+$ sudo docker pull [IMAGE]
 ```
 
 ### Remove image
 
 ```
-$ docker image rm [IMAGE]
+$ sudo docker image rm [IMAGE]
 ```
 
 ### Remove all images
 
 ```
-$ docker rmi $(docker images -a -q)
+$ sudo docker rmi $(sudo docker images -a -q)
 ```
 
 #### TIP: ABOUT IMAGES
 
 - Images are app bianaries and dependencies with meta data about the image data and how to run the image
-- Images are no a complete OS. No kernel, kernel modules (drivers)
+- Images are not a complete OS. No kernel, kernel modules (drivers)
 - Host provides the kernel, big difference between VM
-
-### Some sample container creation
-
-NGINX:
-
-```
-$ docker container run -d -p 80:80 --name nginx nginx (-p 80:80 is optional as it runs on 80 by default)
-```
-
-APACHE:
-
-```
-$ docker container run -d -p 8080:80 --name apache httpd
-```
-
-MONGODB:
-
-```
-$ docker container run -d -p 27017:27017 --name mongo mongo
-```
-
-MYSQL:
-
-```
-$ docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql
-```
 
 ## CONTAINER INFO
 
 ### View info on container
 
 ```
-$ docker container inspect [NAME]
+$ sudo docker container inspect [NAME]
+```
+
+Example
+
+```
+$ sudo docker container inspect nginx-website
 ```
 
 ### Specific property (--format)
 
 ```
-$ docker container inspect --format '{{ .NetworkSettings.IPAddress }}' [NAME]
+$ sudo docker container inspect --format '{{ .NetworkSettings.IPAddress }}' [NAME]
 ```
 
-### Performance stats (cpu, mem, network, disk, etc)
+### Performance stats (cpu, mem, network, disk, etc) (similar to ps -aux)
 
 ```
-$ docker container stats [NAME]
+$ sudo docker container stats [NAME]
 ```
 
 ## ACCESSING CONTAINERS
@@ -214,45 +213,25 @@ $ docker container stats [NAME]
 $ docker container run -it --name [NAME] nginx bash
 ```
 
+## TIP
+
+Use `exit` from within the CLI of a container
+
 - i = interactive Keep STDIN open if not attached
 - t = tty - Open prompt
 
-**For Git Bash, use "winpty"**
-
-```
-$ winpty docker container run -it --name [NAME] nginx bash
-```
-
-### Run/Create Ubuntu container
-
-```
-$ docker container run -it --name ubuntu ubuntu
-```
-
 **(no bash because ubuntu uses bash by default)**
 
-### You can also make it so when you exit the container does not stay by using the -rm flag
+### Use exec to enter the container from CLI
 
 ```
-$ docker container run --rm -it --name [NAME] ubuntu
-```
-
-### Access an already created container, start with -ai
-
-```
-$ docker container start -ai ubuntu
-```
-
-### Use exec to edit config, etc
-
-```
-$ docker container exec -it mysql bash
+$ sudo docker container exec -it mysql bash
 ```
 
 ### Alpine is a very small Linux distro good for docker
 
 ```
-$ docker container run -it alpine sh
+$ sudo docker container run -it alpine sh
 ```
 
 (use sh because it does not include bash)
@@ -260,89 +239,72 @@ $ docker container run -it alpine sh
 
 # NETWORKING
 
-### "bridge" or "docker0" is the default network
-
 ### Get port
 
 ```
-$ docker container port [NAME]
+$ sudo docker container port [NAME]
 ```
 
 ### List networks
 
 ```
-$ docker network ls
+$ sudo docker network ls
 ```
 
 ### Inspect network
 
 ```
-$ docker network inspect [NETWORK_NAME]
+$ sudo docker network inspect [NETWORK_NAME]
 ("bridge" is default)
 ```
 
 ### Create network
 
 ```
-$ docker network create [NETWORK_NAME]
+$ sudo docker network create [NETWORK_NAME]
 ```
 
 ### Create container on network
 
 ```
-$ docker container run -d --name [NAME] --network [NETWORK_NAME] nginx
+$ sudo docker container run -d --name [NAME] --network [NETWORK_NAME] nginx
 ```
 
 ### Connect existing container to network
 
 ```
-$ docker network connect [NETWORK_NAME] [CONTAINER_NAME]
+$ sudo docker network connect [NETWORK_NAME] [CONTAINER_NAME]
 ```
 
 ### Disconnect container from network
 
 ```
-$ docker network disconnect [NETWORK_NAME] [CONTAINER_NAME]
+$ sudo docker network disconnect [NETWORK_NAME] [CONTAINER_NAME]
 ```
 
 ### Detach network from container
 
 ```
-$ docker network disconnect
+$ sudo docker network disconnect
 ```
 
 # IMAGE TAGGING & PUSHING TO DOCKERHUB
 
-# tags are labels that point ot an image ID
+# tags are labels that point to an image ID
 
 ```
-$ docker image ls
+$ sudo docker image ls
 ```
 
 Youll see that each image has a tag
 
 ### Retag existing image
 
-```
-$ docker image tag nginx btraversy/nginx
-```
-
-### Upload to dockerhub
+- Note that nginx is the name of the image and we're retagging it with bjellesma/nginx
+- This makes a copy of the image using your new tag.
 
 ```
-$ docker image push bradtraversy/nginx
-```
-
-### If denied, do
-
-```
-$ docker login
-```
-
-### Add tag to new image
-
-```
-$ docker image tag bradtraversy/nginx bradtraversy/nginx:testing
+$ sudo docker image tag nginx bjellesma/nginx-website
 ```
 
 ### DOCKERFILE PARTS
@@ -355,12 +317,20 @@ $ docker image tag bradtraversy/nginx bradtraversy/nginx:testing
 - WORKDIR - Sets working directory (also could use 'RUN cd /some/path')
 - COPY # Copies files from host to container
 
-### Build image from dockerfile (reponame can be whatever)
+### Build image from dockerfile 
 
-### From the same directory as Dockerfile
+reponame should be in the form login/tag and this command expects to find a dockerfile in the current directory
 
 ```
-$ docker image build -t [REPONAME] .
+$ sudo docker image build -t [REPONAME] .
+```
+
+### Upload to dockerhub
+
+This will push the image with the tag bjellesma/nginx-website
+
+```
+$ sudo docker image push bjellesma/nginx-website
 ```
 
 #### TIP: CACHE & ORDER
@@ -382,91 +352,13 @@ COPY index.html index.html
 ### Build image from Dockerfile
 
 ```
-$ docker image build -t nginx-website
+$ sudo docker image build -t nginx-website .
 ```
 
 ### Running it
 
 ```
-$ docker container run -p 80:80 --rm nginx-website
-```
-
-### Tag and push to Dockerhub
-
-```
-$ docker image tag nginx-website:latest btraversy/nginx-website:latest
-```
-
-```
-$ docker image push bradtraversy/nginx-website
-```
-
-# VOLUMES
-
-### Volume - Makes special location outside of container UFS. Used for databases
-
-### Bind Mount -Link container path to host path
-
-### Check volumes
-
-```
-$ docker volume ls
-```
-
-### Cleanup unused volumes
-
-```
-$ docker volume prune
-```
-
-### Pull down mysql image to test
-
-```
-$ docker pull mysql
-```
-
-### Inspect and see volume
-
-```
-$ docker image inspect mysql
-```
-
-### Run container
-
-```
-$ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql
-```
-
-### Inspect and see volume in container
-
-```
-$ docker container inspect mysql
-```
-
-#### TIP: Mounts
-
-- You will also see the volume under mounts
-- Container gets its own uniqe location on the host to store that data
-- Source: xxx is where it lives on the host
-
-### Check volumes
-
-```
-$ docker volume ls
-```
-
-**There is no way to tell volumes apart for instance with 2 mysql containers, so we used named volumes**
-
-### Named volumes (Add -v command)(the name here is mysql-db which could be anything)
-
-```
-$ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
-```
-
-### Inspect new named volume
-
-```
-docker volume inspect mysql-db
+$ sudo docker container run -p 80:80 --rm nginx-website
 ```
 
 # BIND MOUNTS
@@ -475,7 +367,7 @@ docker volume inspect mysql-db
 - No files will be available in the directory but we should be able to override
 
 ```
-$ docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx
+$ sudo docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx
 ```
 
 ### Go into the container and check
@@ -483,15 +375,9 @@ $ docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name ngin
 Image must be named
 
 ```
-$ docker container exec -it nginx-website bash
+$ sudo docker container exec -it nginx-website bash
 $ cd /usr/share/nginx/html
 $ ls -al
-```
-
-### You could create a file in the container and it will exiost on the host as well
-
-```
-$ touch test.txt
 ```
 
 # DOCKER COMPOSE
@@ -511,11 +397,6 @@ $ touch test.txt
 ### Sample compose file (From Bret Fishers course)
 
 ```
-version: '2'
-
-# same as
-# docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve
-
 services:
   jekyll:
     image: bretfisher/jekyll-serve
@@ -528,17 +409,19 @@ services:
 ### To run
 
 ```
-docker-compose up
+$ sudo docker-compose up
 ```
 
 ### You can run in background with
 
 ```
-docker-compose up -d
+$ sudo docker compose up -d
 ```
 
 ### To cleanup
 
+This will remove the containers
+
 ```
-docker-compose down
+$ sudo docker compose down
 ```
