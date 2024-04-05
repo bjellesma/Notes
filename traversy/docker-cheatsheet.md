@@ -422,7 +422,13 @@ services:
 ### To run
 
 ```
-$ sudo docker-compose up
+$ sudo docker compose up
+```
+
+### Run after rebuilding any changes detected
+
+```
+$ sudo docker compose up --build
 ```
 
 ### You can run in background with
