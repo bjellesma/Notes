@@ -72,3 +72,44 @@ Much like self awareness is analyzing the emotions in yourself, empathy is the a
 ## Social Skills
 
 In order to start getting along with someone, you need to pickup on their interests. Do they wear a special clothing accessory like a watch, t-shift, or sports jacket? Do you talk about one of their hobbies a lot? What kind of books or TV are they interested in. These can help to start a conversation so that you can build a relationship with the other person. Pay attention to specific details like the name of their kids or spouse to show that you take interest. These need to be genuine interest or else you will seem fake and unappealing. 
+
+# Documents
+
+Three forms of communication in this day and age: instant messaging, email, and documents. **instant messaging** is usually used for faster and more informal communication. **email** is relatively quick, maybe a response in a couple of hours and usually has its place as slightly more formal communication and ideal for threaded conversations between departments since you take advantage of distribution lists. **documents** are very formal communication that have the following structure:
+
+* Title
+   * Most important for finding a document. Apply some SEO tactics.
+* Author
+   * You should sign your name to your work since it represents your contributions and so that people know who to go to if they need further clarification
+* Date
+   * Technology in a company moves quickly so it's important to know the date of a document. Something written 3 years ago has less relevance than something written 1 month ago.
+* Abstract
+   * Every document should have a TLDR so that people have an idea of what they're about to read before investing time in reading it
+
+Treat writing documents as an agile process just as software development. comments are code reviews.
+
+While chats and emails are great forms of communication, you need to have design docs written up before project work begins. I've run into situations where stakeholders of a project will attempt to scope creep. This gives a contract to say the planned timeline for the given goals/scope. The design doc should be the following:
+
+* Meta Data
+   * In Addition to title and date, you should have the contributors, primary point of contact, and the approvers who've signed off on the project
+* Context and scope
+   * You should have a section that describes the project's goals and what is not in scope for the project
+   * For example, the goal of safetbox is to transport files, rename them, have them scanned, and organized into galleryserver. What is not in scope is to have files merged
+* Overview/Abstract
+* Detailed design
+   * High level overview of how we'll do this project.
+   * We describe what APIs we'll be using, UI design (webpage/desktop), security/privacy.
+   * This part of the design doc should still be kept concise
+* Relationships to other systems
+   * If other systems are already built in the organization that will take advantage of this
+   * For example, I was on a project to build an integration between our ERP and another system. I built the api on the ERP.
+* Alternatives
+   * what else have we considered doing in this project? Why are we using this API? Why do we need to use this server?
+   * This is important because it can prevent others from having this same question of why don't we do it like this.
+
+Consider that the design doc has a wide audience from the stakeholders who care about outcomes to project managers who schedule resources to engineers who will be building step by step to devops who need to validate that the org can integrate the system infrastructure. Also consider that you may be talking to someone who's been at the company 10 years and understands the business or been there one week and has little idea of the business model still.
+
+As with most software projects, things will change so it's worth making edits to the design doc, maybe even having weekly or biweekly meetings with the concerned parties so that everyone is on the same page.
+
+It's ecspecially vital for an engineering team to have their own onboarding doc that will give the user a sort of bootcamp. It's vital that this will allow the new user to do something quickly like push something to production
+
