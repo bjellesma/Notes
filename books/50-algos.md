@@ -104,7 +104,7 @@ The Shell sort works like a bubble sort but questions the need to use immediate 
 
 ![image](https://github.com/bjellesma/Notes/assets/7660667/eff25475-2269-4bdf-8605-fc0a784a8d35)
 
-Like the bubble sort, the time complexity can be quadratic in the worst case. However, the shell sort is more optimized for data sets of less than 6000 elements. This makes the algo a good candidate for medium sized data sets.
+Like the bubble sort, the time complexity can be quadratic in the worst case. However, the shell sort is more optimized for data sets of less than 6000 elements. This makes the algo a good candidate for medium sized data sets and if the data is already partially sorted.
 
 ## Selection sort
 
@@ -125,4 +125,49 @@ For larger data sets that are more random, merge sort works well. Think of this 
 
 ## Linear Search
 
-**Linear Search** is just a brute force search for the item in the list and, if not found, keep going. The advantage is that this doesn't require the list to be presorted. The disadvantage is that this can be very slow in the worst case if the item we're looking for is at the end.
+**Linear Search** is just a brute force search for the item in the list and, if not found, keep going. The advantage is that this doesn't require the list to be presorted. The disadvantage is that this can be very slow in the worst case if the item we're looking for is at the end which means that it is an O(n) algo.
+
+## Binary Search
+
+the **Binary Search** has a prerequite that the list must already be sorted because it continuously divides the entire list into two parts and keeps track of the lowest and highest indices to see if the value is within either part. Though this introduces the fact that the time complexity is O(log(N)) or logarithmic, this does require that you use a sorting algorithm first if the list is not sorted.
+
+![image](https://github.com/bjellesma/Notes/assets/7660667/2437ba12-c304-499f-95f4-4761df63c293)
+
+## Interpolation Search
+
+the **interpolation search** will use the target value to try to gain context about where to start searching. As with binary search, the list must first be sorted before an accurate search can take place. The best way to think of an interpolation search is if you're looking for catcher and the rye in the library. You'll start with the section starting with C.
+
+The worst case where the data in ununiformly distributed has a time complexity of O(N) whereas the best case where the data is uniformely distributed is O(log(log(N))).
+
+## Fuzzy Search
+
+**Fuzzy Search** is more of a concept to detect near misses on searches to account for real world scenarios like incorrectly spelled data. For example, if you're searching for "Jon Doe", you may also want results for "John Doe". Often a fuzzy search involves using some sort of distance algorithm to detect those near misses.
+
+# Chapter 4: Designing Algorithms
+
+## Basic Concepts of Designing an algorithm
+
+**Functional Requirements** set out aspects like what the input and output should be while **non-functional requirements** set out expectations like what the performance and security should be.
+
+When Designing an algo, three concerns should be addressed
+
+### Correctness: Is the output expected
+
+We need some idea of what the correct output will be for a given set of inputs. This way, we can accurately test and ensure that we get the proper algo.
+
+We also need to consider edge cases and not just the "happy path" so that we can accurately account for all scenarios. Unfortunately, we need to understand that we will not be able to consider every edge case but we should consider as many as possible.
+
+### Performance: Is this the optimal way
+
+This brings up the concept of **P=NP**. P stands for polynomial agorithm such as O(N^k) where k is a power. NP stands for non-polynomial where we do not know of the existance of a polynomial algorithm to solve a certain problem like the traveling salesperson. Therefor, every polynomial problem is a subset of a non-polynomail problem. For example, a searching algo like binary search is known to have a big O notation is polymial time but of course can also be solved in less sophisticated ways that would be a non polynomial efficiency. Conversely, problems like the traveling salesperson are not known to have a polynomial solution.
+
+There is heavy research into finding if these types of problems like traveling salesperson would have a polynomial solution because that would help prove P=NP. Proving that relation would mean major advancements in the fields of AI and other theoretical fields. AI, for example, is still heavily limited by the processing power needed and if it had faster processing, would lead to major advancements.
+
+Here are examples of problems, where they lie, and their explanations.
+
+* P (polynomial) - Hashtable lookup - solvable in polynomial time
+* NP (non polynomial) - RSA encryption - not solvable in polynomial time but can be verified in polynomial time
+* NP-Hard (non polynomial) - Optimal clustering using the K-means algorithm - complex problems that no one has been able to solve but if solved, would have a measurable polynomial time execution.
+* NP-Complete (non polynomial) - optimal solution for the traveling salesperson - this is a combination of NP and NP-hard because it both is complex enough that it has not been solved yet and it won't have a polynomial solution.
+
+### Scalability: How will this perform on larger datasets
