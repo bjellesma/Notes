@@ -171,3 +171,50 @@ Here are examples of problems, where they lie, and their explanations.
 * NP-Complete (non polynomial) - optimal solution for the traveling salesperson - this is a combination of NP and NP-hard because it both is complex enough that it has not been solved yet and it won't have a polynomial solution.
 
 ### Scalability: How will this perform on larger datasets
+
+Estimating the requirement of the increase in resource requirements as the input data is increased is called **space complexity analysis**. Conversely, the estimate for the increase in time taken to run as the input data is increased is called **time complexity analysis**.
+
+The ability of cloud computing to provision more resources as processing requirements increase is called **elasticity**. 
+
+**Distributed Computing** is a methodology where we break problems into independant subproblems that will run independantly of each other. This follows an algorithm design principle known as **divide and conquer**. Divide and conquer is good for larger problems that can be broken down into independant subproblems but is not good for problems that require intensive iterations.
+
+**Dynamic Programming** is similar to divide and conquer in the way that we break down to the easiest subproblem. The easiest subproblem can then be solved and have its answer saved off in a process called **memoization** so that it doesn't have to be recomputed in the next iteration. You can think of this as a bottom up strategy. Because of this bottom up strategy, we often invoke the strategy of **recursion**. The rule of thumb is that if your recursive algorithm is wasting computation because it's going over the same problem, we should invoke memoization which intellegently saves the answer off in a table that we can reference rather than having to waste compute.
+
+### Greedy algorithms and the Traveling Salesperson problem
+
+In the **traveling salesperson problem**, there a predefined number of cities with a known distance in between them and the goal is to visit each city exactly once and then return back to the initial city. The obvious way to solve this is to use a brute force method to go through every possible permutation of traveling the cities and returning home and then choosing the one that has the minimum distance required. The problem is that this requires interating over `(n-1)!` iterations. This means that for a dataset of just five cities, this is 24 iterations and for 6 cities 120 iterations. It is clear that for larger datasets, this will quickly become unmanageable. 
+
+The idea of using a **greedy algorithm** means that we ignore finding the optimal solution and instead just find a sufficient solution which will require less compute overall. For the traveling salesperson problem, we might just use a reasonable city and then traverse to each of the nearest neighbors. For a list of 2000 cities, using a greedy algorithm may not find the optimal solution but it will find a solution more quickly. In testing, it may only take .5s to run whereas using a brute force method to find the optimal solution will take `1999!` iterations which is `1.65x10^5732` permutations.
+
+## Linear Programming
+
+**Linear Programming** is useful when we have constraints on resources that we can model with mathematical equeations. For example, linear programming is used extensively in the manufacturing industry to model and schedule when technicians and engineers will be available to work on their products. 
+
+# Chapter 6: Graph Algorithms
+
+Graph algorithms are used in real world scenarios such as fraud detection and social media recommendations. In graph theory, a vertex or node represents a real world object such as a person, computer or activity and an edge (bidirectional unless specified otherwise) will represent a connection btween the two vertices (think of a friendship on facebook). 
+
+A **simple graph** is a graph with no parallel edges or loops. ![image](https://github.com/bjellesma/Notes/assets/7660667/c53d4f8e-c479-46ed-aa2d-02b72f382740)
+
+A **directed graph** is a graph where each edge has a direction, indicating a one way relationship
+
+an **undirected graph** is a graph where edges don't have a specific direction, suggesting a mutual relationship.
+
+A **weighted graph** is a graph where each edge carries a weight, often representing distances or costs
+
+At the heart of many graphs is a concept called the **ego network** or **egonet** which is the study of just one specific node and its immediate surroundings. For example, in online social networks an egonet can be used to help detect an influencer.
+
+In graph theory, a **path** is defined as the route between two nodes with the **length** being defined as the number of edges that need to be traversed. Algorithms have been defined to find the shortest possible paths, with **Dijkstra's Algorithm** being the most famous as it is used in modern applications such as GPS.
+
+**Density** is a metric in graph theory used to identify how closely knit a network or segment of a network is. A density close to 1 is more tight knit and closer to 0 indicates a more sparse relationship. This metric is useful in various scenarios such as identifying socail network. For example, if everyone knows each other, the number of edges is going to be high.
+
+$$$
+Density = \frac{2x\text{Number of edges}}{\text{Number of vertices}(\text{Number of Vertices - 1}}
+$$$
+
+The number of edges connected to a specific node is called the **degree** of the node. 
+
+**eigenvectors** in graph theory are used to identify the significance of nodes by idenfifying if that node is connected to several other nodes that are also significant.
+
+the idea of the **breadth first search (BFS)** is that it traverses nodes layer by layer taking into account how far the node is from another node. Think of Linkedin and how you have first, second, and third connections. In contrast, you have the idea of a **depth first search (DFS)** which will venture deeply down a path of edges first before searching the immediate neighboors of a vertex.
+
