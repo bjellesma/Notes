@@ -218,3 +218,64 @@ The number of edges connected to a specific node is called the **degree** of the
 
 the idea of the **breadth first search (BFS)** is that it traverses nodes layer by layer taking into account how far the node is from another node. Think of Linkedin and how you have first, second, and third connections. In contrast, you have the idea of a **depth first search (DFS)** which will venture deeply down a path of edges first before searching the immediate neighboors of a vertex.
 
+# Unsupervised Machine Learning
+
+unsupervised machine learning is like a dectective trying to piece together clues to find a pattern. **data mining** is the process of discovering meaningful correlations and patterns in the data. **Cross Industry Standard Process for Data Mining** is a popularer process of data mining agreed on by a variety of companies including Crystler and IBM. This process is outlined in the diagram below. ![image](https://github.com/bjellesma/Notes/assets/7660667/36ebe5bd-2414-44f4-8f87-fbc8b719b5c6)
+
+## Business Understanding
+
+This phase focus on what needs to be done and not how it will be done. It's a focus on the business requirements and scope and trying to transform that into machine learning. 
+
+## Data Understanding
+
+This phase is about understanding the available data. This uses tools like visualizations and dashboards to summerize and understand the patterns.
+
+## Data Preparation
+
+We are taking the data and cleaning it to remove outliers, normalize, remove nulls, etc so that we can feed the data into the machine learning algorithm.
+
+## Modeling
+
+This phase is focused on both model training and model tuning. Model training is where we feed the data prepared into the machine learning algorithm while model tuning is a process is which we want to optimize the parameters of the model so that it performs accurately on both prepared data and new untrained data. **overfitting** is a term used to describe when the model performs inaccurately on new data.
+
+## Evaluation
+
+This is where we evaluate the model by using the test data that we've derived during the data preparation data.
+
+## Deployment
+
+This is where we examine if the model is ready. Just because the model evaluated the data accoring to our expectations doesn't mean that the model is ready to solve real world problems. We have to consider how the model will handle edge cases, how it will handle unseen data, and how well it will or won't integrate with existing systems.
+
+## Current research in unsupervised machine learning
+
+**feaures**, in maching learning terminology, refer to measurable characteristics on dataset. For example, a customer dataset will have features such as age, purchase history, or browsing behavior. **Labels** represent the outcomes that we want the model to predict based on those features. Supervised learning focuses on establishing relationships between these features and labels. Unsupervised machine learning is not restricted to these relationships and has wider breadthk. However this also means that unsupervised learning is often more computationally intense. 
+
+## Clustering Algorithm
+
+The simplist form of machine learning is clustering together similar patterns in the data. Because this is not based on any assumptions, this is often considered an unsupervised algo. Think of a librarian grouping together books without being told a characteristic to group by. In machine learning, clustering algorithms work by **quantifying similarities**. By this, we mean that we are plotting their distances or similararities on a graph and measuring their distance. There are two types of clustering for this:
+
+### Intercluster
+
+This refers to the distance between two clusters or groups of data points.
+
+### Intracluster
+
+This refers to the distance between data points within the same cluster.
+
+Therefore, the job of a good clustering algorithm is to maximize the intercluster distance while minimizing the intracluster distance. There are three popular methods for quantifying similaries:
+
+### Euclidean Distance
+
+Euclidean distance is just the "as the crow flies" distance between two data points in 3 dimensional space. It can be found by using the pythagorean formula if you plot these points on a graph.
+
+### Manhattan distance
+
+It is named as this because it models how you get from a to b in a city. You must travel through a bunch of different streets and can't use the "as the crow flies" distance. For this reason, this is usually a more accurate way to quantify distance depending on the grid lines being used. 
+
+### Cosine Distance
+
+Euclidean and Manhattan distances work well in lower dimensional space but lose value as the data points are plotted in higher dimensional space. Cosine uses the angle between the data points to get a reading. textual data is almost always using cosine similarity because it frequentlly uses high dimensions.
+
+## k means clustering algorithm
+
+**k means clustering algorithm** is one of the more popular algorithms used in machine learning. K refers to the number of features that we're finding the distance between. K must be predetermined which is a limitation of this algo. The algo is useful because they are simple iterations to perform which is why it is popular. it is simple and fast. another note is that you will need a stop condition in order for the algo to stop iterating.
