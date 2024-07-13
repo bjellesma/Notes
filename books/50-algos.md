@@ -279,3 +279,50 @@ Euclidean and Manhattan distances work well in lower dimensional space but lose 
 ## k means clustering algorithm
 
 **k means clustering algorithm** is one of the more popular algorithms used in machine learning. K refers to the number of features that we're finding the distance between. K must be predetermined which is a limitation of this algo. The algo is useful because they are simple iterations to perform which is why it is popular. it is simple and fast. another note is that you will need a stop condition in order for the algo to stop iterating.
+
+# Supervised Learning Algorithms
+
+Supervised Machine Learning is a popular methodology in machine learning characterized by giving the algorithm a set of inputs, **features**, and getting corresponding sets of output, **labels**. Features are usually things like user profiles and historical sales figures while the labels are outcomes that we want to predict like customer purchasing habits. using a given dataset, a supervised ml algorithm is used to train a model that captures the complex relationship between the features and labels represented by a mathematical formula. This trained model is the basic vehicle that is used for predictions. 
+
+The ability to learn from existing data in supervised learning is similar to the ability of the human brain to learn from experience. 
+
+Besides features and labels, we can define the following terms:
+
+**feature engineering** - Transforming features to prepare them for the chosen supervis ml algo 
+**feature vector** - befor providing an input to a supervised ml algo,, all of the features are combined to a data structure called a feature vector
+**training/testing data** - historical data with examples is divided into two parts - a larger dataset call training data and a smaller dataset called the testing data
+**model** - a mathematical formulation of the patterns that best capture the relationship between label and feature
+**testing** - evaluating the trained model against testing data
+**predicting** - using our trained model to estimate a label
+
+A supervised ML algo needs some enabling conditions to be met in order to perform:
+
+* Enough Samples - We say that we have enough examples when we have conclusive evidence that the pattern of interest is fulljy represented in our dataset.
+* Patterns in historical data - the examples used to train our model should have some type of discernable pattern.
+* Valid Assumptions - look at an example of an algo granting work visas. It is understood that the laws and policies will not change between the time that the algo is trained and when it is used to make predictions. If the laws/policies change, then the model will need to be retrained because we made an assumption.
+
+continuous variables are numeric variables that can have an infinite number of values between two values while categorical variable are qualitative variabless that are classified into distinct categories. This is useful to tell which type of algo to use, classifier or regressor.
+
+A **Classifier Algorithm** is used if the label is a category variable. Some examples of the questions a classifier algo might answer are:
+
+* Is this abnormal tissue growth a malignant tumor
+* Based on the current weather conditions, will it rain tomorrow
+* Based on the profile of a particular applicant, should their mortgage application be approved
+
+A **Regressor algorithm** is used if the label is a continuous variable.
+
+* Based on the current weather conditions, how much will it rain tomorrow
+* What will the price of a particular home be with the given characteristics
+
+## Understanding classification algorithms
+
+* historical data is called labeled data
+* production data that needs to be predicted is called unlabeled data
+
+Within feature engineering, the process of selecting relevant data to the context of the problem is called **feature selection**.
+
+**One hot encoding** is a process that transforms a categorical variable into a format the ML algos can understand better, namely into a continuous variable. `sklearn` has a method called `sklearn.preprocessing.OneHotEncoder()`. An example is that if a spreadsheet has a gender column for male/female, sklearn's onehotencoding method will transform that one categorical column into two numerical columns, male and female, where 1 represents male and 0 represents female.
+
+
+
+
