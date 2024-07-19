@@ -172,6 +172,7 @@ Here are examples of problems, where they lie, and their explanations.
 
 ### Scalability: How will this perform on larger datasets
 
+
 Estimating the requirement of the increase in resource requirements as the input data is increased is called **space complexity analysis**. Conversely, the estimate for the increase in time taken to run as the input data is increased is called **time complexity analysis**.
 
 The ability of cloud computing to provision more resources as processing requirements increase is called **elasticity**. 
@@ -323,6 +324,30 @@ Within feature engineering, the process of selecting relevant data to the contex
 
 **One hot encoding** is a process that transforms a categorical variable into a format the ML algos can understand better, namely into a continuous variable. `sklearn` has a method called `sklearn.preprocessing.OneHotEncoder()`. An example is that if a spreadsheet has a gender column for male/female, sklearn's onehotencoding method will transform that one categorical column into two numerical columns, male and female, where 1 represents male and 0 represents female.
 
+**feature normalization** is a process of ensuring that the variables all fall into the line of 0-1. This helps with performance by ensuring that no individual feature dominates over the others. 
 
+a **binary classifier** is the simplist example with it classifying it as either one thing or the other. For example, the algorithm can be trained to recognize if something is a hotdog or not a hotdogl.
+
+A model may perform well in development and degrade in production. This is a case of the model being **overfitted** because it resembles the training data too closely and thus only performs well with that.
+
+**Variance**, in the context of machine learning, refers to the amount by which the model's prediction would change when using different training data. A model with high variance pays a lot of attention to training data and tends to learn from noise and details. 
+
+**Bias** is a term used to quantify how much our predictions deviate from true values.
+
+Ideally both bias and variance would be low but real world scenarios often indicate that there must be a trade off with one being low and the other being high. We can visualize this in the following image.
+
+![image](https://github.com/user-attachments/assets/ff7962dc-5761-42fb-917d-ac6d045678c5)
+
+A **confusion matrix** can be used to evaluate an ML algorithm's performance. We can evaluate True Positives vs True negatives vs false positives vs false negatives on every situation.
+
+![image](https://github.com/user-attachments/assets/3a4a6bab-107f-406e-bf27-881e485448fc)
+
+Decision tree algorithms are popular in machine learning because they're easy to understand but have a downside that are subject to create artificial rules and become overfitting. This makes them ideal for classifier algorithms such as mortgage applications where an applicant may be likely to default on a number of loans due to historical data.
+
+The **random tree algorithm** combines multiple decision trees together so that the final decision can be influenced by the number of trees. The final decision operates on a majority vote mentality. Each tree uses a random subset of the training data and the trees operate independently of one another. This is different than another technique known as **ensemble boosting** whereas it also use multiple models or decision trees but each one is built on the results of previous models in an attempt to correct past errors.
+
+## Naive Bayes Algorithm
+
+This is based on Bayes theorem which calculates the probability of an event given a previous event. This algo is useful when the dimensionality is high as in text classification and sentament analysis. It does make the naive assumption that these are independent. 
 
 
