@@ -350,4 +350,74 @@ The **random tree algorithm** combines multiple decision trees together so that 
 
 This is based on Bayes theorem which calculates the probability of an event given a previous event. This algo is useful when the dimensionality is high as in text classification and sentament analysis. It does make the naive assumption that these are independent. 
 
+## Regression Algorithms for continuous variables
 
+Suppose that we want to predict the temperature for the next two weeks based on historical data so we use a regressor algo. In simple terms, this is a models where we observe a change in the variable plotted on the y axis changes as the x axis changes. This often follows the slope intercept formula of `y=mx+b`. In linear regression, not all data will be able to fall on the `y=mx+b` line but we can visually approximate a line. y is the **dependent variable** that depends on x, the **independent variable**
+
+![image](https://github.com/user-attachments/assets/fba6d70d-a0c0-4ac5-b26e-819b20f17d72)
+
+## Multiple regression
+
+When there are multiple independent variables, you need to use a tecnique called multiple regression. This is often more representative of the real world. For example, the price of a house (dependent variable) will often depends on numberous factors such as size, age, and location which are all independent variables. 
+
+![image](https://github.com/user-attachments/assets/64afdc85-3291-49e6-968d-c6b764b4c13d)
+
+regression analysis is often used to quantify relations between events and responses such as clinical drug trials or market research. However this leads to a limitation that this approach only works with numerical data.
+
+## Gradiant boost regression
+
+Gradiant boost regression will often have the best performance by combining regression analysis of looking at independent variables but the sequentially combines them into decision trees. Each tree will look at a different variable. For example, in the price of a house the first tree may look at size and then the next tree will look at location. The idea is that these trees will learn from the output of the previous one so the 2nd tree may notice that higher sizes will usually lead to a higher price and age will have less weight on the overall outcome. this is an iterative process.
+
+# Chapter 8: Neural Network Algorithms
+
+At it's most basic level a neural network is composed of several layers of neurons each doing its own task. The interative process of these layers of neurons processing based on information from the previous layer is what enables deep learning. In the human brain, neurons are made of the **dendrite** which provides the sensory information and the axon which acts as the long and slender part which transmits the signal through **synapses**, interconnecting tissue, to other neurons. This organic pipeline keeps going until it reaches the target muscle or gland. 
+
+The idea of a neural network was first proposed back in 1957. However, limitations in hardware led to an **AI winter** in 1969. In the 90s, when hardware began to come very far down in price, high tech companies like Google decided to make AI the heart of their research again, leading to **AI Spring**. 
+
+Traditional ML Algorithms looked at previously such as decision trees and linear regression work great for many important use cases but will fall short when the underlying patterns in the training dataset begin to become non-linear and multi-dimensional. This is where neural networks begin to shine as a very important tool for modeling.
+
+For instance, image and speech recognition has input data (pixels and sound waves) which are non linear so traditional ML algorithms have trouble with this. 
+
+a neural network consists on three types of layers
+
+* input layer - the features are fed to the network as input
+* hidden layer - there may be one (**simple neural network**) or many (**deep neural network**) and these are arrays of **activation functions** which performs the actual calculations. These hidden layers are organized in a hierarchical structure to allow for the extraction of progressively more abstract and nuanced features from the input.
+* output layer - this is the final layer which gives the final result.
+
+as we move deeper into the hidden layers, these layers begin to integrate the basic patterns detected by the lower layers, assembling them into more complex and meaningful structures. 
+
+a neural network also consists of the following other concepts:
+
+**loss function** - this provides the feedback signal used in various iterations of the learning process. This provides the deviation for a single example
+**cost function** - the loss function as applied to a complete set of examples
+**optimizer** - determines how the feedback from a loss function will be interpretted.
+**weights** - correspond to the importance of each of the inputs of the training model.
+**activation function** - the values will be multiplied by their weights and then aggregated and interpretted by the activation function
+
+Using the above information, we can think of the difference between the expected output and the predicted output as the loss. 
+
+## Popular tools
+
+**Keras** is a popular, user friendly, and modular library for building neural networks and is often used with **tensorflow** an open source library provided by google to give Keras the backend deep learning capabilities. **Theano** is another backend deep learning engine that can be used with Keras as well as the **Microsoft Cognitive Toolkit (CNTK)**
+
+These backend engines can all run on top of either the CPU with tools like **eigen** or GPU with tools like **CUDA** which was developed by NVIDIA. 
+
+## Hyperparameters
+
+a param whose value is chosen before the learning process starts like the activation function, number of hidden layers, or the number of neurons per layer.
+
+**Functional API** - this allows us to architect models for acyclic graphs of layers. More complex models normally use this.
+
+**Sequential API** - architect models for a linear stack of layers. This is better for uncomplicated data but is limited to only being able to hdnle one input tensor and one output tensor.
+
+We can actually write tensorflow code in a number of higher level languages like c++ and python. In tensorflow terms, a **matrix** is a 2 dimensional array while a 3 dimensional array is a **3D tensor**. we use the term **rank** to refer to dimsionality so a scaler is rank 0, a vecotor is rank 1, and a matrix is rank 2. all of these data structures are referred to as **tensors**.
+
+Downsampling is a process of reducing the **resolution** of your data meaning lessoning the complexity or dimensionality. 
+
+## Generative Adversarial Networks
+
+This is a class of neural networks developed in 2014 specializing in generating synthetic data. These can be used to generate things like profiles of people that don't exist. The training process of these models can be quite challenging leading to issues such as **mode collapse** where the the generator start producing limited varieties of samples. the quality of the generated data is also largely dependent of the quality and diversity of the input data. 
+
+## Transfer Learning
+
+These can be used for things like transcribing audio and detecting objects in videos/images. Transfering learning is mostly the idea that we don't create a new model from scratch and can instead modify an existing model. In the process, we may **freeze** existing branches/layers which have established learning so that we can allow others to grow. 
