@@ -421,3 +421,26 @@ This is a class of neural networks developed in 2014 specializing in generating 
 ## Transfer Learning
 
 These can be used for things like transcribing audio and detecting objects in videos/images. Transfering learning is mostly the idea that we don't create a new model from scratch and can instead modify an existing model. In the process, we may **freeze** existing branches/layers which have established learning so that we can allow others to grow. 
+
+# Chapter 9: Natural language processing
+
+NLP is a branch of ML that deals with the interaction between computers and natural language. 
+
+a **corpus** is a large and structured collection of text or speech data that serves as a resource for NLP algos
+**normalization** in NLP, this is a process of converting text into standardized form such as converting all characters to lowercase or removing punctuation.
+**Tokenization** breaks down text into smaller parts called tokens so that the data is more structured.
+**Named Entity Recognition** identifies and classifies entities within text like names and locations
+**Stop words** - commonly used words like the which are filtered out of the algo as they don't contribute much meaning
+**Stemming and lemmatization** - converting words to their dictionary form helping to analyze the core meaning
+
+**word embeddings** used to translate words into numerical form
+**language modeling** developing statistical models that can predict or generate sequences of words based on patterns found in the given corpus
+**machine translation** automatingically translating text from one language to another using nlp techniques
+**sentiment analysis** determing the attride or sentiment expressed in a piece of text by analyzing context
+
+NLP algos use a preprocessing step to organize the messy corpus into structured data
+
+after preprocessing the text using things like tokenization to structure the text, we move on to cleaning data which will involve normalization and stop words. Data cleaning might bring the text "Today, Ottawa is becomming cold again" to "today ottawa becom cold". Note the word "becom" this is because lemmatization may make it so the word is not proper english but can still be processed. 
+
+Word embedding is now the process of taking a word like "apple" and translating that a vector something like `[.5, .9, .2]`. These numbers may represent different features of fruit such as sweetness acidity, and juiciness. The point of this is so that an algorthim can now understand this better. It may use another vector for a different fruit banana to be `[.2, .3, .3]`. Now the algorithm can plot these two points in 3d space and analyze the distance between them using euclidean distance or cosine similarity and analyze the similarity of the fruits.
+
