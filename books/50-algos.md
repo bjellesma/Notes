@@ -444,3 +444,50 @@ after preprocessing the text using things like tokenization to structure the tex
 
 Word embedding is now the process of taking a word like "apple" and translating that a vector something like `[.5, .9, .2]`. These numbers may represent different features of fruit such as sweetness acidity, and juiciness. The point of this is so that an algorthim can now understand this better. It may use another vector for a different fruit banana to be `[.2, .3, .3]`. Now the algorithm can plot these two points in 3d space and analyze the distance between them using euclidean distance or cosine similarity and analyze the similarity of the fruits.
 
+# Chapter 10: Sequential models
+
+Sequential models are a type of model in machine learning arranged in such a way that the output of one layer is the input of another layer. 
+
+## Understanding sequential data
+
+**Sequential data** is a specific type of data where the order matters because each element has a relational dependency on the element that preeceeded it. Here are the primary categories of sequential data.
+
+* Time series Data - These are listed in time order so each value is dependent on the previous one.
+* Textual Data - NLP references this data because the order of the data affects the meaning of the sentenses.
+* Spatial-Temporal data - Like weather patterns or traffic flows in a specific geographic region, this data captures both spatial and temporal relationships.
+
+## Types of sequential models
+
+### One to many
+
+A singular event or input can initiate the generation of an entire sequence. These are often part of **generative ai**, a burgeoning field of ai research which aims to create relavent content. Therefore, one to many sequential models will be used in generative ai applications such as writing poetry or generating art. Training these models is often time consuming and computationally expensive because the model must not only learn the relationship between input and output but also the patterns and structures in the generated content. 
+
+## Many to one
+
+The opposite of one to many, these models will take several inputs and translate it to one output. The applications of this are more for a rating system or sentiment analysis such as distilling loads of information into one review. Training these models involves teaching the model to be able to recognize the vital features among a whole slew of input so that it can be recognized accurately in the output.
+
+### Many to many
+
+This type of model will take sequential data as input and output sequential data. An example of this would be machine translation such as english to french. 
+
+## Recurrent Neural Networks (RNNs)
+
+**RNNs** are a special type of network that carry state from one step in the sequence to the next. Because of state, RNNs often provide a feedback loop back to itself which is where it gets the recurrent part of the name. Each loop of processing an element is referred to as a "run" so each run will retain some information from previous steps. ChatGPT and other LLMs are very similar to RNNs because they are neural networks that carry state from previous. However, LLMs are prone to **hallucinations** because they will often try to give an answer even if the answer isn't correct or doesn't make sense. Therefore, LLMs employ another technique called **teacher forcing** where we will often react to hallucinations by guiding the LLM back on the right track by saying that the answer is not correct and trying to offer hints by giving more context.
+
+RNNs can be useed in translation of entire sentenses because to get it right, the RNN cannote translate each word in isolation, it needs to capture the context of the words that have been translated so far so that the RNN can translate the entire sentence correctly. 
+
+The activation function `tanh` is often chosen to combat the **vanishing gradient problem**. This is a problem in the world of neural networks because as we keep traing our models, occasionally the gradient values which are the weight adjustments that we assign to certain features will drop. `tanh` is chosen as it acts as a buffer against this issue.
+
+## Predicting with RNNs
+
+1. Input preparation
+2. Model utilization - now that you have the learned weights and biases from the training phase, it can be used in conjunction with the input data and processed through each layer of the network
+3. Activation Functions - as in standard neural networks, activation functions transform the data as it moves through the layers
+4. Generating predictions - the final prediction is generated after moving through the final layer
+5. Interpretations - the predictions are then interpreted based on the task at hand such as classifying a sequence of text
+
+There are two directions for RNNs. **Unidirectional RNNs** can only process data in one direction. This is a limitation because the RNN cannot look ahead to gain more context. **Bidirectional RNNs** can look both ways. If we're looking at a sentence "Cricket is a great ____, it is a sport played around the word", the unidirectional RNN might use the word insect because that is what a cricket is but a bidirectional RNN might use the word sport because it can look ahead to see the context that we're talking about playing cricket. 
+
+A **gated neural network** (GRU) is a special type of RNN where it utilizes a gating mechanism to stop and think. It checks out the information and is able to select what it needs and forgets what it doesn't. By blending old information with this filtered approach, GRUs are much better at following long stories without getting lost. The aim of GRUs was to simplify **long short term memory** (LTSM) RNNs which were developed first in 1997 and are more complicated. GRUs were developed in 2014. 
+
+GRUs also differ from standard neural networks in that they use a second activation function to decide whether or not to update the hidden state whereas standard neural networks will always do that. LTSMs take this a step further and instead have two states, the cell and hidden state. The **cell state** is designed to remember more long term information. 
