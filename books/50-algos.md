@@ -491,3 +491,22 @@ There are two directions for RNNs. **Unidirectional RNNs** can only process data
 A **gated neural network** (GRU) is a special type of RNN where it utilizes a gating mechanism to stop and think. It checks out the information and is able to select what it needs and forgets what it doesn't. By blending old information with this filtered approach, GRUs are much better at following long stories without getting lost. The aim of GRUs was to simplify **long short term memory** (LTSM) RNNs which were developed first in 1997 and are more complicated. GRUs were developed in 2014. 
 
 GRUs also differ from standard neural networks in that they use a second activation function to decide whether or not to update the hidden state whereas standard neural networks will always do that. LTSMs take this a step further and instead have two states, the cell and hidden state. The **cell state** is designed to remember more long term information. 
+
+# Advanced Sequential Models
+
+**autoencoders** were introduced in early 2010 to revolutionize encoding and decoding tasks. Think of this as encoding the data into an internal representation, compressing, and then decoding the information into something that should closely match the original. 
+
+![image](https://github.com/user-attachments/assets/003d3777-2c3d-4401-8f45-931983456f9e)
+
+
+**Seq2seq Models** came about closer to the mid 2010s bring about new methodologies for translating text. Now we have an encoder, thought vector, and decoder. This model built on top of autoencoder in that it can work with translations which usually vary in length. Since this is typically a recurrent neural network, the thought vector is the final hidden state and is relayed to te decoder. 
+
+The key difference in this model is that you have special tokens instructing the model. `<EOS>` signifies the end of the encoding process. `<GO>` is ent at the end of the encoding process once the thought vector is in place as input and indicates that the decoding process can begin. `<UNK>` replaces infrequent words in the input to make sure that the vocabulary remains manageable. `<PAD>` is used for padding shorter sequences standardizing sequence length during training.
+
+Both autoencoders and seq2seq are great but run into issues with large amounts of text. This is why attention mechanisms which came about as the magnifying glass over specific parts of the text came into play.
+
+**attention mechanism** came about is 2015 allowing models to focus on specific portions of text essentially placing more weight on them. 
+
+2017 brought about the **transformer architecture** which fully leveraged attention mechanisms.
+
+All of these advancements brought about **Large Language Models**.
