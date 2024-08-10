@@ -505,8 +505,43 @@ The key difference in this model is that you have special tokens instructing the
 
 Both autoencoders and seq2seq are great but run into issues with large amounts of text. This is why attention mechanisms which came about as the magnifying glass over specific parts of the text came into play.
 
-**attention mechanism** came about is 2015 allowing models to focus on specific portions of text essentially placing more weight on them. 
+**attention mechanism** came about is 2015 allowing models to focus on specific portions of text essentially placing more weight on them. During training, these attention weights are continuously adjusted.
 
-2017 brought about the **transformer architecture** which fully leveraged attention mechanisms.
+2017 brought about the **transformer architecture** which fully leveraged attention mechanisms. This is from a paper, *Attention is all you need* by the Google Brain team. 
 
-All of these advancements brought about **Large Language Models**.
+All of these advancements brought about **Large Language Models**. While early language models relied on Recurrent Neural Networks and Long Short Term Memory, today's NLP achievements are primarily due to transformers. Training or pretraining an LLM is something that could take weeks or even months because of the vast amount of data from crawlers. 
+
+attention mechanisms ensure that the context in LLM generated content remains consistent. For example, if an LLM is generating a story about a cat, attention mechanisms ensure that the LLM doesn't suddenly generate text about barking rather than purring. 
+
+Even after initial training of an LLM, the LLM requires update training periodically. Think of it like when you first learn English, you'll periodically need to adapt to new slang and idioms in order to stay relevant. 
+
+Between 2017 and 2018, there was a historic shift when OpenAI began using unsupervised pretraining. 
+
+1. Pretraining is a step that involves letting the model get trained on thousands of texts so that it can learn to organize basic parts of launguage such as grammer. Think of this step likke giving a student a general purpose textbook.
+2. Domain adaptation is the step where the model begins diving into more specialized areas. If the first step was about training the model on grammar, this step would be about introducing the model to different genres like thrillers. In this stage, the model is still predicting words but now it is doing so in specific contexts.
+3. Fine-tuning is the stage where the model is now honed for specific tasks like detecting emotions. This stage would be akin to the student learning to analyze a text or a novel.
+
+# Recomendation Engines
+
+## Content Based Recommendation Engines
+
+Matching the features of one product to another. The crux of this is for the algorithm to be able to recognize the similarities between two items. One simple way of doing this is through a **co occurance matrix** where we analyze the occurance of features between the two. For example, you would make a matrix that counts how often each user bought a product.
+
+![image](https://github.com/user-attachments/assets/c4872d48-ca83-489f-861d-4cd12c32d715)
+
+
+## Collaborative filtering engines
+
+predict preferences based on user behaviors. This analyzes the buying history of two users and if the overlap in the buying history of the two users exceeds a certain threshold, we consider them **similar user**. The items not in the overlap now becomes the basis for the recommendations.
+
+## Hybrid Recommendation Engines
+
+Blend content based and collaborative filtering. We use a similarity matrix and preference matrix. 
+
+Recommendation engines are frequently subject to the problem of **cold start problem** meaning that new items and users won't give enough historical data for recommendations to be accurate. To counterbalance this, an onboarding survey might be given to the user so that recommendations can be made. 
+
+some recommendation engines will leverage data from social influence and may recommend items that your friends have also enjoyed. The downside is that this can limit the diversity of items recommended to you. 
+
+**correlation** is a statistical value that explains how one set of data moves in relation to another. A correlation might be used to find similarities between avatar and another fantasy movie, for example. The **Pearson correlation coefficient** is often used which ranges from -1 to 1. In our example, a correlation of 1 might mean that if avatar received a high rating from a user, another movie got a high rating from that same user. -1 is a negative rating. and 0 indicates that the two movies are independant and have no correlation.
+
+Retraining based on recent user preferences are essential for recommendations to remain relevant.
