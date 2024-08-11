@@ -47,5 +47,20 @@ Two other types of algorithms used widely in unsupervised learning are **anomaly
 
 Think of dimensionality reduction to something like studying for an exam. You might have textbooks, lecture notes, recordings, etc. You employ dimensionality reduction when you attempt to distill only the most relavent details from the text rather than memorize every single detail which is overwhelming.
 
+## Linear Regression
+
+![image](https://github.com/user-attachments/assets/fc24b4f5-07ac-4ab2-9caa-25d9c42fe919)
+
+
+![image](https://github.com/user-attachments/assets/e0e695d9-b574-44c9-98b9-ca7e2ef7c1ac)
+
+
 Unsupervised learning with one variable is often call **Univariate Linear Regression**. Think of plotting two points and finding the slot intercept equation of the line.
+
+You can think of linear regression as finding the slope intercept form whereas you can use $y_2 - y_1 = m(x_2 - x_1)$. In the context of machine learning, the slope intercept formula applied to linear regression is typically looked as $f_{w,b}(x) = wx+b$ where w and b are both referred to as the **weights** that you can adjust in order to better fit the model. $f_{w,b}(x)$ can sometimes be referred to as $\hat{y}$. And just a reminder that we'll often use the superscipt i to refer to the index (the specific value being plotted) so $\hat{y}^{(i)} = wx^{(i)} + b$
+
+# Cost Function
+
+![image](https://github.com/user-attachments/assets/d928b397-59ce-43a7-9860-d0596955ee39)
+
 
