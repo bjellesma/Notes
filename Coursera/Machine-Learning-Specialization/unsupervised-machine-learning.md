@@ -280,3 +280,267 @@ Iteration    9: Cost 5.60e+09  dj_dw:  9.572e+04, dj_db:  5.916e+04   w: -4.845e
 ```
 
 <img width="874" alt="image" src="https://github.com/user-attachments/assets/d8e462c1-46d7-4e32-aa4a-8d5b6ca28fef">
+
+# Multiple Features
+
+Let's say that we're adding more features to our linear regression model like the number of bathrooms in the house and the number of doors. So we can think of having a table
+
+| Square Footage | Bathrooms | Doors | Price |
+|---|---|----|----|
+| 1000 | 3 | 5 | 300k |
+| 2000 | 6 | 9 | 500k |
+
+So now we can put all of the features of a row into a vector like $[1000,3,5]$. We will use subscripts to denote the feature, keeping in mind that a superscript usually denotes the training example so $x_{1}^{(1)} = 1000$ (though in computer terms everything is zero indexed, linear algebra terms is one based to be more intuitive). So we can now think of our equation for linear regression for multiple features as $f_{w,b}(x) = w_{1}x_{1}+w_{2}x_{2}+w_{3}x_{3}+...+w_{n}x_{n}+b$ where n is the number of features. b, in the case of houses, would be something like the base price. As we know in math, all these parameters w can be represented as a vector $\vec{w}$ and the features x can be $\vec{x}$
+
+Using vectors, we can simplify this notation to $f_{\vec{w},x}(\vec{x})=\vec{w} \cdot \vec{x} + b$
+
+## Vectorization
+
+Using the multiple linear regression equation that we derived above, we can use **vectorization** in numpy as a way to efficiently get the dot product described above. Below, we use numpy to initialize two vectors and then compute the dot product. Obviously with a software engineering background, you could also think that we could use a for loop to compute these but it's more efficient to do the dot product because we know that the vectors are the same size. The reason that this is more efficient to have numpy do this for us is because numpy is built on the concept of vectorization, which means that operations are applied to whole arrays rather than individual elements. This allows NumPy to take advantage of highly optimized C and Fortran libraries under the hood (such as BLAS and LAPACK) to perform operations in bulk. These libraries are specifically optimized for numerical operations and can perform them much faster than a Python loop.
+
+NumPy can internally leverage multi-threading to perform operations like dot products in parallel across multiple CPU cores, significantly speeding up the computation compared to a single-threaded Python loop.
+
+Finally, Compilers and low-level libraries used by NumPy can optimize operations such as dot products, utilizing CPU caches, SIMD (Single Instruction, Multiple Data) instructions, and other hardware-level optimizations that are not available or much harder to exploit when writing the operation manually in Python.
+
+```python
+import numpy as np
+
+w = np.array([1.0.2.5,-3.3])
+x = np.array([10.20,30])
+
+f = np.dot(w,x) + b
+```
+
+## Lab Exampples
+
+### Initializing arrays
+
+Notice that in addition to just using a single value to init the shape of the vector/matrix, we can use a tuple to make a multidimensional array
+
+```python
+# NumPy routines which allocate memory and fill arrays with value
+a = np.zeros(4);                print(f"np.zeros(4) :   a = {a}, a shape = {a.shape}, a data type = {a.dtype}")
+a = np.zeros((4,));             print(f"np.zeros(4,) :  a = {a}, a shape = {a.shape}, a data type = {a.dtype}")
+a = np.random.random_sample(4); print(f"np.random.random_sample(4): a = {a}, a shape = {a.shape}, a data type = {a.dtype}")
+```
+
+```
+np.zeros(4) :   a = [0. 0. 0. 0.], a shape = (4,), a data type = float64
+np.zeros(4,) :  a = [[0. 0.]
+                    [0. 0.]
+                    [0. 0.]
+                    [0. 0.]], a shape = (4, 2), a data type = float64
+np.random.random_sample(4): a = [0.53387166 0.996188   0.02131549 0.75367265], a shape = (4,), a data type = float64
+```
+
+Note that the tuple must only contain integers so `a = np.zeros((4,2.2,3));` gives a traceback. 
+
+### Vector operations
+
+Notice that when you add two arrays, numpy applies the operation to the elements rather than adding the elements of one list to another like base python would do
+
+```python
+a = np.array([ 1, 2, 3, 4])
+b = np.array([-1,-2, 3, 4])
+print(f"Binary operators work element wise: {a + b}")
+```
+
+```
+Binary operators work element wise: [0 0 6 8]
+```
+
+Notice that we can't use different size vectors in this case
+
+```python
+a = np.array([ 1, 2, 3, 4,5])
+b = np.array([-1,-2, 3, 4])
+print(f"Binary operators work element wise: {a + b}")
+```
+
+```
+ValueError                                Traceback (most recent call last)
+<ipython-input-18-05b086ead996> in <module>
+      1 a = np.array([ 1, 2, 3, 4,5])
+      2 b = np.array([-1,-2, 3, 4])
+----> 3 print(f"Binary operators work element wise: {a + b}")
+
+ValueError: operands could not be broadcast together with shapes (5,) (4,) 
+```
+
+the concept of broadcasting means that there are circumstances where numpy can try to conform the arrays to the same size if numpy can figure out how to mold the shapes together. For example, we can do a 1 rank vector by a 4 rank vector because numpy just expands the 1 to 4
+
+```python
+a = np.array([ 1, 2, 3, 4])
+b = np.array([-1])
+print(f"Binary operators work element wise: {a + b}")
+```
+
+```
+Binary operators work element wise: [0 1 2 3]
+```
+
+### Scalar
+
+Similar to vectors, we can use scalars (just an integer)
+
+```python
+a = np.array([1, 2, 3, 4])
+
+# multiply a by a scalar
+b = 5 * a 
+print(f"b = 5 * a : {b}")
+```
+
+```
+b = 5 * a : [ 5 10 15 20]
+```
+
+Notice that this would be similar in operation to our 1 rank vector times our 4 rank vector
+
+### Vectorization Speed
+
+Here we have python code that compares using a for loop and using the numpy dot product. the dot product is way faster.
+
+```python
+def my_dot(a, b): 
+    """
+   Compute the dot product of two vectors
+ 
+    Args:
+      a (ndarray (n,)):  input vector 
+      b (ndarray (n,)):  input vector with same dimension as a
+    
+    Returns:
+      x (scalar): 
+    """
+    x=0
+    for i in range(a.shape[0]):
+        x = x + a[i] * b[i]
+    return x
+
+np.random.seed(1)
+a = np.random.rand(10000000)  # very large arrays
+b = np.random.rand(10000000)
+
+tic = time.time()  # capture start time
+c = np.dot(a, b)
+toc = time.time()  # capture end time
+
+print(f"np.dot(a, b) =  {c:.4f}")
+print(f"Vectorized version duration: {1000*(toc-tic):.4f} ms ")
+
+tic = time.time()  # capture start time
+c = my_dot(a,b)
+toc = time.time()  # capture end time
+
+print(f"my_dot(a, b) =  {c:.4f}")
+print(f"loop version duration: {1000*(toc-tic):.4f} ms ")
+
+del(a);del(b)  #remove these big arrays from memory
+```
+
+```
+np.dot(a, b) =  2501072.5817
+Vectorized version duration: 166.3535 ms 
+my_dot(a, b) =  2501072.5817
+loop version duration: 9646.6742 ms 
+```
+
+### Matrices
+
+Reshape is a useful operation that can reshape a numpy array. The params are dimensions of the the new shape and -1 is special value you can use in place of one dimension saying that numpy is free to determine the data structure. The second param, in this example, is telling numpy to divide by 2
+
+```python
+a = np.arange(6).reshape(-1, 2)
+```
+
+```
+a.shape: (3, 2), 
+a= [[0 1]
+ [2 3]
+ [4 5]]
+```
+
+You can use higher dimensions as long as the shape works out. You have to think how you can factor these.
+
+```python
+a = np.arange(12).reshape(-1, 2,3)
+```
+
+```
+a.shape: (2, 2, 3), 
+a= [[[ 0  1  2]
+  [ 3  4  5]]
+
+ [[ 6  7  8]
+  [ 9 10 11]]]
+```
+
+You can either access a single element or an entire row
+
+```python
+#access an element
+print(f"\na[2,0].shape:   {a[2, 0].shape}, a[2,0] = {a[2, 0]},     type(a[2,0]) = {type(a[2, 0])} Accessing an element returns a scalar\n")
+
+#access a row
+print(f"a[2].shape:   {a[2].shape}, a[2]   = {a[2]}, type(a[2])   = {type(a[2])}")
+```
+
+```
+a[2,0].shape:   (), a[2,0] = 4,     type(a[2,0]) = <class 'numpy.int64'> Accessing an element returns a scalar
+
+a[2].shape:   (2,), a[2]   = [4 5], type(a[2])   = <class 'numpy.ndarray'>
+```
+
+### Matrix Slicing
+
+Slicing creates an array of indices using a set of three values (start:stop:step). The colon is used to mean select all rows
+
+```python
+#vector 2-D slicing operations
+a = np.arange(20).reshape(-1, 10)
+print(f"a = \n{a}")
+
+#access 5 consecutive elements (start:stop:step)
+print("a[0, 2:7:1] = ", a[0, 2:7:1], ",  a[0, 2:7:1].shape =", a[0, 2:7:1].shape, "a 1-D array")
+
+#access 5 consecutive elements (start:stop:step) in two rows
+print("a[:, 2:7:1] = \n", a[:, 2:7:1], ",  a[:, 2:7:1].shape =", a[:, 2:7:1].shape, "a 2-D array")
+
+# access all elements
+print("a[:,:] = \n", a[:,:], ",  a[:,:].shape =", a[:,:].shape)
+
+# access all elements in one row (very common usage)
+print("a[1,:] = ", a[1,:], ",  a[1,:].shape =", a[1,:].shape, "a 1-D array")
+# same as
+print("a[1]   = ", a[1],   ",  a[1].shape   =", a[1].shape, "a 1-D array")
+```
+
+```
+a = 
+[[ 0  1  2  3  4  5  6  7  8  9]
+ [10 11 12 13 14 15 16 17 18 19]]
+a[0, 2:7:1] =  [2 3 4 5 6] ,  a[0, 2:7:1].shape = (5,) a 1-D array
+a[:, 2:7:1] = 
+ [[ 2  3  4  5  6]
+ [12 13 14 15 16]] ,  a[:, 2:7:1].shape = (2, 5) a 2-D array
+a[:,:] = 
+ [[ 0  1  2  3  4  5  6  7  8  9]
+ [10 11 12 13 14 15 16 17 18 19]] ,  a[:,:].shape = (2, 10)
+a[1,:] =  [10 11 12 13 14 15 16 17 18 19] ,  a[1,:].shape = (10,) a 1-D array
+a[1]   =  [10 11 12 13 14 15 16 17 18 19] ,  a[1].shape   = (10,) a 1-D array
+```
+
+# Gradient Descent for multiple linear regression
+
+for multiple features, we have the following equation for the first feature
+
+## $w_1 = w_1 - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})(x_1^{(i)})$
+
+all the way to the generalized equation
+
+## $w_n = w_n - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})(x_n^{(i)})$
+
+Updating the b term is similar to what it was before because we don't have to worry about the multiple features but we do want to use the vectors still
+
+## $b = b - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})$ 
