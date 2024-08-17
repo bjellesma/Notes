@@ -29,3 +29,16 @@ An important note is that b doesn't utilize the term n
 where
 
 ## $f_{w,b}(\vec{x}^{(i)}) = \vec{w} \cdot \vec{x}^{(i)} + b$
+
+**Basic Scaling**
+
+### $x_n = \frac{x_n}{max_n}$ where max is the max value of the feature
+
+**Mean Normalization**
+
+### $x_n = \frac{x_n-\mu_n}{max_n-min_n}$ where the max and min are the max and min for the feature, x is the feature parameter and $\mu$ is the mean of the feature in the training set
+
+**Z-Score Normalization**
+
+### $x_n = \frac{x_n - \mu_n}{\sigma_n}$ where $\mu$ is the mean for that feature and $\sigma$ is the standard deviation for that figure
+

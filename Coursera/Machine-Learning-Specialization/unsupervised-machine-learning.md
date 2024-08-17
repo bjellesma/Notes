@@ -544,3 +544,68 @@ all the way to the generalized equation
 Updating the b term is similar to what it was before because we don't have to worry about the multiple features but we do want to use the vectors still
 
 ## $b = b - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})$ 
+
+# Feature Scaling
+
+The one hole with gradient scaling is that the values for the weights w and the bias b are just guesses. **Feature Scaling** is a technique for figuring out the best weights to use for an initial estimate.
+
+If we use the example for the price of a house with two features, the size and the number of bedrooms, and take one training example where the house sold for 500k with 2000 square feet and 5 bedroom, We would get the better estimate if we use $0.1$ as the weight for the square footage and $50$ as the weight for the number of bedrooms with $50$ for the bias. the expression will become $0.1*2000+50*5+50=500$
+
+![alt text](image.png)
+
+The housing example is a good example because the values are very different. Obviously, the number of bedrooms is a lot smaller than the square footage. Because of this, if we make a scatter plot, all data points will appear to be in the same small region if we just use the values. Likewise, our contour plot is going to appear in an oval shape which conceptually makes it very difficult and time consuming for gradient descent to try to find the local minimum.
+
+If we rescale the square footage and bedroom to **both** be a number between 0 and 1, the scatter plot looks a lot more spread out and with it the contour plot of the cost function appears more circular. Conceptually, this means that gradient descent will now have an easier time finding the minimum in fewer iterations.
+
+![alt text](image-1.png)
+
+There are a couple of different methods to implement feature scaling
+
+## Basic Scaling
+
+The simplist method is to just divide everything by the max value for that feature. In this way we will end up with a number between 0 and 1 for everything.
+
+### $x_n = \frac{x_n}{max_n}$ where max is the max value of the feature
+
+![alt text](image-3.png)
+
+## Mean Normalization
+
+**Mean Normalization** is where we find the mean of the data for that specific feature which we denote as $\mu$. We will then use the following equation for each feature. This may give us a scale with negative numbers.
+
+### $x_n = \frac{x_n-\mu_n}{max_n-min_n}$ where the max and min are the max and min for the feature, x is the feature parameter and $\mu$ is the mean of the feature in the training set
+
+![alt text](image-2.png)
+
+## Z-Score Normalization
+
+**Z-Score Normalization** involves finding the standard deviation $\sigma$ as well as the mean to get these scores.
+
+### $x_n = \frac{x_n - \mu_n}{\sigma_n}$ where $\mu$ is the mean for that feature and $\sigma$ is the standard deviation for that figure
+
+![alt text](image-4.png)
+
+## When to scale
+
+The general rule for feature rescaling is that ideally we want the value for the feature to be between -1 and 1. This is just a loose rule of thumb so it doesn't need to be done. It depends on the training data that you're using. Values between -3 and 3 are ok so you don't really need to rescale but if the values range from -100 to 100 (or are too small with -.00001 to .00001) then rescaling would be a good idea.
+
+![alt text](image-5.png)
+
+Another note is that there's no harm in rescaling no matter what you're data is. It's just not always necessary.
+
+# Learning Curve
+
+It's important to take note of the cost function so that you can tell if the function is decreasing with each gradient descent iteration. Ideally, it should be decreasing and never increasing. If it ever increases, this indicates a poorly chose learning rate or a bug in the code. It usually helps to plot the value of the cost function against the number of iterations so that you can visually see how the cost function is changing in iteration. This type of curve is a **learning curve**. You will also notice factors like the cost function may be converging at fewer iterations, so you will not need as many.
+
+A test that is often used is an **automatic convergence test** where we chose a test value $\epsilon$ and then we can write a test after so many iterations to tell if the difference in the cost function is less than $\epsilon$. The idea is that if the difference is less than $\epsilon$ then the values have likely converged and we can stop iterations.
+
+![alt text](image-6.png)
+
+# Choosing a learning rate
+
+Remember that we don't want to pick too large of a rate becuase gradient descent may bounce back and forth and overshoot but choosing too small of a value may mean that the value never converges. This choice of a rate will seem arbitrary.
+
+You can keep an eye on the learning curve to ensure that the value is going in the correct direction and at an appropriate rate.
+
+![alt text](image-7.png)
+
