@@ -609,3 +609,62 @@ You can keep an eye on the learning curve to ensure that the value is going in t
 
 ![alt text](image-7.png)
 
+# Feature Engineering
+
+**Feature Engineering** is creating new features, often by combining or transforming existing features to input into a model and is based on having insights into the application. For example, when calculating the price of a house, we could have two features, the width and the depth. With feature engineering, we could create a new feature, area, which we know to be the width multiplied by the depth. The reason we do this is because it will improve the accuracy of our model.
+
+![alt text](image-8.png)
+
+## Polynomial Regression
+
+Thus far, we've discussed linear regression which is using a straight line to fit the dataset but depending on the data, a nonlinear equation like a quadratic, cubic, or square root curve may fit the data better. This is known as **polynomial regression** and refers to using nonlinear functions to fit the data.
+
+The use case for polynomial regression is that sometimes, as in the case of housing prices, not everything tends to scale linearly. For example, features like square footage only scale so much.
+
+One important note with polynomial regression is that feature scaling becomes more important than it has been previously. This is because, for example, if you're engineering a feature like $x^2$ then it will naturely have a very different scale than $x$. If $x$ was 1000-10000 then $x^2$ would be 1,000,000 - 100,000,000.
+
+Just as numpy is a popular library for scientific computation for linear regression, scikit-learn is a popular library for nonlinear regression.
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+Numpy has a special method shorthand used to add a second dimension to arrays by using a **transformation** matrix. Take the following code:
+
+```python
+import numpy as np
+# create target data
+x = np.arange(0, 20, 1)
+y = x**2
+
+# engineer features .
+X = np.c_[x, x**2, x**3]   #<-- added engineered feature
+print(X)
+```
+
+The result of printing x is the following
+
+```
+[[   0    0    0]
+ [   1    1    1]
+ [   2    4    8]
+ [   3    9   27]
+ [   4   16   64]
+ [   5   25  125]
+ [   6   36  216]
+ [   7   49  343]
+ [   8   64  512]
+ [   9   81  729]
+ [  10  100 1000]
+ [  11  121 1331]
+ [  12  144 1728]
+ [  13  169 2197]
+ [  14  196 2744]
+ [  15  225 3375]
+ [  16  256 4096]
+ [  17  289 4913]
+ [  18  324 5832]
+ [  19  361 6859]]
+```
+
+This method is useful in polynomial regression where we want to quickly engineer the features to follow more non-lineararity.
