@@ -668,3 +668,481 @@ The result of printing x is the following
 ```
 
 This method is useful in polynomial regression where we want to quickly engineer the features to follow more non-lineararity.
+
+# Classification 
+
+The type of classification algorithm where there are only two possible answers, no or yes or false/true, is called **binary classification** such as is this tumor malignant. For classification, linear regression is a historically bad algorithm because linear regression is all about finding a best fit line so if we end up adding more training examples, this will shift the best fit line so that the **descion boundary**, the point where we decide the classification, will be shifted with the additional example and no longer be suitable.
+
+![alt text](image-11.png)
+
+The following screenshot also shows linear regression not being the best fit for categorical data because it would lead to tumors over a certain size still being classified as malignant even though they are benign.
+
+![alt text](image-12.png)
+
+Though linear regression can sometimes classify the data well, it's not a good idea to rely on this
+
+## Logistic Regression
+
+A key function that we want to take advantage of in **logistic regression** is the **sigmoid function** which is defined mathematically as the following:
+
+## $g(z) = \frac{1}{1+e^{-z}} where 0 < g(z) <1$
+
+The nature of this function is that is z is very large(z=100), the function value will very close to 1 because the denominator will be very small + 1. Conversely, if z is very small (z=-100), then the deominator will be very large and the function value will be very close to zero. If z=0, then the demonator will be 2 and the function result will $0.5$ which is where it crosses the y axis. This gives the function the distinct S curve.
+
+![alt text](image-13.png)
+
+So to derive our equation for the logistic regression model, we will use the vectorized linear regression that we had before as our z value
+
+## $z=\vec{w} \cdot \vec{x} + b$
+
+so
+
+## $f_{\vec{w},b}(\vec{x}) = g(\vec{w} \cdot \vec{x} + b) = \frac{1}{1+e^{-(\vec{w} \cdot \vec{x} + b)}}$
+
+Given z, this will output a number between 0 and 1. Because of this, you can apply **conditional probability** to get
+
+## $f_{\vec{w},b}(\vec{x}) = P(y=1|\vec{x};\vec{w},b)$
+
+The above probability equation is saying conditional probability that the output (or target) 
+y equals 1, given the input vector x and the parameters 𝑤 and b. The semicolon in the notation indicates that 𝑤 and b are the parameters of the model.
+
+However, the probability notation is more mathematical and not shown as much in machine learning.
+
+![alt text](image-14.png)
+
+## Implement sigmoid in code
+
+Numpy has a handy function that will return $e$ raised to some value called `exp()`
+
+```python
+import numpy as np
+# Input is an array. 
+input_array = np.array([1,2,3])
+exp_array = np.exp(input_array)
+
+print("Input to exp:", input_array)
+print("Output of exp:", exp_array)
+
+# Input is a single number
+input_val = 1  
+exp_val = np.exp(input_val)
+
+print("Input to exp:", input_val)
+print("Output of exp:", exp_val)
+```
+
+```
+Input to exp: [1 2 3]
+Output of exp: [ 2.72  7.39 20.09]
+Input to exp: 1
+Output of exp: 2.718281828459045
+```
+
+Knowing this, we can create a sigmoid function in code very easily and use matplotlib to plot it
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+def sigmoid(z):
+    """
+    Compute the sigmoid of z
+
+    Args:
+        z (ndarray): A scalar, numpy array of any size.
+
+    Returns:
+        g (ndarray): sigmoid(z), with the same shape as z
+         
+    """
+
+    g = 1/(1+np.exp(-z))
+   
+    return g
+
+# Generate an array of evenly spaced values between -10 and 10
+z_tmp = np.arange(-10,11)
+
+# Use the function implemented above to get the sigmoid values
+y = sigmoid(z_tmp)
+
+# Code for pretty printing the two arrays next to each other
+np.set_printoptions(precision=3) 
+print("Input (z), Output (sigmoid(z))")
+print(np.c_[z_tmp, y])
+
+# Plot z vs sigmoid(z)
+# subplot is used to create a grid of 1 row and 1 column of plots: 1 plot
+# subplots(2,2) would create 4 total plots
+fig,ax = plt.subplots(1,1,figsize=(5,3))
+ax.plot(z_tmp, y, c="b")
+
+ax.set_title("Sigmoid function")
+ax.set_ylabel('sigmoid(z)')
+ax.set_xlabel('z')
+draw_vthresh(ax,0)
+
+```
+
+```
+Input (z), Output (sigmoid(z))
+[[-1.000e+01  4.540e-05]
+ [-9.000e+00  1.234e-04]
+ [-8.000e+00  3.354e-04]
+ [-7.000e+00  9.111e-04]
+ [-6.000e+00  2.473e-03]
+ [-5.000e+00  6.693e-03]
+ [-4.000e+00  1.799e-02]
+ [-3.000e+00  4.743e-02]
+ [-2.000e+00  1.192e-01]
+ [-1.000e+00  2.689e-01]
+ [ 0.000e+00  5.000e-01]
+ [ 1.000e+00  7.311e-01]
+ [ 2.000e+00  8.808e-01]
+ [ 3.000e+00  9.526e-01]
+ [ 4.000e+00  9.820e-01]
+ [ 5.000e+00  9.933e-01]
+ [ 6.000e+00  9.975e-01]
+ [ 7.000e+00  9.991e-01]
+ [ 8.000e+00  9.997e-01]
+ [ 9.000e+00  9.999e-01]
+ [ 1.000e+01  1.000e+00]]
+```
+
+![alt text](image-15.png)
+
+So if we apply the sigmoid function to the example of benign and malignant that we saw before, we see that it will fit the data better
+
+![alt text](image-16.png)
+
+## Descion Boundary
+
+In logistic regression, the **decision boundary** is determined by the linear equation:
+
+## $\vec{w} \cdot \vec{x} + b = 0$
+
+Therefore, the rules become
+
+## if $\vec{w} \cdot \vec{x} + b >= 0$ then the model predicts y=1
+
+## if $\vec{w} \cdot \vec{x} + b < 0$ then the model predicts y=0
+
+The above equations imply that there is a heavy dependency on b
+
+## if $\vec{w} \cdot \vec{x}  >= -b$ then the model predicts y=1
+
+## if $\vec{w} \cdot \vec{x}  < -b$ then the model predicts y=0
+
+if we take the example where our linear regression model is simply $0=-3+x_0+x_1$ then it's clear to see that $x_1=3-x_0$. If we want to plot the desicion boundary for this
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+# Choose values between 0 and 6
+x0 = np.arange(0,6)
+
+x1 = 3 - x0
+fig,ax = plt.subplots(1,1,figsize=(5,4))
+# Plot the decision boundary
+ax.plot(x0,x1, c="b")
+ax.axis([0, 4, 0, 3.5])
+
+# Fill the region below the line
+ax.fill_between(x0,x1, alpha=0.2)
+
+# Plot the original data
+plot_data(X,y,ax)
+ax.set_ylabel(r'$x_1$')
+ax.set_xlabel(r'$x_0$')
+plt.show()
+```
+
+![alt text](image-17.png)
+
+Notice that the axes used here are the feature variables, which is why 3 is shown as a slope.
+
+## Cost (Loss) function for logistic regression
+
+Recall that for linear regression, we were able to use the **Squared Error Cost** function. This was because in linear regression, ploting the squared error cost would reveal a convex function which made it trivial for gradient descent to find the local minimum because it was a good estimate of the global minimum. The problem with applying the Squared Error Cost to logistic regression is that we end up with a non convex function which may have several local minumum which are not the global minumum as shown in the figure below.
+
+![alt text](image-18.png)
+
+Instead, the cost function for logistic regression will use logarithmic functions. We denote the loss function as L so $L(f_{\vec{w},b}(\vec{x}), y^{(i)})$
+
+## For y=1, $L(f_{\vec{w},b}(\vec{x}), y^{(i)}) = -\log{(f_{\vec{w},b}(\vec{x}))}$ 
+
+## For y=0, $L(f_{\vec{w},b}(\vec{x}), y^{(i)}) = -\log{(1-f_{\vec{w},b}(\vec{x}))}$ 
+
+These two cases are derived from the following
+
+## $L(f_{\vec{w},b}(\vec{x}), y^{(i)}) = (-y^{(i)}\log{(f_{\vec{w},b}(\vec{x}))}) -(1-y^{(i)})\log{(1-f_{\vec{w},b}(\vec{x}^{(i)}))}$ 
+
+but you can see that in the case where y=0, the right side of the equation cancels and in the case of y=1, the left.
+
+The reason that we choose this particular function for loss derives from a statistical principle known as **maximum liklihood**
+
+The reasoning behind this is that the nature of the graphs for f between 0 and 1. In the case of y=1, the Loss is lowest when $f_{\vec{w},b}(\vec{x})$ predict close to the true label $y^{(i)}$. In the case of $y=0$, the further the prediction $f_{\vec{w},b}(\vec{x})$ is from the tarrget $y^{(i)}$, the higher the loss. 
+
+![alt text](image-19.png)
+
+![alt text](image-20.png)
+
+By using these logarithmic functions, we can help ensure that we get a convex function when appying this to the sigmoid function. 
+
+In the graphs, notice that for y=1 (the positive case) and y=0 (the negative case), loss increase towards $\infty $ as the prediction differs from the target.
+
+![alt text](image-21.png)
+
+In the following three dimensional plots, you can see that plotting the logarithmic cost function suits gradient descent a lot better with finding a global minimum.
+
+## Logistic Regression cost function in code
+
+In the following code, X is a matrix of shape (m,n) while y is a maxtrix of shape m. For computing the logistic cost function, we take the sigmoid of the dot product of the x index with the intial w and added bias b. We then plug that sigmoid into the logistic cost function and take the summation to get the overall logistic cost and divide by m, the number of training examples.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def sigmoid(z):
+    """
+    Compute the sigmoid of z
+
+    Parameters
+    ----------
+    z : array_like
+        A scalar or numpy array of any size.
+
+    Returns
+    -------
+     g : array_like
+         sigmoid(z)
+    """
+    z = np.clip( z, -500, 500 )           # protect against overflow
+    g = 1.0/(1.0+np.exp(-z))
+
+    return g
+
+def compute_cost_logistic(X, y, w, b):
+    """
+    Computes cost
+
+    Args:
+      X (ndarray (m,n)): Data, m examples with n features
+      y (ndarray (m,)) : target values
+      w (ndarray (n,)) : model parameters  
+      b (scalar)       : model parameter
+      
+    Returns:
+      cost (scalar): cost
+    """
+
+    m = X.shape[0]
+    cost = 0.0
+    for i in range(m):
+        z_i = np.dot(X[i],w) + b
+        f_wb_i = sigmoid(z_i)
+        cost +=  -y[i]*np.log(f_wb_i) - (1-y[i])*np.log(1-f_wb_i)
+             
+    cost = cost / m
+    return cost
+
+X_train = np.array([[0.5, 1.5], [1,1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])  #(m,n)
+y_train = np.array([0, 0, 0, 1, 1, 1])
+
+w_array1 = np.array([1,1])
+b_1 = -3
+w_array2 = np.array([1,1])
+b_2 = -4
+
+print("Cost for b = -3 : ", compute_cost_logistic(X_train, y_train, w_array1, b_1))
+print("Cost for b = -4 : ", compute_cost_logistic(X_train, y_train, w_array2, b_2))
+```
+
+This gives the following output
+
+```
+Cost for b = -3 :  0.36686678640551745
+Cost for b = -4 :  0.5036808636748461
+```
+
+So we can conclude that for our training set, the bias factor of -4 performs worse as the vaule for the cost function is higher.
+
+## Gradient Descent for logistic regression
+
+The functions for these are almost identical in the gradient descent functions for linear regression except that we are using j as a subscript to denote the feature. Also, keep in mind that the definitions of $(f_{w,b}(x^{(i)})$ is now different
+
+## $w_j = w_j - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})(x_j^{(i)})$
+
+## $b = b - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})$
+
+It's the same concept other than that. We are using simultaneous updates each pass of these functions and our goal to have gradient descent converge to a global minimum.
+
+Logistic Regression Cost Function in code
+
+In the following code, we are
+
+* calculating the error $g(\vec{w} \cdot \vec{x}^{(i)}+b)-\vec{y}^{(i)}$ for all values training example
+* for each feature, multiplying the error for the index by the value of x at that feature and adding it to the gradient for w
+* the calculation for the gradient for the bias term is the same as it was in linear regression as we're just adding the error term
+* divide both gradients by the number of traing examples
+* Finally, with the gradient descent function, we'll be multiplying the gradients by the learning rates to make updates
+
+```python
+import copy, math
+import numpy as np
+
+def sigmoid(z):
+    """
+    Compute the sigmoid of z
+
+    Parameters
+    ----------
+    z : array_like
+        A scalar or numpy array of any size.
+
+    Returns
+    -------
+     g : array_like
+         sigmoid(z)
+    """
+    z = np.clip( z, -500, 500 )           # protect against overflow
+    g = 1.0/(1.0+np.exp(-z))
+
+    return g
+
+def compute_gradient_logistic(X, y, w, b): 
+    """
+    Computes the gradient for logistic regression 
+ 
+    Args:
+      X (ndarray (m,n): Data, m examples with n features
+      y (ndarray (m,)): target values
+      w (ndarray (n,)): model parameters  
+      b (scalar)      : model parameter
+    Returns
+      dj_dw (ndarray (n,)): The gradient of the cost w.r.t. the parameters w. 
+      dj_db (scalar)      : The gradient of the cost w.r.t. the parameter b. 
+    """
+    m,n = X.shape
+    dj_dw = np.zeros((n,))                           #(n,)
+    dj_db = 0.
+
+    for i in range(m):
+        f_wb_i = sigmoid(np.dot(X[i],w) + b)          #(n,)(n,)=scalar
+        err_i  = f_wb_i  - y[i]                       #scalar
+        for j in range(n):
+            dj_dw[j] = dj_dw[j] + err_i * X[i,j]      #scalar
+        dj_db = dj_db + err_i
+    dj_dw = dj_dw/m                                   #(n,)
+    dj_db = dj_db/m                                   #scalar
+        
+    return dj_db, dj_dw  
+
+def gradient_descent(X, y, w_in, b_in, alpha, num_iters): 
+    """
+    Performs batch gradient descent
+    
+    Args:
+      X (ndarray (m,n)   : Data, m examples with n features
+      y (ndarray (m,))   : target values
+      w_in (ndarray (n,)): Initial values of model parameters  
+      b_in (scalar)      : Initial values of model parameter
+      alpha (float)      : Learning rate
+      num_iters (scalar) : number of iterations to run gradient descent
+      
+    Returns:
+      w (ndarray (n,))   : Updated values of parameters
+      b (scalar)         : Updated value of parameter 
+    """
+    # An array to store cost J and w's at each iteration primarily for graphing later
+    J_history = []
+    w = copy.deepcopy(w_in)  #avoid modifying global w within function
+    b = b_in
+    
+    for i in range(num_iters):
+        # Calculate the gradient and update the parameters
+        dj_db, dj_dw = compute_gradient_logistic(X, y, w, b)   
+
+        # Update Parameters using w, b, alpha and gradient
+        w = w - alpha * dj_dw               
+        b = b - alpha * dj_db               
+      
+        # Save cost J at each iteration
+        if i<100000:      # prevent resource exhaustion 
+            J_history.append( compute_cost_logistic(X, y, w, b) )
+
+        # Print cost every at intervals 10 times or as many iterations if < 10
+        if i% math.ceil(num_iters / 10) == 0:
+            print(f"Iteration {i:4d}: Cost {J_history[-1]}   ")
+        
+    return w, b, J_history         #return final w,b and J history for graphing
+```
+
+Now let's use the following code to run gradient descent to train our data and find the best weights and bias term.
+
+```python
+w_tmp  = np.zeros_like(X_train[0])
+b_tmp  = 0.
+alph = 0.9
+iters = 10000
+
+w_out, b_out, _ = gradient_descent(X_train, y_train, w_tmp, b_tmp, alph, iters) 
+print(f"\nupdated parameters: w:{w_out}, b:{b_out}")
+```
+
+```
+Iteration    0: Cost 0.6509898706978229   
+Iteration 1000: Cost 0.01898509708803807   
+Iteration 2000: Cost 0.009462945855308616   
+Iteration 3000: Cost 0.006299017770009604   
+Iteration 4000: Cost 0.004720359852320092   
+Iteration 5000: Cost 0.003774414835001944   
+Iteration 6000: Cost 0.0031443437189356085   
+Iteration 7000: Cost 0.0026945747305561125   
+Iteration 8000: Cost 0.0023574030434657897   
+Iteration 9000: Cost 0.0020952495092537446   
+
+updated parameters: w:[8.21 8.01], b:-22.305241709195236
+```
+
+### Scikit-learn
+
+Scikit-learn is a popular library for train models which takes away several layers of abstraction. For example, let's implement this on our data from before:
+
+```python
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+
+X = np.array([[0.5, 1.5], [1,1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])
+y = np.array([0, 0, 0, 1, 1, 1])
+
+lr_model = LogisticRegression()
+lr_model.fit(X, y)
+
+y_pred = lr_model.predict(X)
+
+print("Prediction on training set:", y_pred)
+```
+
+As you can see below, the predictions are our already trained data is 100% accurate
+
+```
+Prediction on training set: [0 0 0 1 1 1]
+```
+
+Scikit-learn actually has a scoring method to rate accuracy of predictions
+
+```python
+print("Accuracy on training set:", lr_model.score(X, y))
+```
+
+We can now now change the prediction param to predict a new set
+
+```python
+y_pred = lr_model.predict([[1.3, 1.6]])
+
+print("Prediction on training set:", y_pred)
+```
+
+```
+Prediction on training set: [0]
+```
