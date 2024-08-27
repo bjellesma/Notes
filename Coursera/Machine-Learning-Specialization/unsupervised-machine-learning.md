@@ -876,6 +876,10 @@ These two cases are derived from the following
 
 ## $L(f_{\vec{w},b}(\vec{x}), y^{(i)}) = (-y^{(i)}\log{(f_{\vec{w},b}(\vec{x}))}) -(1-y^{(i)})\log{(1-f_{\vec{w},b}(\vec{x}^{(i)}))}$ 
 
+This applies to a loss, so the overall cost function will just apply the sumation
+
+## $J(\vec{w},b) = -\frac{1}{m}\sum_{i=1}^m(y^{(i)}(\log{(f_{\vec{w},b}(\vec{x}))} +(1-y^{(i)})\log{(1-f_{\vec{w},b}(\vec{x}^{(i)}))}))$ 
+
 but you can see that in the case where y=0, the right side of the equation cancels and in the case of y=1, the left.
 
 The reason that we choose this particular function for loss derives from a statistical principle known as **maximum liklihood**
@@ -1145,4 +1149,321 @@ print("Prediction on training set:", y_pred)
 
 ```
 Prediction on training set: [0]
+```
+
+# The Problem of Overfitting
+
+Going back to examples of linear regression, you may choose a line that doesn't seem to fit the data well because the error seems to be large even on the training examples. In this case, we say that the model **underfits** the dat or that the model has **high bias**. If instead, we choose a line or polynomial that fits the training data perfectly but will predict answers that don't seem to make sense for new data, we say that we've **overfit** the data or that the model has **high variance**. If we take an example of predicting housing prices, we may come up with a curve that fits the training data perfectly with no error, however because of this curve, the model may predict that a house that's smaller than other houses will sell for less.
+
+The ideal case is the best of both worlds. We have a curve that fits the training data reasonably well and is intuitively able to fit new data. In this case, we say that the model has good **generalization**.
+
+Think of overfitting like the overly studious kid at school who does well on problems that he's seen but fails on problems that he hasn't seen that he has to apply his skills to.
+
+![alt text](image-22.png)
+
+The following screenshot will show how these same terms of underfit, generalization, and overfit can also apply to classification with logistic regression as well.
+
+![alt text](image-23.png)
+
+The best defense against overfitting is to just get more data in the form of more training examples. This will naturally make it so that the model needs to be able to have a better curve. 
+
+![alt text](image-24.png)
+
+If gathering more data isn't an option, another method to combat overfitting could be to use **feature selection** where we choose the features that are the most relevant. This will change the curve that the model renders. However, this has the obvious disadvantage that useful features could be lost if you choose to discard a feature that would weigh well in predictions.
+
+![alt text](image-25.png)
+
+A better way to combat overfitting that doesn't take the harsh approach of eliminating the feature altogether with feature selection is to instead reduce the weight of the feature with a process called **regularization**. While this method is primarily used to reduce the significance of the weights, it can also apply to reducing the bias term though practicioners normally choose to not impact the bias term.
+
+![alt text](image-26.png)
+
+Notice how the tendency is that higher order polynomials tend to lead to problems of overfitting. This is because as the degree of the polynomail increases, the model becomes more flexible and capable of fitting the training data more closely. In linear regression, this leads to complex models that may perform poorly on unseen data. In logistic regression, higher order polynomails may lead to complex descion boundaries that will focus more on capturing the noise rather than the underlying patterns.
+
+## Regularization in the cost function
+
+The goal of regularization is to control the complexity of the model by discouraging large coefficients. Large weights can cause the model to fit the training data very closely, including noise, which can lead to overfitting. Regularization reduces the magnitude of the weights, thus helping the model generalize better to unseen data.
+
+Regularization can be implemented in the cost function by adding a regularization term, $\frac{\lambda}{2m}\sum_{j=1}^{n}w_j^2$ where n in the number of features and $\lambda$ is the **regularization parameter** similar to the learning rate. So the cost function becomes
+
+## $J(\vec{w},b) = \frac{1}{2m} \sum_{i=1}^{m} (f_{w,b}(\vec{x}^{(i)}) - y^{(i)})^{2}+ \frac{\lambda}{2m}\sum_{j=1}^{n}w_j^2$
+
+The choice of the regularization parameter does have implications on the overall model. For example, if we set $\lambda$ to 0, the regularization term completely cancels out so we're left with the original cost function (which in the case of linear regression is the squared error cost function). This means that the problem of overfitting will still exist. If we choose a very large value for lambda, the overall cost function will be high which means that the model will try to make the weights as close to zero as possible which will result in a near straight line. This will tend to underfit the data. So the ideal goal will be to pick an integer value that is propertional to the number of training examples, m.
+
+![alt text](image-27.png)
+
+Adding this regularization term to the cost function, we must now also add this to the partial derivatives for gradient descent. The derivative of $\frac{\lambda}{2m}\sum_{j=1}^{n}w_j^2$ simply becomes $\frac{\lambda}{m}w_j$.
+
+There is one caveat in that we don't have to regularize b. Mathematically, the bias term b represents the intercept of the regression model. It shifts the entire model up or down without affecting the slope or curvature of the decision boundary (in the case of logistic regression) or the line of best fit (in the case of linear regression).
+
+If we were to apply regularization to the bias term, we would be penalizing this shift, which is not the intended purpose of regularization. Regularization is meant to penalize the complexity of the model, which is controlled by the weights, not by the bias.
+
+## $w_j = w_j - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})(x_j^{(i)}) + \frac{\lambda}{m}w_j$ for all features j
+
+## $b = b - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})$ 
+
+The impact remains similar, while $\alpha$ seeks to minimize the cost function a little bit with each iteration, the value of $\lambda$ adds a penalty to the cost function, which discourages large weights and helps prevent overfitting. The term $\frac{\lambda}{m}w_j$ added during the weight update effectively shrinks the weights slightly in each iteration. This shrinkage happens because $\lambda$ adds a small value that is proportional to the current weight value ($w_j$), encouraging the model to keep the weights small and avoid overfitting.
+
+$\lambda$ modifies the update rule for weights to ensure they don’t grow too large, effectively leading to a model that generalizes better to unseen data.
+
+![alt text](image-28.png)
+
+## Regularized Logistic Regression
+
+In the following cost function, we just add the regularization term.
+
+## $J(\vec{w},b) = -\frac{1}{m}\sum_{i=1}^m(y^{(i)}(\log{(f_{\vec{w},b}(\vec{x}))} +(1-y^{(i)})\log{(1-f_{\vec{w},b}(\vec{x}^{(i)}))})) + \frac{\lambda}{2m}\sum_{j=1}^n w_j^2$ 
+
+Like linear regression, we have the following equations for gradient descent carried out through simultaneous updates. 
+
+## $w_j = w_j - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})(x_j^{(i)}) + \frac{\lambda}{m}w_j$ for all features j
+
+## $b = b - \alpha \frac{1}{m}\sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})$ 
+
+Just keep in mind that the definition of the function is actually different because we're using logistic regression and not linear/polynomial regression. Recall that the following equation which uses the sigmoid is the function for logistic regression.
+
+## $f_{\vec{w},b}(\vec{x}) = g(\vec{w} \cdot \vec{x} + b) = \frac{1}{1+e^{-(\vec{w} \cdot \vec{x} + b)}}$
+
+## Regularization in code
+
+In the following code, we introduction the regularization term and add it to what we originally used for the cost function for linear regression.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def compute_cost_linear_reg(X, y, w, b, lambda_ = 1):
+    """
+    Computes the cost over all examples
+    Args:
+      X (ndarray (m,n): Data, m examples with n features
+      y (ndarray (m,)): target values
+      w (ndarray (n,)): model parameters  
+      b (scalar)      : model parameter
+      lambda_ (scalar): Controls amount of regularization
+    Returns:
+      total_cost (scalar):  cost 
+    """
+
+    m  = X.shape[0]
+    n  = len(w)
+    cost = 0.
+    for i in range(m):
+        f_wb_i = np.dot(X[i], w) + b                                   #(n,)(n,)=scalar, see np.dot
+        cost = cost + (f_wb_i - y[i])**2                               #scalar             
+    cost = cost / (2 * m)                                              #scalar  
+ 
+    # add regularization term
+    reg_cost = 0
+    for j in range(n):
+        reg_cost += (w[j]**2)                                          #scalar
+    reg_cost = (lambda_/(2*m)) * reg_cost                              #scalar
+    
+    total_cost = cost + reg_cost                                       #scalar
+    return total_cost                                                  #scalar
+
+def compute_gradient_linear_reg_no_lambda(X, y, w, b): 
+    """
+    Computes the gradient for linear regression 
+    Args:
+      X (ndarray (m,n): Data, m examples with n features
+      y (ndarray (m,)): target values
+      w (ndarray (n,)): model parameters  
+      b (scalar)      : model parameter
+      lambda_ (scalar): Controls amount of regularization
+      
+    Returns:
+      dj_dw (ndarray (n,)): The gradient of the cost w.r.t. the parameters w. 
+      dj_db (scalar):       The gradient of the cost w.r.t. the parameter b. 
+    """
+    m,n = X.shape           #(number of examples, number of features)
+    dj_dw = np.zeros((n,))
+    dj_db = 0.
+
+    for i in range(m):                             
+        err = (np.dot(X[i], w) + b) - y[i]                 
+        for j in range(n):                         
+            dj_dw[j] = dj_dw[j] + err * X[i, j]               
+        dj_db = dj_db + err                        
+    dj_dw = dj_dw / m                                
+    dj_db = dj_db / m   
+    
+
+    return dj_db, dj_dw
+
+def compute_gradient_linear_reg(X, y, w, b, lambda_): 
+    """
+    Computes the gradient for linear regression 
+    Args:
+      X (ndarray (m,n): Data, m examples with n features
+      y (ndarray (m,)): target values
+      w (ndarray (n,)): model parameters  
+      b (scalar)      : model parameter
+      lambda_ (scalar): Controls amount of regularization
+      
+    Returns:
+      dj_dw (ndarray (n,)): The gradient of the cost w.r.t. the parameters w. 
+      dj_db (scalar):       The gradient of the cost w.r.t. the parameter b. 
+    """
+    m,n = X.shape           #(number of examples, number of features)
+    dj_dw = np.zeros((n,))
+    dj_db = 0.
+
+    for i in range(m):                             
+        err = (np.dot(X[i], w) + b) - y[i]                 
+        for j in range(n):                         
+            dj_dw[j] = dj_dw[j] + err * X[i, j]               
+        dj_db = dj_db + err                        
+    dj_dw = dj_dw / m                                
+    dj_db = dj_db / m   
+    
+    # add the regularization term for each iter
+    for j in range(n):
+        dj_dw[j] = dj_dw[j] + (lambda_/m) * w[j]
+
+    return dj_db, dj_dw
+
+# seed ensures that numpy generates the same random sequence every time
+np.random.seed(1)
+X_tmp = np.random.rand(5,6)
+y_tmp = np.array([0,1,0,1,0])
+# subtracts 0.5 from each element, effectively shifting the range of the weights to between -0.5 and 0.5.
+w_tmp = np.random.rand(X_tmp.shape[1])-0.5
+b_tmp = 0.5
+lambda_tmp = 0.7
+cost_tmp = compute_cost_linear_reg(X_tmp, y_tmp, w_tmp, b_tmp, lambda_tmp)
+
+print("Regularized cost:", cost_tmp)
+
+np.random.seed(1)
+X_tmp = np.array(
+    [[4.17022005e-01, 7.20324493e-01, 100.14374817],
+     [3.02332573e-01, 1.46755891e-01, 900.23385948],
+     [1.86260211e-01, 3.45560727e-01, 300.96767474],
+     [5.38816734e-01, 4.19194514e-01, 600.85219500],
+     [2.04452250e-01, 8.78117436e-01, 200.73875932]]
+)
+y_tmp = np.array([0,1,0,1,0])
+w_tmp = np.random.rand(X_tmp.shape[1])
+b_tmp = 0.5
+lambda_tmp = 0.7
+dj_db_tmp_no_lambda, dj_dw_tmp_no_lambda =  compute_gradient_linear_reg_no_lambda(X_tmp, y_tmp, w_tmp, b_tmp)
+dj_db_tmp, dj_dw_tmp =  compute_gradient_linear_reg(X_tmp, y_tmp, w_tmp, b_tmp, lambda_tmp)
+
+print(f"dj_db: {dj_db_tmp}", )
+print(f"Regularized dj_dw_no_lambda:\n {dj_dw_tmp_no_lambda.tolist()}", )
+print(f"Regularized dj_dw:\n {dj_dw_tmp.tolist()}", )
+```
+
+As you can see the regularized cost ends up being very small. Notice the comparison of with and without lambda, the weight for the third parameter changes very minimally compared with the other two parameters which are a bit more dramatic
+
+```
+Regularized cost: 0.0881556600008252
+
+dj_db: 0.6648774569425726
+Regularized dj_dw no lambda:
+ [0.18353366993060177, 0.45404458894365424, 107.46967265880293]
+Regularized dj_dw:
+ [0.24191675058896212, 0.5548900180255564, 107.46968867127737]
+```
+
+We also use the following code for the cost function in logistic regression
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def compute_cost_logistic_reg(X, y, w, b, lambda_ = 1):
+    """
+    Computes the cost over all examples
+    Args:
+    Args:
+      X (ndarray (m,n): Data, m examples with n features
+      y (ndarray (m,)): target values
+      w (ndarray (n,)): model parameters  
+      b (scalar)      : model parameter
+      lambda_ (scalar): Controls amount of regularization
+    Returns:
+      total_cost (scalar):  cost 
+    """
+
+    m,n  = X.shape
+    cost = 0.
+    for i in range(m):
+        z_i = np.dot(X[i], w) + b                                      #(n,)(n,)=scalar, see np.dot
+        f_wb_i = sigmoid(z_i)                                          #scalar
+        cost +=  -y[i]*np.log(f_wb_i) - (1-y[i])*np.log(1-f_wb_i)      #scalar
+             
+    cost = cost/m                                                      #scalar
+
+    reg_cost = 0
+    for j in range(n):
+        reg_cost += (w[j]**2)                                          #scalar
+    reg_cost = (lambda_/(2*m)) * reg_cost                              #scalar
+    
+    total_cost = cost + reg_cost                                       #scalar
+    return total_cost    
+
+def compute_gradient_logistic_reg(X, y, w, b, lambda_): 
+    """
+    Computes the gradient for linear regression 
+ 
+    Args:
+      X (ndarray (m,n): Data, m examples with n features
+      y (ndarray (m,)): target values
+      w (ndarray (n,)): model parameters  
+      b (scalar)      : model parameter
+      lambda_ (scalar): Controls amount of regularization
+    Returns
+      dj_dw (ndarray Shape (n,)): The gradient of the cost w.r.t. the parameters w. 
+      dj_db (scalar)            : The gradient of the cost w.r.t. the parameter b. 
+    """
+    m,n = X.shape
+    dj_dw = np.zeros((n,))                            #(n,)
+    dj_db = 0.0                                       #scalar
+
+    for i in range(m):
+        f_wb_i = sigmoid(np.dot(X[i],w) + b)          #(n,)(n,)=scalar
+        err_i  = f_wb_i  - y[i]                       #scalar
+        for j in range(n):
+            dj_dw[j] = dj_dw[j] + err_i * X[i,j]      #scalar
+        dj_db = dj_db + err_i
+    dj_dw = dj_dw/m                                   #(n,)
+    dj_db = dj_db/m                                   #scalar
+
+    for j in range(n):
+        dj_dw[j] = dj_dw[j] + (lambda_/m) * w[j]
+
+    return dj_db, dj_dw  
+    
+
+np.random.seed(1)
+X_tmp = np.random.rand(5,6)
+y_tmp = np.array([0,1,0,1,0])
+w_tmp = np.random.rand(X_tmp.shape[1]).reshape(-1,)-0.5
+b_tmp = 0.5
+lambda_tmp = 0.7
+cost_tmp = compute_cost_logistic_reg(X_tmp, y_tmp, w_tmp, b_tmp, lambda_tmp)
+
+print("Regularized cost:", cost_tmp)
+
+
+np.random.seed(1)
+X_tmp = np.random.rand(5,3)
+y_tmp = np.array([0,1,0,1,0])
+w_tmp = np.random.rand(X_tmp.shape[1])
+b_tmp = 0.5
+lambda_tmp = 0.7
+dj_db_tmp, dj_dw_tmp =  compute_gradient_logistic_reg(X_tmp, y_tmp, w_tmp, b_tmp, lambda_tmp)
+
+print(f"dj_db: {dj_db_tmp}", )
+print(f"Regularized dj_dw:\n {dj_dw_tmp.tolist()}", )
+
+```
+
+```
+Regularized cost: 0.6850849138741673
+
+dj_db: 0.341798994972791
+Regularized dj_dw:
+ [0.17380012933994293, 0.32007507881566943, 0.10776313396851499]
 ```
