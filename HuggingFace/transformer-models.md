@@ -193,7 +193,7 @@ Let's dive into sentiment analysis
 
 ![alt text](image-10.png)
 
-1. The words are converted to tokens where we add special hidden tokens to denote the begining and end of the sentence. Once these special tokens are added, we now convert to a tensor or a list of numbers. During this, we often have a pretrained lexicon analysis.
+1. The words are converted to tokens where we add special hidden tokens to denote the begining and end of the sentence. Once these special tokens are added, we now convert to a tensor or a list of numbers. These are from maps from a token to an ID so like I will map to 1045. Every model will have a different mapping. During this, we often have a pretrained lexicon analysis.
 
 ![alt text](image-11.png)
 
@@ -201,8 +201,24 @@ In the following, notice that because we've passed a second sentence, we pad the
 
 ![alt text](image-12.png)
 
-2. The model will convert to **logits** which is a high order tensor of the input representing a few attributes such as sentence length. Notice that these are not probabilities yet as they do not sum to 1.
+2. The model will convert to **logits** which is a high order tensor of the input representing a few attributes such as batch size (the number of items in the array) , sentence length which is the number of IDs mapped from the tokens, and hidden size which is the number of factors that the model uses to relate to other tokens. Notice that these are not probabilities yet as they do not sum to 1.  768 is common for a hidden size for a smaller model and 3072 is common for a large model.
+
+![alt text](image-14.png)
 
 ![alt text](image-13.png)
 
-3. Now the model is ready to make a prediction classification as to whether the input has a positive or negative connotation. A **softmax function** is used to give the probability of these logits as between zero and 1
+3. Now we're into decode step and the model is ready to make a prediction classification as to whether the input has a positive or negative connotation. A **softmax function** is used to give the probability of these logits between 0 and 1 and the **argmax function** will choose the correct value. 
+
+Encoder-Decoder models can also be called **Sequence to sequence models**
+
+HuggingFace is more of a library whereas people are making and submitting pretrained models. When people download them. We're the ones that are fine tuning the models
+
+You can think of it like you going through college to get a job as pretraining. A job will normally fine tune you for three monthes or so.
+
+Sometimes tokenization is used to decompose rare words into smaller subwords. If tokenization does break into subwords, it'll normally put a special character like a # to denote this.
+
+![alt text](image-15.png)
+
+Finally, you can reverse the process to decode the tensor into the words
+
+![alt text](image-16.png)

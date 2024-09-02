@@ -12,7 +12,9 @@
 
 **Multiple Linear Regression** - $f_{w,b}(x) = w_{1}x_{1}+w_{2}x_{2}+w_{3}x_{3}+...+w_{n}x_{n}+b$ where n is the number of features
 
-**Multiple Linear Regression** (vector notation) - $f_{\vec{w},x}(\vec{x})=\vec{w} \cdot \vec{x} + b$
+**Multiple Linear Regression** (vector notation) 
+
+## $f_{\vec{w},x}(\vec{x})=\vec{w} \cdot \vec{x} + b$
 
 **Gradient Descent for Multiple Linear Regression**
 
@@ -73,3 +75,7 @@ These two cases are derived from the following
 **Regularized Logistic Regression Cost Function**
 
 ## $J(\vec{w},b) = -\frac{1}{m}\sum_{i=1}^m(y^{(i)}(\log{(f_{\vec{w},b}(\vec{x}))} +(1-y^{(i)})\log{(1-f_{\vec{w},b}(\vec{x}^{(i)}))})) + \frac{\lambda}{2m}\sum_{j=1}^n w_j^2$ 
+
+**Sigmoid Activation Function for a neuron**
+
+## $a_j^{[l]} \cdot \vec{a}^{[l-1]}+b_j^{[l]}$ where l is the layer of the neural network and j is neuron within the layer and keep in mind that $\vec{a}^{[0]}=\vec{x}$
