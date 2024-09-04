@@ -711,7 +711,6 @@ Now that we've done just a few brief problems to go over matrix multiplication, 
 **Vectorization** is an idea that CPUs and GPUs (mostly GPUs) are very well optimized to handle matrix multiplication and we can take advantage of this idea by converting the weights of a model from a vector to a matrix. This is similar to the idea of what tensorflow actually does.
 
 ```python
-
 def dense(A_in, W, B):
     # matmul can sometimes be written in code as Z = A_in @ W
     # remember that matmul is doing the matrix multiplication that we saw previously
@@ -724,8 +723,8 @@ Now that we've defined the dense layer using the matmul function, the rest is pr
 
 ```python
 def my_sequential_v(X, W, B):
-    A1 = dense(X,  W1, b1, sigmoid)
-    return(A3)
+    A1 = dense(X, W, B)
+    return(A1)
 ```
 
 We'll now run our data through
@@ -735,7 +734,6 @@ X = np.array([[200, 17]])
 W = np.array([[1, -3, 5], 
               [-2, 4, -6]])
 B = np.array([[-1, 1, 2]])
-```
 
 Prediction = my_sequential_v(X, W, B)
 ```
