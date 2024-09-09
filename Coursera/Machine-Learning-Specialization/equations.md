@@ -79,3 +79,36 @@ These two cases are derived from the following
 **Sigmoid Activation Function for a neuron**
 
 ## $a_j^{[l]} \cdot \vec{a}^{[l-1]}+b_j^{[l]}$ where l is the layer of the neural network and j is neuron within the layer and keep in mind that $\vec{a}^{[0]}=\vec{x}$
+
+**ReLU (Rectified Linear Unit)**
+$$
+g(z) = max(0,z)
+$$
+
+where
+
+$$
+z=\vec{w} \cdot \vec{x} + b
+$$
+
+**linear activation function**
+
+$$
+g(z) = z
+$$
+
+where
+
+$$
+z=\vec{w} \cdot \vec{x} + b
+$$
+
+# Softmax Regression
+
+**Logit** 
+
+## $z_j = \vec{w}_j \cdot \vec{x} + b_j \quad j = 1, \dots, N$
+
+**Softmax**
+
+## $a_j = \frac{e^{z_j}}{\sum_{k=1}^{N} e^{z_k}} = P(y = j \mid \vec{x})$
