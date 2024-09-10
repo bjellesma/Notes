@@ -36,5 +36,15 @@ This book seeks to use the following architecture for teaching how to build an L
 
 ![image](https://github.com/user-attachments/assets/258bb856-1048-43e3-98ba-81ec0ecd6a59)
 
+# Chapter 2: text encoding 
 
+embedding is converting one data type to a vector representation. It's important to note that different embedding models will not work for other data types so a video encoder will not work for text.
+retreival augmented generation is a technique combining generating text with a retrieval corpus like an external knowledge base.
+
+1. Build a tokenizer that will seperate all words and special characters
+2. Match the string tokens into IDs. first we build a vocabulary. Each unique token is put into a mapping and assigned an integer ID. In order to build the vocabulary and enable the model to act on untrained data, we'll want to have a large and diverse corpus of data
+3. we often extend the vocab list to include special tokens like unk and eof
+4. byte pair encoding is a strategy used to encode new words where the algorithm will attempt to break the unknown word into subwords
+5. we want to build a data loader which can use input target pairs to train the data. For this, we'll take an ecoding of the words in order and tell the machine that the predicted word is the next word in the corpus. We do this because the LLM is essentially a large next word prediction model. since the targets are shifted by 1 (or any amount that we specify), we sometimes refer to this as a sliding window approach. the reason that we may increase the slide value is to prevent the model from overfitting.
+6. an embedding layer from tensorflow or pytorch is then used to convert the token IDs into seemingly random tensors
 
