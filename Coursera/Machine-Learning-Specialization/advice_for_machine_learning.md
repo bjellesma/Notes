@@ -847,4 +847,99 @@ utils.train_plot_reg_params(reg_params, x_train, y_train, x_cv, y_cv, degree= 4,
 
 ## Machine Learning Development Process
 
+Putting all these ideas together, you'll find that machine learning often follows a lifecycle
+
+1. Choose a model architecture and the data.
+2. Train the model
+3. Assess the accuracy of your model to see if you need to edit the architecture.
+
+![alt text](image-81.png)
+
+In the following screenshot, we choose an architecture for a spam classifier. We choose words as features and have a corresponding vector that has the vector component as either 1 or 0 depending on if it appears in the email.
+
+![alt text](image-82.png)
+
+In the spam classifier and in many other classifiers, it might be usefult to do an **error analysis** in order to try to see the processes that are being used when classifying data a certain way. This might give you insight into what processes to focus more of your time and attention on. For example, the screenshot tells us that many of the classifications of spam come from pharmacy related emails and attempts to steal passwords. With this information, we can tune the algorithm to pay more attention to emails where it detects password theft and where the content is focused on pharma.
+
+![alt text](image-83.png)
+
+**Data Augmentation** can be performed which is a process of distorting the train example so that it recognizes it better. Data augmentation can apply to text, image recognition (add contrast or rotating images), audio (adding background noise)
+
+![alt text](image-84.png)
+
+In contrast to data augmentation, it's also possible to have **synthetic data** where you're making completely new training examples. In the OCR image below, we are using fonts.
+
+![alt text](image-85.png)
+
+### Transfer Learning
+
+Using an idea called **transfer learning**, it's possible to use neural networks to have an algorithm perform better on another model where you aren't able to get enough data. Transfer learning, as seen in the image below, is when a neural network has already been trained, either by you or someone else, to work on a much larger dataset and then you take that neural network and replace the output layer to instead work with your dataset. So you can think of transfer learning as reusing a model for a different task.
+
+![alt text](image-86.png)
+
+So to summerize, the steps that you would do for transfer learning are:
+
+1. Download neural network parameters pretrained on a large dataset **with the same input type** (if you're traing for image recognition, use a dataset trained on image recognition)
+2. Further train or **fine-tune** the network on your own data.
+
+### Deployment
+
+So returning back to the machine learning life cycle, an even higher level overview from choosing a project to deploying it is:
+
+1. Scope project - this is where you choose what you want to work on. For example, I want to work on using speech recognition to do a web search
+2. Collect data - first you define the data that you'll need and then to collect it from various sources. Once you descide if you need text or images, you may need to do web scraping or collect from APIs to train the model that you want.
+3. Train model - this is the iterative loop that we described earlier where you choose an architecture and use diagnostics to make the model better.
+4. Deploy in production - this is where you actually maintain your system in production and find out if you have to go back to training at all.
+
+For the deployment step, you'll typically want to have it deployed to some server whether aws or on prem and use the techniques more in the realm of software engineering for things like scaling, logging, and system monitoring.
+
 ## Skewed Datasets
+
+To evaluate the performance of a classifier, we typically use a **confusion matrix** where we can define true positives, false positives, true negatives, and false negatives. This is a comparison of the predicted value vs the actual value. We're also able to compute the metrics **precision** and **recall** of the algorithm to evaluate performance quickly. These two values are the following formulas:
+
+### Precision
+
+Precision measures the accuracy of positive predictions. It answers the question: "Of all the instances the model predicted as positive, how many were actually positive?"
+
+$$
+\text{Precision} = \frac{\text{True positives}}{\text{predicted positive}} = \frac{\text{True positives}}{\text{True pos} + \text{False pos}}
+$$
+
+### Recall
+
+Recall measures the completeness of positive predictions. It answers the question: "Of all the actual positive instances, how many did the model correctly identify?"
+
+$$
+\text{Recall} = \frac{\text{True positives}}{\text{actual positive}} = \frac{\text{True positives}}{\text{True pos} + \text{False neg}}
+$$
+
+| | Actual Class 1 | Actual Class 0 |
+|----------------|----------------|----------------|
+| **Predicted Class 1** | True positive<br>15 | False positive<br>5 |
+| **Predicted Class 0** | False negative<br>10 | True negative<br>70 |
+
+For the above confusion matrix, the calculations would be 
+
+$$
+\text{Precision} = \frac{\text{True positives}}{\text{predicted positive}} = \frac{\text{True positives}}{\text{True pos} + \text{False pos}} = \frac{15}{15 + 5} = 0.75
+$$
+
+And
+
+$$
+\text{Recall} = \frac{\text{True positives}}{\text{actual positive}} = \frac{\text{True positives}}{\text{True pos} + \text{False neg}} = \frac{15}{15 + 10} = 0.6
+$$
+
+Typically with a very high threshold you get high precision and with a low threshold, you get high recall. The optimal threshold to to balance these two numbers.
+
+![alt text](image-87.png)
+
+A good third metrix to use to find the best threshold would be the **F1 Score**. This is given by the following formula where P and R and precision and recall respectively.
+
+$$
+F_1 \text{ score} = \frac{1}{\frac{1}{2}(\frac{1}{P} + \frac{1}{R})}
+$$
+
+The following screenshot will show an example of getting the F1 score to tell us that algorthim 1 is the best one.
+
+![alt text](image-88.png)

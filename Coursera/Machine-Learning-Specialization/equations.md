@@ -112,3 +112,21 @@ $$
 **Softmax**
 
 ## $a_j = \frac{e^{z_j}}{\sum_{k=1}^{N} e^{z_k}} = P(y = j \mid \vec{x})$
+
+**Precision**
+
+$$
+\text{Precision} = \frac{\text{True positives}}{\text{predicted positive}} = \frac{\text{True positives}}{\text{True pos} + \text{False pos}}
+$$
+
+**Recall**
+
+$$
+\text{Recall} = \frac{\text{True positives}}{\text{actual positive}} = \frac{\text{True positives}}{\text{True pos} + \text{False neg}}
+$$
+
+**F1 Score**
+
+$$
+F_1 \text{ score} = \frac{1}{\frac{1}{2}(\frac{1}{P} + \frac{1}{R})}
+$$
