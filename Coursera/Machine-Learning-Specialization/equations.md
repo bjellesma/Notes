@@ -130,3 +130,15 @@ $$
 $$
 F_1 \text{ score} = \frac{1}{\frac{1}{2}(\frac{1}{P} + \frac{1}{R})}
 $$
+
+**information gain**
+
+$$
+= H(p_1^{\text{root}}) - \left(w^{\text{left}} H(p_1^{\text{left}}) + w^{\text{right}} H(p_1^{\text{right}})\right)
+$$
+
+**Cost (distortion) function for K means clustering algorithm**
+
+## $$J(c^{(1)}, ..., c^{(m)}, \mu_1, ..., \mu_K) = \frac{1}{m} \sum_{i=1}^m \|x^{(i)} - \mu_{c(i)}\|^2$$
+
+where $c^{(i)}$ is the index of the cluster for that specific training example and m is the number of training examples.
