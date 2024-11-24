@@ -9,3 +9,12 @@
 * The **Oslo Accords** were signed in 1993 between Palestian Liberation Organization (PLO) and Israel under the Clinton Administration. The accords were controversial and led to Prime Minister Rabin being assassinated in 1995.
 * The **two state solution** is a proposal to end the conflict and bring peace. Palestine would be seperate and have soverenty over some land mainly gaza strip and west bank. Implement is difficult with facts like exact borders and refugee rights.
 * 
+* Because of inflexibility, Palestinians have alienated many moderate leaders in in Israel and America
+* The way that carter sees the conflict, there are two obstacles in negotiations for peace
+  * Some israelis belive that they have the right to confliscate and colonize Palastinian land
+  * some palestians react by honoring suicide bombers and saying that they will be rewarded in heaven.
+* Carter says that in order for peace talks to take place, three items must be guarteed
+  * The security of Israel. Arab leaders must pledge to terminate any further acts of violence
+  * The internal debate within israel must be resolved. Though Israel has previously agreed to the camp david accords, actions concerning the occupation of Gaza reveal that israel has had their own internal debates of their borders.
+  * The sovereignty of all middle east nations must be honored. Carter has been critical of the US's submissive nature in permitting israili illegal acts.
+* Carter claims that polls still show that a majority of Israel and Palestine support a two state solution. 
