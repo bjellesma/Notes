@@ -1,1 +1,42 @@
+# Crash Course on batteries
+
+In 1800, Alessandro Volta, credited as the inventor of the battery, discovered that certain fluids would generate a continuous flow of electrical power when used as a conductor.
+
+That same year, sir humphry Davy began testing the chemical effects of electricity and found that decomposition occured when passing electircal current through substances. This process was later called **electroloysis**.
+
+Napolean actually participated in Volta's experiments in France.
+
+In 1859, Gaston Plante invented the first rechargeable battery based on lead acid. Until this point, all batteries were primary meaning that they couldn't recharge.
+
+in 1899, Waldmar Jungner from Sweden invented the nickle cadmium battery that used nickle as the positive electrode, **cathode**, and cadmium as the negative, **anode**. In 1901, Thomas Edison replaced cadmium with iron for the nickle iron battery. Unfortunatedly this had poor performance at low temperatures and , in 1932, focus was shifted back to the nickle cadmium battery as longevity was improved by inventing the sintered pole plate.
+
+Nickle Cadmium batteries were used heavily until environmentalists became concerned about their carbon footprint. In 1991, Sony developed Lithium Ion (Li-ion) batteries.
+
+## Electricity through Magnetism
+
+In 1831, Michael Faraday demonstrated how a copper disc provided a constant flow of electricity when revolving in a strong magnetic field. He discovered that you could generate an endless electical force as long as the movement between a coil and a magnet continued. This lead to the invention of the electric generator. Faraday's work influenced Thomas Edison later who was able to invent the incandescent light bulb. Though Edison didn't invent the light bulb, he improved on earlier designs and achieved commercial viability.
+
+Early electrical plants were only able to produce direct current which had a limitation of short distances. It was around 1886 when Nikola Tesla invented the alternating current trasmission system which enabled power plants to use AC to transmit electicity over longer distances.
+
+The early inventors were split with Edison supporting direct current and claiming that alternating current has the danger of electocution while Tesla and Westinghouse supported alternating current as being the future of electicity. Eventually, alternating current won out and became the de facto standar.
+
+Westinghouse famously demonstrated alternating current by lighting up the Chicago World's fair in 1893. 
+
+The invention of the **electric vaccuum tube** in the early 1900s enabled signal amplifications leading to radio broadcasting in the 1920s and the first digital computer, the ENIAC, in 1946. The discovery of the transistor in 1947 led to the invention of the microprocessor which usher in the information age.
+
+The electric vaccuum tube works by having the cathode at one end and the anode at the other. We heat the cathode so that the electrons essentially boil off and move toward the anode. This movement creates an electric current. In 1947, vaccuum tubes were largely replaced by transistors which were smaller and didn't require heat.
+
+## Global Markets
+
+In 2009, primary batteries still made up 23.6% of global markets. Though not rechargeable, these batteries have the advantage of a longer shelf life. These are the Duracell batteries that we buy at the convenience store. 
+
+Though Li-ion batteries are the most common for portable devices, they're not the only game in town. For example, alkaline batteries have a higher energy density but are primary batteries whereas Li-ion are rechargeable.
+
+## Potato Battery
+
+A battery essentially turns chemical energy into electrical energy. A potato contains water and salt, which have the ions needed for an electrical reaction. If you add a zinc nail and a copper coin to the potato, the zinc nail will act as the anode (negative electrode), while the copper coin will act as the cathode (positive electrode). The chemical reaction at the zinc nail causes it to release electrons, which then flow through a wire to the copper coin. This flow of electrons generates an electric current, creating an electric charge.
+
+The difference between the electrodes provides the terminal voltage. 
+
+Multiplying the voltage by the current gives you power, which is measured in watts. The length of time a battery can deliver energy is expressed in watt-hours (Wh), which refers to the capacity of the battery. For example, a 30 GWh (gigawatt-hour) battery can deliver 1 kW of power for about 30,000 hours (since 1 GWh = 1,000,000 kWh, and 30 GWh = 30,000,000 kWh). So, a 30 GWh battery can power a 1 kW device for approximately 30,000 hours.
 
