@@ -32,6 +32,8 @@ In 2009, primary batteries still made up 23.6% of global markets. Though not rec
 
 Though Li-ion batteries are the most common for portable devices, they're not the only game in town. For example, alkaline batteries have a higher energy density but are primary batteries whereas Li-ion are rechargeable.
 
+primary batteries typically have the unique advantage of having much higher specific energy making it still have value in devices such as pacemakers which are designed to last 5-10 years.
+
 ## Potato Battery
 
 A battery essentially turns chemical energy into electrical energy. A potato contains water and salt, which have the ions needed for an electrical reaction. If you add a zinc nail and a copper coin to the potato, the zinc nail will act as the anode (negative electrode), while the copper coin will act as the cathode (positive electrode). The chemical reaction at the zinc nail causes it to release electrons, which then flow through a wire to the copper coin. This flow of electrons generates an electric current, creating an electric charge.
@@ -39,4 +41,16 @@ A battery essentially turns chemical energy into electrical energy. A potato con
 The difference between the electrodes provides the terminal voltage. 
 
 Multiplying the voltage by the current gives you power, which is measured in watts. The length of time a battery can deliver energy is expressed in watt-hours (Wh), which refers to the capacity of the battery. For example, a 30 GWh (gigawatt-hour) battery can deliver 1 kW of power for about 30,000 hours (since 1 GWh = 1,000,000 kWh, and 30 GWh = 30,000,000 kWh). So, a 30 GWh battery can power a 1 kW device for approximately 30,000 hours.
+
+Batteries perform best at room temperatures. Cold temperatures slow the electrochemical reaction of batteries thus heating blankets are often added so that charging can still occur. High heat can also shorten battery life and compromise safety. 
+
+The electrode of a battery that releases electrons during discharge is the anode while the electrode that absorbs the electrons is the cathode. During a charge cycle, this direction is reversed so that the anode will absorb electrons and store it in the battery. A battery also consists of an **electrolyte** which is what is used to fascilitate the passage of electrons. Let's take an example, when you're on your smartphone, the battery is actively discharging electrons in order to produce the current needed to run your phone. When the electrons flow, they move throughout the internal circuits of your phone, powering the electronics.
+
+## Rechargeable Battery Types
+
+Lead Acid - used for wheelchairs, golf carts, and uninteruptable power supplies.
+
+Nickel Cadmium - Long service life, high discharge current, and extreme temperature resistence make this a good candidate for medical devices and aviation. However, these are less and less due to environmental concerns. The primary replacement is nickel metal hydride.
+
+Lithium Ion - this is the most common type. It is typically more expensive but has a higher cycle count and lower maintenance requirement.
 
