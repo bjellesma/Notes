@@ -19,7 +19,7 @@ The generalized steps are as follows
 1. We randomly initialize K cluster centroids. Each centroid is denoted $\mu_1$ to $\mu_K$. The values of $\mu$ will be vectors of the same dimensionality as the training examples.
 2. This is where we begin the iterative process:
     1. For i to m training examples. Calulate the distance of each data point to the centroid to find the closest centroid. Mathematically, this is $min_k \lvert \lvert x^(i) - \mu_k \rvert \rvert^2$ ![alt text](image-105.png)
-    2. Recompute the cluster centroids by taking the average of all data points assigned to that centroid. Mathematically if they're poor for data points that were assigned to a specific centroid, we would do $\mu_k=\frac{1}{4}(x^{(1)}+x^{(4)}+x^{(9)}+x^{(10)})$![alt text](image-106.png)
+    2. Recompute the cluster centroids by taking the average of all data points assigned to that centroid. Mathematically if there are four data points that were assigned to a specific centroid, we would do $\mu_k=\frac{1}{4}(x^{(1)}+x^{(4)}+x^{(9)}+x^{(10)})$![alt text](image-106.png)
 
 There is a rare corner case to watch out for where one of the clusters can have no data points assigned to it which means that we are unable to compute anything any new centroid because it would result in an undefined fraction, In that case we would just eliminate the cluster centroid ![alt text](image-107.png)
 
