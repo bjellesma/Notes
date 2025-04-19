@@ -43,7 +43,7 @@ $$
 and
 
 $$
-\sigma_j^2 = \frac{1}{m} \sum_{i=1}^{m} {x_j^(1)-\mu_j)^2
+\sigma_j^2 = \frac{1}{m} \sum_{i=1}^{m} (x_j^(i)-\mu_j)^2
 $$
 
 where j is just the index of the feature.
