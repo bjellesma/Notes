@@ -11,3 +11,45 @@ One algorithm for detecting anomalous behavior is called **Density Estimation** 
 A common use case for density estimation specifically is in fraud detection. You may have features like how often the user logs in or how many transactions the user makes and model that on a scatter plot to assign a probability. This probability can then be used with a threshold that you assign to determine is the activity should be flagged as anomalous or not. If something is flagged as anomalous, it can be an indicator that maybe the security team should take a further look at this account to determine if the behavior is fradulant or just a false alarm.
 
 ![image](https://github.com/user-attachments/assets/227b8e9d-2b2c-46b0-a219-04843bf63911)
+
+## Gaussian (normal) distribution
+
+The Guassian, normal, and bell shaped curve all refer to the same thing. The distribution says that for any number, the probability is determined by a Guassian with mean $\mu$ and variance $\sigma^2$. $\sigma$ is a standard deviation. The distribution has the property that approximately 68% of data falls within one standard deviation of the mean, 95% within two standard deviations, and 99.7% within three standard deviations. Another property is that it's centered at $\mu%. The mathematical form of this formula is
+
+$$
+p(x) = \frac{1}{\sqrt{2\pi}\sigma} * e^\frac{-(x-\mu)^2}{2\sigma^2}
+$$
+
+![image](https://github.com/user-attachments/assets/a45b851d-04f3-4439-a5dd-f98f6114eb76)
+
+The following screenshot will show you how changing values for $\mu$ and $\sigma$ will change how the distribution looks. For example, increasing the variance will widen the distribution while changing the mean only changes where the distribution is centered.
+
+![image](https://github.com/user-attachments/assets/2a99c334-54ba-4eb1-a935-a481496eca4e)
+
+This formula can give you great intuition for building a Guassian distribution for a single number $x$ but for an anomaly detection algorithm, we'll have $n$ features.
+
+## Anomaly Detection Algorithm step by step
+
+Having this background, we can now approach the steps that we want to use to build an anomaly detection algorithm. 
+
+1. Choose $n$ features of $m$ training examples that you think are indicative of anomalous examples.
+2. Fit params $\mu_1,...,\mu_n$ and $\sigma_1^2,..., \sigma_n^2
+These are given by
+
+$$
+\mu_j = \frac{1}{m} \sum_{i=1}^{m} x_j^(i)
+$$
+
+and
+
+$$
+\sigma_j^2 = \frac{1}{m} \sum_{i=1}^{m} {x_j^(1)-\mu_j)^2
+$$
+
+where j is just the index of the feature.
+
+3. Now for any new data that comes in, we can do
+
+$$
+p(x) = \prod_{j=1}^n \frac{1}{\sqrt{2\pi}\sigma_j} * e^\frac{-(x_j-\mu_j)^2}{2\sigma|j^2}
+$$
