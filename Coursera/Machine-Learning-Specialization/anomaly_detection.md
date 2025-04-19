@@ -48,8 +48,34 @@ $$
 
 where j is just the index of the feature.
 
-3. Now for any new data that comes in, we can do
+3. Now for any new data that comes in, we can do the following. This is because we know that we'll need to multiply all of the probabilities together
 
 $$
 p(x) = \prod_{j=1}^n \frac{1}{\sqrt{2\pi}\sigma_j} * e^\frac{-(x_j-\mu_j)^2}{2\sigma|j^2}
 $$
+
+4. We know from before that we want to check if this $p(x) < \epsilon$
+
+One intuition from this is that if we just have one feature that's an outlier, that probability will be very small. And because we're multiplying everything together, if even one probability is small, the entire product will be small.
+
+![image](https://github.com/user-attachments/assets/04a9f8bb-ac1b-4b6e-995f-2263503bb6f4)
+
+## An example
+
+Let's get an idea of what this might look like. In the following screenshot, we're ploting %x_1$ and $x_2$. We notice that $x_1$ has a much more varied distribution.
+
+![image](https://github.com/user-attachments/assets/eb2e0fb3-d1a0-4c26-8a52-3007fb6c7a5e)
+
+We can also take an arbitrary threshold and compute two test examples. We can see in the 2nd example that we will have a much lower probability and therefore will be a lot less than our threshold and will be flagged as anomalous.
+
+![image](https://github.com/user-attachments/assets/1727af0a-5319-4fcc-a551-144d115acbac)
+
+## Choosing Epsilon
+
+One question that might come up is to ask how we choose epsilon, the threshold. One way that we can do this is if we have labeled data already that we can refer to, we can use binary classification and choose the value of epsilon from the cross validation set. 
+
+## When to use anomaly detection
+
+Typically you want to use anomaly detection to help detect future anomalies that the system hasn't seen before. For example, fraud is changing all of the time therefore anomaly detection is the better algorithm. Conversely, spam hasn't changed in years so supervised learning might be better for that.
+
+
