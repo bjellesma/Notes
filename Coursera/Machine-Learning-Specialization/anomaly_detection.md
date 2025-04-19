@@ -78,4 +78,28 @@ One question that might come up is to ask how we choose epsilon, the threshold. 
 
 Typically you want to use anomaly detection to help detect future anomalies that the system hasn't seen before. For example, fraud is changing all of the time therefore anomaly detection is the better algorithm. Conversely, spam hasn't changed in years so supervised learning might be better for that.
 
+## Choosing Features
+
+One thing to keep in mind when choosing features is that you want the features to look as much like a bell curve as possible. This will mean that you may need to apply a transformation to the distribution to get it to that point. For example, in the screenshot below, we plot these random values in a histogram and it doesn't look quite Guassian yet.
+
+![image](https://github.com/user-attachments/assets/73ecf09f-0baf-43f4-97b9-0fdd53e59356)
+
+So if we apply a transformation by raising x to the power of 0.4, we transform it to look Guassian.
+
+![image](https://github.com/user-attachments/assets/61fe2b6f-ebc9-42ed-ab31-254dd83bd01f)
+
+A central idea to keep in mind is that if you're using a cross validation set with this feature, you will need to keep in mind to apply the same transformation.
+
+![image](https://github.com/user-attachments/assets/5a1f263d-f133-4c53-b676-021bc7125d7b)
+
+Now we can take a look at how these features work together and might look in the real world. If we look at monitoring computers in a data center, CPU and network traffic and two features. It's not unusual for a computer to be using high CPU and high network traffic if it's streaming video or something. What might be unusual is if the CPU is high and the network traffic is low. For this reason, we might engineer a new feature where we look at the ratio of those two together.
+
+![image](https://github.com/user-attachments/assets/c437d9b1-8307-4eee-9b32-bfb5d3faef7b)
+
+
+
+
+
+
+
 
