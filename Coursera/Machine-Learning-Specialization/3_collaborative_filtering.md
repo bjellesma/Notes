@@ -1,5 +1,7 @@
 ![image](https://github.com/user-attachments/assets/c9045154-d8f7-4edd-82ee-d65fe6302ec0)
 
+r(i,j) is either 1 or 0. It is 1 is the movie has a rating and 0 if it does not.
+
 Let's use the notation $n_u$ to be the number of users, $n_m$ to be the number of movies, and the $n$ to be the number of features that we have available. In the below table, we can see that we have 
 
 | Movie | Alice(1) | Bob(2) | Carol(3) | Dave(4) | X₁ (romance) | X₂ (action) |
@@ -89,3 +91,28 @@ b^{(1)}, \ldots, b^{(n_u)}
 $$
 
 where $n_u$ is the number of users. Notice that we've also removed the $m^(j)$ term from the equation. This is because this is a constant factor for the given user and removing it does not incluence the value of the cost function.
+
+## What if you don't know x1 and x2
+
+So far we've assumed that we have data for $x_1$ and x_2$ but how did we generate those? Let's first make the assumption that we know $w^{(1)}, b^{(1)}, w^{(2)}, b^{(2)}, \ldots, w^{(n_u)}, b^{(n_u)}$ (We'll dive more into this later. To get one feature we use 
+
+## $J(x^{(i)}) = \frac{1}{2} \sum_{j:r(i,j)=1} (w^{(j)} \cdot x^{(i)} + b^{(j)} - y^{(i,j)})^2 + \frac{\lambda}{2} \sum_{k=1}^{n} (x_k^{(i)})^2$
+
+Going further, we can generalize this to be for all the features that we're looking for.
+
+## $J(x^{(1)}, x^{(2)}, ..., x^{(n_m)}) = \frac{1}{2}\sum_{i=1}^{n_m}\sum_{j:r(i,j)=1}(w^{(j)} \cdot x^{(i)} + b^{(j)} - y^{(i,j)})^2 + \frac{\lambda}{2}\sum_{i=1}^{n_m}\sum_{k=1}^{n}(x_k^{(i)})^2$
+
+## How do we get the weights and biases
+
+Now what we want to do is to take the cost function to get the weights and biases along with the cost function to get the input to get $J(w,b,x$
+
+## $J(w, b, x) = \frac{1}{2} \sum_{(i,j):r(i,j)=1} (w^{(j)} \cdot x^{(i)} + b^{(j)} - y^{(i,j)})^2 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (w_k^{(j)})^2 + \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2$
+
+As with linear regression from before, we want to find the minimum values for these using gradiant descent.
+
+## $w_i^{(j)} = w_i^{(j)} - \alpha \frac{\partial}{\partial w_i^{(j)}} J(w, b, x)$
+
+## $b^{(j)} = b^{(j)} - \alpha \frac{\partial}{\partial b^{(j)}} J(w, b, x)$
+
+## $x_k^{(i)} = x_k^{(i)} - \alpha \frac{\partial}{\partial x_k^{(i)}} J(w, b, x)$
+
