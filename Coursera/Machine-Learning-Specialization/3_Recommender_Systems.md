@@ -2,6 +2,7 @@
 
 Building on our knowlege of collaborative filtering, the question that arises is: What if a brand new user shows up? We don't want to assume that that user is just going to give everying a zero and not like anything. We'd like to assume that they're going to like some stuff so that we can still make recommendations. What we want to employ is **mean normalization**.
 So if we have a matrix as below where question marks are placeholders meaning that the user has no rating for the movie, we notice that we have an entire column of ?s representing the new user.
+
 $$
 \begin{bmatrix}
 5 & 5 & 0 & 0 & ? \\
@@ -44,3 +45,8 @@ and use this to derive $w^j \dot x^i + b^j$. Because we did a subtraction for me
 ## 0 + 2.5 = 2.5
 
 So the new user is more likely to give the mean rating which is 2.5
+
+Mean normalization will help show reasonable recommendations to new users but this is still generally referred to as a **cold start problem**. Sometimes side information is used for this. So for example, the location (gotten by the IP address), or the age of the user may influence recommendations given a cold start problem.
+
+
+
