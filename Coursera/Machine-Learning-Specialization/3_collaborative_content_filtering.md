@@ -437,3 +437,129 @@ Misinformation and Manipulation: Ads can spread misinformation, such as promotin
 
 Conclusively, recommender systems are extremely powerful systems so ethics really does come into play.
 
+## Finding similar items
+
+Similar items will have similar vector and the result of the following equation will be small.
+
+## $\left\| \mathbf{v}_m^{(k)} - \mathbf{v}_m^{(i)} \right\|^2 = \sum_{l=1}^{n} (v_{ml}^{(k)} - v_{ml}^{(i)})^2$
+
+You can implement this using the following code:
+
+```py
+np.sum((v1 - v2)**2)
+```
+
+To connect this similarity to before, we can use the neural network of before along with the squared distance to form a matrix of similar items. You would then sort this matrix low to high as the movies with the lowest distance will be the most similar.
+
+![image](https://github.com/user-attachments/assets/e7442659-185b-428f-95ca-5b5fe3ac8047)
+
+# Principle Component Analysis
+
+PCA is a technique that transforms a dataset with potentially many features into a new coordinate system where the axes (principal components) represent directions of maximum variance in the data. While PCA can reduce data to any number of dimensions, reducing to two or three principal components is common for visualization purposes, allowing us to plot high-dimensional data in a way that preserves as much of the original variance as possible. 
+
+![image](https://github.com/user-attachments/assets/c281c7e3-0abe-4211-b978-07c0ac4e039c)
+
+![image](https://github.com/user-attachments/assets/e075acb7-0d96-4a77-9e87-791fe0b55bcb)
+
+Once you choose a new axis, you'll want to calculate the new coordinate by capturing the dot product of the length of the vector of the coordinates of the point by the length vector. In the following screenshot, we're assuming the new z axis to be diagonal so that the unit bector in this direction is [1, 1]. So to get the .71 being shown we do
+
+## $\text{Length of } [1, 1] = \sqrt{1^2 + 1^2} = \sqrt{2} \approx 1.414$
+## $\frac{1}{\sqrt{2}}[1, 1] \approx [0.71, 0.71]$
+
+![image](https://github.com/user-attachments/assets/eb2d5faf-4198-432e-b593-855fb6072813)
+
+The axes chosen are also always perpendiculatar to each other
+
+![image](https://github.com/user-attachments/assets/5d4dc255-d386-422d-8103-15341a33152f)
+
+You can have three axes if you have 3 principal components. The same rule applies that the 3rd axis will be perpendicular to the first two axes.
+
+![image](https://github.com/user-attachments/assets/90cbfbd6-f516-4140-8aa4-5a59ea2407d3)
+
+PCA does seem similar to linear regression because we are trying to fit a line in both, but keep in mind that linear regression is a supervised model where we know x and the label y whereas PCA is unsupervised so we have features and we're trying to project the data onto a new axis.
+
+![image](https://github.com/user-attachments/assets/1e8ac421-d717-4af7-8e4f-a910b934718e)
+
+One final not with PCA is that you're able to make an approximation back to the original date by multiplying the point on the z axis by the length vector.
+
+## PCA in scikit-learn
+
+These are the following steps:
+
+0. (Optional) Feature Scaling. If your data take on a wide range of values, you may want to use feature scaling to control the output.
+1. fit the data to obtain new axes (often 2 or 3 for visualization). We can use the `fit` function in scikit-learn. This function automatically performs mean normaliztion
+2. Optionally examine how much variance is explained by each principal component. The objective of this step is that we seek to maintain the same variance as the original dataset. This is done use `explained_variance_ratio_` in scikit-learn. We're aiming for a ratio as close to 1 as possible.
+3. Finally we will project the data onto the new axis. This is done using the `transform` function in scikit-learn
+4. The inverse_transform() function in scikit-learn is used to convert data from the transformed space back to the original feature space after applying a transformation.
+
+Though Visualization is the most common application of PCA, a less frequently used application is reduce the number of features on a training set to speed up training.
+
+The following is some code that we can use
+
+```py
+import pandas as pd
+import numpy as np
+from sklearn.decomposition import PCA
+from pca_utils import plot_widget
+from bokeh.io import show, output_notebook
+from bokeh.plotting import figure
+import matplotlib.pyplot as plt
+import plotly.offline as py
+
+X = np.array([[ 99,  -1],
+       [ 98,  -1],
+       [ 97,  -2],
+       [101,   1],
+       [102,   1],
+       [103,   2]])
+
+# Loading the PCA algorithm
+pca_2 = PCA(n_components=2)
+
+# Let's fit the data. We do not need to scale it, since sklearn's implementation already handles it.
+pca_2.fit(X)
+
+# The coordinates on the first principal component (first axis) are enough to retain 99.24% of the information ("explained variance"). The second principal component adds an additional 0.76% of the information ("explained variance") that is not stored in the first principal component coordinates.
+pca_2.explained_variance_ratio_
+
+# project the dataset onto the new axis
+X_trans_2 = pca_2.transform(X)
+
+# Transform back to the original data space (not dataset)
+X_reduced_2 = pca_2.inverse_transform(X_trans_2)
+```
+
+This'll give you the newly transformed dataset
+
+![image](https://github.com/user-attachments/assets/74806b59-99c1-43a3-95c3-2a7f6982f1de)
+
+You can probably just choose the first principal component since it retains 99% of the information (explained variance).
+
+```py
+pca_1 = PCA(n_components=1)
+pca_1.fit(X)
+X_trans_1 = pca_1.transform(X)
+X_reduced_1 = pca_1.inverse_transform(X_trans_1)
+
+#print
+X_reduced_1
+```
+
+This still gives vectors
+
+```
+array([[ 98.84002499,  -0.75383654],
+       [ 98.13695576,  -1.21074232],
+       [ 96.97698075,  -1.96457886],
+       [101.15997501,   0.75383654],
+       [101.86304424,   1.21074232],
+       [103.02301925,   1.96457886]])
+```
+
+```py
+plt.plot(X_reduced_1[:,0], X_reduced_1[:,1], 'ro')
+```
+
+This plot will give more of a straight line
+
+![image](https://github.com/user-attachments/assets/dff765fd-e795-4110-9a05-253c2835a14f)
