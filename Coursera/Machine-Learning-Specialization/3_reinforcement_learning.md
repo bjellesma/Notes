@@ -260,3 +260,60 @@ From state 5, the optimal action is → (right), going to state 6, with reward 4
 So the complete calculation is:
 Q(5,←) = 0 + 0 × 0.25² + 40 × 0.25³ = 0 + 0 + 0.625 = 0.625
 
+## Continuous State Value
+
+A discrete state is used when something can only be in one distinct state at a time where a **continuous state** indicates that the object can be in a vector of states.
+
+![image](https://github.com/user-attachments/assets/5f5d9128-41a9-4bc8-95d7-f1b49f257ed5)
+
+The following is an example of the continuous state space for a lunar lander simulation
+
+$$
+s = \begin{bmatrix}
+x \\
+y \\
+x' \\
+y' \\
+\theta \\
+\phi \\
+l \\
+r
+\end{bmatrix}
+$$
+
+where x and y are the horrizontal and vertical positions, %x'$ and $y'$ are speeds, %\theta$ is the angle, %\phi$ is the angular velocity. l and r correspond to the legs being touched down and will only correspond to a 1 or 0.
+
+![image](https://github.com/user-attachments/assets/730ffd5f-6f2b-474c-b48f-5803ffebe881)
+
+We also want to incorporate a reward function for the lunar lander as follows.
+
+* Success Reward: You receive between 100-140 points for successfully reaching the landing pad
+* Navigation Incentive: You get additional points for moving in the correct direction (toward the pad) and lose points for moving away from it
+* Failure Penalty: Crashing results in a significant penalty of -100 points
+* Successful Landing: A soft landing earns you +100 points
+* Partial Success: Just getting the landing legs on the ground gives +10 points
+* Fuel Efficiency:
+ * Using the main engine costs -0.3 points per use
+ * Using side thrusters costs -0.03 points per use
+
+To get values for q and s, we'll want to use a neural network architecture. This network will take our state vector as an input layer, use two hidden layers of 64 units, and have 1 output layer of 1 unit to generate Q(s,a)
+
+![image](https://github.com/user-attachments/assets/59108de1-891c-4ae6-80ed-e288e5aecdfc)
+
+The Q(s,a) with the maximum value will be the action that we take.
+
+However, we see that it can be inefficient to use a new neural network each time. Let's instead refine this by defining one neural network to define all actions.
+
+![image](https://github.com/user-attachments/assets/b306e3c9-0d95-40c7-a5d6-71eaf4f7ba14)
+
+
+![image](https://github.com/user-attachments/assets/5f733b4e-cf39-4767-aace-c5ff08a76c43)
+
+In reinforcement learning, you have the concept of taking greedy actions and taking exploration actions. Greedy actions are what has a higher probability of occuring. The computer picks this because it thinks it is the best move based on what it has learned so far. Exploration actions have a lower probability of occuring and the computer will pick it because, even though it seems worse, it may provide the computer something useful to know later. By providing the algorithm something usefult to know later, we mean that the accuracy of the estimates for Q(s,a) will be improved.
+
+How this is used in reinforcement learning is that we have a value, $\epsilon$ which can be sets and passes to the algorithm to ensure that it expplores a little bit to find out new information. The exploratory action will be a completely random number so that the computer seems to act randomly. A common tactic is to start $\epsilon$ high and then gradually decrease it.
+
+![image](https://github.com/user-attachments/assets/42482bde-9912-42f8-9871-b78e0e490f87)
+
+Because of the high amount of computation, reinforcement learning algorithms are ecspecially sensative to hyperparameter tuning. Choosing the wrong params could mean that learning takes up to 10x as long.
+
