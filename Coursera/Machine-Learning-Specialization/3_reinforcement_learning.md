@@ -570,3 +570,5 @@ tot_time = time.time() - start
 
 print(f"\nTotal Runtime: {tot_time:.2f} s ({(tot_time/60):.2f} min)")
 ```
+
+![image](https://github.com/user-attachments/assets/53837537-fea9-4cce-9128-fbc50077468a)
