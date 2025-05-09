@@ -61,6 +61,9 @@ When consider metrics to track in a brainstorm, we might divide them into three 
 
 ![image](https://github.com/user-attachments/assets/610ca1a4-1ae0-4fc8-a899-43849c0026a3)
 
+## Pipeline Monitoring
 
+In Addition to monitoring metrics, it's also good to monitor the entire pipeline where you can. For example, speech recognition data will come from a cell phone's VAD (voice activity detection) so if a company decides to change how their VAD functions which may  mean that the audio is clipped differently, this may lead to data drift and degradation in performance for the speech recognition software.
 
+![image](https://github.com/user-attachments/assets/58b443dc-a5b1-4629-b53c-19378deb7fee)
 
