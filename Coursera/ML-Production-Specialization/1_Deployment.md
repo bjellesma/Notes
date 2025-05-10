@@ -214,3 +214,37 @@ uvicorn.run(app, host=host, port=8000, root_path="/serve")
 Running the server will bring up swagger docs with a predict endpoint that you can play with
 
 ![image](https://github.com/user-attachments/assets/bb90d603-225e-4d19-b4de-8dfd0cdc571b)
+
+## Running with docker
+
+Optionally, you can package this fastapi in a docker container.
+
+Here is the dockerfile that you'll use
+
+```docker
+# base image
+FROM python:3.11
+
+# specify working directory
+WORKDIR /code
+
+# copy package list
+COPY ./requirements.txt /code/requirements.txt
+
+# install packages
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+# copy application code
+COPY ./app /code/app
+
+# copy pretrained models
+COPY .cvlib /root/.cvlib
+
+# expose port
+EXPOSE 80
+
+# run server
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+```
+
+You can download all of the necessary file from [here](https://storage.googleapis.com/mlep-public/course_1/week1/mlepc1w1_cloud.zip)
