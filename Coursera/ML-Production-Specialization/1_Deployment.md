@@ -248,3 +248,7 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
 ```
 
 You can download all of the necessary file from [here](https://storage.googleapis.com/mlep-public/course_1/week1/mlepc1w1_cloud.zip)
+
+## Running in AWS
+
+Once you have a docker container setup, you can choose to deploy the container using AWS. You'll use elastic beanstalk to run the container and then a t3 large instance on ec2 to give yourself compute
