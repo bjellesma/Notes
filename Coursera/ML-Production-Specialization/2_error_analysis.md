@@ -17,3 +17,17 @@ Even though tagging will help us what work on, there are two other important con
 Once you decide the category to work on, you may want to start to collect more data if possible
 
 ![image](https://github.com/user-attachments/assets/2a2fa401-b7c0-4326-9b0d-ead362d51443)
+
+As a reminder from the machine learning specialization, a confusion matrix (along with precision and recall metrics) is one of the best ways to assess the performance of an ML algo
+
+![image](https://github.com/user-attachments/assets/b8f2f0e2-c427-49cd-a6eb-ec4fb4474def)
+
+Precision and recall metrics can often be used to create an $F_1$ score which is a metric that strikes a useful balance between precision and recall.
+
+## $F_1 = \frac{2}{\frac{1}{P} + \frac{1}{R}}$
+
+![image](https://github.com/user-attachments/assets/088a1429-e0c3-4d0a-ba64-49ab8900bb37)
+
+F1 scores can also be useful in the assessment of a multi class classification problem. What you would to calculate precision and recall for those is turn each classification into a binary classification.
+
+![image](https://github.com/user-attachments/assets/8de012e2-ea0e-4188-91a9-7a4057dab63e)
