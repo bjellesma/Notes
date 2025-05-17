@@ -27,3 +27,21 @@ With data augmentation, you also want to be careful about skewing the dataset in
 
 ![image](https://github.com/user-attachments/assets/2cf25116-5faf-43fa-a2c2-c58a4ad0f619)
 
+During data augmentation, you may also want to get different features. In the following example, there's a restaurant recommender that is recommending places to vegetarian users that are meat only. Based on this feedback, we may decide to generate a new feature for either the resturant or the user depending on the data we can get.
+
+![image](https://github.com/user-attachments/assets/5fb5effa-2fb6-4ce1-aec6-025a6cae2b05)
+
+As you start to iterate on a model, it becomes important to be able to track what you have run. In order to replicate what you've run, you may start off with tools as simple as text files or spreadhsheets and then gradually move to more dedicated tracking software such as a database or Amazon Sagemaker Studio
+
+![image](https://github.com/user-attachments/assets/4765159c-8de7-4385-ad0f-6c9ebd58c960)
+
+As a last note, you may want to use a checklist to ensure that your data is quality data.
+
+- Covers important cases (good coverage of inputs x)
+  * does the data have good coverage so that it's not too far skewed on one case to encourage overfitting?
+- Is defined consistently (definition of labels y is unambiguous)
+  * this will be discussed in depth more next week
+- Has timely feedback from production data
+    * is there data or concept drift occuring. It's natural if there is but we want to know about it
+- Is sized appropriately
+  * we need more than a few labeled datapoints but again make sure that it is evenly distributed enough to prevent overfitting.
