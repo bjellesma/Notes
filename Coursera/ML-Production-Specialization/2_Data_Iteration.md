@@ -35,6 +35,11 @@ As you start to iterate on a model, it becomes important to be able to track wha
 
 ![image](https://github.com/user-attachments/assets/4765159c-8de7-4385-ad0f-6c9ebd58c960)
 
+Data Augmentation is only applied during training, not during testing or inferencing. For example, when doing data augmentation on an image classifier using a neural network we use a tensorflow package called image augmentation layers that will randomly flip, rotate, translate, and zoom images. Notice these layers are applied directly to the neural network as layers only. This helps to ensure that they're not used for inferencing.
+
+![image](https://github.com/user-attachments/assets/b7708a71-daea-4b06-ab7e-2c2fd9a723a8)
+
+
 As a last note, you may want to use a checklist to ensure that your data is quality data.
 
 - Covers important cases (good coverage of inputs x)
@@ -45,3 +50,7 @@ As a last note, you may want to use a checklist to ensure that your data is qual
     * is there data or concept drift occuring. It's natural if there is but we want to know about it
 - Is sized appropriately
   * we need more than a few labeled datapoints but again make sure that it is evenly distributed enough to prevent overfitting.
+
+## Class Imbalance
+
+**Class Imbalance** refers to the fact that your training set may have more labeled data of one class than another class, causing a skewed dataset likely to lead to biased models that perform poorly on underrepresented classes. Generating more data whether through data gathering or synthetic means are usually the answer to remedy this.
