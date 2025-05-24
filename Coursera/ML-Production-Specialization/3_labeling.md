@@ -26,4 +26,6 @@ Some data pipelines can become very complicated and transform the data multiple 
 
 ![image](https://github.com/user-attachments/assets/13c3b70b-c325-4b4d-8876-857631aafd4e)
 
+It's also important to keep in mind that if we improve one step in the overall pipeline but aren't retraining the system, we're at risk of data drift as the trained model is now receiving different data.
+
 Often it's useful if there's a framework for the data so that we can store the data provenance and lineage in metadata.
