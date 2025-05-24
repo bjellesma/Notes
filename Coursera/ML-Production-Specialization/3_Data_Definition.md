@@ -37,3 +37,12 @@ Introducing a new classification works well in speech recognition because multip
 Lastly, your tactic for labeling consistency may be different for small vs large datasets. With small datasets, it's easier to just ask the labelers to agree on consistency (if the dataset is small enough, we may just do this in house). With a larger dataset where you may use crowdsourcing to label the data, it's most useful to just have a set of consistent labeling instructions. You can also use **consensus voting** for large datasets where multiple voters will just vote on the correct label but this can relinquish control more to the voters.
 
 ![image](https://github.com/user-attachments/assets/5a2e3e15-4710-4097-a9c2-e79ad1774369)
+
+## Using Human Level Performance as a baseline
+
+HLP is often used as a baseline so that we can compare the ML algo to it. In the following example, we see that an inspector initially only has a 66.7% agreement with the ground truth label. But we can't use that as the baseline necessarily and this is because we have to consider that the ground truth label is just labels by another human. Therefore, it's useful to dig more into why the inspector disagrees with the ground truth label so much. This again leads back to the issue of labeling inconsistency. So this is why we try to establish rules to say that if the scratch is of a certain length, then we will classify it as a defect. This will help us to clean the label which ultimately will help the ML algo to perform better.
+
+The one thing to keep in mind is that this will raise HLP so it becomes a lot more difficult for an ML algo to beat HLP. However, I think that it's useful to keep in mind that this should not always be the goal of developing the ML algo.
+
+![image](https://github.com/user-attachments/assets/3fa7232a-b8ab-48e5-ac8d-529972fb4468)
+
