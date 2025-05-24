@@ -20,6 +20,7 @@ Finally for feasability assessment, it's also useful to look at the history of t
 
 ![image](https://github.com/user-attachments/assets/514293a2-d6a9-4763-a592-88b771d23e65)
 
+One final note is there is often a gap between the metrics that the ML team cares about like accuracy and the metrics that the business cares about such as revenue. When performing feasability, it's often useful to first see if we can bridge the gap between the ML team and the business leaders so that the understanding is well understood and agreed upon. For example, how much is improving word level accuracy going to connect to the revenue stream?
 
 Once we've determined is an ML solution is even applicable to the business problem, then we can begin setting milestones and discussing budget.
 
