@@ -435,3 +435,18 @@ model.evaluate(test_ds)
 ```
 
 We can see now that the accuracy is about 85% which is better than the 77
+
+### Error Analysis
+
+Let's now analyze the errors on each of the topics to decide what to work on
+
+```py
+# Get the list of topics
+topics = topic_lookup.get_vocabulary()
+
+# Evaluate the model's performance for each topic
+lab_utils.print_metric_per_topic(dev_df, topics, topic_lookup, title_preprocessor, model)
+```
+
+![image](https://github.com/user-attachments/assets/13ae5420-2f8e-4c94-8335-3ef4e50eae65)
+
