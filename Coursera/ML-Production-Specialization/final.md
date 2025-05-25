@@ -1,6 +1,6 @@
 Before any code is written, I'll define the functions in the `lab_utils.py` file
 
-```
+```py
 import os
 import numpy as np
 
