@@ -90,6 +90,10 @@ ORDER BY 2 DESC;
 
 We can scale a virtual warehouse by scaling up or scaling out. scaling up refers to bumping up the size of the warehouse whereas scaling out refers to add more clusters to the warehouse so that it can handle more. So if you have a long individual query, it'd be better to increase the size of the warehouse. If you have many concurrent sessions, it'd be better to increase the number of clusters.
 
+A virtual warehouse can only be scaled up manually where it can be scaled out by setting an auto scaling property.
+
+Resizing a running warehouse does not impact running queries. the additional compute resources are used for queued and new queries.
+
 ### Query Acceleration Service
 
 Query Acceleration Service is a serverless feature in Snowflake that automatically accelerates eligible queries by adding additional compute resources when beneficial. It works independently of your virtual warehouse size.
