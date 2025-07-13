@@ -46,3 +46,103 @@ If a XS Virtual Warehouse is active for 1 hour on the Standard Edition of Snowfl
 
 - Start X-Small warehouse for 30 seconds → Charged 1 credit (60-second minimum)
 - Start X-Small warehouse for 90 seconds → Charged for 90 seconds = 0.025 credits
+
+## resource monitors
+
+these are objects that can be set up to track the credit consumption on a warehouse.
+
+when limits are reached, an action can be triggered such as notify user or suspend warehouse.
+
+```sql
+-- Weekly Resource Monitor for Development Environment
+CREATE RESOURCE MONITOR dev_weekly_monitor
+WITH
+  CREDIT_QUOTA = 100
+  FREQUENCY = WEEKLY
+  START_TIMESTAMP = IMMEDIATELY
+TRIGGERS
+  ON 75 PERCENT DO NOTIFY
+  ON 80 PERCENT DO SUSPEND
+  ON 100 PERCENT DO SUSPEND_IMMEDIATE;
+```
+
+In the above query, the frequency is the time when the quota will be reset. Suspend will suspend after the currently running queries are finished whereas suspend immediately will not wait for that. Notify will notify all account admins with notifications enabled.
+
+We'd then set the warehouse with
+
+```sql
+ALTER WAREHOUSE "COMPUTE_WH" SET RESOURCE_MONITOR = "dev_weekly_monitor";
+```
+
+On the UI, you can use the usage tab to track credit consumption or the following query 
+
+```sql
+-- Total credits used grouped by warehouse
+SELECT WAREHOUSE_NAME,
+       SUM(CREDITS_USED) AS TOTAL_CREDITS_USED
+FROM WAREHOUSE_METERING_HISTORY
+WHERE START_TIME >= DATE_TRUNC(MONTH, CURRENT_DATE)
+GROUP BY 1
+ORDER BY 2 DESC;
+```
+
+### Multi cluster warehouses
+
+We can scale a virtual warehouse by scaling up or scaling out. scaling up refers to bumping up the size of the warehouse whereas scaling out refers to add more clusters to the warehouse so that it can handle more. So if you have a long individual query, it'd be better to increase the size of the warehouse. If you have many concurrent sessions, it'd be better to increase the number of clusters.
+
+### Query Acceleration Service
+
+Query Acceleration Service is a serverless feature in Snowflake that automatically accelerates eligible queries by adding additional compute resources when beneficial. It works independently of your virtual warehouse size.
+
+#### How QAS Works
+
+Automatic detection - Snowflake automatically identifies queries that could benefit from acceleration
+Serverless compute - Adds extra processing power without resizing your warehouse
+Transparent operation - No query changes required - works automatically
+Per-query basis - Each query is evaluated individually for acceleration eligibility
+
+QAS works best for:
+
+Large table scans
+Simple aggregations (SUM, COUNT, AVG, MIN, MAX)
+Basic filtering and GROUP BY operations
+Straightforward analytical workloads
+
+QAS doesn't help with:
+
+Complex window functions
+Recursive queries
+UDFs and stored procedures
+Advanced string/text processing
+Machine learning functions
+Highly complex analytical operations
+
+```sql
+-- Enable QAS on a warehouse (Enterprise edition and above)
+ALTER WAREHOUSE my_warehouse SET QUERY_ACCELERATION_MAX_SCALE_FACTOR = 8;
+
+-- Disable QAS
+ALTER WAREHOUSE my_warehouse SET QUERY_ACCELERATION_MAX_SCALE_FACTOR = 0;
+```
+
+You can check if a query would benefit from query acceleration before activating it
+
+```sql
+-- Check if a query can benefit from QAS before running it
+SELECT SYSTEM$ESTIMATE_QUERY_ACCELERATION('
+    SELECT region, COUNT(*), SUM(sales_amount)
+    FROM large_sales_table 
+    WHERE order_date >= ''2023-01-01''
+    GROUP BY region
+');
+
+-- Example JSON response:
+{
+  "estimatedQueryAcceleration": {
+    "eligible": true,
+    "estimatedSpeedupFactor": 2.5,
+    "estimatedAdditionalCredits": 1.2,
+    "upperLimitScaleFactor": 8
+  }
+}
+```
