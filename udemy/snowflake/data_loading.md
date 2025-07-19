@@ -14,6 +14,8 @@ INSERT INTO FILMS VALUES
 INSERT OVERWRITE INTO FILMS_2000 SELECT * FROM FILMS;
 ```
 
+Notice that we're using overwrite. The purpose of this statement is to truncate the table and append new values.
+
 * Snowsight Load Table - This is an option is the snowflake UI
 
 <img width="780" height="742" alt="image" src="https://github.com/user-attachments/assets/2a0b968c-d0c0-4743-93b3-3dbff1dc6920" />
@@ -688,6 +690,8 @@ Snowpipe is a serverless feature using snowflake managed compute resources to lo
 
 Snowpipes can be paused.
 
+Snowpipe is designed to load new data typically with a minute after a file notification is sent and is designed for continuous load of smaller data files.
+
 # COPY INTO - Data Unloading Examples
 
 ## Basic Unloading Syntax
@@ -750,13 +754,13 @@ FROM (
 FILE_FORMAT = (TYPE = 'CSV' HEADER = TRUE);
 ```
 
-# Semi structured
+# Semi-Structured Data in Snowflake
 
-Whereas CSV would be a structured data type with a fixed number of rows and columns, JSON or XML would be an example of semi structure data where the number of columns may differ. Historically, databases have had issues working with semi structured data which is why they prefer to use CSVs. Snowflake has introduced new data types to work with these.
+Semi-structured data differs from structured data (like CSV with fixed rows/columns) in that it can have varying schemas. Examples include JSON, XML, Avro, and Parquet. While traditional databases struggled with this flexibility, Snowflake provides native data types to handle semi-structured data efficiently.
 
 ## Array
 
-This is analogous to most higher level programming languages
+This is analogous to arrays in most higher-level programming languages.
 
 ```sql
 -- Create table with array column
@@ -782,7 +786,7 @@ SELECT
 FROM user_preferences;
 ```
 
-There are also a host of functions with arrays
+There are also a host of functions available for arrays:
 
 ```sql
 -- Array manipulation functions
@@ -793,11 +797,17 @@ SELECT
     ARRAY_PREPEND('z', ['a', 'b']) as prepended,
     ARRAY_CAT(['a', 'b'], ['c', 'd']) as concatenated,
     ARRAY_CONTAINS(['a', 'b', 'c'], 'b') as contains_b;
+
+-- Array slicing and advanced indexing
+SELECT 
+    favorite_colors[0:2] as first_two_colors,  -- Returns elements 0 and 1
+    favorite_colors[-1] as last_color          -- Negative indexing for last element
+FROM user_preferences;
 ```
 
 ## Object
 
-these are representations of key value pairs
+These are representations of key-value pairs, similar to dictionaries or hash maps.
 
 ```sql
 -- Create table with object column
@@ -829,7 +839,7 @@ SELECT
 FROM customer_profiles;
 ```
 
-There are also functions that you can use with objects
+There are also functions that you can use with objects:
 
 ```sql
 -- Object manipulation functions
@@ -841,9 +851,15 @@ SELECT
     OBJECT_DELETE({'a': 1, 'b': 2}, 'b') as deleted_property;
 ```
 
-## Variants
+## Variant
 
-These objects can hold any amount of semi structured data (similar to json)
+Variants are the most flexible data type and can hold any semi-structured data (similar to JSON). They're Snowflake's universal semi-structured data type.
+
+### Key Characteristics
+- **Storage**: Up to 16MB of compressed data per row
+- **Performance**: Optimized for querying nested data without extraction
+- **Type Flexibility**: Can store JSON, Avro, ORC, Parquet, or XML
+- **Automatic Compression**: Snowflake automatically compresses variant data
 
 ```sql
 -- Create table with variant column (most flexible)
@@ -879,7 +895,7 @@ SELECT
 FROM events;
 ```
 
-You can convert the data types of data within variants when you select
+You can check and convert the data types of data within variants when you select:
 
 ```sql
 -- Check types and convert variants
@@ -891,12 +907,20 @@ SELECT
     event_data:timestamp::TIMESTAMP as event_timestamp
 FROM events
 WHERE event_data:event_type = 'login';
+
+-- Safe navigation for potentially missing keys
+SELECT 
+    event_data:user_id as user_id,
+    TRY_CAST(event_data:timestamp as TIMESTAMP) as safe_timestamp,
+    COALESCE(event_data:metadata.source, 'unknown') as source_with_default
+FROM events;
 ```
 
-One important note is that variant data type can hold up to 16mb of compressed data per row
+### Loading JSON Data - ELT vs ETL Patterns
 
-You can use a variant column to load an entire json file. This is an example of a common **ELT** pattern because we're loading the data before we transform it. 
+You can use a variant column to load an entire JSON file. This is an example of a common **ELT** pattern because we're loading the data before we transform it.
 
+Sample JSON file (`products.json`):
 ```json
 [
   {"id": 1, "name": "Laptop", "price": 999.99, "categories": ["electronics", "computers"]},
@@ -905,6 +929,7 @@ You can use a variant column to load an entire json file. This is an example of 
 ]
 ```
 
+**ELT Approach** (Load then Transform):
 ```sql
 -- Create table for products
 CREATE TABLE products (
@@ -918,18 +943,25 @@ FROM @json_stage/products.json
 FILE_FORMAT = (TYPE = 'JSON' STRIP_OUTER_ARRAY = TRUE);
 ```
 
-You can also make this more of ETL approach by doing something as the following to exclude categories
-
+**ETL Approach** (Transform during Load):
 ```sql
+-- Transform during load to exclude categories
 COPY INTO products (product_data)
-FROM ( Select products:name, products:price
-FROM @json_stage/products.json)
+FROM (
+    SELECT 
+        OBJECT_CONSTRUCT(
+            'name', $1:name,
+            'price', $1:price,
+            'id', $1:id
+        ) as transformed_data
+    FROM @json_stage/products.json
+)
 FILE_FORMAT = (TYPE = 'JSON' STRIP_OUTER_ARRAY = TRUE);
 ```
 
 ## Nested Variants
 
-Let's say that we have the following strucure in a variant data type
+Let's say that we have the following structure in a variant data type:
 
 ```sql
 -- Create table with complex nested JSON
@@ -1001,7 +1033,7 @@ INSERT INTO customer_profiles VALUES
 }');
 ```
 
-To access this data, we'll need to use dot notation where the value before the : is the column name and then each subsequent dot is the nested structure.
+To access this data, we'll need to use dot notation where the value before the `:` is the column name and then each subsequent dot represents the nested structure.
 
 ```sql
 -- Access nested properties using dot notation
@@ -1033,15 +1065,13 @@ SELECT
 FROM customer_profiles;
 ```
 
-Notice also in the above that we've used :: to cast the created date to a date value. This casting is ecspecially usefule because this prevents a date from being read as a string (the default)
+Notice also in the above that we've used `::` to cast the created date to a date value. This casting is especially useful because this prevents a date from being read as a string (the default).
 
-Keep in mind also that these json elements are case sensative 
+**Important**: JSON elements are case sensitive, so `profile_data:customer.Name` would be different from `profile_data:customer.name`.
 
-## Flatten
+## FLATTEN
 
-Flatten can be used to create single rows to analyze relationships. For example, the following query flattens the tags array so that we can join all users to each tag
-
-
+FLATTEN can be used to create single rows from arrays to analyze relationships. For example, the following query flattens the tags array so that we can join all users to each tag.
 
 ```sql
 -- Create table with array data
@@ -1078,9 +1108,23 @@ LATERAL FLATTEN(input => user_data:tags) f;
 -- 3       | Bob  | vip
 ```
 
-# Match Cy Column Name
+### Advanced FLATTEN Usage
 
+```sql
+-- FLATTEN with nested objects and arrays
+SELECT 
+    user_id,
+    f.key as property_name,
+    f.value as property_value,
+    f.path as full_path
+FROM user_tags,
+LATERAL FLATTEN(input => user_data, recursive => true) f
+WHERE f.key IS NOT NULL;
+```
 
+## Match By Column Name
+
+When loading CSV data where the column order doesn't match your table structure, you can use `MATCH_BY_COLUMN_NAME` to match by header names instead of position.
 
 ```sql
 -- Your table structure
@@ -1103,4 +1147,56 @@ COPY INTO customers
 FROM @my_stage/customers.csv
 FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1)
 MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
+```
+
+## Performance Tips
+
+1. **Type Casting**: Use `::` casting to improve query performance on frequently accessed paths
+2. **Views**: Consider creating views for complex nested queries to simplify access patterns
+3. **FLATTEN Usage**: Use FLATTEN judiciously as it can be resource-intensive on large datasets
+4. **Search Optimization**: Use search optimization service for frequently queried variant paths
+5. **Indexing**: Consider materialized views for commonly accessed transformed semi-structured data
+
+## Data Loading Best Practices
+
+When loading semi-structured data into Snowflake:
+
+- Use `STRIP_OUTER_ARRAY = TRUE` for JSON arrays
+- Set `STRIP_NULL_VALUES = TRUE` to remove null values during load
+- Consider `DATE_FORMAT` and `TIMESTAMP_FORMAT` for consistent parsing
+- Use `ERROR_ON_COLUMN_COUNT_MISMATCH = FALSE` for flexible schemas
+- Set appropriate `FILE_FORMAT` options based on your data source
+- Test with small datasets first to validate your loading strategy
+
+## Common Patterns and Use Cases
+
+### Data Lake Integration
+```sql
+-- Load raw JSON from data lake for later processing
+CREATE TABLE raw_events (
+    load_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+    source_file STRING,
+    raw_data VARIANT
+);
+```
+
+### API Response Storage
+```sql
+-- Store API responses for analysis
+CREATE TABLE api_responses (
+    request_id STRING,
+    endpoint STRING,
+    response_data VARIANT,
+    status_code INTEGER
+);
+```
+
+### Configuration Management
+```sql
+-- Store application configurations
+CREATE TABLE app_configs (
+    app_name STRING,
+    environment STRING,
+    config_data VARIANT
+);
 ```
