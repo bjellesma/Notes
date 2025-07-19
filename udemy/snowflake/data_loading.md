@@ -687,3 +687,420 @@ Snowpipe load history is stored in the metadata of the pipe for 14 days to preve
 Snowpipe is a serverless feature using snowflake managed compute resources to load data files and not a user managed virtual warehouse. However, a user specified warehouse will be required to execute copy into statements
 
 Snowpipes can be paused.
+
+# COPY INTO - Data Unloading Examples
+
+## Basic Unloading Syntax
+
+```sql
+COPY INTO /
+FROM 
+[FILE_FORMAT = (TYPE = 'CSV' | )]
+[HEADER = TRUE | FALSE] --Controls whether column names are included as the first row in exported files.
+[MAX_FILE_SIZE = ] --the number of bytes that snowflake will export. defaults to 16mb
+[OVERWRITE = TRUE | FALSE] -- specifies weather the command should overwrite existing file
+[SINGLE = TRUE | FALSE] --specifies if we generate a single file. default is false
+[PARTITION BY ()]; --specify the column to use if generating multiple files
+```
+
+## Simple Unloading Examples
+
+### Basic Table Export
+```sql
+-- Export entire table to CSV
+COPY INTO @my_stage/customers_export.csv
+FROM customers
+FILE_FORMAT = (TYPE = 'CSV' HEADER = TRUE);
+
+-- Export to external stage (S3)
+COPY INTO @s3_stage/customer_backup.csv
+FROM customers
+FILE_FORMAT = (TYPE = 'CSV' HEADER = TRUE FIELD_DELIMITER = ',');
+```
+
+### Export with Query
+
+As you can see, the advantage of using a query is that you can use aggregates and joins
+
+```sql
+-- Export filtered data
+COPY INTO @export_stage/active_customers.csv
+FROM (
+  SELECT customer_id, first_name, last_name, email, signup_date
+  FROM customers 
+  WHERE status = 'ACTIVE'
+    AND signup_date >= '2024-01-01'
+)
+FILE_FORMAT = (TYPE = 'CSV' HEADER = TRUE);
+
+-- Export aggregated data
+COPY INTO @reports_stage/monthly_sales_summary.csv
+FROM (
+  SELECT 
+    DATE_TRUNC('month', order_date) as month,
+    region,
+    COUNT(*) as order_count,
+    SUM(order_amount) as total_sales,
+    AVG(order_amount) as avg_order_value
+  FROM orders
+  WHERE order_date >= '2024-01-01'
+  GROUP BY month, region
+  ORDER BY month, region
+)
+FILE_FORMAT = (TYPE = 'CSV' HEADER = TRUE);
+```
+
+# Semi structured
+
+Whereas CSV would be a structured data type with a fixed number of rows and columns, JSON or XML would be an example of semi structure data where the number of columns may differ. Historically, databases have had issues working with semi structured data which is why they prefer to use CSVs. Snowflake has introduced new data types to work with these.
+
+## Array
+
+This is analogous to most higher level programming languages
+
+```sql
+-- Create table with array column
+CREATE TABLE user_preferences (
+    user_id INTEGER,
+    favorite_colors ARRAY,
+    scores ARRAY
+);
+
+-- Insert array data
+INSERT INTO user_preferences VALUES 
+(1, ['red', 'blue', 'green'], [85, 92, 78]),
+(2, ['yellow', 'purple'], [90, 88]),
+(3, ['black', 'white', 'gray'], [95, 87, 91, 82]);
+
+-- Query array data
+SELECT 
+    user_id,
+    favorite_colors,
+    favorite_colors[0] as first_color,    -- Access first element (0-indexed)
+    favorite_colors[1] as second_color,   -- Access second element
+    ARRAY_SIZE(favorite_colors) as color_count
+FROM user_preferences;
+```
+
+There are also a host of functions with arrays
+
+```sql
+-- Array manipulation functions
+SELECT 
+    ['a', 'b', 'c'] as original_array,
+    ARRAY_SIZE(['a', 'b', 'c']) as array_length,
+    ARRAY_APPEND(['a', 'b'], 'c') as appended,
+    ARRAY_PREPEND('z', ['a', 'b']) as prepended,
+    ARRAY_CAT(['a', 'b'], ['c', 'd']) as concatenated,
+    ARRAY_CONTAINS(['a', 'b', 'c'], 'b') as contains_b;
+```
+
+## Object
+
+these are representations of key value pairs
+
+```sql
+-- Create table with object column
+CREATE TABLE customer_profiles (
+    customer_id INTEGER,
+    profile OBJECT,
+    preferences OBJECT
+);
+
+-- Insert object data
+INSERT INTO customer_profiles VALUES 
+(1, 
+ {'name': 'Alice', 'age': 28, 'city': 'Boston'},
+ {'newsletter': true, 'notifications': false, 'theme': 'dark'}
+),
+(2,
+ {'name': 'Bob', 'age': 35, 'city': 'Seattle'}, 
+ {'newsletter': false, 'notifications': true, 'theme': 'light'}
+);
+
+-- Query object data
+SELECT 
+    customer_id,
+    profile,
+    profile:name as customer_name,        -- Access object properties with :
+    profile:age as customer_age,
+    profile:city as customer_city,
+    preferences:theme as preferred_theme
+FROM customer_profiles;
+```
+
+There are also functions that you can use with objects
+
+```sql
+-- Object manipulation functions
+SELECT 
+    {'a': 1, 'b': 2} as original_object,
+    OBJECT_KEYS({'a': 1, 'b': 2}) as keys_array,
+    OBJECT_CONSTRUCT('name', 'John', 'age', 30) as constructed_object,
+    OBJECT_INSERT({'a': 1}, 'b', 2) as inserted_property,
+    OBJECT_DELETE({'a': 1, 'b': 2}, 'b') as deleted_property;
+```
+
+## Variants
+
+These objects can hold any amount of semi structured data (similar to json)
+
+```sql
+-- Create table with variant column (most flexible)
+CREATE TABLE events (
+    event_id INTEGER,
+    event_data VARIANT,
+    metadata VARIANT
+);
+
+-- Insert different types of data into variant column
+INSERT INTO events VALUES 
+(1, 
+ {'event_type': 'login', 'user_id': 123, 'timestamp': '2024-01-15T10:30:00Z'},
+ {'source': 'web', 'ip': '192.168.1.1'}
+),
+(2,
+ {'event_type': 'purchase', 'user_id': 456, 'items': [{'product': 'laptop', 'price': 999}]},
+ {'source': 'mobile', 'version': '2.1.0'}
+),
+(3,
+ ['error', 'database_connection_failed', '2024-01-15T10:35:00Z'],
+ {'severity': 'high', 'retry_count': 3}
+);
+
+-- Query variant data
+SELECT 
+    event_id,
+    event_data,
+    event_data:event_type as event_type,           -- Access nested properties
+    event_data:user_id as user_id,
+    event_data:items[0]:product as first_product,  -- Access array elements in objects
+    metadata:source as source
+FROM events;
+```
+
+You can convert the data types of data within variants when you select
+
+```sql
+-- Check types and convert variants
+SELECT 
+    event_data,
+    TYPEOF(event_data) as data_type,
+    TYPEOF(event_data:user_id) as user_id_type,
+    event_data:user_id::INTEGER as user_id_as_integer,
+    event_data:timestamp::TIMESTAMP as event_timestamp
+FROM events
+WHERE event_data:event_type = 'login';
+```
+
+One important note is that variant data type can hold up to 16mb of compressed data per row
+
+You can use a variant column to load an entire json file. This is an example of a common **ELT** pattern because we're loading the data before we transform it. 
+
+```json
+[
+  {"id": 1, "name": "Laptop", "price": 999.99, "categories": ["electronics", "computers"]},
+  {"id": 2, "name": "Mouse", "price": 29.99, "categories": ["electronics", "accessories"]},
+  {"id": 3, "name": "Keyboard", "price": 79.99, "categories": ["electronics", "accessories"]}
+]
+```
+
+```sql
+-- Create table for products
+CREATE TABLE products (
+    product_id INTEGER AUTOINCREMENT,
+    product_data VARIANT
+);
+
+-- Load JSON array (note STRIP_OUTER_ARRAY = TRUE)
+COPY INTO products (product_data)
+FROM @json_stage/products.json
+FILE_FORMAT = (TYPE = 'JSON' STRIP_OUTER_ARRAY = TRUE);
+```
+
+You can also make this more of ETL approach by doing something as the following to exclude categories
+
+```sql
+COPY INTO products (product_data)
+FROM ( Select products:name, products:price
+FROM @json_stage/products.json)
+FILE_FORMAT = (TYPE = 'JSON' STRIP_OUTER_ARRAY = TRUE);
+```
+
+## Nested Variants
+
+Let's say that we have the following strucure in a variant data type
+
+```sql
+-- Create table with complex nested JSON
+CREATE TABLE customer_profiles (
+    profile_id INTEGER,
+    profile_data VARIANT
+);
+
+-- Insert nested JSON data
+INSERT INTO customer_profiles VALUES 
+(1, '{
+  "customer": {
+    "id": 12345,
+    "personal": {
+      "name": {
+        "first": "John",
+        "last": "Doe",
+        "middle": "Michael"
+      },
+      "age": 30,
+      "contact": {
+        "email": "john.doe@email.com",
+        "phone": {
+          "home": "+1-555-0123",
+          "mobile": "+1-555-0456",
+          "work": "+1-555-0789"
+        },
+        "address": {
+          "street": "123 Main St",
+          "city": "Boston",
+          "state": "MA",
+          "zip": "02101",
+          "coordinates": {
+            "lat": 42.3601,
+            "lng": -71.0589
+          }
+        }
+      }
+    },
+    "preferences": {
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "push": true
+      },
+      "privacy": {
+        "profile_public": false,
+        "data_sharing": true
+      },
+      "themes": {
+        "ui": "dark",
+        "language": "en-US"
+      }
+    },
+    "account": {
+      "created_date": "2023-01-15",
+      "subscription": {
+        "plan": "premium",
+        "status": "active",
+        "billing": {
+          "method": "credit_card",
+          "amount": 29.99,
+          "currency": "USD",
+          "next_billing": "2024-02-15"
+        }
+      }
+    }
+  }
+}');
+```
+
+To access this data, we'll need to use dot notation where the value before the : is the column name and then each subsequent dot is the nested structure.
+
+```sql
+-- Access nested properties using dot notation
+SELECT 
+    profile_id,
+    
+    -- Level 1 nesting
+    profile_data:customer.id as customer_id,
+    
+    -- Level 2 nesting  
+    profile_data:customer.personal.age as age,
+    
+    -- Level 3 nesting
+    profile_data:customer.personal.name.first as first_name,
+    profile_data:customer.personal.name.last as last_name,
+    profile_data:customer.personal.name.middle as middle_name,
+    profile_data:customer.account.created_date::DATE as account_created,
+    
+    -- Level 4 nesting
+    profile_data:customer.personal.contact.email as email,
+    profile_data:customer.personal.contact.phone.mobile as mobile_phone,
+    profile_data:customer.personal.contact.address.city as city,
+    profile_data:customer.personal.contact.address.state as state,
+    
+    -- Level 5 nesting (deep nesting)
+    profile_data:customer.personal.contact.address.coordinates.lat as latitude,
+    profile_data:customer.personal.contact.address.coordinates.lng as longitude
+    
+FROM customer_profiles;
+```
+
+Notice also in the above that we've used :: to cast the created date to a date value. This casting is ecspecially usefule because this prevents a date from being read as a string (the default)
+
+Keep in mind also that these json elements are case sensative 
+
+## Flatten
+
+Flatten can be used to create single rows to analyze relationships. For example, the following query flattens the tags array so that we can join all users to each tag
+
+
+
+```sql
+-- Create table with array data
+CREATE TABLE user_tags (
+    user_id INTEGER,
+    user_data VARIANT
+);
+
+-- Insert data with arrays
+INSERT INTO user_tags VALUES 
+(1, '{"name": "John", "tags": ["premium", "verified", "early_adopter"]}'),
+(2, '{"name": "Jane", "tags": ["basic", "newsletter"]}'),
+(3, '{"name": "Bob", "tags": ["premium", "enterprise", "beta_tester", "vip"]}');
+
+-- FLATTEN the tags array
+SELECT 
+    user_id,
+    user_data:name::STRING as name,
+    f.value::STRING as tag
+FROM user_tags,
+LATERAL FLATTEN(input => user_data:tags) f;
+
+-- Results:
+-- user_id | name | tag
+-- --------|------|---------------
+-- 1       | John | premium
+-- 1       | John | verified  
+-- 1       | John | early_adopter
+-- 2       | Jane | basic
+-- 2       | Jane | newsletter
+-- 3       | Bob  | premium
+-- 3       | Bob  | enterprise
+-- 3       | Bob  | beta_tester
+-- 3       | Bob  | vip
+```
+
+# Match Cy Column Name
+
+
+
+```sql
+-- Your table structure
+CREATE TABLE customers (
+    customer_id INTEGER,
+    email STRING,
+    first_name STRING,
+    last_name STRING,
+    phone STRING,
+    created_date DATE
+);
+
+-- Your CSV file has different column order:
+-- email,last_name,first_name,customer_id,phone,created_date
+-- john@email.com,Doe,John,12345,555-0123,2024-01-15
+-- jane@email.com,Smith,Jane,67890,555-0456,2024-01-16
+
+-- Load data matching by column names instead of position
+COPY INTO customers
+FROM @my_stage/customers.csv
+FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1)
+MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
+```
