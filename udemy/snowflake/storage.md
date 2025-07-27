@@ -45,7 +45,7 @@ set data_retention_time_in_days=90
 
 On standard edition, you can only set retention to 1 but with enterprise and higher, you can set retention up to 90
 
-Beyond time travel there is **fail safe** a non configurable period of 7 days in which historical data can be recovered by contaction support.
+Beyond time travel there is **fail safe** a non configurable period of 7 days in which historical data can be recovered by contaction support. Note that fail safe does not apply to external tables.
 
 <img width="804" height="357" alt="image" src="https://github.com/user-attachments/assets/067ce51b-7d92-42a7-9cd9-d00a83adfce5" />
 
