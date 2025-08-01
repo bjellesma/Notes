@@ -37,6 +37,8 @@ An external function makes use of an API integration object to store secure info
 
 The default value for DATA_RETENTION_TIME_IN_DAYS is 1 for all editions of Snowflake.
 
+The validate function Allows a user to view all errors encountered during a previous COPY INTO execution.
+
 User authentication is handled by the services layer in the multi cluster shared data architecture.
 
 The two scaling policies that can be defined when creating a multi cluster warehouse are standard and economy.
@@ -50,3 +52,21 @@ To reuse the results cache, the query must match exactly and the role executing 
 If periodic rekeying is enabled, then when the retired encryption key for a table is older than one year, Snowflake automatically creates a new encryption key and re-encrypts all data previously protected by the retired key using the new key. The new key is used to decrypt the table data going forward.
 
 When CONTINUE is used with ON_ERROR when using COPY INTO <table>, the file is loaded anyway if errors are found (Snowflake attempts partial loading) and not skipped
+
+The query to remove a virtual warehouse is `DROP WAREHOUSE`
+
+The Snowflake Partner Connect is a service which expedites the process of getting up and running with selected third-party tools. iT allows you to easily create trial account with selected Snowflake business partners and integrate these accounts with Snowflake.
+
+If the query profile indicates queries are regularly spilling to remote storage, you should either Increase the size of the Virtual Warehouse. or Process data in smaller batches.
+
+Materialized views can be created on top of external tables to improve their query performance.
+
+Every securable object is owned by a single role.
+
+Properties available to a file format object of type csv are
+* Field_Delimiter
+* Skip Header
+* Record Delimiter
+
+Regardless of the Snowflake edition, transient tables can only set a Time Travel retention period of up to 1 day.
+
