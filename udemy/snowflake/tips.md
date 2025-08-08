@@ -64,9 +64,16 @@ Materialized views can be created on top of external tables to improve their que
 Every securable object is owned by a single role.
 
 Properties available to a file format object of type csv are
+* Type
 * Field_Delimiter
 * Skip Header
 * Record Delimiter
 
 Regardless of the Snowflake edition, transient tables can only set a Time Travel retention period of up to 1 day.
+
+Pure DDL or metadata operations like `CREATE TABLE` do not require a virtual warehouse
+
+External tables cannot be cloned.
+
+
 
