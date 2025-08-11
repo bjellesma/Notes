@@ -1,0 +1,1 @@
+Snowflake uses a hybrid architecture of shared disk and shared nothing. Shared disk because all compute nodes can access the same centralized storage layer. Shared nothing because each virtual warehouse operates independently with its own compute resources.
