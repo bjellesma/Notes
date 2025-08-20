@@ -54,3 +54,14 @@ Nickel Cadmium - Long service life, high discharge current, and extreme temperat
 
 Lithium Ion - this is the most common type. It is typically more expensive but has a higher cycle count and lower maintenance requirement.
 
+# Chapter 2 - Battery Types
+
+## Lead Acid
+
+Lead Acid batteries are still in use today even though they were invented in 1859. They are used in automotives for gasoline and diesel vehicles. They are also used in uninterruptable power supplies and fork lifts. They are cheap at about 1/3 the price of lithium alternatives. 
+
+Depending on the depth of discharge, this battery type does have a smaller lifespan than alternatives.
+
+* Discharged to 80% capacity: ~200-300 cycles
+* Discharged to 50% capacity: ~500-800 cycles
+* Discharged to 20% capacity: ~2,000+ cycles
