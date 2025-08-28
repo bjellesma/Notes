@@ -1,1 +1,56 @@
 Snowflake uses a hybrid architecture of shared disk and shared nothing. Shared disk because all compute nodes can access the same centralized storage layer. Shared nothing because each virtual warehouse operates independently with its own compute resources.
+
+## Snowpipe
+
+Snowpipe has built-in duplicate detection to prevent loading the same file multiple times:
+
+How it works:
+
+Snowpipe tracks file metadata (name, size, timestamp, checksum)
+If the exact same file is uploaded again, Snowpipe skips it
+Only loads files that are new or modified
+
+Snowpipe doesn't support transformations during loading
+Snowpipe is designed for simple, fast ingestion of data "as-is"
+Transformations with Snowpipe happen after loading (ELT pattern)
+
+## Data Loading
+
+Which file format option would you use to handle CSV files that contain commas within quoted fields?
+A) FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+B) ESCAPE_UNENCLOSED_FIELD = '\'
+C) FIELD_DELIMITER = ','
+D) SKIP_HEADER = 1
+
+A) FIELD_OPTIONALLY_ENCLOSED_BY = '"' ✅ Correct answer
+
+Tells Snowflake that fields may be enclosed in quotes
+Handles commas inside quoted fields properly
+Snowflake won't treat commas inside quotes as delimiters
+
+B) ESCAPE_UNENCLOSED_FIELD = '\'
+
+Used when fields have escape characters like John\,Doe
+For backslash-escaped delimiters, not quoted fields
+
+C) FIELD_DELIMITER = ','
+
+Just sets the delimiter (default is already comma)
+Doesn't solve the "comma inside fields" problem
+
+D) SKIP_HEADER = 1
+
+Skips first row if it contains column names
+Unrelated to comma handling
+
+## Data Sharing
+
+Cross-cloud sharing is supported! Consumer can be on different cloud platforms (AWS consumer can access Azure provider's data). Consumer pays for:
+
+✅ Compute credits when querying shared data
+❌ NO storage costs for shared data
+❌ NO data transfer costs in most cases
+
+## Data Masking
+
+Only one masking policy can be applied to a column at a time. But masking policies are applied before row acess policies. This is because masking policies are more security focused so that even if the row policies have an edge case, the data is still securly masked.
