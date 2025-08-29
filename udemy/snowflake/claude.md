@@ -2,6 +2,8 @@ Snowflake uses a hybrid architecture of shared disk and shared nothing. Shared d
 
 ## Snowpipe
 
+The key benefit of using snowpipe is that it has automatic scaling.
+
 Snowpipe has built-in duplicate detection to prevent loading the same file multiple times:
 
 How it works:
@@ -53,6 +55,15 @@ Cross-cloud sharing is supported! Consumer can be on different cloud platforms (
 
 Data remains in provider's region, consumer pays cross-region data transfer costs
 
+Consumers CAN create their own views on shared data:
+```sql
+-- Consumer can create views on shared data
+CREATE VIEW my_analysis AS 
+SELECT region, SUM(sales) 
+FROM shared_database.shared_table 
+GROUP BY region;
+```
+
 ## Data Masking
 
 Only one masking policy can be applied to a column at a time. But masking policies are applied before row acess policies. This is because masking policies are more security focused so that even if the row policies have an edge case, the data is still securly masked.
@@ -64,4 +75,18 @@ Secure views are about definition privacy, not row-level security.
 Hide business logic - competitors can't see your algorithms
 Protect data sources - users don't know which tables are queried
 Security through obscurity - harder to reverse-engineer data model
+
+## Time Travel
+
+Historical data versions are maintained in storage
+Longer retention = more historical versions = higher storage costs
+Proportional relationship - 90 days costs more than 7 days
+
+## Flatten object
+
+There is no flatten_json attribute when using file_format but you must use the flatter() function
+
+## Role Changes
+
+A user's role doesn't change until they begin a new session. For this you would want to use `ALTER USER john SET DISABLED = TRUE;` to disable their account immediately.
 
