@@ -51,6 +51,17 @@ Cross-cloud sharing is supported! Consumer can be on different cloud platforms (
 ❌ NO storage costs for shared data
 ❌ NO data transfer costs in most cases
 
+Data remains in provider's region, consumer pays cross-region data transfer costs
+
 ## Data Masking
 
 Only one masking policy can be applied to a column at a time. But masking policies are applied before row acess policies. This is because masking policies are more security focused so that even if the row policies have an edge case, the data is still securly masked.
+
+## Secure Views
+
+Secure views are about definition privacy, not row-level security.
+
+Hide business logic - competitors can't see your algorithms
+Protect data sources - users don't know which tables are queried
+Security through obscurity - harder to reverse-engineer data model
+
