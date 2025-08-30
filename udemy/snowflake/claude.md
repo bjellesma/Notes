@@ -4,7 +4,9 @@ Snowflake uses a hybrid architecture of shared disk and shared nothing. Shared d
 
 The key benefit of using snowpipe is that it has automatic scaling.
 
-Snowpipe has built-in duplicate detection to prevent loading the same file multiple times:
+Snowpipe has built-in duplicate detection to prevent loading the same file multiple times
+
+Snowpipe does not support validation mode like copy into does. Instead, error handling is handled through the `ON_ERROR` parameter. Snowpipe trades some control for operational simplicity.
 
 How it works:
 
@@ -17,6 +19,8 @@ Snowpipe is designed for simple, fast ingestion of data "as-is"
 Transformations with Snowpipe happen after loading (ELT pattern)
 
 ## Data Loading
+
+Snowflake supports concurrent read/write operations without blocking - queries can run simultaneously with data loading operations.
 
 Which file format option would you use to handle CSV files that contain commas within quoted fields?
 A) FIELD_OPTIONALLY_ENCLOSED_BY = '"'
@@ -46,6 +50,8 @@ Skips first row if it contains column names
 Unrelated to comma handling
 
 ## Data Sharing
+
+User defined functions cannot be shared for malicious code reasons
 
 Cross-cloud sharing is supported! Consumer can be on different cloud platforms (AWS consumer can access Azure provider's data). Consumer pays for:
 
@@ -82,6 +88,8 @@ Historical data versions are maintained in storage
 Longer retention = more historical versions = higher storage costs
 Proportional relationship - 90 days costs more than 7 days
 
+Time Travel restores the complete state of the table as it existed at that specific point in time, including all clustering information.
+
 ## Flatten object
 
 There is no flatten_json attribute when using file_format but you must use the flatter() function
@@ -89,4 +97,10 @@ There is no flatten_json attribute when using file_format but you must use the f
 ## Role Changes
 
 A user's role doesn't change until they begin a new session. For this you would want to use `ALTER USER john SET DISABLED = TRUE;` to disable their account immediately.
+
+## Priveledges
+
+By default, only the accountadmin role can create resource monitors, but they can grant the `CREATE RESOURCE MONITOR` permission to specific roles.
+
+
 
