@@ -56,6 +56,14 @@ Lithium Ion - this is the most common type. It is typically more expensive but h
 
 # Chapter 2 - Battery Types
 
+### C rating
+
+This refers to how fast you're recommended to charge or discharge a battery relative to its capacity. If you have a 2400mAh battery and you're recommended to charge at 2400mA, this is 1C. A 2C rating would be 4800mA.
+
+## Flooding a battery
+
+When someone says that they flooded a battery, this means that they've overcharged it. The risk is that the electrolyte boils over and causes corrosion. This is more common with a lead acid battery and you don't run this same risk with your phone because your phone uses a lithium ion battery which don't flood. Your phone also has a battery management system which is smart enough to stop charging at 100% and just maintain that level.
+
 ## Lead Acid
 
 Lead Acid batteries are still in use today even though they were invented in 1859. They are used in automotives for gasoline and diesel vehicles. They are also used in uninterruptable power supplies and fork lifts. They are cheap at about 1/3 the price of lithium alternatives. 
@@ -65,3 +73,41 @@ Depending on the depth of discharge, this battery type does have a smaller lifes
 * Discharged to 80% capacity: ~200-300 cycles
 * Discharged to 50% capacity: ~500-800 cycles
 * Discharged to 20% capacity: ~2,000+ cycles
+
+### Sealed Lead Acid batteries
+
+SLA Batteries most common application today is for use in battery backup systems and healthcare. They have a relatively short cycle lifecycle but this isn't a big deal since these batteries rarely cycle deeply.
+
+## Starter Batteries
+
+These are commonly used as an ignition because of its high power. Notably these batteries can be deep cycled but doing so will drastically shorten their lifespan but this isn't important because the battery is recharged while driving by the alternator.
+
+Electric cars notably don't use a starter battery because there is no engine and therefore no alternator. Instead electric cars use regenerative braking to charge the lithium ion battery.
+
+some cars and motorcycles use a newer type of starter battery called absorbent glass mat (agm) which offers the same performance but is lighter.
+
+## Deep Cycle Batteries
+
+These batteries are more common in wheelchairs and forklifts because they have high capacity and a reasonably high cycle count. The big reason that they're used in forklifts is because a forklift doesn't have an alternator to recharge the battery while charging.
+
+## Eneloop
+
+Eneloop are considered the gold standard of nickle metal hydride (NiMH) rechargables and is a trademark brand of panasonic.
+
+Eneloop has also had luck in reducing the self discharge. self discharge refers to leaving a battery in a drawer for a couple of weeks and it gradually losing charge over time.
+
+## Nickle Hydrogen
+
+These batteries are used mostly for satalites due to their resistance to temperatures. This is still used in the hubble and was used for a long time on the ISS before being replaced with more modern lithium ion batteries.
+
+## Lithium Batteries
+
+Lithium is the lightest of all metals, has the greatest electrochemical potential, and provides the largest specific energy per weight. Though research using lithium metal didn't succeed, research shifted toward **Lithium Ion**. The biggest disadvantage with lithium ion is that it is lower in specific energy but this is generally ok because the voltage and current limits are about the same. Much of this research is credited to **John B Goodenough**
+
+### Lithium Cobalt Oxide
+
+Popular for mobile phones and video cameras due to its high energy density, allowing for compact, lightweight batteries. However, it has safety concerns with overheating and is more expensive than other lithium-ion chemistries.
+
+### Lithium Phosphate
+
+These batteries are starting to be used to replace lead based starter batteries in vehicles. Lithium Phosphate offers better performance, costs less and weights
