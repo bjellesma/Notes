@@ -111,3 +111,71 @@ Popular for mobile phones and video cameras due to its high energy density, allo
 ### Lithium Phosphate
 
 These batteries are starting to be used to replace lead based starter batteries in vehicles. Lithium Phosphate offers better performance, costs less and weights
+
+## Cycling Performance
+
+Nickel Cadmium batteries are the most life cycling endurance. In testing, these were cycled at 100% depth of discharge for over 2300 cycles with near perfect performance. These remain the prefered choich for aircrafts.
+
+Nickel Metal Hydride offered high specific energy but loses capacity after the 300 cycle mark. There was also a rise in self discharge after the 1000 cycle mark. 
+
+### Supercapacitors
+
+A capacitor stores energy by means of static charge as opposed to an electrochemical reaction. Capacitors are measured in Farad which is a unit named after Michael Faraday. One farad stores one coulomb of electrical charge when applying one volt. A coulomb is the basic unit of electrical charge - think of it like a "bucket" of electrons. 1 coulomb = the charge of about 6.24 × 10¹⁸ electrons. 1 amp = 1 coulomb flowing past a point per second. So if 2 amps flows for 3 seconds, that's 6 coulombs of charge.
+
+Though supercapacitors are very different than batteries as they store electricity in electric fields rather than chemical reactions like you see in batteries, they're often considered as candidates to replace batteries in certain applications. The big advantage with supercapacitors is that they are a lot faster to charge. The big disadvantage is energy density in that these store a lot less energy than typical batteries. For example, a supercapacitor isn't used in a mobile phone because the energy density is very low.
+
+However, supercapacitors do have their own applications in systems like regenerative braking (typically this is more useful in comercial vehicles like electric busses whereas passenger cars do just fine using the lithium ion battery for this) and UPS backup power, where they provide quick bursts of energy while batteries handle longer-term storage.
+
+Given this energy density constraint, there is a lot of research into high capacity supercapacitors as this would be revolutionary in the energy storage domain. However, this still needs about 10-20x more density to be competive to batteries.
+
+### internal resistance
+
+Resistance slows down the flow of electrons within the battery, causing voltage drops under load and energy loss as heat. This increases gradually with age and varies depending on the battery chemistry type.
+
+### Coulomb counting
+
+Coulomb counting is a method to track how much charge goes into and out of a battery to estimate its state of charge. 
+
+Example:
+
+Battery capacity: 2400mAh (2.4 amp-hours)
+Currently 50% charged = 1200mAh remaining
+Device draws 200mA for 1 hour = 200mAh used
+New state: 1200 - 200 = 1000mAh remaining (about 42%)
+
+Where you see it:
+
+Battery management systems (BMS)
+Electric car "fuel gauges"
+Laptop battery meters
+Smartphone battery percentage
+
+### Fuel Cells
+
+These are an alectrochemical device that combines hydrogen fuel with oxygen to produce electricity, heat, and water.
+
+The fuel cell is 2x as efficient as combustion and is clean. This would theoretically be unlimited as hydrogen is the most abundant element on Earth. The fuel cell was invented back in 1839 but never took off because this was during the time of development of the internal combustion engine which was showing more promising results. Fuel cells did have a resurgance in the 1960s with the gemani space program which prefered this source as opposed to nuclear and solar. 
+
+Though alkaline fuel cells were used in aerospace for a long time, modern aerospace uses Proton Exchange Membrane (PEM) fuel cells which have higher power density and specific energy.
+
+Fuel cells are more flammable than batteries due to hydrogen and more expensive.
+
+### Flow Batteries
+
+These are a cross between a conventional battery and a fuel cell. Flow batteries store energy in liquid electrolytes contained in external tanks, with energy capacity determined by tank size and power output determined by the electrochemical cell stack. They offer very long discharge durations (4-12+ hours), excellent cycle life, and easy scalability, making them ideal for grid-scale energy storage, though they have lower energy density than lithium-ion batteries.
+
+The main trade-off is they're bulky and complex compared to lithium-ion, but perfect for stationary applications where space isn't as critical as long-term reliability.
+
+Flow Batteries are much more mature than supercapacitors and fuel cells and already compete with conventional batteries for grid storage. They pose an advantage of have a lower fabrication cost due to less rare minerals. 
+
+## Future Batteries
+
+Sodium Ion batteries are being looked at because sodium is much more inexpensive than lithium and can be completly discharged without encountering stresses common with other batteries.
+
+A solid-state battery (SSB) is an electrical battery that uses a solid electrolyte (solectro) to conduct ions between the electrodes, instead of the liquid or gel polymer electrolytes found in conventional batteries. The advantages are higher energy density, faster charging, and enhanced safety (solid electrolyte is less flammible). The current challenge of solid-state batteries is implementation and scale-up, rather than getting something even better at the cell level.
+
+It's not a technology problem anymore - it's an engineering and manufacturing problem:
+
+How do you make millions of them reliably?
+How do you drive costs down to compete with lithium-ion?
+How do you build the supply chains and factory infrastructure?
