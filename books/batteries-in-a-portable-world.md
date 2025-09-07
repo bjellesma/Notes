@@ -179,3 +179,63 @@ It's not a technology problem anymore - it's an engineering and manufacturing pr
 How do you make millions of them reliably?
 How do you drive costs down to compete with lithium-ion?
 How do you build the supply chains and factory infrastructure?
+
+# Chapter 3 - Packaging and Safety
+
+## Cylindrical Cells
+
+These are the most common format of batteries that you'll buy at the store. You'll also see these in electric vehicles, laptops, and power tools
+
+The formulation of naming schemes like AA and AAA and AAAA are a result of us running out of naming schemes. Electric vehicles may even, for example, use a battery size called 18650 which is named for the first two digits representing the diameter in millimeters and the next three digits are the length in tenths of millimeters. In this case the battery is 18 mm in diameter and 65.0 mm in length.
+
+Here's a cross section of a typical lithium ion battery. Notice that there's a release vent that connects to a fuse that will permanently open if an unsafe pressure builds up.
+
+<img width="210" height="241" alt="image" src="https://github.com/user-attachments/assets/e743d22f-8bbb-43f1-ae96-902750a9cc13" />
+
+Cylindrical cells are often space apart to stop propogation in the case of a cell disintegrating. This also helps in thermal management.
+
+## Button Cells
+
+These are the coin shaped watch batteries. These have largely fallen out of favor due to them not being rechargeable and not having a venting mechanism.
+
+## Prismatic Cells
+
+The cells were introduced in the 1990s and satisfies the demand for thinner sizes. These are primarily used in mobile phones, tablets, and low profile laptops. 
+
+This format can take advantage of a layered approach so that we can stack these.
+
+<img width="500" height="406" alt="image" src="https://github.com/user-attachments/assets/09b0bc8c-bf87-47fb-8833-5c04ee7d87d0" />
+
+## Pouch Cells
+
+Pouch Cells were first developed in 1995 and look kind of like a primatic cell in that the design is very good for packaging efficiency. These are commonly used in portable applications requiring high current load such as drones and hobby gadgets.
+
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/86c28df8-fbd0-4525-93b8-dd09cef282ed" />
+
+These cells have a risk of swelling and therefor should not be stacked but instead be laid side by side. Swelling of 8-10% over 500 cycles should be considered. The following is an image of a swelled battery.
+
+<img width="245" height="206" alt="image" src="https://github.com/user-attachments/assets/aa3d7d3b-e84d-4114-8c38-b9f9654f1c97" />
+
+## Series Connection
+
+Many applications requiring higher voltages will connect batteries in series. The current will remain the same as long as the current on all of the batteries used in series is the same. In the example image below, we're connecting two 12v batteries to get 24v. If the application requires 23V, using 24V may work since some devices can tolerate small amounts of overvoltage (typically 5-10%), but check the device specifications first as overvoltage can damage sensitive electronics. All batteries in series should be the same type, capacity, and condition as mixing batteries can be dangerous.
+
+<img width="1237" height="621" alt="image" src="https://github.com/user-attachments/assets/68b09931-024d-41b2-b767-cb2d3654bb05" />
+
+With multiple cells connected in a string, the possibility of one cell failing is real and this would cause a failure. to prevent this from happening, a solid state switch is some large packs bypasses the failing cell to allow continued current flow, albeing at a lower string voltage.
+
+## Parallel Connections
+
+Conversely, you'll also be able to specify a parallel connection if the voltage can remain the same but we want to add the currents.
+
+<img width="1024" height="922" alt="image" src="https://github.com/user-attachments/assets/374d02cf-98ef-4ea1-94ad-2c268a7a9817" />
+
+It is possible to combine series and parallel connections to obtain the desired voltage and current. However, the battery management system (BMS) must be very sophisticated as all batteries must stay at the same capacity. The Tesla Model S is said to have over 7000 18650 batteries running this way. 
+
+EVs absolutely require sophisticated monitoring because the scale (thousands of cells) and the power levels (hundreds of kilowatts) make manual monitoring impossible and the consequences of imbalance potentially catastrophic.
+
+## Safety Notes
+
+Series is generally more fire-prone due to higher voltages, but both configurations are dangerous if batteries are mismatched. The key safety rule for both: always use batteries of the same type, age, and charge level. This is good advice for home use. If one battery in your device is weak, you should replace all of them at once.
+
+This is why you see warnings on battery packages about not mixing old and new batteries, or different battery types (alkaline vs rechargeable) - the mismatch creates safety risks.
