@@ -239,3 +239,77 @@ EVs absolutely require sophisticated monitoring because the scale (thousands of 
 Series is generally more fire-prone due to higher voltages, but both configurations are dangerous if batteries are mismatched. The key safety rule for both: always use batteries of the same type, age, and charge level. This is good advice for home use. If one battery in your device is weak, you should replace all of them at once.
 
 This is why you see warnings on battery packages about not mixing old and new batteries, or different battery types (alkaline vs rechargeable) - the mismatch creates safety risks.
+
+The most basic safety device in a battery is a fuse that opens on high current. Some of these fuses will open permanently and render the battery useless while others will reset. **Power Thermal Coefficients** is a resetable device that can reset once the problem is removed. They're built into a battery cell or pack when manufactured.
+
+While not the only cause, faulty seperators in batteries from aging, rough handline, or excessive vibration are a major cause of battery fires. These are common in lithium ion batteries because they have more energy density and thinner seperators. A BMS can help to detect faulty seperators by monitoring symptoms. The following are some symptoms:
+
+Voltage irregularities - cells with separator damage show abnormal voltage behavior
+Temperature spikes - separator failure causes rapid heating
+Internal resistance changes - damaged separators alter cell resistance
+Self-discharge rates - cells with separator issues discharge faster when idle
+Cell imbalance - damaged cells fall out of sync with healthy ones
+
+Lithium Metal also requires a class d fire extinguisher
+
+## Confusion with Voltages
+
+A battery is an electrochemical device that produces a voltage potential when placing metels of different affinities into an acid solution (electrolyte). The **Open Circuit Voltage** (OCV) that develops as part of an electrochemical reaction varies with the metals and electorlyte used. Applying a charge or discharge places the battery into the **Closed Circuit Voltage** (CCV) condition. Charging raises the voltage and discharging lowers it. Temperature also plays a role. A cold temperature lowers the voltage and heat raises it.
+
+## Battery Seperator
+
+Battery Seperators in an insulator that seperates the cathode and annode. Some current is lost on each pass through the seperator and this is refered to as **self discharge** and eventually wears out the battery ecspecially during prolonged storage. On excessive heat, a shutdown occurs by closing the pores of the lithium ion seperator through a melting process. The polyethelene seperator melts at 266 F effectively shutting down the transport of ions and the battery. Must batteries for modbile phones and tablets use a single seperator whereas large industrial batteries have three layers of seperators.
+
+The nominal voltage is given by manufacturers. 
+
+| Battery | Nominal Voltage |
+------
+| Lead Acid | 2 volts per cell |
+| Nickle Based | 1.2 volts per cell |
+| Lithium Ion | 3.6 volts per cell |
+
+## Availability
+
+Shortages could arise if everyone starts to drive electric vehicles
+
+<img width="243" height="208" alt="image" src="https://github.com/user-attachments/assets/3da16cd7-a230-4ba1-ba6f-2901808b7df1" />
+
+## Graphene
+
+Graphene is available but not yet at the scale needed for widespread commercial battery use. The reality is much more nuanced than the hype suggests:
+Current graphene availability:
+
+Small quantities for research and specialized applications
+Expensive - costs thousands of dollars per kilogram
+Production methods exist but aren't scalable for mass battery production
+Quality varies widely between different production methods
+
+Why graphene batteries aren't here yet:
+Manufacturing challenges:
+
+No cost-effective mass production method developed
+Quality control - hard to get consistent, high-quality graphene at scale
+Integration problems - difficult to incorporate into existing battery manufacturing
+
+Technical limitations:
+
+Pure graphene is actually not ideal for batteries (it's too conductive)
+Needs modification to work properly in battery applications
+Long-term stability issues still being researched
+
+Current status:
+
+Research stage - lots of promising lab results
+Some hybrid approaches - adding small amounts of graphene to improve existing batteries
+Marketing hype - many "graphene battery" claims are exaggerated
+
+What's actually happening:
+
+Graphene-enhanced batteries - small amounts added to silicon anodes or other components
+Supercapacitor applications - more promising near-term use for graphene
+Timeline realistic estimate: 10-20 years for true graphene batteries
+
+The pattern:
+This is similar to other "revolutionary" battery technologies - the science is promising, but the engineering and manufacturing challenges are enormous. We've been "5 years away" from graphene batteries for about 15 years now.
+Bottom line: Graphene is real and has amazing properties, but commercial graphene batteries remain in the "promising research" category rather than imminent reality.
+
