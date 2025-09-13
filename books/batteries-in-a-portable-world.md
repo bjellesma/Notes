@@ -313,3 +313,20 @@ The pattern:
 This is similar to other "revolutionary" battery technologies - the science is promising, but the engineering and manufacturing challenges are enormous. We've been "5 years away" from graphene batteries for about 15 years now.
 Bottom line: Graphene is real and has amazing properties, but commercial graphene batteries remain in the "promising research" category rather than imminent reality.
 
+# Chapter 4: Chargers
+
+When using a charger, make sure the battery voltage matches the charger. However, this is generally safe with USB since USB-A uses a standard 5V and USB-C devices negotiate the appropriate voltage through Power Delivery protocol. Furthermore, there are built-in circuits to prevent voltage mismatches from causing damage. Voltage matching is more critical with non-USB devices that use barrel plugs or proprietary connectors, which may lack these protective circuits.
+
+Temperature is also important as you shouldn't charge a battery below freezing temperatures. However this is generally safe for mobile phones as there are circuits in place to monitor temperature and avoid charging if the temperature is too low.
+
+When imbalance is referenced, this refers to individual cells being at different SOCs, capacity, age, etc
+
+The differences that we hear between rapid charges, ultra-fast chargers, fast chargers, etc is just the C rate at which it charges. Ultra fast chargers though will usually cause undue stress on the battery so it is recommended to use these sparingly.
+
+## C Rates
+
+The capacity of a battery is commonly rated at 1C, meaning that a fully charged battery rated at 1Ah should provide 1A for 1 hour. The same battery discharging at 0.5C should provide 500mA for 2 hours and at 2C it delivers 2A for 30 minutes. 
+
+
+
+
