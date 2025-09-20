@@ -327,6 +327,17 @@ The differences that we hear between rapid charges, ultra-fast chargers, fast ch
 
 The capacity of a battery is commonly rated at 1C, meaning that a fully charged battery rated at 1Ah should provide 1A for 1 hour. The same battery discharging at 0.5C should provide 500mA for 2 hours and at 2C it delivers 2A for 30 minutes. 
 
+For lead acid batteries, an Equalizing Charge is a deliberate overcharge to remove sulfate crystals that build up on the plates over time. Left unchecked, this sulfation can reduce the overall capacity of the battery. Lithium ion batteries do not have this same sulfation buildup so an equalizing charge is not needed.
 
+The power conversion system (PCS) handles the charging and discharging of the batteries as it hooks to the grid. This can be thought of as the power supply.
 
+nickel based batteries like nickel cobalt magnanse are still lithium ion based just lithium isn't specified in the name. However, old batteries like nickel cadmium are not lithion ion. The confusing part:Both technologies use nickel as a key material, but they work completely differently. One is "nickel-based" (NiMH), the other is "lithium-ion with nickel cathodes" (NCM).
 
+Nickel based without lithium is used very sparingly and in specialized industries where their unique chemistries outweigh their drawbacks like aviation or aerospace.
+
+When charging your phone overnight, it will stop charging at 100% and then apply a topping charge when it reaches 95-97%. A topping charge is an intermittent normal charge. This is in opposition to a **trickle charge** which was used by older nickel cadmium batteries as a continuous low voltage charge.
+
+Some industrial batteries will use a **thermal blanket** to enable fast charging at all temperatures.
+
+## USB
+USB 1.0 and 2.0 charge only at 500mA while USB can charge at 900mA
