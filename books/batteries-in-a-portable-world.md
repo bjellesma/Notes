@@ -340,4 +340,7 @@ When charging your phone overnight, it will stop charging at 100% and then apply
 Some industrial batteries will use a **thermal blanket** to enable fast charging at all temperatures.
 
 ## USB
-USB 1.0 and 2.0 charge only at 500mA while USB can charge at 900mA
+USB 1.0 and 2.0 charge only at 500mA while USB can charge at 900mA. In the following image, the longer pins (+ and -) deliver charge while the other pins deliver data.
+
+<img width="299" height="168" alt="image" src="https://github.com/user-attachments/assets/6df2fb60-4ebd-4f23-8005-eabe676d0203" />
+
