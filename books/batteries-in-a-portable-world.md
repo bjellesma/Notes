@@ -344,3 +344,4 @@ USB 1.0 and 2.0 charge only at 500mA while USB can charge at 900mA. In the follo
 
 <img width="299" height="168" alt="image" src="https://github.com/user-attachments/assets/6df2fb60-4ebd-4f23-8005-eabe676d0203" />
 
+USB 3.1 is the reversible version with 24 pins and can deliver 900mA, 1.5A, and 3A on demand.
