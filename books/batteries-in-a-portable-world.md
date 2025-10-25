@@ -345,3 +345,33 @@ USB 1.0 and 2.0 charge only at 500mA while USB can charge at 900mA. In the follo
 <img width="299" height="168" alt="image" src="https://github.com/user-attachments/assets/6df2fb60-4ebd-4f23-8005-eabe676d0203" />
 
 USB 3.1 is the reversible version with 24 pins and can deliver 900mA, 1.5A, and 3A on demand.
+
+# Chapter 5: Methods of Discharge
+
+Batteries will lose voltage from a deep discharge and regain during charging. However, depending on the load, temperature, and age, there will be degradation.
+
+Industrial and Commercial Batteries are rarely fully discharged and instead use an 80% depth of discharge to extend life. If the 80% DOD is used, the battery is charged to 90% and discharged to 10%. Batteries are typically only fully discharged or charged during a capacity test which only occurs maybe once or twice a year. It's rare to have the battery fully charged or discharged outside of a capacity test but it does happen sometimes when supporting a blackout such as a weather event.
+
+**Coulombic Efficiency** refers to the ratio of charge extracted from a battery during discharge to the charge put in during charge. Ideally, a battery charged with 5 Ah (5A for 1 hour) should deliver 5 Ah during discharge (5A for 1 hour), giving 100% efficiency. However, this is not achievable due to parasitic side reactions and other losses.
+
+A **Ragone plot** is a common way to compare energy storage technologies by plotting specific energy (Wh/kg) vs. specific power (W/kg). Shows the trade-off between how much energy a device stores versus how quickly it can deliver that energy.
+<img width="307" height="164" alt="image" src="https://github.com/user-attachments/assets/5dd2646c-531a-43a3-9fb1-5a7d8f24eace" />
+
+Every cell that is manufactured exists on a spectrum between power (moderate capacity but excellent discharge rate/power delivery) and energy (high capacity but moderate discharge rate/power delivery). People refer to **power cell** or **energy cell** when they're on the extreme ends of the spectrum.
+
+Moderate heat improves battery performance but accelerates degradation. Cold temperatures reduce performance, and charging below ~5°C can cause lithium plating damage—EVs use thermal management systems to warm batteries before cold-weather charging. Discharging in cold is safer but gives reduced capacity. Thermal management systems actively adjust based on whether the battery is charging (prevent overheating), discharging (prevent cold), or idle.
+
+# Chapter 6: Smart Batteries
+
+SMBus (system management bus) is a communication protocol that allows the battery/BMS to report state (voltage, SoC, temperature, health) and charging parameters to the host system, enabling intelligent charging and safe operation.
+
+Phones have a BMS for protection and monitoring, but typically use I²C (I²C (Inter-Integrated Circuit) is a simple, two-wire communication protocol for connecting chips on a circuit board) or proprietary protocols instead of SMBus. SMBus is more common in laptops with removable batteries requiring standardized communication or large BESS projects
+
+Calibration is needed because the fuel gauge's SoC estimate drifts over time as the battery ages and its actual capacity changes. Periodic full charge/discharge cycles (e.g., monthly) help recalibrate the fuel gauge to the battery's current capacity.
+
+Modern phones use continuous automatic recalibration—constantly adjusting SoC estimates based on voltage curves and behavior, especially when reaching full charge or low battery. No scheduled recalibration needed, but occasional 0-100% cycles provide better calibration anchor points.
+
+In BESS projects, capacity tests verify actual available capacity and inherently recalibrate the BMS by providing full-cycle data. While distinct concepts (testing vs. updating tracking), they typically occur simultaneously during annual/periodic full-cycle testing.
+
+Cold commissioning includes an initial capacity test that establishes baseline performance and BMS accuracy. This baseline determines future testing schedules and provides reference for tracking degradation and max error over the project's lifetime.
+
