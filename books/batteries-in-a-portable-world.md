@@ -375,3 +375,30 @@ In BESS projects, capacity tests verify actual available capacity and inherently
 
 Cold commissioning includes an initial capacity test that establishes baseline performance and BMS accuracy. This baseline determines future testing schedules and provides reference for tracking degradation and max error over the project's lifetime.
 
+# Chapter 7: Battery Lifecycle
+
+Formatting (refered to as formation cycles in a BESS project) a battery refers to calibrating a battery which may involve charging to full and then discharging nearly to empty with the intention of having the BMS learn the battery's true capacity. Priming refers more to the initial activation.
+
+## Priming in BESS context refers to the initial energization and commissioning process:
+
+First charge protocol: New battery containers often arrive at a low state of charge (SOC) for safety during shipping
+Controlled ramp-up: The initial charge is done slowly and carefully, monitoring cell voltages, temperatures, and balance
+System wake-up: Activating the Battery Management System (BMS) and ensuring all cells are communicating properly
+Initial balancing: Ensuring all cells within modules and racks start at similar voltage levels
+
+Capacity tests are primarily about proving contractual performance, while priming is about optimizing system readiness. They happen concurrently during commissioning, but capacity testing continues throughout the project life (annual/biannual tests), whereas priming only happens once at the beginning.RetryClaude can make mistakes. Please double-check responses.
+
+**Passivation** refers to the formation of a protective layer on battery electrodes that reduces or slows down chemical reactions. In lithium-ion batteries specifically, this primarily means the Solid Electrolyte Interphase (SEI) layer. Long storage periods (weeks to months between manufacturing and commissioning) can cause problems as excessive passivation (You want some passivation as this will protect the cathode and anode from interacting which can be hazardous) can thicken this SEI layer and increase internal resistance. This problem is amplified at higher SOCs, so manufacturers typically ship and store batteries at 30-50% SOC to minimize passivation growth.
+
+For BESS projects, passivation is mostly a concern during the logistics and storage phase between manufacturing and commissioning, and during extended idle periods in operation. Proper formation cycling during commissioning helps address any storage-related passivation issues before the system enters commercial operation.
+
+At the factory, batteries are always charged/discharged under controlled conditions to form the initial "protective" passivation layer - this is called formation cycling and is a required manufacturing step. Manufacturers will often use intentional electrolyte additives to help form a higher quality passivation layer. The key is that you want just enough for this layer to be thin and protective but not so much that it restricts ion movement and increases resistance.
+
+Volts × Amp-hours = Watt-hours
+
+Watts (W) × Time (hours) = Watt-hours (Wh)
+
+## Battery Recycling
+
+Lead-acid is currently the only battery chemistry with well-established, consistently profitable recycling. Lithium-ion recycling is improving but still faces economic challenges, especially for LFP chemistry common in BESS. However, the combination of regulatory pressure, rising material costs, and improving technology may change this picture in the coming years.
+For BESS projects specifically, recycling is an open question as most utility-scale BESS projects didn't begin commissioning until around 2015-2017 and typically have 10-15 year battery lifespans (though projects themselves may operate 20-30 years with battery replacements). Early lithium-ion projects from companies in the US like AES and Tesla have claims to be able to recycle the batteries at their factories, but most projects are still ongoing so there's limited proof of what actually happens at end-of-life. The fact that most modern BESS projects are lithium-ion LFP and the economics don't currently make sense to recycle LFP batteries adds to the uncertainty of what will happen.
