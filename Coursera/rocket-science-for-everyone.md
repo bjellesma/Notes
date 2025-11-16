@@ -156,3 +156,9 @@ a^3 &= \frac{6.7 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1} \text{ s}^{-2}}{4\p
 a^3 &= 3.4 \times 10^{20} \text{ m}^3
 \end{align}
 $$
+
+The cubed root of this comes out to about 7000km. This is just the semi major axis of the earth so to get the height of sputnick above Earth's surface, we need to subtract the radius of the Earth.
+
+<img width="1088" height="493" alt="image" src="https://github.com/user-attachments/assets/2b8e4635-c73b-420c-9ea3-dc49701c177a" />
+
+
