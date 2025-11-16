@@ -1,4 +1,4 @@
-# 1 - Orbits
+# 1 - Introduction
 
 Different Speed with which to launch objects horizontally will launch them into orbits. 
 
@@ -52,3 +52,52 @@ Example: Mars is 1.5x farther than Earth, but takes 1.88 years to orbit (not 1.5
 - Therefore Mars's year = √3.375 = 1.84 Earth years (close to actual 1.88!)
 
 Lets us calculate orbital periods if we know distances (or vice versa)
+
+#2 - Orbits
+
+## Low earth orbit
+
+All astronauts since Apollo ended have only ever been to LEO.
+
+There are tiny amounts of atmosphere still in low earth orbit and so when satalites bump into these little pockets, they lose energy and slowly fall back to Earth. This is known as **atmostpheric drag**. Because of this, the international space station actually needs to account for this every couple of months and needs to be boosted by a rocket to overcome this drag.
+
+Different orbital inclinations would be when one satalite orbits the equator and one orbits the poles for example. Even satalites with a different orbital inclination can still hit each other and for this reason they are often orbiting at different times known as the **orbital phase** (obbital phase refers to where a satellite is along its orbital path at a given time) so that they don't bump into each other <img width="1433" height="890" alt="image" src="https://github.com/user-attachments/assets/d7d3a8c3-8846-46a0-8673-4253aad3dd7c" />
+
+We can calculate the speed of Hubble because we know the orbital period as well as the distance that it covers (the circumference of a circle since it's in a circular orbit). This comes out to about 17,000mph <img width="1719" height="756" alt="image" src="https://github.com/user-attachments/assets/46f23d5b-0c98-4eb2-97d2-ddd7bd841e7d" />
+
+The **Kessler Effect** is a term used to describe the fact that if two objects collide and create debris, that debris will cause other collisions. 
+
+## Medium Earth Orbit
+
+Regions where radiation hits around Earth are known as the **Van Allen Belts**. These are regions where Earth's magnetic field traps charged particles from solar wind. There are two main belts: inner (roughly 1,000-6,000 km) and outer (13,000-60,000 km). <img width="974" height="497" alt="image" src="https://github.com/user-attachments/assets/cd506680-6b22-46c4-8d41-ddbe579a66e1" /> MEO and GPS satellites operate at about 20,200 km altitude, which places them between the two Van Allen Belts, helping avoid the worst radiation.
+
+Most MEO satellites are used for navigation like GPS (though in recent years, there have been satellites launched into MEO with functions beyond navigation) and are at an altitude of about 20,000km. Using Kepler's laws, we get that most of these satallites have an orbital period of 12 hours. This is deliberate because this means that the satellites will orbit the Earth twice. GPS works through **trilateration** - measuring distances from multiple satellites to determine your location. Here's how it builds up:
+
+One satellite: Tells you that you're somewhere on a sphere at a specific distance from that satellite - but that's a huge area.
+Two satellites: Where two spheres intersect creates a circle. You're somewhere on that circle.
+Three satellites: Three spheres intersect at two points. One is usually in space or underground, so we can often rule it out, but we need more precision.
+Four satellites: This fourth satellite is essential for two reasons. First, it resolves any ambiguity about which intersection point is correct. Second, and critically, it provides precise timing synchronization. GPS depends on incredibly accurate time measurements (signals travel at light speed), and the fourth satellite helps correct for clock errors in your receiver. It also accounts for relativistic effects - GPS satellites experience time differently due to both their speed (special relativity) and reduced gravity at their altitude (general relativity). <img width="1739" height="993" alt="image" src="https://github.com/user-attachments/assets/74887046-1d4a-4f3c-8c1d-feb64f8fb4a5" />
+
+Technically a forth satellite is needed to get the exact time and account for relativistic effects. But this means now that GPS requires four satellites to be in view at all times. 
+
+The GPS network overseen by the department of defence runs 32 satellites and ensures that 7-8 are in view at all times ensuring that there is some redundancy built in.
+
+Other countries actually have their own GPS systems. <img width="1919" height="988" alt="image" src="https://github.com/user-attachments/assets/886a9863-c927-41c4-877e-aa4a841b4fc5" />
+
+## Geosynchronous and Geostationary Orbits
+
+Geosynchronous orbital periods are 24 hours so that it's synchronized with the Earth while geostationary orbit is an exact circular orbit above the equator where objects will appear to "hover" in the same spot above the Earth (though it technically is not). 
+
+DirectTV and Dish network work by communicating with Geostationary satellites.
+
+Many NOAA satellites will use Geostationary orbit for weather monitoring <img width="2176" height="1025" alt="image" src="https://github.com/user-attachments/assets/1fe6403d-9fcf-4a6b-a433-797e6c607bd2" />
+
+When Satellites in GEO reach the end of their functional life, they can't ever be deorbited back to Earth (because of no atmospheric drag and the delta v required to get them back would be infeasible) so often they are nudge to a higher "graveyard" orbit which requires them to have fuel left over.
+
+## Orbital Summary
+
+90% of satellites are in LEO, 3% are in MEO, 7% are in GEO. 
+
+60-70% of satellites are for communication, 20% are for Earth observation (weather), and 3% are for navigation. Other satellites are used for things like technology development and taking images away from Earth.
+
+<img width="2370" height="964" alt="image" src="https://github.com/user-attachments/assets/dfe809fa-5002-4571-974a-9be73c3b318c" />
