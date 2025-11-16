@@ -101,3 +101,58 @@ When Satellites in GEO reach the end of their functional life, they can't ever b
 60-70% of satellites are for communication, 20% are for Earth observation (weather), and 3% are for navigation. Other satellites are used for things like technology development and taking images away from Earth.
 
 <img width="2370" height="964" alt="image" src="https://github.com/user-attachments/assets/dfe809fa-5002-4571-974a-9be73c3b318c" />
+
+## Special Orbits
+
+### Polar Orbits
+
+Goes over the poles of the Earth, usually 600km from Earth. <img width="1030" height="1015" alt="image" src="https://github.com/user-attachments/assets/3a487e58-0608-4f5d-9fbd-75475dfa87ac" />
+
+These are opposed to **equatorial orbits** which just go around the equator. <img width="1130" height="806" alt="image" src="https://github.com/user-attachments/assets/5ebaa904-a10b-4a58-b96d-ae80f84a892b" /> 
+
+and **inclined orbits** which just have a tilt <img width="1057" height="909" alt="image" src="https://github.com/user-attachments/assets/6fe1325a-56d3-4547-8533-4362acc3d8c6" />
+
+The advantage with a **polar orbit** is that as the Earth rotates, satellites in a polar orbit will be able to see more of the Earth during each orbital period. <img width="1063" height="902" alt="image" src="https://github.com/user-attachments/assets/fa553c25-bd79-4d70-905f-8ffcb9a26271" />
+
+In an inclined orbit, you're never able to see the areas of the Earth around the poles. <img width="1078" height="692" alt="image" src="https://github.com/user-attachments/assets/c5f5ed8e-13f8-4bdf-9961-1843214d3f04" />
+
+
+
+### Sun sychronous orbits
+
+Special type of polar orbit.
+
+Though this is still in LEO (600-800km) with a retrograde inclination (97-100%), this is able to pass over the same spot on earth at the same time each day. This is done because the satellites orbital plane rotates at exactly 360 degrees per year (matching earth's orbit around the sun).
+
+### Beyond GEO
+
+The **cislunar orbit** lies between GEO (~36000km) and the moon (400,000km)
+
+## Getting into Orbits
+
+If you launch vertically, you can reach **escape velocity** (25,000mph) which will escape Earth's gravity entirely but this is more than would be needed for orbit. A **suborbital flight** will just launch straight up so that it just barely passes the karmin line but can't make it to orbit because there's not enough horizontal motion to complete an orbit. Furthermore, because it just launches straight up, it will be pulled back down by Earth's gravity (unless it reaches that high speed).  
+
+To achieve orbit, there has to be some degree of horizontal motion. Most orbital rockets will launch vertically to both clear the launch tower and clear the thickest part of the atmosphere. Once a rocket can clear this part of the atmosphere, it becomes easier to accelerate as there is less drag. The point at which the thickest part of the atmosphere is crossed is known as **Max Q (maximum dynamic pressure)**. Once a rocket passes max q (this can be notoriously difficult as you see on webcasts), it can begin to have more of its velocity go toward the horizontal direction. The speed need to achieve orbit is known as **orbital velocity** and is around 17,000mph.
+
+## Keppler's Laws deep dive
+
+### 3rd Law
+
+$$
+a^3 = \frac{G}{4\pi^2} P^2 M
+$$
+
+where a is the semi major axis, G is the gravitational constant, P is the orbital period, and M is the mass of the object being orbited. 
+
+$$
+\begin{align}
+\text{How high above Earth's surface did Sputnik orbit?} \nonumber \\
+a^3 &= \frac{G}{4\pi^2} P^2 M \\
+a^3 &= \frac{G}{4\pi^2} (96.2 \text{ min})^2 (6.0 \times 10^{24} \text{ kg}) \\
+\text{Add constants with units:} \nonumber \\
+a^3 &= \frac{6.7 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1} \text{ s}^{-2}}{4\pi^2} (96.2 \text{ min})^2 (6.0 \times 10^{24} \text{ kg}) \\
+\text{Check units:} \nonumber \\
+a^3 &= \frac{6.7 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1} \text{ s}^{-2}}{4\pi^2} \left(96.2 \text{ min} \times \frac{60 \text{ s}}{1 \text{ min}}\right)^2 (6.0 \times 10^{24} \text{ kg}) \\
+a^3 &= 3.4 \times 10^{20} \text{ m}^3
+\end{align}
+$$
