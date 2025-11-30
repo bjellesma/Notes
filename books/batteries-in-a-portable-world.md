@@ -402,3 +402,14 @@ Watts (W) × Time (hours) = Watt-hours (Wh)
 
 Lead-acid is currently the only battery chemistry with well-established, consistently profitable recycling. Lithium-ion recycling is improving but still faces economic challenges, especially for LFP chemistry common in BESS. However, the combination of regulatory pressure, rising material costs, and improving technology may change this picture in the coming years.
 For BESS projects specifically, recycling is an open question as most utility-scale BESS projects didn't begin commissioning until around 2015-2017 and typically have 10-15 year battery lifespans (though projects themselves may operate 20-30 years with battery replacements). Early lithium-ion projects from companies in the US like AES and Tesla have claims to be able to recycle the batteries at their factories, but most projects are still ongoing so there's limited proof of what actually happens at end-of-life. The fact that most modern BESS projects are lithium-ion LFP and the economics don't currently make sense to recycle LFP batteries adds to the uncertainty of what will happen.
+
+# Chapter 8: Extending Battery Life
+Lithium ion fades over time when the transfer of ions slows down due to the buildup of layers on the electrodes. Supercapacitors in theory would achieve an unlimited number of cycles due to the fact that it stores energy electostatically. 
+
+In lithium ion batteries, self discharge is highest at full charge because here's maximum concentration gradient between the electrodes, which drives more parasitic reactions at the electrolyte-electrode interfaces. 
+
+Voltage starts high on full charge and gradually decreases when discharging. The voltage-capacity curve isn't perfectly linear - it's more of an S-curve shape. There's usually a relatively flat plateau in the middle range where voltage changes slowly with state of charge, then steeper changes at the high and low ends.
+This voltage change is actually how battery management systems (BMS) estimate state of charge - they monitor the voltage and use lookup tables or algorithms that map voltage to remaining capacity. It's not perfectly accurate because the voltage also depends on temperature, load current, and battery age, but it's the primary method used.
+This is also why your phone or laptop shows a percentage that changes as you use it - the system is continuously monitoring that cell voltage to estimate how much capacity remains.
+
+
