@@ -412,4 +412,16 @@ Voltage starts high on full charge and gradually decreases when discharging. The
 This voltage change is actually how battery management systems (BMS) estimate state of charge - they monitor the voltage and use lookup tables or algorithms that map voltage to remaining capacity. It's not perfectly accurate because the voltage also depends on temperature, load current, and battery age, but it's the primary method used.
 This is also why your phone or laptop shows a percentage that changes as you use it - the system is continuously monitoring that cell voltage to estimate how much capacity remains.
 
+Battiers have standards of voltages for different levels of charge:
+For LFP batteries, the standards are
+Full charge: 3.65V
+Nominal: 3.2V
+Cutoff: 2.5V
+Very flat voltage curve
 
+For NMC batteries, the standards are:
+Full charge: 4.2V
+Nominal: 3.6-3.7V
+Cutoff: 2.5-3.0V
+
+These voltages are per cell so a string of 100 LFP cells would be 365V fully charged.
