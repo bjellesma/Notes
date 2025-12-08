@@ -425,3 +425,35 @@ Nominal: 3.6-3.7V
 Cutoff: 2.5-3.0V
 
 These voltages are per cell so a string of 100 LFP cells would be 365V fully charged.
+
+# Chapter 9: Testing and Monitoring
+
+## State of Health
+
+The best way to estimate state of health is by measuring capacity, fade, and self discharge. Capacity fade is still the leading indicator and is measured through periodic capacity testing including coloumb counting. Internal Resistance is measured through impedance testing where a health battery typically have low impedance meaning when pushing current through a battery, we don't meet a lot of resistance. 
+
+Both resistance and impedance are measured in ohms whereas 1ohm produces a voltage drop of 1 volt with a current of 1 amphere. 
+
+Resistance can be difficult to measure in today's batteries because of the additives used in electrolytes which make the resistance low no matter what.
+
+Resistance can also successfully be modeled using the **Randles model** <img width="347" height="145" alt="image" src="https://github.com/user-attachments/assets/922b30fe-35aa-4dc7-bda1-3f876e8e829f" />
+
+The Randles model is an equivalent circuit that represents battery impedance as a series resistance (Rs) plus a parallel combination of charge transfer resistance (Rct), double-layer capacitance (Cdl), and Warburg diffusion impedance (Zw). It separates the different physical processes limiting current flow: ohmic losses, electrochemical reaction kinetics at the electrode surface, and ion diffusion through electrode materials.
+
+## State of Charge
+
+Most BESS projects will use coulomb counting to measure SoC. One coulomb per seconds is one ampere. Coulomb counting works well with Lithium Ion which has high coulombic effeciency and low self discharge. 
+
+## Measuring Capacity
+
+Direct discharge remains the best method for evaluating capacity in Li-Ion batteries in BESS projects. Direct discharge (reference method): Fully charge the battery, then discharge at constant current to the lower voltage cutoff while integrating current over time (Ah = ∫I dt). This is the most accurate but requires taking the battery offline, takes hours, and adds cycle wear. Typically done quarterly or semi-annually for BESS.
+
+## Battery Management System (BMS)
+
+Most BMS will attempt to capture the SoC but this can be diffult to meansure even with Coulomb methods. The BMS does its best to estimate but this still leads to many inaccuracies such as say the battery is at 100% when it is at 90%. This makes it difficult for manufacturers to say when a battery needs replacement and often rely on assigning a date stamp. This leads to waste and many batteries that are replaced too soon.
+
+**State of Function** is the theoretical combination of SoC and SoH and would represent the ultimate readiness for a battery.
+
+## Battery Test Equipment
+
+The battery is first charged and then discharged at a controlled current while meansureing the time to reach the end of discharge point. A capacity of 100 percent delivers the specified Ah; 50 percent is shown if the discharge time is cut in half. Most technicians will use a voltimeter to measure this. 
