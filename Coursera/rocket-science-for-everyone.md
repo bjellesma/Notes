@@ -161,4 +161,95 @@ The cubed root of this comes out to about 7000km. This is just the semi major ax
 
 <img width="1088" height="493" alt="image" src="https://github.com/user-attachments/assets/2b8e4635-c73b-420c-9ea3-dc49701c177a" />
 
+# Module 3: Rockets
 
+The speed needed by a rocket are determined by the destination of the rocket as well as the mass of the payload.
+
+The motion of the rocket are governed by Newton's laws of motion.
+1. An object at rest stays at rest unless acted on by a force
+2. F=Ma. This directly applies to rockets because the more massive the payload, the more force will be needed.
+3. Every action has an equal and opposite reaction
+
+Jet Engines work by intaking air, combusting, and outputting hot air to thrust it forward. <img width="1764" height="938" alt="image" src="https://github.com/user-attachments/assets/16ee3a53-425c-44ca-8d63-154e96462f22" />
+
+Because there's no air in space, we can't use a jet engine in space. 
+
+## Chemical Rockets
+
+The rockets used to launch all objects into orbit are **chemical rockets**. Chemical rockets use a **fuel** and and **oxidizer**. Together these are called the **propellant**. 
+
+There are two main types of chemical rockets.
+
+**Liquid Rocket Engines** have fuel and oxidizer stored separately in their liquid forms. These are combined in the combustion chamber just before ignition. <img width="1874" height="963" alt="image" src="https://github.com/user-attachments/assets/cd0711d8-6d5d-4e83-8249-b64182a16462" />
+
+A lot of research has gone into finding the best combination of fuel and oxidizer. <img width="1195" height="537" alt="image" src="https://github.com/user-attachments/assets/725dea5d-edcf-45fa-b16d-0d2ea7d6fa7b" />
+
+The fuel in an airplane is 30% of the total mass. The fuel in a rocket is over 90%.
+
+**Solid Rocket Motors** have fuel and oxidizer mixed into a single solid and stored on the rocket already mixed as inert. Because of this, these are generally considered a lot safer. A basic example of this is a firework. The space shuttle also had this. A big disadvantage of this compared to liquid rocket engines are that once ignition is started, you can't stop it where as in liquid rockets, you have a little more control. <img width="1947" height="1006" alt="image" src="https://github.com/user-attachments/assets/bd1a77bc-8ddf-47e1-bc73-2d64c4d71245" />
+
+Solid boosters also have the disadvantage that they have a lot less force. <img width="1889" height="922" alt="image" src="https://github.com/user-attachments/assets/d741f0ad-fac6-4e17-a5cf-b6de855fced0" />
+
+Given this, the advantages of solid rocket motors is that they're safer on the launch pad and can be stored for decades. 
+
+With all of this information, some rockets like the space shuttle and SLS use a combination of solid and liquid while falcon 9 just uses liquid rockets with RP1 as the propellant. <img width="1970" height="964" alt="image" src="https://github.com/user-attachments/assets/81f954aa-cf8d-4251-906f-5fe042886849" />
+
+## Rocket Equation
+
+The rocket equation came from the idea that as you toss rocks off of a boat, the boat will go faster in that direction. The **Rocket Equation** builds on that idea by saying that as you burn fuel, you'll move faster because you have less mass. This commonly is referred to as **delta v** which is the change in velocity as a result. 
+
+$$
+\Delta v = v_e \ln\left(\frac{m_0}{m_f}\right)
+$$
+
+For solid rockets, the exhaust velocity is about 2 whereas for liquid rockets it's about 2.5. The initial mass is the mass with the fuel and the final mass is the mass without the fuel.
+
+Here's an example of delta v need to reach LEO
+
+Given:
+Required Δv to reach Low Earth Orbit (LEO): 9,400 m/s (includes gravity and drag losses)
+Engine exhaust velocity: ve = 3,000 m/s (typical for kerosene/LOX engines)
+Payload mass: 1,000 kg
+Structural mass (tanks, engines, etc.): 2,000 kg
+
+Find: How much propellant is needed?
+Solution:
+Final mass after all propellant is burned:
+mf = payload + structure = 1,000 + 2,000 = 3,000 kg
+Rearranging the rocket equation to find initial mass:
+m0 = mf × e^(Δv/ve) = 3,000 × e^(9400/3000) = 3,000 × e^3.133
+m0 = 3,000 × 22.88 = 68,640 kg
+Therefore, propellant mass:
+mpropellant = m0 - mf = 68,640 - 3,000 = 65,640 kg
+
+This means 96% of the rocket's mass must be propellant just to reach orbit! Only 4% can be structure and payload combined.
+
+This extreme mass ratio is why single-stage-to-orbit (SSTO) rockets are so challenging to build, and why most rockets use multiple stages to shed dead weight during ascent.
+
+With a multistage rocket, we can just add the delta v from each stage. <img width="1918" height="977" alt="image" src="https://github.com/user-attachments/assets/fa9ffa93-3c59-4dd2-93eb-70d689d691ca" /> In this screenshot, comparing a SSTO to a two stage equates to us gaining .5 km/s or 1000mph just by using a second stage.
+
+Currently, these are no SSTO rockets in active use today.
+
+## Where are rockets launched
+
+It's faster to launch near the equator because the rotational speed of the Earth is faster. This is because then you're at the equator, you're also perpendicular to the Earth's rotational axis. <img width="1003" height="874" alt="image" src="https://github.com/user-attachments/assets/3609ddd7-fe15-4745-837f-d0971e1bef47" />
+
+The rotation of the Earth is also west to east so we take advantage of Earth's rotation if we launch this way. 
+
+The only caveat to the above two is that if we're going to polar orbit, we don't want this extra rotation interfering so we purposefully launch somewhere farther away from the equator which is why most polar orbit launches are done at Vandenburg rather than at Cape Canaveral. Vandenburg is also able to launch southward. 
+
+## Other types of rockets
+
+Chemical Rockets are the only option when launching from Earth but once a satalite is in orbit, there are there options to be able to provide thrust capability. Some satalites do still use chemical rockets. 
+
+### Electric Proposion (Ion Rockets)
+
+A gas onboard is ionized by electricity and are then accelerated to a high velocity so that the ions can leave the rocket as exhaust to propel the rocket. The reason ion propolsion is not used to launch from Earth is that the mass that's stripped away from ionization is incredibly small and therefore the delta v would be way too small. Those this does mean that an ion drive can last for a long time.
+
+### Nuclear Thermal Rockets
+
+These involve using fissible material such as Uranium to expel energy. The exhaust from this reaction could make a trip to Mars take a couple of weeks instead of 7 months which is why they're being considered. The con is that they are very dangerous.
+
+### Solar Sails
+
+Solar Sails have the same idea as a sailboat where they have a large sail. The momentum of photons are able to propel the satalite forward. This is a big advantage because it means that we don't need any propellant but the downside is that this is a very slow way to travel
