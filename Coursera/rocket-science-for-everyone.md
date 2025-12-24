@@ -253,3 +253,35 @@ These involve using fissible material such as Uranium to expel energy. The exhau
 ### Solar Sails
 
 Solar Sails have the same idea as a sailboat where they have a large sail. The momentum of photons are able to propel the satalite forward. This is a big advantage because it means that we don't need any propellant but the downside is that this is a very slow way to travel
+
+# Payloads
+
+Satellites can range in size from tiny cubesats to elephant sized GPS. <img width="2224" height="965" alt="image" src="https://github.com/user-attachments/assets/97a3d215-8674-43a7-99d7-5ef2a6f2fa34" />
+
+## Powering Satallites
+
+Space based solar panels can generate about 1.4x more power than ground based solar panels due to their proximety to the sun as well as the fact that they can have a larger area. Sunlight is also always available unless they're in a shadow. They launch with their solar panels folded and only unfold in space. <img width="1144" height="1018" alt="image" src="https://github.com/user-attachments/assets/c0936711-068f-4e00-9f07-a5356b84ce0a" />
+
+Satellites that are not always facing the sun like earth orbiting satellites are usually equiped with a rechargable battery.
+
+Satellites that head out further from the sun like going beyond mars are usually not equipped with solar panels because the energy would be too weak given how far it is from the sun. These satellites are instead powered by radioactive decay. Radioactive material such as plutonium will decay and generate heat that can be turned into power. This radioactive decay doesn't provide a lot of power to these satellites which is why they're slow moving so if a satellite is within range of the sun, it is preferable to use that.
+
+## Communicating with Satellites
+
+Satellites come equiped with a transmitter and receiver. The transmitter will communicate with a ground station via radio waves. Radio waves are used as opposed to other wavelengths because radio waves are actually able to penetrate our atmosphere whereas other waves such as X-rays and UV rays are blocked by our atmosphere to protect us from radiation. <img width="2141" height="959" alt="image" src="https://github.com/user-attachments/assets/557127b9-f3bc-4f2a-84ce-eca404b0dfc3" />
+
+
+<img width="2332" height="798" alt="image" src="https://github.com/user-attachments/assets/100fc6cd-7ce2-45ac-9ae6-9deabcc2164f" />
+
+Given that all satellites will use radio waves (as well as internet), each satellite will be assigned a certain frequency. This is the reason that each new satellite will have to apply for a frequency allocation. <img width="2103" height="879" alt="image" src="https://github.com/user-attachments/assets/88f72fca-1279-455d-a0c1-38e6b9c700c1" />
+
+## Imaging Satellites
+
+Cameras pointing towards earth to get data such as weather data are referred as **remote sensing** satellites. **Infrared Imaging** is used in some satellites as opposed to optical imaging since they can detect temperature more easily for monitoring events like forest fires. These work by replacing the silicon detectores with another material. Also based on the previous depiction of the energy spectrum, infrared also operates at a higher wavelength. <img width="1935" height="896" alt="image" src="https://github.com/user-attachments/assets/0bdac547-ca00-458d-97e2-eddd55f9a7f7" />
+ <img width="1935" height="838" alt="image" src="https://github.com/user-attachments/assets/e119aab6-2725-42db-b820-94aff43d8825" />
+
+## Payload Testing
+
+Payloads are often tested in special rooms called **themal vacuum chambers** where the atmosphere is sucked out of the room and the room itself is designed to experience the full thermal range that the satellite will be designed to withstand. The way that the thermal behavior works is that when the satellite is facing the sun, it'll be extremely hot (100C) and when it's in the earth's shadow, it'll be extremely cold (-200C). Unlike on Earth, these satellites don't have the air to help disappate the temperatures. For LEO satellites, this means that it'll shift between these two extremes every 90 minutes. 
+
+Satellites will also typically undergo **vibration testing** to simulate the vibrations experienced during launch. These vibrations will be different depending on the vehicle being used. The testing for this usually consists of a table that will be designed to simulate these vibrations. <img width="1258" height="941" alt="image" src="https://github.com/user-attachments/assets/6cf7e376-b70d-43e5-83e2-e15c28ba5b2b" />
