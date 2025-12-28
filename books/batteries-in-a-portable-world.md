@@ -457,3 +457,13 @@ Most BMS will attempt to capture the SoC but this can be diffult to meansure eve
 ## Battery Test Equipment
 
 The battery is first charged and then discharged at a controlled current while meansureing the time to reach the end of discharge point. A capacity of 100 percent delivers the specified Ah; 50 percent is shown if the discharge time is cut in half. Most technicians will use a voltimeter to measure this. 
+
+# Chapter 10: Amazing Values of Batteries
+
+Most mobility devices such as forklifts and wheelchairs are still lead acid because of the low maintenance. Lead Acid can sit for long periods of time at the same state of charge. Aviation will use flooded nickel cadmium batteries to start engines and as backup power. Older satellites use nickel cadmium whereas newer satellites prefer to use lithium ion for its light weight.
+
+The average US home uses about 10,000 to 12,000 kWh per year. Because there are 8760 hours in a year, this works out to 1.14-1.37KW of continuous power. This means that 1MW can supply around 700 homes.
+
+Horsepower can be thought of in terms of Kilowatts. 1 horsepower is 0.746 KW. So if my car runs full throttle at 160hp, this would be equivalent to 119KW which is the average consumption of about 92 homes. The key difference is that a car almost never runs at full throttle. One gallon of gasoline is about 33.7KwH so a 13 gallon tank is 438kWh of chemical energy. But gasoline is roughly 25-30% efficient so this chemical energy would only translate to 109kWh  so we wouldn't be able to even run the car at full throttle for one hour.
+
+A boeing 737 has two 15-20MW engines and both are used at full throttle for take off meaning is takes about 30-40MW to lift it.
