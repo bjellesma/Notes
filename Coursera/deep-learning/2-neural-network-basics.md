@@ -35,3 +35,11 @@ One step of backward propogation on a computation graph yields derivative of fin
 
 A **computation graph** is a visual map that shows how math operations connect together, like a recipe with steps.<img width="1590" height="359" alt="image" src="https://github.com/user-attachments/assets/dfccc372-1418-47cf-b90a-e315576bb730" />
 
+Think of it like tuning a sound mixer:
+
+Inputs: The musicians (you can't change their instruments)
+Weights: The volume knobs and EQ settings
+Output: The final mixed song (currently sounds bad)
+Backpropagation: Tells you exactly which knobs to turn and by how much to make the song sound better
+
+So backpropagation is really about learning the right parameters, not about measuring input importance. Though once trained, you could analyze the learned weights to understand feature importance - but that's a different analysis!
