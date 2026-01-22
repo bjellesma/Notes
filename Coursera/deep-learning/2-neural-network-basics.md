@@ -43,3 +43,42 @@ Output: The final mixed song (currently sounds bad)
 Backpropagation: Tells you exactly which knobs to turn and by how much to make the song sound better
 
 So backpropagation is really about learning the right parameters, not about measuring input importance. Though once trained, you could analyze the learned weights to understand feature importance - but that's a different analysis!
+
+## Vectorization
+
+**Vectorization**  is eliminating explicit Python for-loops by expressing operations as array/matrix operations that NumPy (or similar libraries) can execute using optimized, parallelized C/Fortran code under the hood. <img width="2073" height="954" alt="image" src="https://github.com/user-attachments/assets/70844dff-fd61-4b20-b21c-30ace9669ba4" />
+
+```python
+import numpy as np
+
+# Non-vectorized (slow)
+f = 0
+for j in range(n):
+    f += w[j] * x[j]
+
+# Vectorized (fast)
+f = np.dot(w, x)
+```
+
+Both compute the same result, but the vectorized version:
+
+* Avoids Python's interpreter overhead for each iteration
+* Leverages CPU-level parallelism
+* Uses highly optimized compiled code
+
+In testing, vectorization can speed up code by about 300x. Vectorization can be done with or without a GPU.
+
+Basic rule of thumb is that whenever you're tempted to write a for loop, check if there's a vectorized version that you can do with numpy.
+
+Let's say that we have m training examples and we want to compute the forward propogation step, we can simply use vectorization with numpy to compute all of these at once. This works because we can put w and x into matrices. <img width="1902" height="886" alt="image" src="https://github.com/user-attachments/assets/c4a5e755-4736-4523-bdc0-c04df297f77a" />
+
+Notice here how you can implement both the forward and back propogation steps using vectoriztion. Notice that even with vectorization, you still need a for loop to go over the total number of iterations. <img width="2212" height="989" alt="image" src="https://github.com/user-attachments/assets/89a3b1e3-ee2f-4191-a655-d330d11fc84d" />
+
+## Broadcasting in python
+
+**Broadcasting** is when you're performing matrix math and the other factor(s) is/are made to match the dimensions of the larger factor <img width="2231" height="1070" alt="image" src="https://github.com/user-attachments/assets/f6980a34-7b5d-4089-93f8-9ac376c31ef0" />
+
+More generally, Broadcasting is when NumPy automatically expands the smaller array to match the larger one so element-wise operations work. Keep in mind that broadcasting is a numpy concept and is not in linear algebra. Linear algebra is more strict.
+
+* Matrix addition: both must be same shape
+* Matrix multiplication: inner dimensions must match
