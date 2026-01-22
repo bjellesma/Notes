@@ -44,6 +44,18 @@ Backpropagation: Tells you exactly which knobs to turn and by how much to make t
 
 So backpropagation is really about learning the right parameters, not about measuring input importance. Though once trained, you could analyze the learned weights to understand feature importance - but that's a different analysis!
 
+Take the following example:
+
+<img width="1720" height="672" alt="image" src="https://github.com/user-attachments/assets/109b2101-f7aa-4d08-bfe1-bc10ffac534b" />
+
+
+The value of J can be factored like so. Notice we're factoring out (b+c)
+
+```
+J = a(b + c) - (b + c)
+J = (a - 1)(b + c)
+```
+
 ## Vectorization
 
 **Vectorization**  is eliminating explicit Python for-loops by expressing operations as array/matrix operations that NumPy (or similar libraries) can execute using optimized, parallelized C/Fortran code under the hood. <img width="2073" height="954" alt="image" src="https://github.com/user-attachments/assets/70844dff-fd61-4b20-b21c-30ace9669ba4" />
