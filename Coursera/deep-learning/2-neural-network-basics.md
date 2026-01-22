@@ -5,6 +5,8 @@ Remember that W is an $n_x$ dimensional vector and b is a real number
 
 ## Cost function
 
+In machine learning, you often use the natural log. This is what numpy uses.
+
 A **Loss function** applies to one training example whereas a **cost function** is more generalized and will apply to the entire set.
 
 <img width="3748" height="964" alt="image" src="https://github.com/user-attachments/assets/630dfbd1-f724-469e-9ac2-bc77a1fbfc62" />
