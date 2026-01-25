@@ -96,3 +96,96 @@ More generally, Broadcasting is when NumPy automatically expands the smaller arr
 
 * Matrix addition: both must be same shape
 * Matrix multiplication: inner dimensions must match
+
+## Programming Assignment
+
+One technique often used in gradient descent is normalization. **normalization** of a vector is dividing it by its norm so that you're converting it to a unit vector — a vector that points in the same direction but has length 1. This preserves the direction (the relative relationships between features) while standardizing the magnitude. 
+
+Without normalization, features can have wildly different scales. If one feature ranges from 0-1 and another from 0-10,000, the loss landscape becomes elongated and steep in some directions. Gradient descent ends up taking inefficient zigzag paths toward the minimum. After normalization, the landscape is more spherical, so gradient descent can take a more direct path.
+
+```python
+import numpy as np
+
+x = np.array([3, 4])
+
+# The L2 norm (Euclidean length)
+norm = np.linalg.norm(x)  # sqrt(3² + 4²) = 5
+
+# Normalized vector
+x_normalized = x / norm  # [0.6, 0.8]
+
+# Verify it's now a unit vector
+np.linalg.norm(x_normalized)  # 1.0
+```
+
+```python
+x = np.array([
+    [0, 3, 4],
+    [2, 6, 4]
+])
+norm = np.linalg.norm(x, axis=1, keepdims=True)
+```
+
+
+
+This computes the L2 norm (Euclidean length) for each row. Note that we normalize row wise. This comes from the definition in linear algebra and is useful for machine learning because we normally use rows to denote samples.
+
+Also note: axis tells NumPy which dimension to collapse when computing the norm — it's an index into the shape tuple, not a size.
+For a matrix with shape (2, 3):
+
+axis=0 means "collapse along rows" → compute norm down each column → result shape (3,)
+axis=1 means "collapse along columns" → compute norm across each row → result shape (2,)
+
+- **Row 0:** √(0² + 3² + 4²) = √(0 + 9 + 16) = √25 = **5**
+- **Row 1:** √(2² + 6² + 4²) = √(4 + 36 + 16) = √56
+
+so norm is a column vector
+
+```python
+[[5],
+ [√56]]
+```
+x_normalized = x / norm
+```python
+Row 0: [0/5,   3/5,   4/5  ] = [0,    0.6,  0.8 ]
+Row 1: [2/√56, 6/√56, 4/√56] ≈ [0.27, 0.80, 0.53]
+```
+
+$$
+\text{softmax}(x) = \begin{bmatrix}
+    \frac{e^{x_{11}}}{\sum_j e^{x_{1j}}} & \frac{e^{x_{12}}}{\sum_j e^{x_{1j}}} & \frac{e^{x_{13}}}{\sum_j e^{x_{1j}}} & \cdots & \frac{e^{x_{1n}}}{\sum_j e^{x_{1j}}} \\\\
+    \frac{e^{x_{21}}}{\sum_j e^{x_{2j}}} & \frac{e^{x_{22}}}{\sum_j e^{x_{2j}}} & \frac{e^{x_{23}}}{\sum_j e^{x_{2j}}} & \cdots & \frac{e^{x_{2n}}}{\sum_j e^{x_{2j}}} \\\\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\\\
+    \frac{e^{x_{m1}}}{\sum_j e^{x_{mj}}} & \frac{e^{x_{m2}}}{\sum_j e^{x_{mj}}} & \frac{e^{x_{m3}}}{\sum_j e^{x_{mj}}} & \cdots & \frac{e^{x_{mn}}}{\sum_j e^{x_{mj}}}
+\end{bmatrix}
+$$
+
+This can be implemented as follows
+
+```python
+def softmax(x):
+    """Calculates the softmax for each row of the input x.
+
+    Your code should work for a row vector and also for matrices of shape (m,n).
+
+    Argument:
+    x -- A numpy matrix of shape (m,n)
+
+    Returns:
+    s -- A numpy matrix equal to the softmax of x, of shape (m,n)
+    """
+    x_exp = np.exp(x)
+    x_sum = np.sum(x_exp, axis=1,keepdims=True)
+    s = x_exp / x_sum
+    return s
+```
+
+### Flattening Images
+
+A common trick for flattening images is to use 
+
+X_flatten = X.reshape(X.shape[0], -1).T      # X.T is the transpose of X
+
+If X has dimensions (209, 64, 64, 3) representing 209 images of 64x64x3 (3 being the color channels), then X[0].shape is (64,64,3) and X.shape[0] is 209 so X.reshape(X.shape[0], -1) (-1) is a convenience to multiply 64x64x3) will be (209, 12288). Finally, we'll get the Transpose of this which'll flip the dimensions to be (12288, 209). This means that we have 209 rows of 12288 numbers now.
+
+One last note is that the .T is specific to Andrew Ng's course notation where he wants samples as columns. Most ML libraries (sklearn, PyTorch, TensorFlow) expect the opposite — samples as rows, shape (n_samples, n_features).
