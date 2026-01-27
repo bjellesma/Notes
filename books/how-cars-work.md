@@ -54,3 +54,32 @@ In automatic transmission vehicles, a torque converter takes the place of the cl
 
 **Universal Joints** transfer spinning power through the changing angles from road bumps and the sway caused by steering around corners.
 When starting from a stop, you release the clutch gradually (slipping it) so the car can accelerate smoothly without stalling the engine.
+
+## Fuel System
+
+A fuel system has three basic jobs:
+
+1. Supply an engine with fuel
+2. Mix this fuel continuously with air in varying combinations
+3. to discharge the burned remains safetly
+
+Air flows into an engine and gasoline droplets are mixed into this air-flow. The air/fuel mixture then burns in the combustion chambers, and the exhaust is blown out the tail pipe.
+
+A carburetor controls the amount and mixtture of fuel delivered to an engine. This is largely historical and this is done by a fuel injection system now is used which uses a nozzle to spray the fuel. 
+
+The **fuel pump** is used to deliver gasoline from the tank to the engine so that the fuel injectors can use it.
+
+**Air filters** are used to trap dirt so that they don't enter the engine.
+
+A **turbocharger** will control the volume of air/fuel mixture delivered to the engine to boost power.
+
+A **catalytic converter** is a mechanism that sits under a car and reacts with hydrocarbons in exhaust gases and chemically converts them to water and other less harmful compounds. It's an example of an emmission control system.
+
+## Cooling System
+
+A cooling system uses a mixture of water and antifreeze to absorb and disperse engine heat. This mixture is known as **coolant**. This coolant flows around the outside of an engine with a water pump to absorb heat. The hot coolant then circulates to a radiator where excess heat radiates to the outside. A thermostat sits on top of the engine to regulate the amount of coolant being used. 
+
+A cooling fan is used to cool an engine.
+
+A car heater uses excess heat from a cooling system to warm a passenger compartment. This is one reason electric cars actually struggle with heating because they don't have the internal combustion engine. In an internal combustion engine, it costs no extra fuel to use the heater. By contrast, it does cost extra fuel to use the air conditioning system because it has a compressor that pressurizes refrigerant and that compressor is driven by the engine via a belt. 
+
