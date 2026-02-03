@@ -116,6 +116,8 @@ Input IDs: [[ 1045,  1005,  2310,  2042,  3403,  2005,  1037, 17662, 12172,  260
 Logits: [[-2.7276,  2.8789]]
 ```
 
+It's important to see that we've gone from 14 input tokens to two logits. The number of logits depends on the task so while binary sentiment analysis is usually two logits, something like emotion classification will be 6 or more logits. The number of logits is baked into the model's classification head (because the model is designed for one task), which was configured based on the task it was trained for.
+
 ## Padding the inputs and Attention Masks
 
 This part was taken from the youtube video.
