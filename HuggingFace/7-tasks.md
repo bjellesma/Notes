@@ -5,6 +5,8 @@ This is generic task for attributing a label to each token in a sentence. This c
 * Named entity recognition (NER): Find the entities (such as persons, locations, or organizations) in a sentence. This can be formulated as attributing a label to each token by having one class per entity and one class for “no entity.”
 * Part-of-speech tagging (POS): Mark each word in a sentence as corresponding to a particular part of speech (such as noun, verb, adjective, etc.).
 
+For preprocessing, The texts are given as words, so we only need to apply subword tokenization. 
+
 ## NER
 
 A named entity recognition dataset may give data like 
@@ -178,7 +180,7 @@ def compute_metrics(eval_pred):
     return {k: round(v, 4) for k, v in result.items()}
 ```
 
-We need a data collator. Luckily, 🤗 Transformers provides a DataCollatorForSeq2Seq collator that will dynamically pad the inputs and the labels for us.
+We need a data collator. **Data collators** are utilities that take a list of individual samples from a dataset and combine them into a single batch that can be fed into a model. Luckily, 🤗 Transformers provides a DataCollatorForSeq2Seq collator that will dynamically pad the inputs and the labels for us.
 
 ```python
 from transformers import DataCollatorForSeq2Seq
@@ -203,3 +205,10 @@ trainer = Seq2SeqTrainer(
 trainer.train()
 ```
 
+# Large Language Models
+
+While all of this NLP is task specific, LLMs have been able to revolutionize the field by being able to handle multiples of these tasks.
+
+The reason data collators exist is that raw dataset samples are often inconsistent in a way that makes batching awkward. The most common issue is variable sequence length — one sample might be 12 tokens long and another 47 tokens long, but a model expects a rectangular tensor where every row is the same length. The collator handles padding shorter sequences up to match the longest one in the batch.
+
+<img width="2389" height="1113" alt="image" src="https://github.com/user-attachments/assets/62ca3e97-cf45-43fb-bbbb-7e83631be313" />
