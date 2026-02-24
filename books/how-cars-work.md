@@ -83,3 +83,35 @@ A cooling fan is used to cool an engine.
 
 A car heater uses excess heat from a cooling system to warm a passenger compartment. This is one reason electric cars actually struggle with heating because they don't have the internal combustion engine. In an internal combustion engine, it costs no extra fuel to use the heater. By contrast, it does cost extra fuel to use the air conditioning system because it has a compressor that pressurizes refrigerant and that compressor is driven by the engine via a belt. 
 
+## Running Gear
+
+Includes the parts used to guide a vehicle through bumps, swerves, and road hazzards. 
+
+A suspension system is respponsible for:
+1. Maintaining the same weight on each tire at all times.
+2. Keeping a car level
+3. Insulating passengers from road bumps and sways
+
+Vehicles that go off road are equipped with stronger, stiffer suspensions which absorb more extreme motion but give passengers a rougher ride. The suspension is made up of springs to help absorb the impact. A shock absorber will help dampen the up and down bouncing of the springs. There are small valves inside of the absorber to control the amount of hydraulic fluid that is released. 
+
+Power steering uses hydraulic fluid to assist the driver.
+
+Ball joints are used in both the suspension and steering system and serve as a critical connection between the two. That's why worn ball joints affect both handling and ride quality.
+
+Tread is import because it allows the tire to be able to move water and gravel aside. This is why you have snow tires which are built with large grooves to dig in and give extra traction. The weight of a car and tire pressure determine the amount of rubber that touches a road.
+
+# Brakes
+
+Pressure regulators ensure that all friction pads receive the same braking power at the same time. If that weren't the case and one wheel were to receive more power and stop sooner than the others, the car would start to swerve.
+
+Brake lines carry the gydraulic fluid from a master cylinder to the calipers at each wheel.
+
+# Electical System
+
+The main job of a battery is to start an engine. Once running, an engine generates enough electricity through the **alternator** to supply itself and all other accessories. 
+
+A fuse is a thin metal strip that melts if excessive current is drawn through. A circuit breaker does the same thing but mechanically trips a switch instead of destroying itself, so you can just reset it after the fault is cleared. When someone says that they tripped a fuse, it's normally that they have to go reset a circuit breaker.
+
+# Misc
+
+Gaskets prevent leaks between the connecting surfaces of many car parts
