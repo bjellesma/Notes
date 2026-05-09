@@ -37,7 +37,7 @@ The action is also taken into account. The advantage of this over state value is
 
 $$Q_{\pi}(s, a) = \mathbb{E}_{\pi}\left[G_t \mid S_t = s, A_t = a\right]$$
 
-Given that action value based methods don't require a model, this is always superior to state value based and is used in practice.
+Given that action value based methods don't require a model, this is more practical than state value alone.
 
 <img width="1352" height="793" alt="image" src="https://github.com/user-attachments/assets/a41ea13d-29ef-4d81-ab51-37c6822ad2db" />
 
@@ -69,14 +69,21 @@ At the end of the episodes, we have a list of state, actions, rewards, and new s
 
 <img width="1341" height="757" alt="image" src="https://github.com/user-attachments/assets/5ba2da4a-c11b-4ef3-9642-a4f74de27a94" />
 
+Monte Carlo is high variance and unbiased.
+
 ## Temporal Difference Learning: learning at each step
 
-**Temporal Difference** waits for one interation, S, to update value function V
+**Temporal Difference** waits for one step, S, to update value function V
 
 But because we didn’t experience an entire episode, we don’t have G (expected return). Instead, we estimate G by adding $R_{t+1}$ and the discounted value of the next state.
 
+Temporal Difference is low variance and some bias
+
 <img width="1302" height="741" alt="image" src="https://github.com/user-attachments/assets/fc10cc25-2fbd-4ff0-accb-62dd4c44e950" />
 
+## Choosing between the two
+
+Temporal Difference is low variance and some bias whereas Monte Carlo is high variance and unbiased. This is a tradeoff to be considered
 
 # Q learning
 
