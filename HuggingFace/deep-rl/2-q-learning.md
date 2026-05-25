@@ -87,6 +87,29 @@ Temporal Difference is low variance and some bias whereas Monte Carlo is high va
 
 # Q learning
 
-**Quality Learning** (often referred to as q learning) is an algorithm that is an action value based method
+**Quality Learning** (often referred to as q learning) is an algorithm that is an action value based method. Q Learning is the algorithm that we use to train our **Q function**
+
+We say that Q learning is an **off policy** algorithm meaning that a different policy is used for acting (inference) and updating (training). This is opposed to **on policy** where the same policy is reused.
+
+A **Q table** is the internal memory of our agent as it tracks the state values that it learns.
+
+1. We initialize a q table. In our earlier mouse example, the columns are the possible moves and rows are the types of spaces we have get from the actions.
+<img width="1050" height="590" alt="image" src="https://github.com/user-attachments/assets/b961dca2-f4d2-467c-98ca-795b98893b1a" />
+Now that we have a table, for each moment in the episode:
+2. Choose an action using epsilon greedy, be it exploration or exploitation. The idea is that at the start of episode, epsilon will be large so there will be more exploration. As the training goes on and the Q table gets better and better at estimation, we'll reduce epsilon and there will be more exploitation.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/987e9299-ad01-45ea-a71b-94f2042e85bc" />
+
+3. Perform action and observe the reward and the next state.
+<img width="1400" height="347" alt="image" src="https://github.com/user-attachments/assets/23d43a2a-7a7f-4a96-b235-761530ea3782" />
+
+4. Update the Q table based on the observed values. To get the best state-action pair value for the next state, we use a greedy policy to select the next best action. Note that this is not an epsilon-greedy policy, this will always take the action with the highest state-action value. This is why the Q learning algorithm is an off policy algorithm.
+<img width="1400" height="472" alt="image" src="https://github.com/user-attachments/assets/bc9b4dfe-898a-4267-8443-5503163e301d" />
 
 
+## The mouse example
+
+1. We initialize the table to 0s
+2. Epsilon is high (1) since we haven't performed any actions so we take a random action. In our case, we move right 
+3. By taking the right, we get a small cheese, a reward of 1.
+4. Now we update the Q table.
+<img width="1400" height="787" alt="image" src="https://github.com/user-attachments/assets/f7d5dea6-08ed-4b6b-814d-149f3c5666c5" />
