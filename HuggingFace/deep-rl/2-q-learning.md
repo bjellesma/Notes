@@ -45,6 +45,9 @@ Given that action value based methods don't require a model, this is more practi
 
 The **Bellman Equation** expresses the value of a state as the immediate reward plus the discounted value of the next state, allowing value to be computed recursively.
 
+The Bellman Equation is built on the Markov Property — the idea that the current state contains everything you need to make an optimal decision. You don't need to know the history of how you got there.
+A good way to think about it: if a stock is at $270, the value of being in that state is just the immediate reward plus the discounted value of wherever you end up next. It doesn't matter that you bought in at $300 — not because the loss is irrelevant, but because $270 already tells you everything you need to know to make the best decision going forward.
+
 In the below screenshots, we're calculating the value at each state.
 
 <img width="1370" height="768" alt="image" src="https://github.com/user-attachments/assets/4435439f-61ca-4feb-8735-5f2d1cec7802" />
